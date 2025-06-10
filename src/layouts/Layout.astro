@@ -3,34 +3,36 @@ import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
-export const metadata = {
-	title: 'Hard-working Websites For Small Business | Launch Web Design',
-	description: 'Custom websites that help service businesses grow. We handle everything—design, content, SEO, and updates—so you can focus on running your business. Based in Grand Rapids, MI.',
+const description = 'Professional water heater replacement services in Grand Rapids, MI. We handle everything from standard tank replacements to complex tankless installations.';
+
+const metadata = {
+	title: 'Water Heater Replacement Company of Grand Rapids',
+	description: description,
 	robots: {
 		index: true,
 		follow: true
 	},
-	canonical: 'https://launchwebdesignandmarketing.com', // update to match your live domain
+	canonical: 'https://waterheaterreplacementcompany.com', // update to match your live domain
 	openGraph: {
-		title: 'Launch Web Design & Marketing | Small Business Web Design',
-		description: 'Websites built to attract leads and build trust. Done-for-you design, content, and SEO. Serving small service businesses in West Michigan and beyond.',
-		url: 'https://launchwebdesignandmarketing.com',
-		siteName: 'Launch Web Design & Marketing',
+		title: 'Water Heater Replacement Company of Grand Rapids | Professional Water Heater Services',
+		description: description,
+		url: 'https://waterheaterreplacementcompany.com',
+		siteName: 'Water Heater Replacement Company of Grand Rapids',
 		type: 'website',
 		images: [
 			{
-				url: 'https://launchwebdesignandmarketing.com/images/default.webp', // replace with your actual OG image
+				url: 'https://waterheaterreplacementcompany.com/images/default.webp', // replace with your actual OG image
 				width: 1200,
 				height: 630,
-				alt: 'Launch Web Design & Marketing'
+				alt: 'Water Heater Replacement Company of Grand Rapids'
 			}
 		]
 	},
 	twitter: {
 		card: 'summary_large_image',
-		title: 'Launch Web Design & Marketing | Small Business Web Design',
-		description: 'Custom websites that attract leads. Design, content, SEO—all handled for you. Based in Grand Rapids, MI.',
-		images: ['https://launchwebdesignandmarketing.com/images/default.webp'] // same as OG image
+		title: 'Water Heater Replacement Company of Grand Rapids | Professional Water Heater Services',
+		description: description,
+		images: ['https://waterheaterreplacementcompany.com/images/default.webp'] // same as OG image
 	}
 };
 
@@ -58,8 +60,8 @@ export const metadata = {
 		{metadata.openGraph.images.map(img => (
 			<Fragment>
 				<meta property="og:image" content={img.url} />
-				<meta property="og:image:width" content={img.width} />
-				<meta property="og:image:height" content={img.height} />
+				<meta property="og:image:width" content={img.width.toString()} />
+				<meta property="og:image:height" content={img.height.toString()} />
 				<meta property="og:image:alt" content={img.alt} />
 			</Fragment>
 		))}
