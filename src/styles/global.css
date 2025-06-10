@@ -1,0 +1,26 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+    themes: light --default, dark, winter, cupcake, emerald, lofi, retro, cyberpunk, valentine, business, acid, luxury, dracula, fantasy, garden, forest, aqua, coffee, pastel, wireframe, black, corporate;
+    root: ":root";
+    include: ;
+    exclude: ;
+    prefix: ;
+    logs: true;
+}
+@plugin "daisyui/theme" {
+    name: "light";
+    default: true;
+    --color-primary: hsl(195, 100%, 25%);
+    --color-secondary: hsl(30, 100%, 55%);
+}
+@plugin "daisyui/theme" {
+    name: "dark";
+    default: false;
+    --color-primary: hsl(195, 100%, 25%);
+    --color-secondary: hsl(30, 100%, 35%);
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 20px;
+}

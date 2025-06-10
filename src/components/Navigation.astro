@@ -1,0 +1,67 @@
+---
+import ThemeSelector from './ThemeSelector.astro';
+---
+
+<div class="fixed top-0 left-0 w-full z-50 navbar bg-base-100 shadow-sm">
+    <div class="navbar-start">
+        <a aria-label="Home | Water Heater Replacement Company of Grand Rapids" href="/" class=" max-w-72 btn btn-ghost text-xl">Water Heater Replacement Company of Grand Rapids</a>
+    </div>
+    <div class="navbar-end">
+        <!-- desktop menu -->
+        <div class="navbar-center hidden lg:flex justify-between">
+            <ul class="menu menu-horizontal px-1 mr-4">
+                <li>
+                    <a aria-label="What We Do" href="/#what-we-do">What We Do</a>
+                </li>
+                <li>
+                    <a aria-label="about" href="#how-we-do-it">How We Do It</a>
+                </li>
+                <li>
+                    <a aria-label="about" href="/pricing">Pricing</a>
+                </li>
+            </ul>
+        </div>
+        <!-- CTA -->
+        <div class="hidden lg:block">
+            <a aria-label="Book Now" href="/pricing/" class="btn btn-primary w-36 h-12"><svg  xmlns="http://www.w3.org/2000/svg"  width={24}  height={24}  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width={2}  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-clock"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h10" /><path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M18 16.5v1.5l.5 .5" /></svg>Book Now</a>
+        </div>
+    </div>
+
+    <!-- mobile menu -->
+    <div class="dropdown">
+        <div aria-label="dropdown button" tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+            </svg>
+        </div>
+        <ul
+            tabindex="0"
+            class="menu menu-sm right-1 dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+        >
+            <li>
+                <a aria-label="Why DIY Websites Fail" href="/#what-we-do">What We Do</a>
+            </li>
+            <li>
+                <a aria-label="What We Deliver" href="/#how-we-do-it">How We Do It</a>
+            </li>
+            <li>
+                <a aria-label="about" aria-disabled="true" href="/pricing">Pricing</a>
+            </li>
+            <div class="mt-2 lg:hidden w-full">
+                <a aria-label="Book Now" href="/pricing/" class="btn btn-primary h-fit"><svg  xmlns="http://www.w3.org/2000/svg"  width={24}  height={24}  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width={2}  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-clock"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h10" /><path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M18 16.5v1.5l.5 .5" /></svg>Schedule Virtual Estimate</a>
+            </div>
+        </ul>
+    </div>
+
+</div>
+
+<script>
+  // Ensure <details> closes on outside click for desktop menu
+    document.addEventListener('click', function(event) {
+        const details = document.getElementById('desktop-proof-menu');
+        if (!details) return;
+        if (details.open && !details.contains(event.target)) {
+        details.open = false;
+        }
+    });
+</script>

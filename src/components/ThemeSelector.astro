@@ -1,0 +1,52 @@
+---
+const themes = [
+    "light",
+    "dark",
+    "acid",
+    "aqua",
+    "black",
+    "business",
+    "coffee",
+    "corporate",
+    "cupcake",
+    "cyberpunk",
+    "dracula",
+    "emerald",
+    "fantasy",
+    "forest",
+    "garden",
+    "lofi",
+    "luxury",
+    "pastel",
+    "retro",
+    "valentine",
+    "winter",
+    "wireframe"
+];
+---
+
+<div class="dropdown">
+    <div tabindex={0} role="button" class="btn btn-ghost p-1 mr-1 h-8">
+        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-palette"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" /><path d="M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /></svg>
+        <svg
+        width="12px"
+        height="12px"
+        class="inline-block h-2 w-2 fill-current opacity-60"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 2048 2048">
+        <path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path>
+        </svg>
+    </div>
+    <ul tabindex={0} class="dropdown-content bg-base-100 rounded-box z-1 absolute right-0.5 sm:left-0 sm:right-auto sm:w-44 p-2 shadow-2xl">
+        {themes.map(theme => (
+            <li>
+                <input
+                    type="radio"
+                    name="theme-dropdown"
+                    class="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
+                    aria-label={theme.charAt(0).toUpperCase() + theme.slice(1)}
+                    value={theme.toLowerCase()} />
+            </li>
+        ))}
+    </ul>
+</div>

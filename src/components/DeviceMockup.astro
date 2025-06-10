@@ -1,0 +1,12 @@
+---
+import Phone from "./Phone.astro";
+import Laptop from "./Laptop.astro";
+
+const {wrapperClasses, imageDesktop, imageMobile, phoneScale, laptopScale, phoneOffset, laptopOffset } = Astro.props;
+---
+
+<div class={`${wrapperClasses} w-full relative`}>
+        <Laptop imageDesktop={imageDesktop} laptopScale={laptopScale} laptopOffset={laptopOffset} />
+        <Phone imageMobile={imageMobile} phoneScale={phoneScale} phoneOffset={phoneOffset} />
+    </div>
+</div>

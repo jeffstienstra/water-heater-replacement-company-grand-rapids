@@ -1,0 +1,41 @@
+---
+import DeviceMockup from "./DeviceMockup.astro"
+import {caseStudies} from "../data/caseStudies";
+---
+
+
+<section class="relative py-16 text-base-content border-b-0">
+    <div class="absolute inset-0 -z-10">
+		<div class="w-full h-full bg-gradient-to-b from-base-300 to-base-100/0"></div>
+	</div>
+
+    <h2 class="text-4xl font-semibold text-center tracking-tight mb-6">Recent Projects</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-2 sm:p-8">
+        {caseStudies.map(project => (
+            <div class="text-center py-8 max-w-sm bg-base-100 border border-gray-200 rounded-lg shadow-lg mx-auto flex flex-col h-full">
+                <div class="min-h-28 px-8" >
+                    <h2 class="mb-1 text-2xl font-bold tracking-tight text-center">{project.client}</h2>
+                    <h3 class="mb-2 text-lg font-bold tracking-tight text-center">{project.projectSummary.subtitle}</h3>
+                </div>
+                <DeviceMockup
+                    wrapperClasses="min-w-[300px] max-w-[300px] h-[200px] relative mx-auto"
+                    phoneScale="scale-27"
+                    phoneOffset="left-22 -top-10.5"
+                    laptopScale="110"
+                    laptopOffset=""
+                    imageDesktop={project.deviceMockup.imageDesktop}
+                    imageMobile={project.deviceMockup.imageMobile} />
+                <div class="px-5 mb-2 flex flex-col flex-1 leading-relaxed">
+                    <p class="mb-3">
+                        {project.projectSummary.description.split('\n\n').map((para, idx) => (
+                        <p class="mb-2" key={idx}>{para}</p>
+                        ))}
+                    </p>
+                </div>
+                <a href={project.projectSummary.link} class="btn btn-primary mx-4 h-fit py-1 inline-flex items-center text-sm font-medium">
+                    {project.projectSummary.ctaText}
+                </a>
+            </div>
+        ))}
+    </div>
+</section>
