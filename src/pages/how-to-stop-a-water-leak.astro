@@ -1,70 +1,74 @@
 ---
+// src/pages/how-to-stop-a-water-leak.astro
 import Layout from '../layouts/Layout.astro';
-import Cta from '../components/Cta.astro';
-
-const metadata = {
-    title: `How To Stop A Water Leak | Water Heater Replacement Company of Grand Rapids`,
-    description: `Learn how to safely stop a water leak by turning off the water supply to your water heater or entire home. Follow these steps for quick action.`,
-    canonical: 'https://waterheaterreplacementcompany.com/how-to-stop-a-water-leak',
-    openGraph: {
-        title: `How To Stop A Water Leak | Water Heater Replacement Company of Grand Rapids`,
-        description: `Learn how to safely stop a water leak by turning off the water supply to your water heater or entire home. Follow these steps for quick action.`,
-        url: 'https://waterheaterreplacementcompany.com/how-to-stop-a-water-leak',
-        siteName: 'Water Heater Replacement Company of Grand Rapids',
-        type: 'website',
-        images: [
-            {
-                url: 'https://waterheaterreplacementcompany.com/images/default.webp',
-                width: 1200,
-                height: 630,
-                alt: 'How To Stop A Water Leak | Water Heater Replacement Company of Grand Rapids'
-            }
-        ]
-    },
-    twitter: {
-        card: 'summary_large_image',
-        title: `How To Stop A Water Leak | Water Heater Replacement Company of Grand Rapids`,
-        description: `Learn how to safely stop a water leak by turning off the water supply to your water heater or entire home. Follow these steps for quick action.`,
-        images: ['https://waterheaterreplacementcompany.com/images/default.webp']
-    },
-    robots: {
-        index: true,
-        follow: true,
-    },
-}
 ---
-<Layout metadata={metadata}>
-    <section class="relative bg-base-200 py-24 px-6 text-center text-base-content">
-        <h1 class="text-4xl sm:text-5xl font-bold leading-tight mb-6">
-                How To Stop A Water Leak
-            </h1>
-            <p class="text-lg sm:text-xl mb-8">Follow these steps to safely turn off water to your water heater or your entire home if necessary:</p>
-        <ul>
-            <li>Locate the water heater's cold water shutoff valve, usually found on the pipe entering the top of the heater.
-                <!-- <img src="path_to_image.jpg" alt="Locate the water heater's cold water shutoff valve, usually found on the pipe entering the top of the heater." /> -->
-            </li>
-            <li>Turn the shutoff valve clockwise to close it and stop water flow to the water heater.
-                <!-- <img src="path_to_image.jpg" alt="Turn the shutoff valve clockwise to close it and stop water flow to the water heater." /> -->
-            </li>
-            <li>If the water heater shutoff valve is not accessible or doesn't exist, locate the main water shutoff valve for your home.
-                <!-- <img src="path_to_image.jpg" alt="If the water heater shutoff valve is not accessible or doesn't exist, locate the main water shutoff valve for your home." /> -->
-            </li>
-            <li>The main shutoff valve is typically near the water meter or where the main water line enters your home.
-                <!-- <img src="path_to_image.jpg" alt="The main shutoff valve is typically near the water meter or where the main water line enters your home." /> -->
-            </li>
-            <li>Turn the main shutoff valve clockwise to close it and stop water flow to the entire house.
-                <!-- <img src="path_to_image.jpg" alt="Turn the main shutoff valve clockwise to close it and stop water flow to the entire house." /> -->
-            </li>
-            <li>Open a faucet at the lowest point in your home to drain any remaining water in the pipes and relieve pressure.
-                <!-- <img src="path_to_image.jpg" alt="Open a faucet at the lowest point in your home to drain any remaining water in the pipes and relieve pressure." /> -->
-            </li>
-            <li>If you have a water leak, try to contain the water with towels or buckets while waiting for professional help.
-                <!-- <img src="path_to_image.jpg" alt="If you have a water leak, try to contain the water with towels or buckets while waiting for professional help." /> -->
-            </li>
-            <li>Contact a licensed plumber to repair the leak and inspect your water heater and plumbing system.
-                <!-- <img src="path_to_image.jpg" alt="Contact a licensed plumber to repair the leak and inspect your water heater and plumbing system." /> -->
-                </li>
-            </ul>
-    </section>
-    <Cta title="Now that the leak has stopped, let us clean it up." />
+<Layout title="How to Stop a Water Leak | Emergency Water Shutoff Help">
+	<section class="px-6 py-16 sm:py-20 text-base-content text-center max-w-4xl mx-auto">
+		<h1 class="text-4xl sm:text-5xl font-bold mb-6 tracking-tight">How to Stop a Water Leak</h1>
+		<p class="text-xl max-w-2xl mx-auto mb-6">
+			If you're experiencing an active leak from your water heater or plumbing system, follow these steps to safely shut off the water and minimize damage.
+		</p>
+
+		<ul class="mb-12 px-6 max-w-2xl mx-auto list-disc list-inside space-y-6 text-left">
+			<li>
+				<strong>Locate the water heater’s cold water shutoff valve.</strong> This is typically a lever or knob found on the pipe entering the top of the tank, usually on the right-hand side.
+				<!-- <img src="/images/shutoff-valve.jpg" alt="Cold water shutoff valve" class="mt-2 rounded-lg shadow-sm"> -->
+			</li>
+
+			<li>
+				<strong>Turn the shutoff valve clockwise (right) to close it.</strong> This stops new water from entering the water heater.
+				<!-- <img src="/images/turn-valve.jpg" alt="Turning water valve clockwise"> -->
+			</li>
+
+			<li>
+				<strong>If your water heater doesn’t have a shutoff valve or it’s not working, locate the main water shutoff valve for your home.</strong> This is usually found near the water meter, in a basement, utility room, crawl space, or near the foundation where the water line enters.
+				<!-- <img src="/images/main-shutoff-location.jpg" alt="Main shutoff valve location"> -->
+			</li>
+
+			<li>
+				<strong>Turn the main shutoff valve clockwise to close it.</strong> This will stop water to your entire house until the leak is addressed.
+				<!-- <img src="/images/main-valve.jpg" alt="Turning main shutoff valve"> -->
+			</li>
+
+			<li>
+				<strong>Open a faucet at the lowest level of your home (e.g., basement sink or tub).</strong> This helps drain excess water and relieves pressure in the pipes.
+				<!-- <img src="/images/open-faucet.jpg" alt="Opening faucet to relieve pressure"> -->
+			</li>
+
+			<li>
+				<strong>Contain the leak while you wait.</strong> Use towels, buckets, or containers to prevent further water damage in the area of the leak.
+				<!-- <img src="/images/contain-leak.jpg" alt="Containing water with towels and buckets"> -->
+			</li>
+
+			<li>
+				<strong>Call a licensed plumber for inspection and repair.</strong> Leaks often indicate failed valves, tank corrosion, or pressure issues — a professional should inspect the system before turning water back on.
+				<!-- <img src="/images/call-plumber.jpg" alt="Calling a licensed plumber"> -->
+			</li>
+		</ul>
+
+		<div class="flex flex-col justify-center gap-4">
+			<a href="tel:6165551234" class="btn btn-primary text-white text-lg w-72 h-fit py-2 flex items-center justify-between mx-auto text-center">
+				<svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width={2} stroke-linecap="round" stroke-linejoin="round"
+					class="icon icon-tabler icons-tabler-outline icon-tabler-phone">
+					<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+					<path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
+				</svg>
+				<p class="w-full">Call Now for Fastest Service</p>
+			</a>
+
+			<a href="#schedule-estimate" class="btn btn-outline text-lg w-72 h-fit py-2 flex items-center justify-between mx-auto text-center">
+				<svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width={2} stroke-linecap="round" stroke-linejoin="round"
+					class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-clock">
+					<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+					<path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3" />
+					<path d="M16 3v4" />
+					<path d="M8 3v4" />
+					<path d="M4 11h10" />
+					<path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+					<path d="M18 16.5v1.5l.5 .5" />
+				</svg>
+				<p class="w-full">Schedule Virtual Appointment</p>
+			</a>
+		</div>
+	</section>
 </Layout>

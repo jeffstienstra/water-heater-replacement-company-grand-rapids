@@ -1,12 +1,12 @@
 ---
 // src/pages/pricing.astro
 import Layout from '../layouts/Layout.astro';
+import Cta from '../components/Cta.astro';
 ---
 <Layout title="Water Heater Replacement Pricing | Grand Rapids, MI">
-	<section class="px-6 py-10 sm:py-20 text-base-content text-center max-w-4xl mx-auto">
+	<section class="px-6 pt-16 sm:pt-20 text-base-content text-center max-w-4xl mx-auto">
 		<h1 class="text-4xl sm:text-5xl font-bold mb-6 tracking-tight">Water Heater Replacement Pricing</h1>
 		<p class="text-xl max-w-2xl mx-auto mb-2">Transparent prices with no surprises. Prices include:</p>
-		<!-- <p class="max-w-2xl text-left mb-2">Our rates include:</p> -->
         <ul class="mb-12 px-6 max-w-2xl mx-auto list-disc list-inside space-y-0 text-left">
             <li>No hidden fees</li>
             <li>Complete installation</li>
@@ -14,57 +14,120 @@ import Layout from '../layouts/Layout.astro';
             <li>Permit and inspection</li>
             <li>All utility connections</li>
             <li>All venting materials</li>
+            <li>Thorough testing</li>
             <li>1 Yr Parts & Labor Warranty</li>
-            <li>Equipment warranties vary by make and model (avg 5-12 years)</li>
+            <li>Full Equipment Warranties (vary by make and model—avg 5-10 years)</li>
             <li>Disposal of old water heater</li>
             <li>Thorough cleanup</li>
+            <li>100% satisfaction</li>
         </ul>
 
 		<div class="grid gap-10 sm:grid-cols-2">
 			<div class="bg-base-100 border border-base-300 rounded-xl shadow-md p-8 text-left">
-				<h2 class="text-2xl font-semibold mb-2">40-Gallon Gas or Electric Tank Water Heater</h2>
+				<h2 class="text-2xl font-semibold mb-2">40-Gallon Standard Gas or Electric Tank Water Heater</h2>
 				<p class="text-4xl font-bold text-primary mb-4">$1,475 Installed</p>
-				<ul class="list-disc list-inside text-left text-sm leading-relaxed space-y-2">
+				<ul class="list-disc list-inside text-left text-sm leading-relaxed space-y-0 mb-6">
 					<li>Standard replacement in same location</li>
 					<li>Removal & disposal of old tank</li>
 					<li>All required utility connections (water, gas, venting, electric)*</li>
 					<li>All work to code, with permit</li>
 				</ul>
+
+				<a href="#schedule-estimate" class="btn btn-primary text-lg w-72 h-fit py-2 flex items-center justify-between mx-auto text-center">
+					<svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width={2} stroke-linecap="round" stroke-linejoin="round"
+						class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-clock">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+						<path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3" />
+						<path d="M16 3v4" />
+						<path d="M8 3v4" />
+						<path d="M4 11h10" />
+						<path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+						<path d="M18 16.5v1.5l.5 .5" />
+					</svg>
+					<p class="w-full">Schedule Virtual Estimate</p>
+				</a>
 			</div>
 
 			<div class="bg-base-100 border border-base-300 rounded-xl shadow-md p-8 text-left">
-				<h2 class="text-2xl font-semibold mb-2">50-Gallon Gas or Electric Tank Water Heater</h2>
+				<h2 class="text-2xl font-semibold mb-2">50-Gallon Standard Gas or Electric Tank Water Heater</h2>
 				<p class="text-4xl font-bold text-primary mb-4">$1,675 Installed</p>
-				<ul class="list-disc list-inside text-left text-sm leading-relaxed space-y-2">
+				<ul class="list-disc list-inside text-left text-sm leading-relaxed space-y-1 mb-6">
 					<li>Standard replacement in same location</li>
 					<li>Removal & disposal of old tank</li>
 					<li>All required utility connections (water, gas, venting, electric)*</li>
 					<li>All work to code, with permit</li>
 				</ul>
+				<a href="#schedule-estimate" class="btn btn-primary text-lg w-72 h-fit py-2 flex items-center justify-between mx-auto text-center">
+					<svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width={2} stroke-linecap="round" stroke-linejoin="round"
+						class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-clock">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+						<path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3" />
+						<path d="M16 3v4" />
+						<path d="M8 3v4" />
+						<path d="M4 11h10" />
+						<path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+						<path d="M18 16.5v1.5l.5 .5" />
+					</svg>
+					<p class="w-full">Schedule Virtual Estimate</p>
+				</a>
 			</div>
+
             <div class="bg-base-100 border border-base-300 rounded-xl shadow-md p-8 text-left">
-                <h2 class="text-2xl font-semibold mb-2">Tankless Water Heater Replacement</h2>
+                <h2 class="text-2xl font-semibold mb-2">Tankless Water Heater</h2>
                 <p class="text-4xl font-bold text-primary mb-4">Starting at $2,500</p>
-                <ul class="list-disc list-inside text-left text-sm leading-relaxed space-y-2">
+                <ul class="list-disc list-inside text-left text-sm leading-relaxed space-y-1 mb-6">
 					<li>Standard replacement in same location</li>
 					<li>Removal & disposal of old unit</li>
                     <li>All required utility connections (water, gas, venting, electric)*</li>
                     <li>All work to code, with permit</li>
                     <li>Price varies based on existing setup and requirements</li>
                     <li>Tankless systems may require additional venting, gas, or electrical upgrades</li>
-                    <li>Home visit required if upgrading to tankless</li>
+                    <li>Home visit required if upgrading from a tank to tankless water heater (due to additional equipment requirements)</li>
                 </ul>
-                </div>
+				<a href="#schedule-estimate" class="btn btn-primary text-lg w-72 h-fit py-2 flex items-center justify-between mx-auto text-center">
+					<svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width={2} stroke-linecap="round" stroke-linejoin="round"
+						class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-clock">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+						<path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3" />
+						<path d="M16 3v4" />
+						<path d="M8 3v4" />
+						<path d="M4 11h10" />
+						<path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+						<path d="M18 16.5v1.5l.5 .5" />
+					</svg>
+					<p class="w-full">Schedule Virtual Estimate</p>
+				</a>
+			</div>
+
+			<div class="bg-base-100 border border-base-300 rounded-xl shadow-md p-8 text-left">
+				<h2 class="text-2xl font-semibold mb-2">Heat Pump Water Heater</h2>
+				<p class="text-4xl font-bold text-primary mb-4">Starting at $3,500</p>
+				<ul class="list-disc list-inside text-left text-sm leading-relaxed space-y-1 mb-6">
+					<li>Standard replacement in same location</li>
+					<li>Removal & disposal of old unit</li>
+					<li>All required utility connections (water, gas, venting, electric)*</li>
+					<li>All work to code, with permit</li>
+					<li>Price varies based on existing setup and requirements</li>
+					<li>Heat pump systems may require additional venting, gas, or electrical upgrades</li>
+					<li>Home visit required if upgrading from a tank to heat pump water heater (due to additional equipment requirements)</li>
+				</ul>
+				<a href="#schedule-estimate" class="btn btn-primary text-lg w-72 h-fit py-2 flex items-center justify-between mx-auto text-center">
+					<svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width={2} stroke-linecap="round" stroke-linejoin="round"
+						class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-clock">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+						<path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3" />
+						<path d="M16 3v4" />
+						<path d="M8 3v4" />
+						<path d="M4 11h10" />
+						<path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+						<path d="M18 16.5v1.5l.5 .5" />
+					</svg>
+					<p class="w-full">Schedule Virtual Estimate</p>
+				</a>
 		</div>
 
 		<p class="text-sm text-gray-500 mt-6">*Venting, electrical and gas line upgrades are where we run into the largest price changes but most requirements can usually be clarified via video call or home visit.</p>
-		<p class="text-sm text-gray-500 mt-6">Final price is always provided by email or text before work begins.</p>
-
-
-
-		<div class="mt-12 flex flex-col justify-center gap-4">
-			<a href="tel:6165551234" class="mx-auto btn btn-primary text-white text-lg w-72"><svg  xmlns="http://www.w3.org/2000/svg"  width={24}  height={24}  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width={2}  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-phone"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" /></svg>		<div class="flex flex-col sm:flex-row justify-center gap-4"></div> Call Now for Fast Service</a>
-			<a href="#schedule-estimate" class="mx-auto btn btn-outline text-lg w-72"><svg  xmlns="http://www.w3.org/2000/svg"  width={24}  height={24}  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width={2}  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-clock"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h10" /><path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M18 16.5v1.5l.5 .5" /></svg>Schedule Virtual Estimate</a>
-		</div>
+		<p class="text-sm text-gray-500 my-6">Final price is always provided by email or text before work begins.</p>
+		<Cta />
 	</section>
 </Layout>

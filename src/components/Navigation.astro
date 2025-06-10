@@ -4,20 +4,30 @@ import ThemeSelector from './ThemeSelector.astro';
 
 <div class="fixed top-0 left-0 w-full z-50 navbar bg-base-100 shadow-sm">
     <div class="navbar-start">
-        <a aria-label="Home | Water Heater Replacement Company of Grand Rapids" href="/" class=" max-w-72 btn btn-ghost h-fit text-xl">Water Heater Replacement Company of Grand Rapids</a>
+        <a aria-label="Home | Water Heater Replacement Company of Grand Rapids" href="/" class=" max-w-64 btn btn-ghost h-fit text-md">Water Heater Replacement Company of Grand Rapids</a>
     </div>
     <div class="navbar-end">
         <!-- desktop menu -->
         <div class="navbar-center hidden lg:flex justify-between">
             <ul class="menu menu-horizontal px-1 mr-4">
                 <li>
-                    <a aria-label="What We Do" href="/#what-we-do">What We Do</a>
+                    <a aria-label="Frustrated With the Process?" href="/#frustrated-with-the-process">Frustrated With the Process?</a>
                 </li>
                 <li>
-                    <a aria-label="about" href="#how-we-do-it">How We Do It</a>
+                    <a aria-label="about" href="/#how-we-do-it-differently">We Do It Differently</a>
                 </li>
                 <li>
-                    <a aria-label="about" href="/pricing">Pricing</a>
+                    <details id="desktop-products-menu">
+                        <summary>Products</summary>
+                        <ul class="p-2 w-64 top-6">
+                            <li><a aria-label="Tank Water Heaters" href="/products/tank-water-heaters/">Tank Water Heaters</a></li>
+                            <li><a aria-label="Tankless Water Heaters" href="/products/tankless-water-heaters/">Tankless Water Heaters</a></li>
+                            <li><a aria-label="Heat Pump Water Heaters" href="/products/heat-pump-water-heaters/">Heat Pump Water Heaters</a></li>
+                        </ul>
+                    </details>
+                </li>
+                <li>
+                    <a aria-label="pricing" href="/pricing/">Pricing</a>
                 </li>
             </ul>
         </div>
@@ -39,13 +49,27 @@ import ThemeSelector from './ThemeSelector.astro';
             class="menu menu-sm right-1 dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
         >
             <li>
-                <a aria-label="Why DIY Websites Fail" href="/#what-we-do">What We Do</a>
+                <a aria-label="Why DIY Websites Fail" href="/#frustrated-with-the-process/">Frustrated With the Process?</a>
             </li>
             <li>
-                <a aria-label="What We Deliver" href="/#how-we-do-it">How We Do It</a>
+                <a aria-label="What We Deliver" href="/#how-we-do-it-differently/">We Do It Differently</a>
             </li>
             <li>
-                <a aria-label="about" aria-disabled="true" href="/pricing">Pricing</a>
+                <p class="pointer-events-none" aria-label="parent">Products</p>
+                <ul class="p-2">
+                    <li>
+                        <a aria-label="Tank Water Heaters" href="/products/tank-water-heaters/">Tank Water Heaters</a>
+                    </li>
+                    <li>
+                        <a aria-label="Tankless Water Heaters" href="/products/tankless-water-heaters/">Tankless Water Heaters</a>
+                    </li>
+                    <li>
+                        <a aria-label="Heat Pump Water Heaters" href="/products/heat-pump-water-heaters/">Heat Pump Water Heaters</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a aria-label="about" aria-disabled="true" href="/pricing/">Pricing</a>
             </li>
             <div class="mt-2 lg:hidden w-full">
                 <a aria-label="Book Now" href="/pricing/" class="btn btn-primary h-fit"><svg  xmlns="http://www.w3.org/2000/svg"  width={24}  height={24}  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width={2}  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-clock"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h10" /><path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M18 16.5v1.5l.5 .5" /></svg>Schedule Virtual Estimate</a>
@@ -58,7 +82,7 @@ import ThemeSelector from './ThemeSelector.astro';
 <script>
   // Ensure <details> closes on outside click for desktop menu
     document.addEventListener('click', function(event) {
-        const details = document.getElementById('desktop-proof-menu');
+        const details = document.getElementById('desktop-products-menu');
         if (!details) return;
         if (details.open && !details.contains(event.target)) {
         details.open = false;
