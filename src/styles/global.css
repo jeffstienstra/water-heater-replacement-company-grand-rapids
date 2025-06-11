@@ -11,7 +11,7 @@
     name: "light";
     default: true;
     --color-primary: hsl(195, 100%, 25%);
-    --color-secondary: hsl(30, 100%, 55%);
+    --color-secondary: #DC5435;
 }
 @plugin "daisyui/theme" {
     name: "dark";
