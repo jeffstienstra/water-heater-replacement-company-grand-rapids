@@ -1,6 +1,7 @@
 ---
 // src/pages/how-to-stop-a-water-leak.astro
 import Layout from '../layouts/Layout.astro';
+import Cta from '../components/Cta.astro';
 ---
 <Layout title="How to Stop a Water Leak | Emergency Water Shutoff Help">
 	<section class="px-6 py-16 sm:py-20 text-base-content text-center max-w-4xl mx-auto">
@@ -11,7 +12,7 @@ import Layout from '../layouts/Layout.astro';
 
 		<ul class="mb-12 px-6 max-w-2xl mx-auto list-disc list-inside space-y-6 text-left">
 			<li>
-				<strong>Locate the water heater’s cold water shutoff valve.</strong> This is typically a lever or knob found on the pipe entering the top of the tank, usually on the right-hand side.
+				<strong>Locate the water heater’s cold water shutoff valve.</strong> This is typically a lever or knob found on the cold pipe entering the top of the tank (or bottom if it is a tankless wall-mounted unit).
 				<!-- <img src="/images/shutoff-valve.jpg" alt="Cold water shutoff valve" class="mt-2 rounded-lg shadow-sm"> -->
 			</li>
 
@@ -26,12 +27,17 @@ import Layout from '../layouts/Layout.astro';
 			</li>
 
 			<li>
-				<strong>Turn the main shutoff valve clockwise to close it.</strong> This will stop water to your entire house until the leak is addressed.
+				<strong>Turn the main shutoff valve clockwise to close it (may require multiple turns).</strong> This will stop water to your entire house until the leak is addressed.
 				<!-- <img src="/images/main-valve.jpg" alt="Turning main shutoff valve"> -->
 			</li>
 
 			<li>
-				<strong>Open a faucet at the lowest level of your home (e.g., basement sink or tub).</strong> This helps drain excess water and relieves pressure in the pipes.
+				<strong>Open the hot water valve on any faucet at the lowest level of your home (e.g., basement sink or tub).</strong> This helps drain excess water and relieves pressure in the pipes.
+				<!-- <img src="/images/open-faucet.jpg" alt="Opening faucet to relieve pressure"> -->
+			</li>
+
+			<li>
+				<strong>Go the highest level of your home and open the hot water valve on any faucet (e.g., upstairs bathroom, kitchen, etc).</strong> This lets air into the system so the water can escape through the lowest faucet.
 				<!-- <img src="/images/open-faucet.jpg" alt="Opening faucet to relieve pressure"> -->
 			</li>
 
@@ -41,12 +47,12 @@ import Layout from '../layouts/Layout.astro';
 			</li>
 
 			<li>
-				<strong>Call a licensed plumber for inspection and repair.</strong> Leaks often indicate failed valves, tank corrosion, or pressure issues — a professional should inspect the system before turning water back on.
+				<strong>Call a licensed plumber for inspection and repair.</strong> Leaks often indicate failed tanks, hoses, valves, pipes, or other pressure issues — have a professional inspect the system before turning water back on.
 				<!-- <img src="/images/call-plumber.jpg" alt="Calling a licensed plumber"> -->
 			</li>
 		</ul>
 
-		<div class="flex flex-col justify-center gap-4">
+		<!-- <div class="flex flex-col justify-center gap-4">
 			<a href="tel:6165551234" class="btn btn-primary text-white text-lg w-72 h-fit py-2 flex items-center justify-between mx-auto text-center">
 				<svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width={2} stroke-linecap="round" stroke-linejoin="round"
 					class="icon icon-tabler icons-tabler-outline icon-tabler-phone">
@@ -69,6 +75,7 @@ import Layout from '../layouts/Layout.astro';
 				</svg>
 				<p class="w-full">Schedule Virtual Appointment</p>
 			</a>
-		</div>
+		</div> -->
 	</section>
+	<Cta title="Need That Leak Fixed?" />
 </Layout>

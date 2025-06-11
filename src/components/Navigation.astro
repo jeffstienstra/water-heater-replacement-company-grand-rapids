@@ -1,16 +1,24 @@
 ---
 import ThemeSelector from './ThemeSelector.astro';
-import logo from '../assets/images/whrc-logo.png';
+import logoIcon from '../assets/images/whrc-logo-icon.png';
+import logoText from '../assets/images/whrc-logo-text.png';
 ---
 
 <div class="fixed top-0 left-0 w-full z-50 navbar bg-base-100 shadow-sm">
     <div class="navbar-start">
-        <a aria-label="Home | Water Heater Replacement Company of Grand Rapids"
-            href="/"
-            class="navbar-start btn btn-ghost max-w-70" >
-                <img src={logo.src}
+        <a class="navbar-start btn btn-ghost w-fit h-[100%]"
+            aria-label="Home | Water Heater Replacement Company of Grand Rapids"
+            href="/">
+                <img src={logoIcon.src}
                     alt="Water Heater Replacement Company of Grand Rapids Logo"
-                    class="h-12 object-contain max-h-[90%]" />
+                    class="h-12 " />
+        </a>
+        <a class="navbar-start btn btn-ghost w-fit h-[100%]"
+            aria-label="Home | Water Heater Replacement Company of Grand Rapids"
+            href="/">
+            <img src={logoText.src}
+                alt="Water Heater Replacement Company of Grand Rapids Logo"
+                class="h-12 object-contain" />
         </a>
     </div>
     <div class="navbar-end">
@@ -24,17 +32,18 @@ import logo from '../assets/images/whrc-logo.png';
                     <a aria-label="about" href="/#how-we-do-it-differently">We Do It Differently</a>
                 </li>
                 <li>
+                    <a aria-label="pricing" href="/pricing/">Pricing</a>
+                </li>
+                <li>
                     <details id="desktop-products-menu">
                         <summary>Products</summary>
                         <ul class="p-2 w-64 top-6">
-                            <li><a aria-label="Tank Water Heaters" href="/products/tank-water-heaters/">Tank Water Heaters</a></li>
+                            <li><a aria-label="Tank Water Heaters" href="/products/tank-water-heaters/">Standard Tank Water Heaters</a></li>
+                            <li><a aria-label="Power Vent Water Heaters" href="/products/power-vent-water-heaters/">Power Vent Water Heaters</a></li>
                             <li><a aria-label="Tankless Water Heaters" href="/products/tankless-water-heaters/">Tankless Water Heaters</a></li>
                             <li><a aria-label="Heat Pump Water Heaters" href="/products/heat-pump-water-heaters/">Heat Pump Water Heaters</a></li>
                         </ul>
                     </details>
-                </li>
-                <li>
-                    <a aria-label="pricing" href="/pricing/">Pricing</a>
                 </li>
             </ul>
         </div>
@@ -62,10 +71,16 @@ import logo from '../assets/images/whrc-logo.png';
                 <a aria-label="What We Deliver" href="/#how-we-do-it-differently/">We Do It Differently</a>
             </li>
             <li>
+                <a aria-label="about" aria-disabled="true" href="/pricing/">Pricing</a>
+            </li>
+            <li>
                 <p class="pointer-events-none" aria-label="parent">Products</p>
                 <ul class="p-2">
                     <li>
-                        <a aria-label="Tank Water Heaters" href="/products/tank-water-heaters/">Tank Water Heaters</a>
+                        <a aria-label="Tank Water Heaters" href="/products/tank-water-heaters/">Standard Tank Water Heaters</a>
+                    </li>
+                    <li>
+                        <a aria-label="Power Vent Water Heaters" href="/products/power-vent-water-heaters/">Power Vent Water Heaters</a>
                     </li>
                     <li>
                         <a aria-label="Tankless Water Heaters" href="/products/tankless-water-heaters/">Tankless Water Heaters</a>
@@ -74,9 +89,6 @@ import logo from '../assets/images/whrc-logo.png';
                         <a aria-label="Heat Pump Water Heaters" href="/products/heat-pump-water-heaters/">Heat Pump Water Heaters</a>
                     </li>
                 </ul>
-            </li>
-            <li>
-                <a aria-label="about" aria-disabled="true" href="/pricing/">Pricing</a>
             </li>
             <div class="mt-2 lg:hidden w-full">
                 <a aria-label="Book Now" href="/pricing/" class="btn btn-primary h-fit"><svg  xmlns="http://www.w3.org/2000/svg"  width={24}  height={24}  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width={2}  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-clock"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h10" /><path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M18 16.5v1.5l.5 .5" /></svg>Schedule Virtual Estimate</a>
