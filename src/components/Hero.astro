@@ -1,34 +1,41 @@
 ---
-import Cta from "./Cta.astro"
+import natDraftGroup from '../assets/images/wh-natDraftGroup.png';
+import powerVentGroup from '../assets/images/wh-powerVentGroup.png';
+import tanklessGroup from '../assets/images/wh-tanklessGroup.png';
+import hybridGroup from '../assets/images/wh-hybridGroup.png';
+import MagnifyingGlass from './icons/MagnifyingGlass.astro';
+const imageMap = {
+	natDraftGroup,
+	powerVentGroup,
+	tanklessGroup,
+	hybridGroup
+};
 ---
-<section class="relative bg-base-200 pt-18 sm:py-24 px-6 text-center text-base-content">
-	<div class="max-w-3xl mx-auto">
-		<h1 class="text-4xl sm:text-5xl font-bold leading-tight mb-6">
-			Fast, Affordable Water Heater Replacement in Grand Rapids
-		</h1>
-		<p class="text-lg sm:text-xl">
-			Upfront pricing. No hidden fees.
-		</p>
-		<p class="text-lg sm:text-xl">
-			Same-day or next-day water heater replacement.
-		</p>
-		<p class="text-lg sm:text-xl">
-			Licensed and insured.
-		</p>
-		<p class="text-lg sm:text-xl mb-8">
-			25+ years in the field.
-		</p>
 
-<div class="flex flex-col justify-center w-full gap-4">
-		<a href="tel:6165551234" class="btn btn-primary text-lg h-fit min-w-68 py-2 mx-auto">
-			<svg  xmlns="http://www.w3.org/2000/svg"  width={24}  height={24}  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width={2}  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-phone"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" /></svg>
-			Call Now for Fastest Service
-		</a>
-		<a href="/pricing/" class="btn btn-outline text-lg mx-auto">
-			<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-receipt-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16l-3 -2l-2 2l-2 -2l-2 2l-2 -2l-3 2" /><path d="M14 8h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5m2 0v1.5m0 -9v1.5" /></svg>
-			See Pricing
-		</a>
-		</div>
-		<p class="mt-6 text-sm text-gray-500">Transparent pricing • Fully licensed & insured</p>
-	</div>
+<section class="relative bg-base-200 min-h-[calc(100vh-64px)] flex items-center px-6 text-center text-base-content">
+    <div class="max-w-3xl mx-auto w-full">
+        <h1 class="text-4xl sm:text-5xl font-bold leading-tight mb-6">
+            How Much Does A Water Heater Replacement Cost? Find Out In 60 Seconds.
+        </h1>
+        <p class="text-lg sm:text-xl">
+            No sales pitch. No email required.
+        </p>
+        <p class="text-lg sm:text-xl mb-8">
+            Just real, transparent pricing for your home.
+        </p>
+
+        <div class="flex flex-col justify-center w-full gap-4">
+            <a href="#find-your-fit" class="btn btn-primary text-lg w-full max-w-xs py-2 mx-auto">
+                <MagnifyingGlass />
+                <p class="w-full">Find My Replacement</p>
+            </a>
+            <a href="/pricing/" class="btn btn-outline text-lg w-full max-w-xs mx-auto">
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-receipt-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16l-3 -2l-2 2l-2 -2l-2 2l-2 -2l-3 2" /><path d="M14 8h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5m2 0v1.5m0 -9v1.5" /></svg>
+                <p class="w-full">I Know What I Need</p>
+            </a>
+        </div>
+
+        <p class="mt-6 text-sm text-gray-500">Trusted across West Michigan.</p>
+        <p class="text-sm text-gray-500">Get instant recommendations and transparent pricing confirmed with a 5-minute video call—no hassle, no commitment.</p>
+    </div>
 </section>

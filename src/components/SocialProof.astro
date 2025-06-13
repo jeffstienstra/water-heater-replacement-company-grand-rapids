@@ -1,5 +1,5 @@
 ---
-// SocialProof.astro
+import Avatar from "./icons/Avatar.astro"
 ---
 <section class="py-20 px-6 text-base-content bg-base-200 border-t border-base-300">
 	<div class="max-w-5xl mx-auto text-center">
@@ -8,17 +8,22 @@
 
 		<div class="grid gap-8 md:grid-cols-3 text-left">
 			<div class="bg-base-100 p-6 rounded-xl shadow border border-base-300">
+				<Avatar class="w-8 h-8 mx-auto mb-4 text-secondary" />
 				<p class="italic">“They showed up on time, handled everything professionally, and had hot water running again the same day. Highly recommend.”</p>
 				<p class="mt-4 font-bold">— Amanda J., Grand Rapids</p>
 			</div>
 			<div class="bg-base-100 p-6 rounded-xl shadow border border-base-300">
+				<Avatar class="w-8 h-8 mx-auto mb-4 text-secondary" />
 				<p class="italic">“I appreciated how clean and fast the crew worked. No nonsense, just honest, quality service.”</p>
 				<p class="mt-4 font-bold">— Greg M., Wyoming, MI</p>
 			</div>
 			<div class="bg-base-100 p-6 rounded-xl shadow border border-base-300">
+				<Avatar class="w-8 h-8 mx-auto mb-4 text-secondary" />
 				<p class="italic">“I’m a builder and use these guys when a water heater goes out in a rental. Always dependable.”</p>
 				<p class="mt-4 font-bold">— Tom S., Property Manager</p>
 			</div>
 		</div>
+		<p class="text-sm text-gray-500 mt-12">No fake reviews. No paid ads. Just real homeowners getting fast, honest help when they need it.</p>
+
 	</div>
 </section>

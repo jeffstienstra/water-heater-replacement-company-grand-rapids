@@ -1,14 +1,15 @@
 export const pricingOptions = [
 	{
 		title: "40-Gallon Standard Tank Water Heater (Gas or Electric)",
-		price: "$1,475 Installed",
+		price: "$1,475-$1,995",
 		image: "natDraftGroup",
 		features: [
 			"Standard replacement in same location",
 			"Removal & disposal of old tank",
 			"All required utility connections (water, gas, venting, electric)*",
 			"All work to code, with permit"
-		]
+		],
+        slug: "40-gallon-standard-tank-water-heater-gas-or-electric"
 	},
 	{
 		title: "50-Gallon Standard Tank Water Heater (Gas or Electric)",
@@ -45,7 +46,7 @@ export const pricingOptions = [
 	},
 	{
 		title: "Tankless Water Heater",
-		price: "Starting at $2,500",
+		price: "$2,500-$5,000 Installed",
 		image: "tanklessGroup",
 		features: [
 			"Standard replacement in same location",
