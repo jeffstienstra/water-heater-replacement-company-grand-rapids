@@ -9,7 +9,6 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@tabler/icons-react": "^3.34.0",
     "@tailwindcss/vite": "^4.1.7",
     "astro": "^5.8.0",
     "tailwindcss": "^4.1.7"

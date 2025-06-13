@@ -1,14 +1,16 @@
 ---
-const { title = "Need Hot Water Fast?" } = Astro.props;
+const {
+	title = "Ready to Replace Your Water Heater?",
+	subtitle = "Get matched to the right model, see your price instantly, and book online — no sales pitch required." } = Astro.props;
 ---
 
 <section class="py-20 px-6 bg-base-100 text-base-content border-t border-base-300">
 	<div class="max-w-3xl mx-auto text-center">
-		<h2 class="text-3xl sm:text-4xl font-semibold mb-4">Ready to Replace Your Water Heater?</h2>
-		<p class="text-lg mb-8">Get matched to the right model, see your price instantly, and book online — no sales pitch required.</p>
+		<h2 class="text-3xl sm:text-4xl font-semibold mb-4">{title}</h2>
+		<p class="text-lg mb-8">{subtitle}</p>
 
 		<div class="flex flex-col sm:flex-row justify-center gap-4">
-			<a href="/find-your-water-heater-replacement" class="btn btn-primary text-lg py-2 w-full sm:w-auto">
+			<a href="/pricing/" class="btn btn-primary text-lg py-2 w-full sm:w-auto">
 				<svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width={2} stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search mr-2">
 					<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
 					<path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
