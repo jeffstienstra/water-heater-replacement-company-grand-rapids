@@ -16,7 +16,8 @@ const questions = [
 		question: 'Do you want to replace your current water heater with the same type?',
 		options: [
 			{label: 'Yes – same type', value: 'yes'},
-			{label: 'No – I want to upgrade', value: 'no'}
+			{label: 'No – I want to upgrade', value: 'no'},
+			{label: 'Not sure', value: 'unsure'}
 		]
 	},
 	{
@@ -25,7 +26,8 @@ const questions = [
 		options: [
 			{label: 'Natural Gas', value: 'gas'},
 			{label: 'Electric', value: 'electric'},
-			{label: 'Propane', value: 'propane'}
+			{label: 'Propane', value: 'propane'},
+			{label: 'Not sure', value: 'unsure'}
 		]
 	},
 	{
@@ -113,9 +115,6 @@ export default function FindWaterHeaterQuiz() {
 							onSelect={handleAnswer}
 							onBack={handleBack}
 						/>
-					</div>
-					<div className="mt-6 text-center">
-						<p className="text-sm text-gray-500">Step {step} of {steps}</p>
 					</div>
 				</>
 			)}
