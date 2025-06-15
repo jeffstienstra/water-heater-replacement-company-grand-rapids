@@ -4,6 +4,7 @@ import powerVentGroup from '../assets/images/wh-powerVentGroup.png';
 import tanklessGroup from '../assets/images/wh-tanklessGroup.png';
 import hybridGroup from '../assets/images/wh-hybridGroup.png';
 import MagnifyingGlass from './icons/MagnifyingGlass.astro';
+import ArrowDown from './icons/ArrowDown.astro';
 const imageMap = {
 	natDraftGroup,
 	powerVentGroup,
@@ -12,7 +13,7 @@ const imageMap = {
 };
 ---
 
-<section class="relative bg-base-200 min-h-[calc(100vh-64px)] flex items-center px-6 text-center text-base-content">
+<section class="relative bg-base-100 min-h-[calc(100vh-64px)] flex items-center px-6 text-center text-base-content">
     <div class="max-w-3xl mx-auto w-full">
         <h1 class="text-4xl sm:text-5xl text-primary font-bold leading-tight mb-6">
             How Much Does A Water Heater Replacement Cost? <br/><span class="text-secondary">Find Out In 60 Seconds.</span>
@@ -25,7 +26,7 @@ const imageMap = {
         </p>
 
         <div class="flex flex-col justify-center w-full gap-4">
-            <a href="/pricing/" class="btn btn-primary text-lg w-full max-w-xs py-2 mx-auto">
+            <a href="/find-a-water-heater/" class="btn btn-primary text-lg w-full max-w-xs py-2 mx-auto">
                 <MagnifyingGlass />
                 <p class="w-full">Find My Replacement</p>
             </a>
@@ -38,4 +39,5 @@ const imageMap = {
         <p class="mt-6 text-sm text-gray-500">Trusted across West Michigan.</p>
         <p class="text-sm text-gray-500">Get instant recommendations and transparent pricing confirmed with a 5-minute video call—no hassle, no commitment.</p>
     </div>
+    <ArrowDown class="-ml-8 text-base-300 animate-bounce w-full absolute bottom-0 h-12" />
 </section>

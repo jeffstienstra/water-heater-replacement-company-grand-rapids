@@ -1,0 +1,10 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FindWaterHeaterQuiz from '../components/FindWaterHeaterQuiz.jsx';
+---
+
+<Layout>
+    <div class="mx-auto px-4 py-8 bg-base-300 w-full h-full">
+        <FindWaterHeaterQuiz client:only="react" />
+    </div>
+</Layout>

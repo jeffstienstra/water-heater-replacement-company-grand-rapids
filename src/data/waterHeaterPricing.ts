@@ -1,7 +1,7 @@
 export const pricingOptions = [
 	{
 		title: "40-Gallon Standard Tank Water Heater (Gas or Electric)",
-		price: "$1,475-$1,995",
+		price: "$X,XXX-X,XXX",
 		image: "natDraftGroup",
 		features: [
 			"Standard replacement in same location",
@@ -13,7 +13,7 @@ export const pricingOptions = [
 	},
 	{
 		title: "50-Gallon Standard Tank Water Heater (Gas or Electric)",
-		price: "$1,675 Installed",
+		price: "$X,XXX-X,XXX",
 		image: "natDraftGroup",
 		features: [
 			"Standard replacement in same location",
@@ -24,7 +24,7 @@ export const pricingOptions = [
 	},
 	{
 		title: "40-Gallon Gas Power Vent Tank Water Heater",
-		price: "$1,995 Installed",
+		price: "$X,XXX-X,XXX",
 		image: "powerVentGroup",
 		features: [
 			"Standard replacement in same location",
@@ -35,7 +35,7 @@ export const pricingOptions = [
 	},
 	{
 		title: "50-Gallon Gas Power Vent Tank Water Heater",
-		price: "$2,095 Installed",
+		price: "$X,XXX-X,XXX",
 		image: "powerVentGroup",
 		features: [
 			"Standard replacement in same location",
@@ -46,7 +46,7 @@ export const pricingOptions = [
 	},
 	{
 		title: "Tankless Water Heater",
-		price: "$2,500-$5,000 Installed",
+		price: "$X,XXX-X,XXX",
 		image: "tanklessGroup",
 		features: [
 			"Standard replacement in same location",
@@ -60,7 +60,7 @@ export const pricingOptions = [
 	},
 	{
 		title: "Heat Pump Water Heater",
-		price: "Starting at $2,600",
+		price: "$X,XXX-X,XXX",
 		image: "hybridGroup",
 		features: [
 			"Standard replacement in same location",
