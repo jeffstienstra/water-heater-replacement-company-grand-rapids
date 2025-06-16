@@ -1,10 +1,28 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import FindWaterHeaterQuiz from '../components/FindWaterHeaterQuiz.jsx';
+import ArrowDown from '../components/icons/ArrowDown.astro';
 ---
 
 <Layout>
-    <div class="mx-auto px-4 py-8 bg-base-300 w-full h-full">
-        <FindWaterHeaterQuiz client:only="react" />
-    </div>
+	<section class="relative bg-base-100 min-h-[calc(100vh-64px)] flex items-center px-6 text-center text-base-content">
+		<div class="max-w-3xl mx-auto w-full">
+			<h1 class="text-3xl sm:text-5xl text-primary font-bold leading-tight mb-4">
+				Water Heater Replacement Cost in West Michigan <br/>
+				<span class="text-secondary">Get Instant Local Pricing</span>
+			</h1>
+
+			<p class="text-lg sm:text-xl">No emails. No appointments.</p>
+			<p class="text-lg sm:text-xl mb-8">Just real water heater installation prices for your home — in under 60 seconds.</p>
+
+			<div class="mt-6">
+				<FindWaterHeaterQuiz client:only />
+			</div>
+
+			<p class="mt-6 max-w-xs mx-auto text-sm text-gray-500">
+				Trusted local pros for water heater replacement, new installations, and water heater repair.
+				Serving Grand Rapids and all of West Michigan.
+			</p>
+		</div>
+	</section>
 </Layout>

@@ -25,6 +25,10 @@ html {
     scroll-padding-top: 50px;
 }
 
+@theme {
+    --breakpoint-xs: 360px;
+}
+
 @keyframes fade-it-in {
 	from {
 		opacity: 0;
@@ -39,5 +43,3 @@ html {
 .animate-fade-it-in {
 	animation: fade-it-in 0.3s ease-in;
 }
-
-

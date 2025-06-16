@@ -98,9 +98,9 @@ export default function FindWaterHeaterQuiz() {
 				<RecommendationCard params={params} />
 			) : (
 				<>
-					<div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+					<div className="w-full bg-primary/10 rounded-t-sm h-2.5">
 						<div
-							className="bg-primary h-2.5 rounded-full transition-all duration-300 ease-in-out"
+							className="bg-primary h-2.5 rounded-t-sm transition-all duration-300 ease-in-out"
 							style={{width: `${((step - 1) / steps) * 100}%`}}
 						/>
 					</div>

@@ -1,7 +1,7 @@
 export default function QuestionCard({question, options, paramKey, step, steps, onSelect, onBack}) {
 	return (
 		<>
-			<div className="w-full bg-base-100 p-6 rounded-lg min-h-74 flex flex-col items-center justify-between">
+			<div className="w-full bg-base-100 p-6 pb-1 rounded-lg flex flex-col items-center justify-between">
 				<div>
 					<h2 className="flex justify-center text-xl font-semibold mb-4">{question}</h2>
 					<div className="flex flex-col gap-3 justify-center max-w-64 mx-auto">
