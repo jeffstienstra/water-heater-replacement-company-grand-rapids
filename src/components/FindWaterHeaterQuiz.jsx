@@ -7,18 +7,9 @@ const questions = [
 		paramKey: 'currentType',
 		question: 'What type of water heater do you currently have?',
 		options: [
-			{label: 'Tank (most common)', value: 'tank'},
+			{label: 'Standard Tank (most common)', value: 'tank'},
 			{label: 'Tankless/On-Demand (usually wall-mounted)', value: 'tankless'}
 		],
-	},
-	{
-		paramKey: 'existing',
-		question: 'Do you want to replace your current water heater with the same type?',
-		options: [
-			{label: 'Yes – same type', value: 'yes'},
-			{label: 'No – I want to upgrade', value: 'no'},
-			{label: 'Not sure', value: 'unsure'}
-		]
 	},
 	{
 		paramKey: 'fuel',
@@ -31,17 +22,8 @@ const questions = [
 		]
 	},
 	{
-		paramKey: 'people',
-		question: 'How many people live in your home?',
-		options: [
-			{label: '1–2', value: '1-2'},
-			{label: '3–4', value: '3-4'},
-			{label: '5 or more', value: '5+'}
-		]
-	},
-	{
 		paramKey: 'peak',
-		question: 'How many showers might run at once during busy times?',
+		question: 'How many showers are in your home?',
 		options: [
 			{label: '1', value: '1'},
 			{label: '2', value: '2'},
