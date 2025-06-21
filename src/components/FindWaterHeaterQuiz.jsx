@@ -22,6 +22,14 @@ const questions = [
 		]
 	},
 	{
+		paramKey: 'vent',
+		question: 'What type of vent is on top?',
+		options: [
+			{label: 'Metal', value: 'metal'},
+			{label: 'PVC', value: 'pvc'},
+		]
+	},
+	{
 		paramKey: 'peak',
 		question: 'How many showers are in your home?',
 		options: [

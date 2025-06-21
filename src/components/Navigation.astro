@@ -2,21 +2,22 @@
 import ThemeSelector from './ThemeSelector.astro';
 import logoIcon from '../assets/images/whrc-logo-icon.png';
 import logoText from '../assets/images/whrc-logo-text.png';
+import fullLogo from '../assets/images/logo-full-whrc.png';
 ---
 
 <div class="fixed top-0 left-0 w-full z-50 navbar bg-base-100 shadow-sm">
     <div class="navbar-start">
-        <a class="navbar-start btn btn-ghost w-fit h-[100%]"
+        <!-- <a class="navbar-start btn btn-ghost w-fit h-[100%]"
             aria-label="Home | Water Heater Replacement Company of Grand Rapids"
             href="/">
                 <img src={logoIcon.src}
                     alt="Water Heater Replacement Company of Grand Rapids Logo"
                     class="h-12 " />
-        </a>
+        </a> -->
         <a class="navbar-start btn btn-ghost w-fit h-[100%]"
             aria-label="Home | Water Heater Replacement Company of Grand Rapids"
             href="/">
-            <img src={logoText.src}
+            <img src={fullLogo.src}
                 alt="Water Heater Replacement Company of Grand Rapids Logo"
                 class="h-12 object-contain" />
         </a>

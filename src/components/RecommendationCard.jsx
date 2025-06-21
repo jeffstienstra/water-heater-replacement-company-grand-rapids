@@ -7,6 +7,7 @@ export default function RecommendationCard({params}) {
 	}
 
 	const currentType = params.get('currentType');
+	const vent = params.get('vent');
 	const fuel = params.get('fuel');
 	const peak = params.get('peak');
 
@@ -18,7 +19,7 @@ export default function RecommendationCard({params}) {
 		<div className="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow text-center">
 			<h2 className="text-2xl font-semibold mb-4">Your Recommended Water Heater</h2>
 			<p className="mb-4">
-				Based on your answers (Current Type: {currentType}, Showers: {peak}, Fuel: {fuel}), we recommend:
+				Based on your answers (Current Type: {currentType}, Vent Type: {vent}, Showers: {peak}, Fuel: {fuel}), we recommend:
 			</p>
 			<ul className="list-disc list-inside mb-4 text-left">
 				<li>40-gallon {fuel} water heater</li>
