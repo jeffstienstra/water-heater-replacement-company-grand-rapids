@@ -1,5 +1,5 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 const metadata = {
   title: `Oops! - This isn't ready yet...`,
@@ -11,7 +11,7 @@ const metadata = {
 }
 ---
 
-<Layout metadata={metadata}>
+<BaseLayout metadata={metadata}>
   <section class="flex items-center h-full p-2 pt-8">
     <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
       <span class="mb-8 text-center text-primary">Oops! We're still working on this page, but our phone is on!</span>
@@ -25,4 +25,4 @@ const metadata = {
       </h2>
 </div>
   </section>
-</Layout>
+</BaseLayout>

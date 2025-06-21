@@ -1,50 +1,22 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import WhyChooseUs from '../components/WhyChooseUs.astro';
 import SocialProof from '../components/SocialProof.astro';
-import PainPoints from '../components/PainPoints.astro';
-import TheFix from '../components/TheFix.astro';
 import Cta from '../components/Cta.astro';
 import Faq from '../components/Faq.astro';
 import HelpButton from '../components/HelpButton.astro';
 import HowItWorks from '../components/HowItWorks.astro';
-import FindWaterHeaterQuiz from '../components/FindWaterHeaterQuiz';
 import ArrowDown from '../components/icons/ArrowDown.astro';
 ---
 
-<Layout>
+<BaseLayout>
 	<!-- <HelpButton /> -->
-	<section class="min-h-[calc(100vh-64px)] flex flex-col py-3 px-2 xs:p-6 sm:py-20 text-base-content text-center max-w-4xl mx-auto">
-		<div class="flex flex-col flex-shrink-0">
-			<h1 class="text-xl xs:text-2xl sm:text-4xl font-bold leading-tight mb-4 ">
-						How Much Does A Water Heater Replacement Cost in West Michigan?
-						<br/>
-						<p class="text-primary">Get A Quote in Seconds</span>
-					</h1>
-					<p class="text-sm xs:text-md sm:text-2xl leading-tight mb-8 sm:max-w-xl max-w-3xl mx-auto">
-						No sales pitch. No pressure. Just real, transparent pricing from us—a family owned and operated contractor serving West Michigan for over 25 years.
-					</p>
-				</div>
-
-		<div class="max-w-4xl mx-auto sm:mt-24 flex flex-col justify-center w-76 xs:w-full sm:w-96">
-			<FindWaterHeaterQuiz client:only />
-		</div>
-
-		<p class="mt-6 text-sm text-gray-500 max-w-sm mx-auto">
-			Prefer to learn more first?
-		</p>
-		<p class="text-sm text-gray-500 max-w-sm mx-auto">
-			Scroll down to see how it works.
-		</p>
-
-	</section>
-	<ArrowDown class="-mt-8 text-base-300 animate-bounce w-full h-12" />
-
+	<Hero />
 	<HowItWorks />
 	<WhyChooseUs />
 	<SocialProof />
 	<Cta />
 	<Faq />
 	<Cta title="Not Sure Yet? Let’s Walk Through It Together." subtitle="We’ll guide you through your options and give you straight answers, not sales pitches." />
-</Layout>
+</BaseLayout>

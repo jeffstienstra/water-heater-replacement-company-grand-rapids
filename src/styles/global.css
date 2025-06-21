@@ -12,14 +12,14 @@
     default: true;
     --color-primary: #10509B;
         /* --color-primary: hsl(195, 100%, 25%); */
-    --color-secondary: #DC5435;
+    --color-secondary: #FF5100;
 }
 @plugin "daisyui/theme" {
     name: "dark";
     default: false;
     --color-primary: #10509B;
         /* --color-primary: hsl(195, 100%, 25%); */
-    --color-secondary: hsl(30, 100%, 35%);
+    --color-secondary: #FF5100;
 }
 
 html {
@@ -44,4 +44,12 @@ html {
 
 .animate-fade-it-in {
 	animation: fade-it-in 0.3s ease-in;
+}
+
+.fill-primary {
+	fill: var(--tw-color-primary);
+}
+
+.fill-secondary {
+	fill: var(--tw-color-secondary);
 }

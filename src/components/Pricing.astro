@@ -1,5 +1,5 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import Cta from '../components/Cta.astro';
 import {pricingOptions} from '../data/waterHeaterPricing.ts';
 import natDraftGroup from '../assets/images/wh-natDraftGroup.png';
@@ -62,7 +62,7 @@ const imageMap = {
 						<path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
 						<path d="M18 16.5v1.5l.5 .5" />
 					</svg>
-					<p class="w-full">Schedule Virtual Estimate</p>
+					<p class="w-full">Book Now</p>
 				</a>
 				<a href={`/products/${option.slug}`} class="btn btn-outline text-lg h-fit py-2 flex items-center mx-auto mt-4 text-center">
 					Learn More

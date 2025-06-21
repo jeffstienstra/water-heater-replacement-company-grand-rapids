@@ -1,36 +1,44 @@
-export default function QuestionCard({question, options, paramKey, step, steps, onSelect, onBack}) {
-	return (
-		<>
-			<div className="w-full bg-base-100 p-6 pb-1 rounded-lg flex flex-col items-center justify-between">
-				<div>
-					<h2 className="flex justify-center text-xl font-semibold mb-4">{question}</h2>
-					<div className="flex flex-col gap-3 justify-center max-w-64 mx-auto">
-						{options.map(({label, value}) => (
-							<button
-								key={value}
-								onClick={() => onSelect(paramKey, value)}
-								className="btn btn-outline h-fit min-h-10 py-2 "
-							>
-								{label}
-							</button>
-						))}
-					</div>
+import Tank from './Tank.jsx';
+import Tankless from './Tankless.jsx';
+import MetalVent from './MetalVent.jsx';
+import PvcVent from './PvcVent.jsx';
 
-					{step > 1 && (
-						<div className="mt-6 flex justify-center">
-							<button
-								onClick={onBack}
-								className="btn btn-sm btn-ghost text-sm text-gray-500"
-							>
-								← Back
-							</button>
+export default function QuestionCard({question, options, paramKey, step, onSelect, onBack}) {
+	return (
+		<div className="w-full bg-base-100 py-1 rounded-lg flex flex-col items-center justify-between">
+			<h2 className="text-xl font-semibold mb-4 text-center">{question}</h2>
+			<form className="flex flex-col gap-4 w-full max-w-md">
+				{options.map(({label, value}) => (
+					<label key={value} className="flex items-center justify-between border border-base-300 rounded-lg px-4 py-3 cursor-pointer hover:bg-base-200">
+						<div className="flex items-center gap-4">
+							{value === 'tank' && <Tank />}
+							{value === 'tankless' && <Tankless />}
+							{value === 'metal' && <MetalVent />}
+							{value === 'pvc' && <PvcVent />}
+
+							<span className="text-sm font-medium">{label}</span>
 						</div>
-					)}
+						<input
+							type="radio"
+							name={paramKey}
+							value={value}
+							onChange={() => onSelect(paramKey, value)}
+							className="form-radio text-secondary w-5 h-5"
+						/>
+					</label>
+				))}
+			</form>
+
+			{step > 1 && (
+				<div className="mt-6 flex justify-center">
+					<button
+						onClick={onBack}
+						className="btn btn-sm btn-ghost text-sm text-gray-500"
+					>
+						← Back
+					</button>
 				</div>
-				<div className="mt-6 text-center">
-					<p className="text-sm text-gray-500">Step {step} of {steps}</p>
-				</div>
-			</div>
-		</>
+			)}
+		</div>
 	);
 }

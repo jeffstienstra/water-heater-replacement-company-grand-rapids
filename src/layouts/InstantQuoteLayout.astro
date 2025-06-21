@@ -1,0 +1,94 @@
+---
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+const description = 'Get an instant quote for water heater replacement in Grand Rapids. No emails, no appointments, just real prices for your home in seconds.';
+
+const metadata = {
+	title: 'Instant Water Heater Replacement Quote - Grand Rapids',
+	description: description,
+	robots: {
+		index: true,
+		follow: true
+	},
+	canonical: 'https://waterheaterreplacementcompany.com/instant-quote',
+	openGraph: {
+		title: 'Water Heater Replacement Company of Grand Rapids',
+		description: description,
+		url: 'https://waterheaterreplacementcompany.com/instant-quote',
+		siteName: 'Instant Water Heater Replacement Quote - Grand Rapids',
+		type: 'website',
+		images: [
+			{
+				url: 'https://waterheaterreplacementcompany.com/images/default.webp',
+				width: 1200,
+				height: 630,
+				alt: 'Instant Water Heater Replacement Quote - Grand Rapids'
+			}
+		]
+	},
+	twitter: {
+		card: 'summary_large_image',
+		title: 'Instant Water Heater Replacement Quote - Grand Rapids',
+		description: description,
+		images: ['https://waterheaterreplacementcompany.com/images/default.webp']
+	}
+};
+
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+
+		<title>{metadata.title}</title>
+		<meta name="description" content={metadata.description} />
+		<meta name="robots" content={`${metadata.robots.index ? 'index' : 'noindex'},${metadata.robots.follow ? 'follow' : 'nofollow'}`} />
+		<link rel="canonical" href={metadata.canonical} />
+
+		<!-- Open Graph -->
+		<meta property="og:title" content={metadata.openGraph.title} />
+		<meta property="og:description" content={metadata.openGraph.description} />
+		<meta property="og:url" content={metadata.openGraph.url} />
+		<meta property="og:site_name" content={metadata.openGraph.siteName} />
+		<meta property="og:type" content={metadata.openGraph.type} />
+		{metadata.openGraph.images.map(img => (
+			<Fragment>
+				<meta property="og:image" content={img.url} />
+				<meta property="og:image:width" content={img.width.toString()} />
+				<meta property="og:image:height" content={img.height.toString()} />
+				<meta property="og:image:alt" content={img.alt} />
+			</Fragment>
+		))}
+
+		<!-- Twitter -->
+		<meta name="twitter:card" content={metadata.twitter.card} />
+		<meta name="twitter:title" content={metadata.twitter.title} />
+		<meta name="twitter:description" content={metadata.twitter.description} />
+		{metadata.twitter.images.map(img => (
+			<meta name="twitter:image" content={img} />
+		))}
+	</head>
+
+
+	<body>
+		<Navigation />
+		<slot />
+		<!-- <Footer /> -->
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		margin-top: 32px;
+		width: 100%;
+		height: 100%;
+	}
+</style>

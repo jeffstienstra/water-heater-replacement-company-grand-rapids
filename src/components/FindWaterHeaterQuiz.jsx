@@ -1,32 +1,41 @@
 import {useEffect, useState} from 'react';
 import QuestionCard from './QuestionCard.jsx';
 import RecommendationCard from './RecommendationCard.jsx';
+import Tank from './Tank.jsx';
+import Tankless from './Tankless.jsx';
 
 const questions = [
 	{
-		paramKey: 'currentType',
-		question: 'What type of water heater do you currently have?',
+		paramKey: 'interest',
+		question: 'Which type of water heater do you want?',
 		options: [
-			{label: 'Standard Tank (most common)', value: 'tank'},
-			{label: 'Tankless/On-Demand (usually wall-mounted)', value: 'tankless'}
+			{label: 'Tank', value: 'tank'},
+			{label: 'Tankless', value: 'tankless'}
+		],
+	},
+	{
+		paramKey: 'currentType',
+		question: 'What type of water heater is being removed?',
+		options: [
+			{label: 'Tank', value: 'tank'},
+			{label: 'Tankless', value: 'tankless'},
 		],
 	},
 	{
 		paramKey: 'fuel',
-		question: 'What fuel type does your current water heater use?',
+		question: 'What fuel type does your water heater use?',
 		options: [
-			{label: 'Natural Gas', value: 'gas'},
+			{label: 'Natural Gas/Propane', value: 'gas'},
 			{label: 'Electric', value: 'electric'},
-			{label: 'Propane', value: 'propane'},
-			{label: 'Not sure', value: 'unsure'}
+			{label: 'Fuel Oil', value: 'oil'},
 		]
 	},
 	{
 		paramKey: 'vent',
-		question: 'What type of vent is on top?',
+		question: 'How is your water heater vented?',
 		options: [
 			{label: 'Metal', value: 'metal'},
-			{label: 'PVC', value: 'pvc'},
+			{label: 'Plastic', value: 'pvc'},
 		]
 	},
 	{
@@ -35,7 +44,7 @@ const questions = [
 		options: [
 			{label: '1', value: '1'},
 			{label: '2', value: '2'},
-			{label: '3 or more', value: '3+'}
+			{label: '3+', value: '3+'},
 		]
 	}
 ];
@@ -43,30 +52,38 @@ const questions = [
 export default function FindWaterHeaterQuiz() {
 	const [params, setParams] = useState(() => new URLSearchParams(window.location.search));
 	const [step, setStep] = useState(() => parseInt(params.get('step') || '1', 10));
-	const [steps, setSteps] = useState(questions.length);
-	const [title, setTitle] = useState('Find Your Perfect Water Heater');
+	// const [steps, setSteps] = useState(questions.length);
+	const [tankIsActive, setTankIsActive] = useState(false);
 
+	const steps = questions.length;
 	useEffect(() => {
 		const handlePopState = () => {
 			const updated = new URLSearchParams(window.location.search);
 			setParams(updated);
 			setStep(parseInt(updated.get('step') || '1', 10));
-			setSteps(parseInt(updated.get('step') || '1', 10));
 		};
 		window.addEventListener('popstate', handlePopState);
 		return () => window.removeEventListener('popstate', handlePopState);
 	}, []);
 
-	const handleAnswer = (paramKey, value) => {
-		const updatedParams = new URLSearchParams(window.location.search);
-		updatedParams.set(paramKey, value);
-		const nextStep = step + 1;
-		updatedParams.set('step', nextStep);
-		window.history.pushState({}, '', `${window.location.pathname}?${updatedParams}`);
-		setParams(updatedParams);
-		setStep(nextStep);
-	};
+const handleAnswer = (paramKey, value) => {
+	const updatedParams = new URLSearchParams(window.location.search);
+	updatedParams.set(paramKey, value);
 
+	const nextStep = step + 1;
+	updatedParams.set('step', nextStep);
+
+	// Redirect to /instant-quote after first answer
+	if (step === 1) {
+		window.location.href = `/instant-quote?${updatedParams.toString()}`;
+		return;
+	}
+
+	// Otherwise, stay on page
+	window.history.pushState({}, '', `${window.location.pathname}?${updatedParams}`);
+	setParams(updatedParams);
+	setStep(nextStep);
+};
 	const handleBack = () => {
 		const prevStep = Math.max(step - 1, 1);
 		const updatedParams = new URLSearchParams(window.location.search);
@@ -80,21 +97,34 @@ export default function FindWaterHeaterQuiz() {
 		return <RecommendationCard params={params} />;
 	}
 
+	const safeStep = Math.max(1, Math.min(step, steps));
+	const percent = safeStep === 1
+		? '3%'
+		: `${Math.max(3, Math.min(100, ((safeStep - 1) / (steps - 1)) * 100))}%`;
+
 	const current = questions[step - 1];
 
 	return (
-		<div className="flex flex-col justify-center mx-auto max-w-3xl">
+		<div className="bg-white ">
 			{step && step > questions.length ? (
 				<RecommendationCard params={params} />
 			) : (
 				<>
-					<div className="w-full bg-primary/10 rounded-t-sm h-2.5">
+					<div className="flex items-center w-full bg-secondary/10 rounded-t-sm h-4">
 						<div
-							className="bg-primary h-2.5 rounded-t-sm transition-all duration-300 ease-in-out"
-							style={{width: `${((step - 1) / steps) * 100}%`}}
+							className="bg-secondary h-4 rounded-t-sm transition-all duration-300 ease-in-out"
+							style={{width: `${percent}`}}
 						/>
 					</div>
-					<div key={step} className="animate-fade-it-in shadow">
+					<p className="-mt-4.5 text-sm text-gray-500 text-center mx-auto">Step {step} of {steps}</p>
+
+					<div key={step} className="animate-fade-it-in shadow p-6 pt-2">
+					<div className="text-center">
+						{step === 1 && (
+							<p className="text-sm text-gray-500 mb-2">Get an instant quote—no email required</p>
+						)}
+
+					</div>
 						<QuestionCard
 							question={current.question}
 							options={current.options}
@@ -104,8 +134,7 @@ export default function FindWaterHeaterQuiz() {
 							steps={steps}
 							onSelect={handleAnswer}
 							onBack={handleBack}
-						/>
-					</div>
+						/></div>
 				</>
 			)}
 		</div>
