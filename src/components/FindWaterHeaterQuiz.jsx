@@ -105,23 +105,23 @@ const handleAnswer = (paramKey, value) => {
 	const current = questions[step - 1];
 
 	return (
-		<div className="bg-white ">
+		<div className="bg-white rounded-t-sm">
 			{step && step > questions.length ? (
 				<RecommendationCard params={params} />
 			) : (
 				<>
-					<div className="flex items-center w-full bg-secondary/10 rounded-t-sm h-4">
+					<div className="flex items-center w-full bg-secondary/10 h-4 ">
 						<div
-							className="bg-secondary h-4 rounded-t-sm transition-all duration-300 ease-in-out"
+							className="bg-primary h-4 transition-all duration-300 ease-in-out rounded-t-sm"
 							style={{width: `${percent}`}}
 						/>
 					</div>
-					<p className="-mt-4.5 text-sm text-gray-500 text-center mx-auto">Step {step} of {steps}</p>
+					<p className=" text-sm text-gray-500 text-center font-bold mx-auto">Instant Quote: Step {step} of {steps}</p>
 
 					<div key={step} className="animate-fade-it-in shadow p-6 pt-2">
 					<div className="text-center">
 						{step === 1 && (
-							<p className="text-sm text-gray-500 mb-2">Get an instant quote—no email required</p>
+							<p className="text-sm text-gray-500 mb-2">No email required.</p>
 						)}
 
 					</div>

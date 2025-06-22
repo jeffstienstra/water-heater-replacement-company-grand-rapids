@@ -1,5 +1,6 @@
 ---
 import MagnifyingGlass from "./icons/MagnifyingGlass.astro";
+import PriceReceipt from "./icons/PriceReceipt.astro";
 import UserCheck from "./icons/UserCheck.astro";
 const {
 	title = "Ready to Replace Your Water Heater?",
@@ -12,18 +13,19 @@ const {
 		<p class="text-lg mb-8">{subtitle}</p>
 
 		<div class="flex flex-col justify-center gap-4">
-            <a href="/" class="btn btn-primary text-lg w-full max-w-xs py-2 mx-auto">
-                <UserCheck />
-                <p class="w-full">Get My Instant Estimate</p>
-            </a>
-
-			<a href="tel:6165551234" class="btn btn-outline text-lg py-2 w-full max-w-xs mx-auto ">
+			<a href="tel:6165551234" class="btn btn-primary text-lg py-2 w-full max-w-xs mx-auto ">
 				<svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width={2} stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-phone mr-2">
 					<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
 					<path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
 				</svg>
 				<p>Talk to a Pro</p>
 			</a>
+            <a href="/" class="btn btn-outline text-lg w-full max-w-xs py-2 mx-auto">
+                <PriceReceipt />
+                <p class="">Get My Instant Quote</p>
+            </a>
+
+
 		</div>
 
 		<p class="mt-6 text-sm text-gray-500">No commitment. No pressure. Just fast, honest help when you need it.</p>

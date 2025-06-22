@@ -1,8 +1,8 @@
 // MetalVent.jsx
 export default function MetalVent({
 	outlineColor = 'black',
-	colorDark = '#707070',
-	colorMain = '#b0b0b0'
+	colorDark = '#B0B0B0',
+	colorMain = '#E9E9E9'
 }) {
 	return (
 		<svg
