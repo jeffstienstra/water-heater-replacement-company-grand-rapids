@@ -1,16 +1,21 @@
 ---
 import FindWaterHeaterQuiz from './FindWaterHeaterQuiz';
-import ArrowDown from './icons/ArrowDown.astro';
-import tech1 from '../assets/images/whrc-tech1.png';
 import tech2 from '../assets/images/whrc-tech2.png';
+import techMobile from '../assets/images/whrc-tech2-edit1.png'
+import techDesktop from '../assets/images/whrc-tech2-landscape.png'
 import PriceReceipt from './icons/PriceReceipt.astro';
 import Phone from './icons/Phone.astro';
 import CalendarClock from './icons/CalendarClock.astro';
 
 ---
 <section
-    class="h-[800px] sm:h-[900px] relative xs:mb-20 bg-cover bg-fixed text-base-content"
-    style={`background-image: url(${tech2.src}); min-height: 100vh;`}
+    class="
+        h-[900px] sm:h-[900px] relative xs:mb-20
+        bg-[url('/src/assets/images/whrc-tech2-edit1.png')]
+        sm:bg-[url('/src/assets/images/whrc-tech2-landscape.png')]
+        bg-cover bg-fixed bg-left text-base-content
+    "
+    style="min-height: 100vh;"
 >
     <div class="h-full absolute inset-0 bg-white/85 sm:bg-white/85">
         <div class=" flex flex-col xs:my-6 md:py-20 text-base-content text-center max-w-5xl mx-auto">
