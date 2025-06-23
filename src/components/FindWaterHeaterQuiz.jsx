@@ -13,10 +13,20 @@ const questions = [
 	},
 	{
 		paramKey: 'typeToRemove',
-		question: 'What type of water heater is being removed?',
+		question: 'What type of water heater will be removed?',
 		options: [
 			{label: 'Tank', value: 'tank'},
 			{label: 'Tankless', value: 'tankless'},
+		],
+	},
+	{
+		paramKey: 'location',
+		question: 'Where is your water heater located?',
+		options: [
+			{label: 'Basement', value: 'basement'},
+			{label: 'Crawlspace', value: 'crawlspace'},
+			// {label: 'Garage', value: 'garage'},
+			{label: 'Closet', value: 'closet'},
 		],
 	},
 	{
