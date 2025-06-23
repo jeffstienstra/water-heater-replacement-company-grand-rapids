@@ -3,17 +3,12 @@ import ThemeSelector from './ThemeSelector.astro';
 import logoIcon from '../assets/images/whrc-logo-icon.png';
 import logoText from '../assets/images/whrc-logo-text.png';
 import fullLogo from '../assets/images/logo-full-whrc.png';
+
+const { showNavigation = true } = Astro.props;
 ---
 
 <div class="fixed top-0 left-0 w-full z-50 navbar bg-base-100 shadow-sm">
     <div class="navbar-start">
-        <!-- <a class="navbar-start btn btn-ghost w-fit h-[100%]"
-            aria-label="Home | Water Heater Replacement Company of Grand Rapids"
-            href="/">
-                <img src={logoIcon.src}
-                    alt="Water Heater Replacement Company of Grand Rapids Logo"
-                    class="h-12 " />
-        </a> -->
         <a class="px-0 navbar-start w-[160%] btn btn-ghost z-51"
             aria-label="Home | Water Heater Replacement Company of Grand Rapids"
             href="/">
@@ -23,89 +18,93 @@ import fullLogo from '../assets/images/logo-full-whrc.png';
         </a>
     </div>
     <div class="navbar-end">
-        <!-- desktop menu -->
-        <div class="navbar-center hidden lg:flex justify-between">
-            <ul class="menu menu-horizontal px-1 mr-4">
-                <li>
-                    <a aria-label="How It Works" href="/#how-it-works">How It Works</a>
-                </li>
-                <li>
-                <a aria-label="Why trust us" href="/#why-trust-us">Why Trust Us</a>
-                </li>
-                <li>
-                    <a aria-label="pricing" href="/pricing/">Pricing</a>
-                </li>
-                <li>
-                    <details id="desktop-products-menu">
-                        <summary>Products</summary>
-                        <ul class="p-2 w-64 top-6">
-                            <li><a aria-label="Tank Water Heaters" href="/products/tank-water-heaters/">Standard Tank Water Heaters</a></li>
-                            <li><a aria-label="Power Vent Water Heaters" href="/products/power-vent-water-heaters/">Power Vent Water Heaters</a></li>
-                            <li><a aria-label="Tankless Water Heaters" href="/products/tankless-water-heaters/">Tankless Water Heaters</a></li>
-                            <li><a aria-label="Heat Pump Water Heaters" href="/products/heat-pump-water-heaters/">Heat Pump Water Heaters</a></li>
-                        </ul>
-                    </details>
-                </li>
-            </ul>
+        {showNavigation && (
+            <!-- desktop menu -->
+            <div class="navbar-center hidden lg:flex justify-between">
+                <ul class="menu menu-horizontal px-1 mr-4">
+                    <li>
+                        <a aria-label="How It Works" href="/#how-it-works">How It Works</a>
+                    </li>
+                    <li>
+                    <a aria-label="Why trust us" href="/#why-trust-us">Why Trust Us</a>
+                    </li>
+                    <li>
+                        <a aria-label="pricing" href="/pricing/">Pricing</a>
+                    </li>
+                    <li>
+                        <details id="desktop-products-menu">
+                            <summary>Products</summary>
+                            <ul class="p-2 w-64 top-6">
+                                <li><a aria-label="Tank Water Heaters" href="/products/tank-water-heaters/">Standard Tank Water Heaters</a></li>
+                                <li><a aria-label="Power Vent Water Heaters" href="/products/power-vent-water-heaters/">Power Vent Water Heaters</a></li>
+                                <li><a aria-label="Tankless Water Heaters" href="/products/tankless-water-heaters/">Tankless Water Heaters</a></li>
+                                <li><a aria-label="Heat Pump Water Heaters" href="/products/heat-pump-water-heaters/">Heat Pump Water Heaters</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                </ul>
+            </div>
+            <!-- CTA -->
+            <!-- <div class="hidden lg:block">
+                <a aria-label="Book Now" href="/pricing/" class="btn btn-primary w-36 h-12"><svg  xmlns="http://www.w3.org/2000/svg"  width={24}  height={24}  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width={2}  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-clock"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h10" /><path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M18 16.5v1.5l.5 .5" /></svg>Book Now</a>
+            </div> -->
+        )}
+            <a class="mx-4 lg:mr-4 font-semibold w-7 h-7 flex items-center justify-center rounded-sm text-primary"
+                href=`tel:5558675309`
+                aria-label=`Click to call the Water Heater Replacement Company of Grand Rapids at 555-867-5309`>
+                <svg class="w-8 h-8 fill-current"
+                    viewBox="3 3 18 18"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="m17.38 10.79-2.2-2.2c-.28-.28-.36-.67-.25-1.02.37-1.12.57-2.32.57-3.57 0-.55.45-1 1-1H20c.55 0 1 .45 1 1 0 9.39-7.61 17-17 17-.55 0-1-.45-1-1v-3.49c0-.55.45-1 1-1 1.24 0 2.45-.2 3.57-.57.35-.12.75-.03 1.02.24l2.2 2.2c2.83-1.45 5.15-3.76 6.59-6.59z"></path>
+                </svg>
+            </a>
         </div>
-        <!-- CTA -->
-        <!-- <div class="hidden lg:block">
-            <a aria-label="Book Now" href="/pricing/" class="btn btn-primary w-36 h-12"><svg  xmlns="http://www.w3.org/2000/svg"  width={24}  height={24}  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width={2}  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-clock"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h10" /><path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M18 16.5v1.5l.5 .5" /></svg>Book Now</a>
-        </div> -->
-         <a class="mx-4 lg:mr-4 font-semibold w-7 h-7 flex items-center justify-center rounded-sm text-primary"
-        href=`tel:5558675309`
-        aria-label=`Click to call the Water Heater Replacement Company of Grand Rapids at 555-867-5309`>
-        <svg class="w-8 h-8 fill-current"
-            viewBox="3 3 18 18"
-            xmlns="http://www.w3.org/2000/svg">
-            <path d="m17.38 10.79-2.2-2.2c-.28-.28-.36-.67-.25-1.02.37-1.12.57-2.32.57-3.57 0-.55.45-1 1-1H20c.55 0 1 .45 1 1 0 9.39-7.61 17-17 17-.55 0-1-.45-1-1v-3.49c0-.55.45-1 1-1 1.24 0 2.45-.2 3.57-.57.35-.12.75-.03 1.02.24l2.2 2.2c2.83-1.45 5.15-3.76 6.59-6.59z"></path>
-        </svg>
-    </a>
-    </div>
 
     <!-- mobile menu -->
      <!-- phone icon -->
 
     <div class="dropdown">
+        {showNavigation && (
         <div aria-label="dropdown button" tabindex="0" role="button" class="btn btn-ghost lg:hidden">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
             </svg>
         </div>
-        <ul
-            tabindex="0"
-            class="menu menu-sm right-1 dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-        >
-            <li>
-                    <a aria-label="How It Works" href="/#how-it-works">How It Works</a>
-            </li>
-            <li>
-                <a aria-label="Why trust us" href="/#why-trust-us">Why Trust Us</a>
-            </li>
-            <li>
-                <a aria-label="about" aria-disabled="true" href="/pricing/">Pricing</a>
-            </li>
-            <li>
-                <p class="pointer-events-none" aria-label="parent">Products</p>
-                <ul class="p-2">
-                    <li>
-                        <a aria-label="Tank Water Heaters" href="/products/tank-water-heaters/">Standard Tank Water Heaters</a>
-                    </li>
-                    <li>
-                        <a aria-label="Power Vent Water Heaters" href="/products/power-vent-water-heaters/">Power Vent Water Heaters</a>
-                    </li>
-                    <li>
-                        <a aria-label="Tankless Water Heaters" href="/products/tankless-water-heaters/">Tankless Water Heaters</a>
-                    </li>
-                    <li>
-                        <a aria-label="Heat Pump Water Heaters" href="/products/heat-pump-water-heaters/">Heat Pump Water Heaters</a>
-                    </li>
-                </ul>
-            </li>
-            <!-- <div class="mt-2 lg:hidden w-full">
-                <a aria-label="Book Now" href="/pricing/" class="btn btn-primary h-fit"><svg  xmlns="http://www.w3.org/2000/svg"  width={24}  height={24}  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width={2}  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-clock"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h10" /><path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M18 16.5v1.5l.5 .5" /></svg>Book Now</a>
-            </div> -->
-        </ul>
+            <ul
+                tabindex="0"
+                class="menu menu-sm right-1 dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            >
+                <li>
+                        <a aria-label="How It Works" href="/#how-it-works">How It Works</a>
+                </li>
+                <li>
+                    <a aria-label="Why trust us" href="/#why-trust-us">Why Trust Us</a>
+                </li>
+                <li>
+                    <a aria-label="about" aria-disabled="true" href="/pricing/">Pricing</a>
+                </li>
+                <li>
+                    <p class="pointer-events-none" aria-label="parent">Products</p>
+                    <ul class="p-2">
+                        <li>
+                            <a aria-label="Tank Water Heaters" href="/products/tank-water-heaters/">Standard Tank Water Heaters</a>
+                        </li>
+                        <li>
+                            <a aria-label="Power Vent Water Heaters" href="/products/power-vent-water-heaters/">Power Vent Water Heaters</a>
+                        </li>
+                        <li>
+                            <a aria-label="Tankless Water Heaters" href="/products/tankless-water-heaters/">Tankless Water Heaters</a>
+                        </li>
+                        <li>
+                            <a aria-label="Heat Pump Water Heaters" href="/products/heat-pump-water-heaters/">Heat Pump Water Heaters</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- <div class="mt-2 lg:hidden w-full">
+                    <a aria-label="Book Now" href="/pricing/" class="btn btn-primary h-fit"><svg  xmlns="http://www.w3.org/2000/svg"  width={24}  height={24}  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width={2}  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-clock"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h10" /><path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M18 16.5v1.5l.5 .5" /></svg>Book Now</a>
+                </div> -->
+            </ul>
+        )}
     </div>
 
 </div>

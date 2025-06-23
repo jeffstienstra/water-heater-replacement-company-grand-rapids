@@ -9,10 +9,11 @@ export default function QuestionCard({question, options, paramKey, step, onSelec
 			<h2 className="text-xl font-semibold mb-4 text-center">{question}</h2>
 			<form className="flex flex-col gap-4 w-full max-w-md">
 				{options.map(({label, value}) => (
+					console.log('paramKey', paramKey),
 					<label key={value} className="flex items-center justify-between border border-base-300 rounded-lg px-4 py-3 cursor-pointer hover:bg-base-200">
 						<div className="flex items-center gap-4">
-							{value === 'tank' && <Tank />}
-							{value === 'tankless' && <Tankless />}
+							{value === 'tank' && <Tank showX={paramKey === 'typeToRemove' ? true : false} />}
+							{value === 'tankless' && <Tankless showX={paramKey === 'typeToRemove' ? true : false} />}
 							{value === 'metal' && <MetalVent />}
 							{value === 'pvc' && <PvcVent />}
 

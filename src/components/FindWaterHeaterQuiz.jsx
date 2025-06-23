@@ -1,20 +1,18 @@
 import {useEffect, useState} from 'react';
 import QuestionCard from './QuestionCard.jsx';
 import RecommendationCard from './RecommendationCard.jsx';
-import Tank from './Tank.jsx';
-import Tankless from './Tankless.jsx';
 
 const questions = [
 	{
 		paramKey: 'interest',
-		question: 'Which type of water heater do you want?',
+		question: 'Which type of water heater are you interested in?',
 		options: [
 			{label: 'Tank', value: 'tank'},
 			{label: 'Tankless', value: 'tankless'}
 		],
 	},
 	{
-		paramKey: 'currentType',
+		paramKey: 'typeToRemove',
 		question: 'What type of water heater is being removed?',
 		options: [
 			{label: 'Tank', value: 'tank'},
@@ -110,7 +108,7 @@ const handleAnswer = (paramKey, value) => {
 				<RecommendationCard params={params} />
 			) : (
 				<>
-					<div className="flex items-center w-full bg-secondary/10 h-4 ">
+					<div className="flex items-center w-full bg-primary/10 h-4 ">
 						<div
 							className="bg-primary h-4 transition-all duration-300 ease-in-out rounded-t-sm"
 							style={{width: `${percent}`}}
@@ -119,12 +117,12 @@ const handleAnswer = (paramKey, value) => {
 					<p className=" text-sm text-gray-500 text-center font-bold mx-auto">Instant Quote: Step {step} of {steps}</p>
 
 					<div key={step} className="animate-fade-it-in shadow p-6 pt-2">
-					<div className="text-center">
-						{step === 1 && (
-							<p className="text-sm text-gray-500 mb-2">No email required.</p>
-						)}
+						<div className="text-center">
+							{step === 1 && (
+								<p className="text-sm text-gray-500 mb-2">No email required.</p>
+							)}
 
-					</div>
+						</div>
 						<QuestionCard
 							question={current.question}
 							options={current.options}
@@ -134,7 +132,8 @@ const handleAnswer = (paramKey, value) => {
 							steps={steps}
 							onSelect={handleAnswer}
 							onBack={handleBack}
-						/></div>
+						/>
+					</div>
 				</>
 			)}
 		</div>
