@@ -15,7 +15,7 @@ export default function QuestionCard({question, options, paramKey, step, onSelec
 				{options.map(({label, value, hint, hintText, hintTitle}) => (
 					<div
 						key={value}
-						className="flex items-center justify-between border border-base-300 rounded-lg px-4 py-3 cursor-pointer hover:bg-base-200"
+						className="flex items-center  border border-base-300 rounded-lg px-4 py-3 cursor-pointer hover:bg-base-200"
 						onClick={() => onSelect(paramKey, value)}
 						tabIndex={0}
 						role="radio"
@@ -33,13 +33,13 @@ export default function QuestionCard({question, options, paramKey, step, onSelec
 							<QuestionMark className='text-primary' invert={true}/>
 						</button>
 						)}
-						<div className="flex items-center gap-4 px-4">
+						<div className="">
 							{value === 'tank' && <Tank showX={paramKey === 'typeToRemove'} />}
 							{value === 'tankless' && <Tankless showX={paramKey === 'typeToRemove'} />}
 							{value === 'metal' && <MetalVent />}
 							{value === 'pvc' && <PvcVent />}
-							<span className="text-sm font-medium">{label}</span>
 						</div>
+						<span className="text-sm w-full px-4 font-medium">{label}</span>
 						<input
 							type="radio"
 							name={paramKey}

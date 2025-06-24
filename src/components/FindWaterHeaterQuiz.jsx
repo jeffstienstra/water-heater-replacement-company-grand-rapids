@@ -56,15 +56,21 @@ const questions = [
 				value: 'chimney',
 				hint: '/images/wh-metalVenting.webp',
 				hintTitle: 'Horizontal Venting Into Chimney',
-				hintText: 'This is a standard natural draft water heater vented horizontally into a masonry chimney. It has a metal vent pipe that connects from the top of the water heater to the chimney.'
+				hintText: 'This is a standard natural draft water heater vented horizontally into a masonry chimney. It has a metal vent pipe that runs from the top of the water heater to the chimney. Your water heater may combine its metal vent with your furnace or other metal vent pipes before reaching the chimney—that is perfectly fine.  This is the general idea of what to look for.',
 			},
 			{
 				label: 'Vertically through a metal vent',
 				value: 'bVent',
 				hint: '/images/wh-bvent.jpeg',
 				hintTitle: 'Vertical Metal Venting',
-				hintText: 'This is a standard natural draft water heater vented vertically. It may connect to a larger metal vent or combine with your furnace or boiler vent pipe and exit together through the ceiling.',
+				hintText: 'This is a standard natural draft water heater vented vertically with metal venting. It may connect to a larger metal vent or combine with your furnace or other metal vent pipe and exit together through the ceiling. Your setup may vary, but the place it exits the room is most important.',
 			},
+			{
+				label: "I'd like a pro to assess it",
+				value: 'askPro',
+				hint: '/images/wh-tech-profile.png',
+				hintTitle: 'Get Help From A Pro',
+				hintText: "If you are unsure about your water heater venting we can asses it for you. You can text us a few images, join a brief video call, or schedule a free on-site assessment.",}
 		]
 	},
 	{

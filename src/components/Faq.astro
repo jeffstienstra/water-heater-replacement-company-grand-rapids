@@ -1,93 +1,99 @@
 ---
-// FaqSection.astro (all open)
+// filepath: /Users/jeffstienstra/projects/water-heater-replacement-company-grand-rapids/src/components/Faq.astro
+const faqs = [
+	{
+		question: "How much does a water heater replacement cost?",
+		answer: `Think of it like this:
+			“<span class="font-semibold">Cheap now, expensive later</span>” vs. “<span class="font-semibold">Expensive now, cheap later</span>”.
+			<br/><br/>
+			A basic tank-style water heater is cheaper upfront but will cost you more over time in energy bills and has a shorter lifespan.
+			On the other hand, a high-efficiency tankless system costs more to install but saves you money every month and lasts up to 10 years longer.
+			<br/><br/>
+
+			Get an <a href="/instant-quote/" class="text-primary font-bold">instant quote</a> to see the price range for both options based on your home setup and hot water needs.
+			We’ll help you compare both and give you a clear, all-in price before any work starts — no surprises.`
+	},
+	{
+		question: "Do I really get a price without giving my email?",
+		answer: `Yes. You’re not a lead. You’re a person looking for hot water and we’re not here to trap you in a sales funnel. Besides, there are only so many ways to heat water.
+			<br/><br/>
+			Our <a href="/instant-quote/" class="text-primary font-bold">instant price quote quiz</a> will give you an accurate price range based on your answers, and you can decide if and when it works for you. No strings attached.
+			<br/><br/>
+			We're always here to help if you have questions or need more details.`
+	},
+	{
+		question: "What’s the difference between standard, power vent, hybrid, and tankless water heaters?",
+		answer: `A <span class="font-semibold">standard tank water heater</span> uses natural draft to vent exhaust through a chimney or metal flue—no fans, just the fact that heat rises. It’s the cheapest to install but the least efficient.
+			<br/><br/>
+			A <span class="font-semibold">power vent tank water heater</span> does the same job but uses a fan to push exhaust through plastic pipe. It's slightly more efficient but much more flexible for installation location since it vents with pvc. They cost more upfront and require an outlet nearby (to power the exhaust fan).
+			<br/><br/>
+			A<span class="font-semibold"> hybrid (heat pump) water heater</span> uses a refrigerant circuit and compressor to pull heat from the surrounding air and transfer it into the water tank (similar to your ac system, but instead of an outdoor unit with a fan blowing away the heat, it captured the heat in a water tank). They are extremely efficient in the right scenario but households with high hot water needs (think several showers in a row) will regularly cause its backup electric heater to kick in, zapping much of the savings away.
+			<br/><br/>
+			<span class="font-semibold">Tankless or on-demand water heaters</span> don’t store hot water, they heat it right when you use it. You save space, energy, and never “run out” of hot water even with every faucet open, laundry running, and steamy shower flowing. But you’ll pay more upfront and may need to upgrade your gas line and install an outlet nearby to support it.`
+	},
+	{
+		question: "Why do I need a photo or video call to narrow down my price range?",
+		answer: `Because we actually want your quote to be right. A brief video call or site assessment assures we know what your home requires for a safe, high-quality installation that is reliable and up to code. For example, does it need a chimney liner, drain pan, new expansion tank, shutoff valves, grounding system, recirulation pump, etc.
+			<br/><br/>
+			It helps confirm the exact requirements for us and the exact price for you before we start work, so we all know what to expect. No salesman — just a technician checking to make sure everything’s clear for launch.`
+	},
+	{
+		question: "How do I know if I need a new water heater?",
+		answer: `Most tank water heaters last 8–12'ish years. Signs you may need a replacement include inconsistent hot water, strange noises, water around the base, rusty water, or increasing energy bills. If your unit is over 10 years old and showing these signs, it's usually more cost-effective to replace it.`
+	},
+	{
+		question: "Can you replace my water heater the same day?",
+		answer: `In many cases, yes. If you call early in the day and we have access to the unit size/type you need, we can replace it same-day. We also offer next-day guaranteed appointments.`
+	},
+	{
+		question: "What if I’m not sure what type of water heater I have now?",
+		answer: `No problem — just answer a few simple questions (or send a photo), and we’ll identify your current setup. From there, we’ll match you with the most compatible replacement or help you explore upgrade options if desired.`
+	},
+	{
+		question: "Do I need a permit to replace my water heater in Michigan?",
+		answer: `Yes — in most municipalities, a plumbing/mechanical permit is required. We handle the permitting process and make sure your install is up to code so you don’t have to worry.`
+	},
+	{
+		question: "Do you service both gas and electric water heaters?",
+		answer: `Yes. We install and replace both gas and electric units, including tank, tankless, and hybrid models. We’ll confirm your home's fuel type during the quote process to ensure you get the right model.`
+	},
+	{
+		question: "Can I upgrade to a tankless system?",
+		answer: `Yes, you can absolutely upgrade to a tankless systems. Keep in mind not every home is ready for one simply by removing your old water heater — they often require gas line upgrades, additional venting, and an outlet installed nearby. We may even need to install a chimney liner if your old water heater shared a chiimney with your furnace or boiler. Each of these factors affects the installation cost.
+			<br/><br/>
+			While we try to give as rigid of a price range as possible with our <a href="/instant-quote/" class="text-primary font-bold">instant quote tool</a>, upgrading from a tank to tankless has the most 'unknowns' to verify. We’ll confirm the exact price on-site before starting work.`
+	},
+	{
+		question: "How long does the installation take?",
+		answer: `Most standard replacements take about 2–4 hours. If your setup is more complex or requires relocation or venting changes, we’ll let you know up front.`
+	},
+	{
+		question: "Will I be without hot water during the install?",
+		answer: `Yes, but only briefly. We’ll disconnect your old unit and install the new one the same day in most cases, meaning hot water is typically restored within a few hours of arrival.`
+	},
+	{
+		question: "Do you dispose of the old water heater?",
+		answer: `Yes. Unless you'd like to keep it as a memento, we always remove and dispose of your old water heater with every replacement.`
+	},
+	{
+		question: "Is the work guaranteed?",
+		answer: `Yes — every job includes a minimum <span class="font-bold">1-Year Labor Warranty</span>, a <span class="font-bold">Manufacturer Warranty</span>, and a <span class="font-bold">Satisfaction Guarantee</span>. We install everything up to Michigan code requirements so you won’t have issues during home sales, inspections, or insurance claims.
+			<br/><br/>
+			Most tanks include a 6-12 year manufacturer warranty. Tankless units include a 10-12 year heat exchanger warranty and 5 year parts warranty.`
+	}
+];
 ---
+
 <section id="faq" class="py-20 px-6 text-base-content border-t border-base-300">
-	<div class="max-w-4xl mx-auto">
-		<h2 class="text-4xl font-semibold mb-12 text-center tracking-tight">Water Heater Replacement FAQ</h2>
-		<div class="space-y-6">
-			<div class="bg-base-100 border border-base-300 rounded-lg p-5 shadow-sm">
-				<h3 class="text-lg font-semibold mb-2">How do I know if I need a new water heater?</h3>
-				<p>
-					Most water heaters last 8–12 years. Signs you may need a replacement include inconsistent hot water, strange noises, water around the base, rusty water, or increasing energy bills. If your unit is over 10 years old and showing these signs, it's usually more cost-effective to replace it.
-				</p>
-			</div>
-
-			<div class="bg-base-100 border border-base-300 rounded-lg p-5 shadow-sm">
-				<h3 class="text-lg font-semibold mb-2">What’s the difference between standard, power vent, hybrid, and tankless water heaters?</h3>
-				<p>
-					Standard and power vent heaters store hot water in a tank. Hybrids use a heat pump for high efficiency, and tankless models heat water on demand. We’ll walk you through the pros, cons, and costs of each based on your home setup and usage needs.
-				</p>
-			</div>
-
-			<div class="bg-base-100 border border-base-300 rounded-lg p-5 shadow-sm">
-				<h3 class="text-lg font-semibold mb-2">Can you replace my water heater the same day?</h3>
-				<p>
-					In most cases, yes. If you call early in the day and we have access to the unit size/type you need, we can replace it same-day. We also offer next-day guaranteed appointments.
-				</p>
-			</div>
-
-			<div class="bg-base-100 border border-base-300 rounded-lg p-5 shadow-sm">
-				<h3 class="text-lg font-semibold mb-2">How much does a water heater replacement cost?</h3>
-				<p>
-					Typical replacements range from $1,200 to $2,200 depending on the size (e.g. 40- or 50-gallon), energy source (gas/electric), location of the install, and code requirements. We’ll give you a clear, all-in price before we begin work — no surprises.
-				</p>
-			</div>
-
-			<div class="bg-base-100 border border-base-300 rounded-lg p-5 shadow-sm">
-				<h3 class="text-lg font-semibold mb-2">What if I’m not sure what type of water heater I have now?</h3>
-				<p>
-					No problem — just answer a few simple questions (or send a photo), and we’ll identify your current setup. From there, we’ll match you with the most compatible replacement or help you explore upgrade options if desired.
-				</p>
-			</div>
-
-			<div class="bg-base-100 border border-base-300 rounded-lg p-5 shadow-sm">
-				<h3 class="text-lg font-semibold mb-2">Do I need a permit to replace my water heater in Michigan?</h3>
-				<p>
-					Yes — in most municipalities, a plumbing/mechanical permit is required. We handle the permitting process and make sure your install is up to code so you don’t have to worry.
-				</p>
-			</div>
-
-			<div class="bg-base-100 border border-base-300 rounded-lg p-5 shadow-sm">
-				<h3 class="text-lg font-semibold mb-2">Do you service both gas and electric water heaters?</h3>
-				<p>
-					Yes. We install and replace both gas and electric units, including tank, tankless, and hybrid models. We’ll confirm your home's fuel type during the quote process to ensure you get the right model.
-				</p>
-			</div>
-
-			<div class="bg-base-100 border border-base-300 rounded-lg p-5 shadow-sm">
-				<h3 class="text-lg font-semibold mb-2">Can I upgrade to a tankless system?</h3>
-				<p>
-					Yes, we can install tankless systems. However, not every home is set up for them — they often require electrical or gas upgrades and additional venting. We’ll walk you through pros, cons, and cost so you can decide what fits your needs.
-				</p>
-			</div>
-
-			<div class="bg-base-100 border border-base-300 rounded-lg p-5 shadow-sm">
-				<h3 class="text-lg font-semibold mb-2">How long does the installation take?</h3>
-				<p>
-					Most standard replacements take about 2–4 hours. If your setup is more complex or requires relocation or venting changes, we’ll let you know up front.
-				</p>
-			</div>
-
-			<div class="bg-base-100 border border-base-300 rounded-lg p-5 shadow-sm">
-				<h3 class="text-lg font-semibold mb-2">Will I be without hot water during the install?</h3>
-				<p>
-					Yes, but only briefly. We’ll disconnect your old unit and install the new one the same day in most cases, meaning hot water is typically restored within a few hours of arrival.
-				</p>
-			</div>
-
-			<div class="bg-base-100 border border-base-300 rounded-lg p-5 shadow-sm">
-				<h3 class="text-lg font-semibold mb-2">Do you dispose of the old water heater?</h3>
-				<p>
-					Yes. We remove and dispose of your old water heater as part of every standard replacement.
-				</p>
-			</div>
-
-			<div class="bg-base-100 border border-base-300 rounded-lg p-5 shadow-sm">
-				<h3 class="text-lg font-semibold mb-2">Is the work guaranteed?</h3>
-				<p>
-					Yes — every job is guaranteed with a <span class="font-bold">2-Year Labor Warranty</span>, and all tanks come with a manufacturer warranty (6-12 Years). We also install everything to code so you won’t have issues during home sales, inspections, or insurance claims.
-				</p>
-			</div>
-		</div>
-	</div>
+    <div class="max-w-4xl mx-auto">
+        <h2 class="text-4xl font-semibold mb-12 text-center tracking-tight">Water Heater Replacement FAQ</h2>
+        <div class="space-y-6">
+            {faqs.map(faq => (
+                <div class="bg-base-100 border border-base-300 rounded-lg p-5 shadow-sm">
+                    <h3 class="text-lg font-semibold mb-2">{faq.question}</h3>
+                    <p set:html={faq.answer} />
+                </div>
+            ))}
+        </div>
+    </div>
 </section>
