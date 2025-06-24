@@ -6,14 +6,24 @@ import CalendarClock from './icons/CalendarClock.astro';
 
 ---
 <section
-    class="
+    class="lg:h-full
         bg-[url('/images/heroBgMobile.webp')]
         sm:bg-[url('/images/heroBgDesktop.webp')]
         bg-cover bg-fixed bg-left text-base-content
     "
 >
-    <div class="h-full bg-white/90">
-        <div class=" flex flex-col xs:my-6 md:py-20 text-base-content text-center max-w-5xl mx-auto">
+    <div class="h-full bg-white/90 pb-6">
+        <div class="
+            flex
+            flex-col
+            max-w-5xl
+            mx-auto
+            xs:my-6
+            md:py-20
+            text-base-content
+            text-center
+            "
+        >
             <div id="hero-section" class="p-4 flex flex-col flex-shrink-0 rounded-lg">
                 <p class="text-xl xs:text-2xl sm:text-4xl font-bold leading-tight mb-4">
                     <!-- Get A Water Heater Replacement Quote in <span class="font-bold text-primary">Seconds</span> -->
@@ -30,11 +40,11 @@ import CalendarClock from './icons/CalendarClock.astro';
                 <h1 class="text-sm xs:text-md sm:text-2xl leading-tight sm:max-w-2xl max-w-3xl mx-auto">
                     Get A Water Heater Replacement Quote in Seconds.
                 </h1>
-                <p class="text-sm xs:text-md sm:text-2xl leading-tight mb-6 sm:max-w-2xl max-w-3xl mx-auto">
+                <p class="text-sm xs:text-md sm:text-2xl leading-tight sm:max-w-2xl max-w-3xl mx-auto mb-6">
                     No sales games. Just clear pricing and straightforward advice.
                     <br> Serving West Michigan for over 25 years.
                 </p>
-                <!-- <p class="text-sm xs:text-md sm:text-2xl leading-tight mb-6 sm:max-w-xl max-w-3xl mx-auto">
+                <!-- <p class="text-sm xs:text-md sm:text-2xl leading-tight sm:max-w-xl max-w-3xl mx-auto mb-6">
                     Clear pricing. Straightforward advice.
                     <br> Serving West Michigan for over 25 years.
                 </p> -->
@@ -52,17 +62,13 @@ import CalendarClock from './icons/CalendarClock.astro';
                 </a>
             </div>
         </div>
-        <div class="p-4 sm:px-8 sm:py-0 text-base-content text-center">
+        <div class="px-4 text-base-content text-center">
             <div id="instant-quote" class="mx-auto max-w-5xl">
                 <FindWaterHeaterQuiz  client:only />
             </div>
-
-            <!-- <p class="mt-6 text-sm text-gray-500 max-w-sm mx-auto">
-                Prefer to learn more first?
-            </p> -->
-            <!-- <p class="mt-6 text-sm text-gray-500 max-w-sm mx-auto">
+            <p class="hidden lg:block mt-4 text-sm text-gray-400 max-w-sm mx-auto">
                 Scroll down to see how it works.
-            </p> -->
+            </p>
         </div>
     </div>
 </section>
