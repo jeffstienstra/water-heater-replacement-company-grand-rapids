@@ -9,8 +9,8 @@ const TankIcon = ({showX = false}) => (
 
     {showX && (
         <>
-            <line x1="2" y1="15" x2="47" y2="60" stroke="#10509B60" strokeWidth="4" /> {/* 'x' */}
-            <line x1="47" y1="15" x2="2" y2="60" stroke="#10509B60" strokeWidth="4" /> {/* 'x' */}
+            <line x1="2" y1="15" x2="48" y2="60" stroke="#10509B60" strokeWidth="4" /> {/* 'x' */}
+            <line x1="48" y1="15" x2="2" y2="60" stroke="#10509B60" strokeWidth="4" /> {/* 'x' */}
         </>
     )}
     </svg>
