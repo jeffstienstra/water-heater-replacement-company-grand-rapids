@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 import QuestionCard from './QuestionCard.jsx';
 import RecommendationCard from './RecommendationCard.jsx';
+import natDraftWh from '../assets/images/wh-natDraftGroup.png'
 
 const questions = [
 	{
@@ -47,6 +48,26 @@ const questions = [
 		]
 	},
 	{
+		paramKey: 'chimney',
+		question: "How does your water heater's metal vent exit the home?",
+		options: [
+			{
+				label: 'Horizontally into a chimney (brick, cinder block, cement, etc)',
+				value: 'chimney',
+				hint: '/images/wh-metalVenting.webp',
+				hintTitle: 'Horizontal Venting Into Chimney',
+				hintText: 'This is a standard natural draft water heater vented horizontally into a masonry chimney. It has a metal vent pipe that connects from the top of the water heater to the chimney.'
+			},
+			{
+				label: 'Vertically through a metal vent',
+				value: 'bVent',
+				hint: '/images/wh-bvent.jpeg',
+				hintTitle: 'Vertical Metal Venting',
+				hintText: 'This is a standard natural draft water heater vented vertically. It may connect to a larger metal vent or combine with your furnace or boiler vent pipe and exit together through the ceiling.',
+			},
+		]
+	},
+	{
 		paramKey: 'peak',
 		question: 'How many showers are in your home?',
 		options: [
@@ -76,10 +97,9 @@ export default function FindWaterHeaterQuiz() {
 
 const handleAnswer = (paramKey, value) => {
 	const updatedParams = new URLSearchParams(window.location.search);
-	updatedParams.set(paramKey, value);
-
 	const nextStep = step + 1;
 	updatedParams.set('step', nextStep);
+	updatedParams.set(paramKey, value);
 
 	// Redirect to /instant-quote after first answer
 	if (step === 1) {
@@ -89,16 +109,16 @@ const handleAnswer = (paramKey, value) => {
 
 	// Otherwise, stay on page
 	window.history.pushState({}, '', `${window.location.pathname}?${updatedParams}`);
-	setParams(updatedParams);
 	setStep(nextStep);
+	setParams(updatedParams);
 };
 	const handleBack = () => {
 		const prevStep = Math.max(step - 1, 1);
 		const updatedParams = new URLSearchParams(window.location.search);
 		updatedParams.set('step', prevStep);
 		window.history.pushState({}, '', `${window.location.pathname}?${updatedParams}`);
-		setParams(updatedParams);
 		setStep(prevStep);
+		setParams(updatedParams);
 	};
 
 	if (step > questions.length) {
@@ -113,20 +133,29 @@ const handleAnswer = (paramKey, value) => {
 	const current = questions[step - 1];
 
 	return (
-		<div className="bg-white rounded-t-sm">
+		<div className="bg-white rounded-t-sm max-w-4xl mx-auto">
 			{step && step > questions.length ? (
 				<RecommendationCard params={params} />
 			) : (
 				<>
-					<div className="flex items-center w-full bg-primary/10 h-4 ">
+					{step > 1 && (
+						<div className="flex -mt-8">
+							<button
+								className="px-0 btn btn-sm btn-ghost text-sm text-gray-500"
+								onClick={handleBack}
+							>
+								← Back
+							</button>
+						</div>
+					)}
+					<div className="flex items-center w-full bg-primary/10 h-4 rounded-t-sm">
 						<div
 							className="bg-primary h-4 transition-all duration-300 ease-in-out rounded-t-sm"
 							style={{width: `${percent}`}}
 						/>
 					</div>
-					<p className=" text-sm text-gray-500 text-center font-bold mx-auto">Instant Quote: Step {step} of {steps}</p>
-
 					<div key={step} className="animate-fade-it-in shadow p-6 pt-2">
+						<p className=" text-sm text-gray-500 text-center font-bold mx-auto">Instant Quote: Step {step} of {steps}</p>
 						<div className="text-center">
 							{step === 1 && (
 								<p className="text-sm text-gray-500 mb-2">No email required.</p>

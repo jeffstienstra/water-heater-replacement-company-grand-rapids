@@ -12,7 +12,8 @@
     default: true;
     --color-primary: #10509B;
         /* --color-primary: hsl(195, 100%, 25%); */
-    --color-secondary: #FF6924;
+    /* --color-secondary: #FF6924; */
+    --color-secondary: #D14200;
 }
 @plugin "daisyui/theme" {
     name: "dark";
