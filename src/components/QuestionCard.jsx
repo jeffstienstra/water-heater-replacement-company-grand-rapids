@@ -34,19 +34,19 @@ export default function QuestionCard({question, options, paramKey, step, onSelec
 						</button>
 						)}
 						<div className="flex items-center gap-4 px-4">
-						{value === 'tank' && <Tank showX={paramKey === 'typeToRemove'} />}
-						{value === 'tankless' && <Tankless showX={paramKey === 'typeToRemove'} />}
-						{value === 'metal' && <MetalVent />}
-						{value === 'pvc' && <PvcVent />}
-						<span className="text-sm font-medium">{label}</span>
+							{value === 'tank' && <Tank showX={paramKey === 'typeToRemove'} />}
+							{value === 'tankless' && <Tankless showX={paramKey === 'typeToRemove'} />}
+							{value === 'metal' && <MetalVent />}
+							{value === 'pvc' && <PvcVent />}
+							<span className="text-sm font-medium">{label}</span>
 						</div>
 						<input
-						type="radio"
-						name={paramKey}
-						value={value}
-						onChange={() => onSelect(paramKey, value)}
-						className="form-radio text-secondary h-5 min-w-5"
-						onClick={e => e.stopPropagation()} // Prevent double firing
+							type="radio"
+							name={paramKey}
+							value={value}
+							onChange={() => onSelect(paramKey, value)}
+							className="form-radio text-secondary h-5 min-w-5"
+							onClick={e => e.stopPropagation()} // Prevent double firing
 						/>
 					</div>
 					))}
