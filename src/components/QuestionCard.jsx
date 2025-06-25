@@ -57,7 +57,11 @@ export default function QuestionCard({classes, question, options, step, paramKey
         }
 
         return (
-            <div ref={showThis ? subQuestionRef : null} className="pl-2 border-l border-primary/50 mt-2">
+            <div
+				ref={showThis ? subQuestionRef : null}
+				className="pl-2 border-l border-primary/50 mt-2"
+				style={{ scrollMarginTop: '30px' }}
+			>
                 {showThis && (
                     <QuestionCard
                         classes="bg-primary/8 rounded-lg pt-4"

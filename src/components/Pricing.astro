@@ -15,7 +15,7 @@ const imageMap = {
 };
 ---
 
-<section class="px-6 pt-8 sm:pt-20 text-base-content text-center max-w-4xl mx-auto">
+<section class="px-6 pt-8 sm:pt-20 text-base-content text-center max-w-6xl mx-auto">
 	<h1 class="text-4xl sm:text-5xl font-bold mb-6 tracking-tight">Water Heater Replacement Pricing</h1>
 	<p class="text-xl max-w-2xl mx-auto mb-4">Transparent prices with no surprises. Prices include:</p>
 	<div class="mb-12 px-6 max-w-4xl mx-auto">
@@ -38,7 +38,7 @@ const imageMap = {
 		</div>
 	</div>
 
-	<div class="grid gap-10 sm:grid-cols-2">
+	<div class="grid gap-10 sm:grid-cols-3">
 		{pricingOptions.map(option => (
 			<div class="bg-base-100 border border-base-300 rounded-xl shadow-md p-4 sm:p-8 text-left flex flex-col w-full max-w-md mx-auto">
 				<img src={imageMap[option.image].src} alt={option.title} class="w-full h-48 object-contain rounded-lg mb-4" />
