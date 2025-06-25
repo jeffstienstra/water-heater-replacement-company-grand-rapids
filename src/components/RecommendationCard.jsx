@@ -18,7 +18,7 @@ export default function RecommendationCard({params}) {
 	}
 
 	return (
-		<>
+		<div className="mt-22">
 			<div
 				className="max-w-4xl mx-auto -mt-6 bg-primary h-4 transition-all duration-300 ease-in-out rounded-t-sm"
 				style={{width: `${100}`}}
@@ -52,6 +52,6 @@ export default function RecommendationCard({params}) {
 					</a>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 }
