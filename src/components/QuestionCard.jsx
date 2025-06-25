@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useRef, useState} from 'react';
 import Tank from './Tank.jsx';
 import Tankless from './Tankless.jsx';
 import MetalVent from './MetalVent.jsx';
@@ -10,6 +10,7 @@ export default function QuestionCard({classes, question, options, step, paramKey
 	const [hintToShow, setHintToShow] = useState(null);
 	const [selectedValue, setSelectedValue] = useState(null);
 	const answers = Object.fromEntries(params);
+    const subQuestionRef = useRef(null);
 
 	const shouldShowAnySubQuestions = (subQuestion, answers) => {
 		if (!subQuestion) return false;
@@ -41,30 +42,38 @@ export default function QuestionCard({classes, question, options, step, paramKey
 
 
 	const renderSubQuestion = (subQuestion, answers) => {
-		if (!subQuestion) return null;
-		const showThis = subQuestion.shouldShow?.(answers);
-		const showNested = renderSubQuestion(subQuestion.subQuestion, answers);
+        if (!subQuestion) return null;
+        const showThis = subQuestion.shouldShow?.(answers);
+        const showNested = renderSubQuestion(subQuestion.subQuestion, answers);
 
-		if (!showThis && !showNested) return null;
+        if (!showThis && !showNested) return null;
 
-		return (
-			<div className="pl-2 border-l border-primary/50 mt-2">
-				{showThis && (
-					<QuestionCard
-						classes="bg-primary/8 rounded-lg pt-4"
-						question={subQuestion.question}
-						options={subQuestion.options}
-						paramKey={subQuestion.paramKey}
-						onSelect={onSelect}
-						onBack={onBack}
-						params={params}
-						subQuestion={subQuestion.subQuestion} // allow deep nesting
-					/>
-				)}
-				{!showThis && showNested}
-			</div>
-		);
-	};
+        // Scroll to subquestion when it appears
+        // Only scroll for the first visible subquestion in this branch
+        if (showThis) {
+            setTimeout(() => {
+                subQuestionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100); // Delay to ensure DOM is updated
+        }
+
+        return (
+            <div ref={showThis ? subQuestionRef : null} className="pl-2 border-l border-primary/50 mt-2">
+                {showThis && (
+                    <QuestionCard
+                        classes="bg-primary/8 rounded-lg pt-4"
+                        question={subQuestion.question}
+                        options={subQuestion.options}
+                        paramKey={subQuestion.paramKey}
+                        onSelect={onSelect}
+                        onBack={onBack}
+                        params={params}
+                        subQuestion={subQuestion.subQuestion}
+                    />
+                )}
+                {!showThis && showNested}
+            </div>
+        );
+    };
 
 	return (
 		<div className={`w-full bg-base-100 py-1 rounded-b-lg flex flex-col items-center justify-between relative ${classes}`}>
