@@ -18,8 +18,8 @@ const TanklessIcon = ({showX = false}) => (
         <line x1="0" y1="80" x2="100" y2="80" /> {/* floor */}
         {showX && (
             <>
-                <line x1="2" y1="10" x2="48" y2="50" stroke="#10509B60" strokeWidth="4" /> {/* 'x' */}
-                <line x1="48" y1="10" x2="2" y2="50" stroke="#10509B60" strokeWidth="4" /> {/* 'x' */}
+                <line x1="2" y1="10" x2="48" y2="50" stroke="#FF510060" strokeWidth="4" /> {/* 'x' */}
+                <line x1="48" y1="10" x2="2" y2="50" stroke="#FF510060" strokeWidth="4" /> {/* 'x' */}
             </>
         )}
 ›    </svg>

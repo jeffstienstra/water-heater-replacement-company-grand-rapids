@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import QuestionCard from './QuestionCard.jsx';
 import RecommendationCard from './RecommendationCard.jsx';
-import natDraftWh from '../assets/images/wh-natDraftGroup.png'
+import natDraftWh from '../assets/images/wh-natDraftGroup.png';
 
 const questions = [
 	{
@@ -17,7 +17,7 @@ const questions = [
 		question: 'What type of water heater will be removed?',
 		options: [
 			{label: 'Tank', value: 'tank'},
-			{label: 'Tankless', value: 'tankless'},
+			{label: 'Tankless', value: 'tankless'}
 		],
 	},
 	{
@@ -26,8 +26,7 @@ const questions = [
 		options: [
 			{label: 'Basement', value: 'basement'},
 			{label: 'Crawlspace', value: 'crawlspace'},
-			// {label: 'Garage', value: 'garage'},
-			{label: 'Closet', value: 'closet'},
+			{label: 'Closet', value: 'closet'}
 		],
 	},
 	{
@@ -36,7 +35,7 @@ const questions = [
 		options: [
 			{label: 'Natural Gas/Propane', value: 'gas'},
 			{label: 'Electric', value: 'electric'},
-			{label: 'Fuel Oil', value: 'oil'},
+			{label: 'Fuel Oil', value: 'oil'}
 		]
 	},
 	{
@@ -44,34 +43,43 @@ const questions = [
 		question: 'How is your water heater vented?',
 		options: [
 			{label: 'Metal', value: 'metal'},
-			{label: 'Plastic', value: 'pvc'},
-		]
-	},
-	{
-		paramKey: 'chimney',
-		question: "How does your water heater's metal vent exit the home?",
-		options: [
-			{
-				label: 'Horizontally into a chimney (brick, cinder block, cement, etc)',
-				value: 'chimney',
-				hint: '/images/wh-metalVenting.webp',
-				hintTitle: 'Horizontal Venting Into Chimney',
-				hintText: 'This is a standard natural draft water heater vented horizontally into a masonry chimney. It has a metal vent pipe that runs from the top of the water heater to the chimney. Your water heater may combine its metal vent with your furnace or other metal vent pipes before reaching the chimney—that is perfectly fine.  This is the general idea of what to look for.',
+			{label: 'Plastic', value: 'pvc'}
+		],
+		shouldShow: (answers) => {
+			const fuel = answers.fuel;
+			return fuel && fuel !== 'electric';
+		},
+		subQuestion: {
+			paramKey: 'chimney',
+			question: "How does your water heater's metal vent exit the home?",
+			options: [
+				{
+					label: 'Horizontally into a chimney (brick, cinder block, cement, etc)',
+					value: 'chimney',
+					hint: '/images/wh-metalVenting.webp',
+					hintTitle: 'Horizontal Venting Into Chimney',
+					hintText: 'This is a standard natural draft water heater vented horizontally into a masonry chimney. It has a metal vent pipe that runs from the top of the water heater to the chimney. Your water heater may combine its metal vent with your furnace or other metal vent pipes before reaching the chimney—that is perfectly fine.  This is the general idea of what to look for.'
+				},
+				{
+					label: 'Vertically through a metal vent',
+					value: 'bVent',
+					hint: '/images/wh-bvent.jpeg',
+					hintTitle: 'Vertical Metal Venting',
+					hintText: 'This is a standard natural draft water heater vented vertically with metal venting. It may connect to a larger metal vent or combine with your furnace or other metal vent pipe and exit together through the ceiling. Your setup may vary, but the place it exits the room is most important.'
+				},
+				{
+					label: "I'd like a pro to assess it",
+					value: 'askPro',
+					hint: '/images/wh-tech-profile.png',
+					hintTitle: 'Get Help From A Pro',
+					hintText: 'If you are unsure about your water heater venting we can help! You can text us a few images, join a brief video call, or schedule a free on-site assessment.'
+				}
+			],
+			shouldShow: (answers) => {
+				const vent = answers.vent;
+				return vent && vent === 'metal';
 			},
-			{
-				label: 'Vertically through a metal vent',
-				value: 'bVent',
-				hint: '/images/wh-bvent.jpeg',
-				hintTitle: 'Vertical Metal Venting',
-				hintText: 'This is a standard natural draft water heater vented vertically with metal venting. It may connect to a larger metal vent or combine with your furnace or other metal vent pipe and exit together through the ceiling. Your setup may vary, but the place it exits the room is most important.',
-			},
-			{
-				label: "I'd like a pro to assess it",
-				value: 'askPro',
-				hint: '/images/wh-tech-profile.png',
-				hintTitle: 'Get Help From A Pro',
-				hintText: "If you are unsure about your water heater venting we can asses it for you. You can text us a few images, join a brief video call, or schedule a free on-site assessment.",}
-		]
+		}
 	},
 	{
 		paramKey: 'peak',
@@ -79,7 +87,7 @@ const questions = [
 		options: [
 			{label: '1', value: '1'},
 			{label: '2', value: '2'},
-			{label: '3+', value: '3+'},
+			{label: '3+', value: '3+'}
 		]
 	}
 ];
@@ -87,10 +95,12 @@ const questions = [
 export default function FindWaterHeaterQuiz() {
 	const [params, setParams] = useState(() => new URLSearchParams(window.location.search));
 	const [step, setStep] = useState(() => parseInt(params.get('step') || '1', 10));
-	// const [steps, setSteps] = useState(questions.length);
-	const [tankIsActive, setTankIsActive] = useState(false);
 
-	const steps = questions.length;
+	const getAnswers = () => Object.fromEntries(params.entries());
+	const visibleQuestions = questions.filter(q => !q.shouldShow || q.shouldShow(getAnswers()));
+	const steps = visibleQuestions.length;
+	const current = visibleQuestions[step - 1];
+
 	useEffect(() => {
 		const handlePopState = () => {
 			const updated = new URLSearchParams(window.location.search);
@@ -101,23 +111,22 @@ export default function FindWaterHeaterQuiz() {
 		return () => window.removeEventListener('popstate', handlePopState);
 	}, []);
 
-const handleAnswer = (paramKey, value) => {
-	const updatedParams = new URLSearchParams(window.location.search);
-	const nextStep = step + 1;
-	updatedParams.set('step', nextStep);
-	updatedParams.set(paramKey, value);
+	const handleAnswer = (paramKey, value) => {
+		const updatedParams = new URLSearchParams(window.location.search);
+		const nextStep = step + 1;
+		updatedParams.set('step', nextStep);
+		updatedParams.set(paramKey, value);
 
-	// Redirect to /instant-quote after first answer
-	if (step === 1) {
-		window.location.href = `/instant-quote?${updatedParams.toString()}`;
-		return;
-	}
+		if (step === 1) {
+			window.location.href = `/instant-quote?${updatedParams.toString()}`;
+			return;
+		}
 
-	// Otherwise, stay on page
-	window.history.pushState({}, '', `${window.location.pathname}?${updatedParams}`);
-	setStep(nextStep);
-	setParams(updatedParams);
-};
+		window.history.pushState({}, '', `${window.location.pathname}?${updatedParams}`);
+		setStep(nextStep);
+		setParams(updatedParams);
+	};
+
 	const handleBack = () => {
 		const prevStep = Math.max(step - 1, 1);
 		const updatedParams = new URLSearchParams(window.location.search);
@@ -127,7 +136,7 @@ const handleAnswer = (paramKey, value) => {
 		setParams(updatedParams);
 	};
 
-	if (step > questions.length) {
+	if (step > steps) {
 		return <RecommendationCard params={params} />;
 	}
 
@@ -136,11 +145,9 @@ const handleAnswer = (paramKey, value) => {
 		? '3%'
 		: `${Math.max(3, Math.min(100, ((safeStep - 1) / (steps - 1)) * 100))}%`;
 
-	const current = questions[step - 1];
-
 	return (
 		<div className="bg-white rounded-t-sm max-w-4xl mx-auto">
-			{step && step > questions.length ? (
+			{step > steps ? (
 				<RecommendationCard params={params} />
 			) : (
 				<>
@@ -166,15 +173,15 @@ const handleAnswer = (paramKey, value) => {
 							{step === 1 && (
 								<p className="text-sm text-gray-500 mb-2">No email required.</p>
 							)}
-
 						</div>
 						<QuestionCard
+							client:visible
 							question={current.question}
 							options={current.options}
 							paramKey={current.paramKey}
 							step={step}
-							subOptions={current.subOptions}
-							steps={steps}
+							subQuestion={current.subQuestion}
+							params={params}
 							onSelect={handleAnswer}
 							onBack={handleBack}
 						/>
