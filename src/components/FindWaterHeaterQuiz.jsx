@@ -1,12 +1,12 @@
 import {useEffect, useState} from 'react';
 import QuestionCard from './QuestionCard.jsx';
 import RecommendationCard from './RecommendationCard.jsx';
-import natDraftWh from '../assets/images/wh-natDraftGroup.png';
+import urlHelper from '../lib/urlHelper.js';
 
 const questions = [
 	{
 		paramKey: 'interest',
-		question: 'Which type of water heater are you interested in?',
+		question: '1. Which type of water heater are you interested in?',
 		options: [
 			{label: 'Tank', value: 'tank'},
 			{label: 'Tankless', value: 'tankless'}
@@ -14,7 +14,7 @@ const questions = [
 	},
 	{
 		paramKey: 'typeToRemove',
-		question: 'What type of water heater will be removed?',
+		question: '2. What type of water heater will be removed?',
 		options: [
 			{label: 'Tank', value: 'tank'},
 			{label: 'Tankless', value: 'tankless'}
@@ -22,7 +22,7 @@ const questions = [
 	},
 	{
 		paramKey: 'location',
-		question: 'Where is your water heater located?',
+		question: '3. Where is your water heater located?',
 		options: [
 			{label: 'Basement', value: 'basement'},
 			{label: 'Crawlspace', value: 'crawlspace'},
@@ -31,55 +31,56 @@ const questions = [
 	},
 	{
 		paramKey: 'fuel',
-		question: 'What fuel type does your water heater use?',
+		question: '4. What fuel type does your water heater use?',
 		options: [
 			{label: 'Natural Gas/Propane', value: 'gas'},
 			{label: 'Electric', value: 'electric'},
 			{label: 'Fuel Oil', value: 'oil'}
-		]
-	},
-	{
-		paramKey: 'vent',
-		question: 'How is your water heater vented?',
-		options: [
-			{label: 'Metal', value: 'metal'},
-			{label: 'Plastic', value: 'pvc'}
 		],
-		shouldShow: (answers) => {
-			const fuel = answers.fuel;
-			return fuel && fuel !== 'electric';
-		},
 		subQuestion: {
-			paramKey: 'chimney',
-			question: "How does your water heater's metal vent exit the home?",
+			paramKey: 'vent',
+			question: 'a. How is your water heater vented?',
 			options: [
-				{
-					label: 'Horizontally into a chimney (brick, cinder block, cement, etc)',
-					value: 'chimney',
-					hint: '/images/wh-metalVenting.webp',
-					hintTitle: 'Horizontal Venting Into Chimney',
-					hintText: 'This is a standard natural draft water heater vented horizontally into a masonry chimney. It has a metal vent pipe that runs from the top of the water heater to the chimney. Your water heater may combine its metal vent with your furnace or other metal vent pipes before reaching the chimney—that is perfectly fine.  This is the general idea of what to look for.'
-				},
-				{
-					label: 'Vertically through a metal vent',
-					value: 'bVent',
-					hint: '/images/wh-bvent.jpeg',
-					hintTitle: 'Vertical Metal Venting',
-					hintText: 'This is a standard natural draft water heater vented vertically with metal venting. It may connect to a larger metal vent or combine with your furnace or other metal vent pipe and exit together through the ceiling. Your setup may vary, but the place it exits the room is most important.'
-				},
-				{
-					label: "I'd like a pro to assess it",
-					value: 'askPro',
-					hint: '/images/wh-tech-profile.png',
-					hintTitle: 'Get Help From A Pro',
-					hintText: 'If you are unsure about your water heater venting we can help! You can text us a few images, join a brief video call, or schedule a free on-site assessment.'
-				}
+				{label: 'Metal', value: 'metal'},
+				{label: 'Plastic', value: 'pvc'}
 			],
 			shouldShow: (answers) => {
-				const vent = answers.vent;
-				return vent && vent === 'metal';
+				const fuel = answers.fuel;
+				return fuel && fuel === 'gas';
 			},
-		}
+			subQuestion: {
+				paramKey: 'chimney',
+				question: "b. How does your water heater's metal vent exit the home?",
+				options: [
+					{
+						label: 'Horizontally into a chimney (brick, cinder block, cement, etc)',
+						value: 'chimney',
+						hint: '/images/wh-metalVenting.webp',
+						hintTitle: 'Horizontal Venting Into Chimney',
+						hintText: 'This is a standard natural draft water heater vented horizontally into a masonry chimney. It has a metal vent pipe that runs from the top of the water heater to the chimney. Your water heater may combine its metal vent with your furnace or other metal vent pipes before reaching the chimney—that is perfectly fine.  This is the general idea of what to look for.'
+					},
+					{
+						label: 'Vertically through a metal vent',
+						value: 'bVent',
+						hint: '/images/wh-bvent.jpeg',
+						hintTitle: 'Vertical Metal Venting',
+						hintText: 'This is a standard natural draft water heater vented vertically with metal venting. It may connect to a larger metal vent or combine with your furnace or other metal vent pipe and exit together through the ceiling. Your setup may vary, but the place it exits the room is most important.'
+					},
+					{
+						label: "I'd like a pro to assess it",
+						value: 'askPro',
+						hint: '/images/wh-tech-profile.png',
+						hintTitle: 'Get Help From A Pro',
+						hintText: 'If you are unsure about your water heater venting we can help! You can text us a few images, join a brief video call, or schedule a free on-site assessment.'
+					}
+				],
+				shouldShow: (answers) => {
+					const vent = answers.vent;
+					const fuel = answers.fuel;
+					return vent && vent === 'metal' || fuel && fuel === 'oil' || fuel && fuel !== 'electric';
+				},
+			}
+		},
 	},
 	{
 		paramKey: 'peak',
@@ -111,9 +112,9 @@ export default function FindWaterHeaterQuiz() {
 		return () => window.removeEventListener('popstate', handlePopState);
 	}, []);
 
-	const handleAnswer = (paramKey, value) => {
+	const handleAnswer = (paramKey, value, shouldAdvanceStep = true) => {
 		const updatedParams = new URLSearchParams(window.location.search);
-		const nextStep = step + 1;
+		const nextStep = shouldAdvanceStep ? step + 1 : step;
 		updatedParams.set('step', nextStep);
 		updatedParams.set(paramKey, value);
 
@@ -130,8 +131,15 @@ export default function FindWaterHeaterQuiz() {
 	const handleBack = () => {
 		const prevStep = Math.max(step - 1, 1);
 		const updatedParams = new URLSearchParams(window.location.search);
+
+		const allKeys = urlHelper.getAllParamKeys(questions); // flatten paramKeys from all steps
+		const keepKeys = urlHelper.getParamKeysUpToStep(questions, prevStep); // only up to previous step
+		const keysToRemove = allKeys.filter(k => !keepKeys.includes(k));
+		keysToRemove.forEach(key => updatedParams.delete(key));
+
 		updatedParams.set('step', prevStep);
 		window.history.pushState({}, '', `${window.location.pathname}?${updatedParams}`);
+
 		setStep(prevStep);
 		setParams(updatedParams);
 	};

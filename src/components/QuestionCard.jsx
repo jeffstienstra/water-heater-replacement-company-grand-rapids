@@ -4,40 +4,81 @@ import Tankless from './Tankless.jsx';
 import MetalVent from './MetalVent.jsx';
 import PvcVent from './PvcVent.jsx';
 import QuestionMark from './icons/QuestionMark.jsx';
+import urlHelper from '../lib/urlHelper.js';
 
-export default function QuestionCard({question, options, paramKey, params, subQuestion, onSelect, onBack}) {
+export default function QuestionCard({classes, question, options, step, paramKey, params, subQuestion, onSelect, onBack}) {
 	const [hintToShow, setHintToShow] = useState(null);
 	const [selectedValue, setSelectedValue] = useState(null);
-	const [isSelected, setIsSelected] = useState(false);
 	const answers = Object.fromEntries(params);
 
+	const shouldShowAnySubQuestions = (subQuestion, answers) => {
+		if (!subQuestion) return false;
+		if (subQuestion.shouldShow?.(answers)) return true;
+		return shouldShowAnySubQuestions(subQuestion.subQuestion, answers);
+	};
+
 	const handleOptionSelect = (value) => {
+		// Update URL params as before
+		const updatedParams = new URLSearchParams(window.location.search);
+		updatedParams.set(paramKey, value);
+
+		// Remove all subQuestion keys from URL
+		const allKeys = urlHelper.getAllParamKeys([{paramKey, subQuestion}]);
+		allKeys.forEach(key => {
+			if (key !== paramKey) updatedParams.delete(key);
+		});
+
+		window.history.replaceState({}, '', `${window.location.pathname}?${updatedParams}`);
+
+		const updatedAnswers = Object.fromEntries(updatedParams.entries());
+
 		setSelectedValue(value);
 
-		// Only call onSelect if there's no subQuestion to answer
-		const updatedAnswers = {...answers, [paramKey]: value};
-		const shouldShowSub = subQuestion && subQuestion.shouldShow?.(updatedAnswers);
-
-		if (!shouldShowSub) {
-			onSelect(paramKey, value);
-		}
+		const shouldShowSubs = subQuestion && shouldShowAnySubQuestions(subQuestion, updatedAnswers);
+		const shouldAdvance = !shouldShowSubs;
+		onSelect(paramKey, value, shouldAdvance);
 	};
 
 
+	const renderSubQuestion = (subQuestion, answers) => {
+		if (!subQuestion) return null;
+		const showThis = subQuestion.shouldShow?.(answers);
+		const showNested = renderSubQuestion(subQuestion.subQuestion, answers);
+
+		if (!showThis && !showNested) return null;
+
+		return (
+			<div className="pl-2 border-l border-primary/50 mt-2">
+				{showThis && (
+					<QuestionCard
+						classes="bg-primary/8 rounded-lg pt-4"
+						question={subQuestion.question}
+						options={subQuestion.options}
+						paramKey={subQuestion.paramKey}
+						onSelect={onSelect}
+						onBack={onBack}
+						params={params}
+						subQuestion={subQuestion.subQuestion} // allow deep nesting
+					/>
+				)}
+				{!showThis && showNested}
+			</div>
+		);
+	};
 
 	return (
-		<div className="w-full bg-base-100 py-1 rounded-b-lg flex flex-col items-center justify-between relative">
-			<h2 className="text-xl font-semibold mb-4 text-center">{question}</h2>
-			<div className="flex flex-col gap-4 w-full max-w-md">
+		<div className={`w-full bg-base-100 py-1 rounded-b-lg flex flex-col items-center justify-between relative ${classes}`}>
+			<h2 className="px-1 text-xl font-semibold mb-4 text-center">{question}</h2>
+			<div className="flex flex-col gap-4 w-full max-w-md px-2">
 				{options.map(({label, value, hint, hintText, hintTitle}) => {
 					const isSelected = selectedValue === value;
 					const updatedAnswers = {...answers, [paramKey]: value};
 					const showThisSub = subQuestion && isSelected && subQuestion.shouldShow?.(updatedAnswers);
 
 					return (
-						<div key={value} className="flex flex-col gap-2">
+						<div key={value} className={`flex flex-col gap-2`}>
 							<div
-								className="flex items-center border border-base-300 rounded-lg px-4 py-3 cursor-pointer hover:bg-base-200"
+								className="flex items-center border-2 border-primary/50 bg-base-100 rounded-lg px-4 py-3 cursor-pointer hover:bg-base-200"
 								onClick={() => handleOptionSelect(value)}
 								tabIndex={0}
 								role="radio"
@@ -72,18 +113,7 @@ export default function QuestionCard({question, options, paramKey, params, subQu
 									onClick={e => e.stopPropagation()}
 								/>
 							</div>
-							{showThisSub && (
-								<div className="pl-4 border-l border-base-300 mt-2 animate-fade-it-in">
-									<QuestionCard
-										question={subQuestion.question}
-										options={subQuestion.options}
-										paramKey={subQuestion.paramKey}
-										onSelect={onSelect}
-										onBack={onBack}
-										params={params}
-									/>
-								</div>
-							)}
+							{isSelected && renderSubQuestion(subQuestion, updatedAnswers)}
 						</div>
 					);
 				})}
