@@ -67,7 +67,7 @@ const questions = [
 						hintText: 'This is a standard natural draft water heater vented vertically with metal venting. It may connect to a larger metal vent or combine with your furnace or other metal vent pipe and exit together through the ceiling. Your setup may vary, but the place it exits the room is most important.'
 					},
 					{
-						label: "I'd like a pro to assess it",
+						label: "I'm not sure, I'd like a pro to assess it",
 						value: 'askPro',
 						hint: '/images/wh-tech-profile.png',
 						hintTitle: 'Get Help From A Pro',
@@ -77,7 +77,7 @@ const questions = [
 				shouldShow: (answers) => {
 					const vent = answers.vent;
 					const fuel = answers.fuel;
-					return vent && vent === 'metal' || fuel && fuel === 'oil' || fuel && fuel !== 'electric';
+					return vent && vent === 'metal' || fuel && fuel === 'oil';
 				},
 			}
 		},
