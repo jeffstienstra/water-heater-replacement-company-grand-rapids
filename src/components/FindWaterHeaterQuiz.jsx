@@ -39,7 +39,7 @@ const questions = [
 		],
 		subQuestion: {
 			paramKey: 'vent',
-			question: 'a. How is your water heater vented?',
+			question: 'How is your water heater vented?',
 			options: [
 				{label: 'Metal', value: 'metal'},
 				{label: 'Plastic', value: 'pvc'}
@@ -50,7 +50,7 @@ const questions = [
 			},
 			subQuestion: {
 				paramKey: 'chimney',
-				question: "b. How does your water heater's metal vent exit the home?",
+				question: "How does your water heater's metal vent exit the home?",
 				options: [
 					{
 						label: 'Horizontally into a chimney (brick, cinder block, cement, etc)',
