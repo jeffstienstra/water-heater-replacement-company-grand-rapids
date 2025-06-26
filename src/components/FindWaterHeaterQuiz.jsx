@@ -3,9 +3,9 @@ import QuestionCard from './QuestionCard.jsx';
 import RecommendationCard from './RecommendationCard.jsx';
 import urlHelper from '../lib/urlHelper.js';
 
-const questions = [
+export const questions = [
 	{
-		paramKey: 'interest',
+		paramKey: 'interestedIn',
 		question: '1. Which type of water heater are you interested in?',
 		options: [
 			{label: 'Tank', value: 'tank'},
@@ -38,7 +38,7 @@ const questions = [
 			{label: 'Fuel Oil', value: 'oil'}
 		],
 		subQuestion: {
-			paramKey: 'vent',
+			paramKey: 'ventType',
 			question: 'How is your water heater vented?',
 			options: [
 				{label: 'Metal', value: 'metal'},
@@ -49,7 +49,7 @@ const questions = [
 				return fuel && fuel === 'gas';
 			},
 			subQuestion: {
-				paramKey: 'chimney',
+				paramKey: 'ventingTermination',
 				question: "How does your water heater's metal vent exit the home?",
 				options: [
 					{
@@ -61,7 +61,7 @@ const questions = [
 					},
 					{
 						label: 'Vertically through a metal vent',
-						value: 'bVent',
+						value: 'metalVent',
 						hint: '/images/wh-bvent.jpeg',
 						hintTitle: 'Vertical Metal Venting',
 						hintText: 'This is a standard natural draft water heater vented vertically with metal venting. It may connect to a larger metal vent or combine with your furnace or other metal vent pipe and exit together through the ceiling. Your setup may vary, but the place it exits the room is most important.'
@@ -75,15 +75,15 @@ const questions = [
 					}
 				],
 				shouldShow: (answers) => {
-					const vent = answers.vent;
+					const ventType = answers.ventType;
 					const fuel = answers.fuel;
-					return vent && vent === 'metal' || fuel && fuel === 'oil';
+					return ventType && ventType === 'metal' || fuel && fuel === 'oil';
 				},
 			}
 		},
 	},
 	{
-		paramKey: 'peak',
+		paramKey: 'showers',
 		question: 'How many showers are in your home?',
 		options: [
 			{label: '1', value: '1'},

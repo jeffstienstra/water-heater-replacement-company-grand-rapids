@@ -9,8 +9,8 @@ const waterHeaterModels = [
 		baseCost: [1200, 1500], // installed price range
 		notes: 'Most common choice for 2–3 person households',
 		conditions: {
-			peak: ['1', '2', '3+'], // matches quiz values
-			interest: ['tank'],
+			showers: ['1', '2', '3+'],
+			interestedIn: ['tank'],
 		}
 	},
 	{
@@ -23,8 +23,8 @@ const waterHeaterModels = [
 		baseCost: [1600, 2000],
 		notes: 'Faster recovery for larger households',
 		conditions: {
-			peak: ['2', '3+'],
-			interest: ['tank'],
+			showers: ['2', '3+'],
+			interestedIn: ['tank'],
 		}
 	},
 	{
@@ -38,7 +38,7 @@ const waterHeaterModels = [
 		notes: 'No venting required',
 		conditions: {
 			fuel: ['electric'],
-			interest: ['tank']
+			interestedIn: ['tank']
 		}
 	},
 	{
@@ -50,7 +50,7 @@ const waterHeaterModels = [
 		baseCost: [2400, 3500],
 		notes: 'Endless hot water, compact design, high efficiency',
 		conditions: {
-			interest: ['tankless'],
+			interestedIn: ['tankless'],
 			fuel: ['gas']
 		}
 	}
