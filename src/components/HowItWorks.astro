@@ -2,6 +2,7 @@
 import ArrowDownIcon from './icons/ArrowDown.astro';
 import PriceReceipt from './icons/PriceReceipt.astro';
 import UserCheck from './icons/UserCheck.astro';
+import QuestionMark from './icons/QuestionMark.jsx';
 import MagnifyingGlass from './icons/MagnifyingGlass.astro';
 ---
 <section id="how-it-works" class="py-20 px-6 text-base-content text-center">
@@ -24,17 +25,38 @@ import MagnifyingGlass from './icons/MagnifyingGlass.astro';
             <ArrowDownIcon class="h-8 w-full text-primary -mt-1 mb-2" />
 			<div class="card bg-base-200 border-1 border-base-300 p-6">
                 <h4 class="text-3xl font-bold text-primary mb-4">Step 3</h4>
-                <h5 class="text-xl font-semibold mb-2">Confirm Your Setup with a Photo or Quick Video Call</h5>
-				<p class="mb-2">To finalize your quote, we just need a quick look at your current water heater setup — including venting, gas, water, and electrical connections. You can either send us photos or hop on a short video call — whichever is easiest for you.
-                <span class="font-bold">NOTE: </span>No pressure. No sales pitch. Just a quick check to confirm details and answer your questions.
-			</p>
+                <h5 class="text-xl font-semibold mb-2">Book A Quick-Price-Check To Confirm Your Setup
+				</h5>
+				<p class=" mb-2">
+					You’ve already got your min and max quote. To guarantee your lowest possible price, a tech needs to quickly check key details — venting, gas, water, electrical, drainage, and more.
+				</p>
+				<p class="mb-2">
+					A <span class="font-bold" onclick="document.getElementById('price-lock-modal').classList.add('modal-open')">
+						Quick-Price-Check
+						</span> is exactly that: a technician stops by, confirms your home's systems, and that’s it.
+
+				</p>
+				<p class="mb-2">
+					No pressure. No upsells. No long-winded presentations. Just a locked-in price and clear answers to all your questions.
+				</p>
+				<p class="mb-2">
+					<span class="font-semibold">Bonus</span>: If you’re ready — and there’s time in the schedule — your tech can even get the process started right then. That means draining the tank, disconnecting lines, and streamlining your install to save time.
+				</p>
+
+				<p class="flex text-bottom items-baseline underline  gap-0 text-primary font-bold cursor-pointer" onclick="document.getElementById('price-lock-modal').classList.add('modal-open')">
+					<QuestionMark className="mr-1 mb-auto" />
+					Learn More About Our Quick-Price-Check
+				</p>
 			</div>
             <ArrowDownIcon class="h-8 w-full text-primary -mt-1 mb-2" />
 			<div class="card bg-base-200 border-1 border-base-300 p-6">
 				<h4 class="text-3xl font-bold text-primary mb-4">Step 4</h4>
-				<h5 class="text-xl font-semibold mb-2">Book Your Installation</h5>
+				<h5 class="text-xl font-semibold mb-2">Book Your Water Heater Replacement</h5>
 				<p class="mb-2">Book online or give us a call — most installs happen the next day.</p>
-                <p>If you skipped the video call, we’ll confirm the exact price on-site (guaranteed to be within the original range) before we begin.</p>
+                <p>
+					If you skipped the Quick-Price-Check, we’ll confirm the exact price on-site before we begin.
+				</p>
+
 			</div>
             <ArrowDownIcon class="h-8 w-full animate-bounce text-primary mt-2" />
 		</div>
@@ -42,5 +64,32 @@ import MagnifyingGlass from './icons/MagnifyingGlass.astro';
                 <PriceReceipt />
                 <p class="">Get My Instant Quote</p>
             </a>
+	</div>
+
+	<!-- create a modal to explain what the Quick Home Check is. it should appear when the highlighted text 'Quick Home Check' in Step 3 is clicked -->
+	<div class="modal h-screen px-2 py-4 flex flex-col justify-center items-center" id="price-lock-modal">
+			<div class="modal-box border-2 border-primary shadow-lg">
+				<h3 class="font-bold text-lg">What’s a Quick-Price-Check?</h3>
+				<p class="pt-4 text-justify">A Quick-Price-Check is a quick, on-site visit to make sure your quote is accurate and nothing is missed.</p>
+				<p class="pt-4 text-justify">Our Instant Quote Tool gives you a solid price range based on typical setups, but not everyone needs the same parts or upgrades.</p>
+				<p class="pt-4 text-justify">At your home, we’ll <span class="font-semibold">walk through an Instant Quote together</span> — right from our website — to confirm the info is accurate and the price range makes sense.</p>
+				<p class="pt-4 text-justify">Then we look at the unique needs of your water heating system — things like venting, gas line size, or drainage — to see if any specific parts or upgrades are actually required.</p>
+				<p class="pt-4 text-justify">That way, you’ll see exactly how the final price is calculated, <span class="font-semibold">starting with the same Instant Quote everyone gets</span> — and adjusted only when your actual setup calls for it.</p>
+				<p class="pt-4 text-justify">No guesswork. No surprises. <span class="font-semibold">Just transparent pricing.</span></p>
+				<p class="font-extrabold pt-4">During the visit we'll:</p>
+				<ul class="list-disc text-left pl-6 mb-4 font-bold">
+					<li>Walk through your Instant Quote to verify price range</li>
+					<li>Make sure you’re not paying for anything unnecessary</li>
+					<li>Confirm you get the right parts and equipment</li>
+					<li>Ensure your install will be fully up to code</li>
+					<li>Lock in your final price before installation</li>
+					<li>Answer any questions — from a tech who knows what to look for</li>
+				</ul>
+				<p class="text-gray-500 text-justify mb-2">We’ve built a modular pricing system from hundreds of installs that cover nearly every add-on, like chimney liners, gas line upgrades, expansion tank swaps, or relocation work.</p>
+				<p class="text-gray-500 text-justify mb-2">Each add-on has a set price range based on real-world factors like time, distance, or materials and is determined by a checkbox — not “sales instinct.” This ensures two homes with the same setup get the same fair price.</p>
+				<p class="text-gray-500 text-justify mb-2">No guesswork. No kidding. :)</p>
+				<div class="modal-action">
+					<button class="btn btn-primary" onclick="document.getElementById('price-lock-modal').classList.remove('modal-open')">Got it!</button>
+			</div>
 	</div>
 </section>
