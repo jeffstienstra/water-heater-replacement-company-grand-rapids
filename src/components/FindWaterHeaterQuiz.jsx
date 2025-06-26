@@ -97,9 +97,9 @@ export default function FindWaterHeaterQuiz() {
 	const [params, setParams] = useState(() => new URLSearchParams(window.location.search));
 	const [step, setStep] = useState(() => parseInt(params.get('step') || '1', 10));
 
-	useEffect(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, [step]);
+	// useEffect(() => {
+    //     window.scrollTo({ top: 0, behavior: 'smooth' });
+    // }, [step]);
 
 	const getAnswers = () => Object.fromEntries(params.entries());
 	const visibleQuestions = questions.filter(q => !q.shouldShow || q.shouldShow(getAnswers()));

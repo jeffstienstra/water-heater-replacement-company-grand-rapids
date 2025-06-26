@@ -1,57 +1,184 @@
 const waterHeaterModels = [
+	// Natural Draft – Metal Vent
 	{
-		id: 'gas_tank_40_good',
+		id: 'natdraft_40_good',
 		type: 'tank',
 		fuel: 'gas',
-		size: '40',
+		venting: 'metal',
 		tier: 'good',
-		label: 'Standard 40-Gallon Gas Water Heater',
-		baseCost: [1200, 1500], // installed price range
-		notes: 'Most common choice for 2–3 person households',
+		label: '40-Gallon Natural Draft Water Heater',
+		size: 40,
+		uef: 0.62,
+		gpm: null,
+		warranty: {
+			tank: 6,
+			parts: 6,
+			labor: 1
+		},
+		baseCost: 1200,
+		notes: 'Most common size for smaller households',
 		conditions: {
-			showers: ['1', '2', '3+'],
-			interestedIn: ['tank'],
+			fuel: ['gas'],
+			ventType: ['metal']
 		}
 	},
 	{
-		id: 'gas_tank_50_better',
+		id: 'natdraft_50_recommended',
 		type: 'tank',
 		fuel: 'gas',
-		size: '50',
-		tier: 'better',
-		label: 'High Recovery 50-Gallon Gas Water Heater',
-		baseCost: [1600, 2000],
-		notes: 'Faster recovery for larger households',
+		venting: 'metal',
+		tier: 'recommended',
+		label: '50-Gallon Natural Draft Water Heater',
+		size: 50,
+		uef: 0.62,
+		gpm: null,
+		warranty: {
+			tank: 6,
+			parts: 6,
+			labor: 1
+		},
+		baseCost: 1350,
+		notes: 'Better for 3–4 person households',
 		conditions: {
-			showers: ['2', '3+'],
-			interestedIn: ['tank'],
+			fuel: ['gas'],
+			ventType: ['metal']
 		}
 	},
 	{
-		id: 'electric_tank_50_good',
+		id: 'natdraft_50_best',
 		type: 'tank',
-		fuel: 'electric',
-		size: '50',
-		tier: 'good',
-		label: 'Standard 50-Gallon Electric Water Heater',
-		baseCost: [1100, 1400],
-		notes: 'No venting required',
+		fuel: 'gas',
+		venting: 'metal',
+		tier: 'best',
+		label: '50-Gallon Natural Draft Water Heater – Extended Warranty',
+		size: 50,
+		uef: 0.62,
+		gpm: null,
+		warranty: {
+			tank: 10,
+			parts: 6,
+			labor: 2
+		},
+		baseCost: 1480, // $1350 + $130 warranty upgrade
+		notes: 'Includes Rheem ProtectionPlus 10yr warranty',
 		conditions: {
-			fuel: ['electric'],
-			interestedIn: ['tank']
+			fuel: ['gas'],
+			vent: ['metal']
+		}
+	},
+
+	// Power Vent – PVC
+	{
+		id: 'powervent_50_good',
+		type: 'tank',
+		fuel: 'gas',
+		venting: 'pvc',
+		tier: 'good',
+		label: '50-Gallon Power Vent Water Heater',
+		size: 50,
+		uef: 0.72,
+		gpm: null,
+		warranty: {
+			tank: 6,
+			parts: 6,
+			labor: 1
+		},
+		baseCost: 1650,
+		notes: 'Ideal for PVC venting or newer installations',
+		conditions: {
+			fuel: ['gas'],
+			vent: ['pvc']
 		}
 	},
 	{
-		id: 'gas_tankless_best',
+		id: 'powervent_50_recommended',
+		type: 'tank',
+		fuel: 'gas',
+		venting: 'pvc',
+		tier: 'recommended',
+		label: '50-Gallon Power Vent – Extended Warranty',
+		size: 50,
+		uef: 0.72,
+		gpm: null,
+		warranty: {
+			tank: 10,
+			parts: 6,
+			labor: 2
+		},
+		baseCost: 1780, // $1650 + $130 warranty
+		notes: 'Includes ProtectionPlus 10yr tank / 2yr labor warranty',
+		conditions: {
+			fuel: ['gas'],
+			ventType: ['pvc']
+		}
+	},
+
+	// Tankless – Gas (PVC)
+	{
+		id: 'tankless_prestige_recommended',
 		type: 'tankless',
 		fuel: 'gas',
-		tier: 'best',
-		label: 'High Efficiency Tankless Gas Water Heater',
-		baseCost: [2400, 3500],
-		notes: 'Endless hot water, compact design, high efficiency',
+		venting: 'pvc',
+		tier: 'recommended',
+		label: 'Prestige Series Tankless Water Heater',
+		uef: 0.93,
+		gpm: 9.5,
+		warranty: {
+			tank: 15, // Heat exchanger
+			parts: 5,
+			labor: 1
+		},
+		baseCost: 2800,
+		notes: 'Compact, high-efficiency tankless system',
 		conditions: {
-			interestedIn: ['tankless'],
-			fuel: ['gas']
+			fuel: ['gas'],
+			ventType: ['pvc'],
+			interestedIn: ['tankless']
+		}
+	},
+	{
+		id: 'tankless_ikonic_best',
+		type: 'tankless',
+		fuel: 'gas',
+		venting: 'pvc',
+		tier: 'best',
+		label: 'Ikonic Series Tankless Water Heater',
+		uef: 0.96,
+		gpm: 9.5,
+		warranty: {
+			tank: 15,
+			parts: 5,
+			labor: 1
+		},
+		baseCost: 3050,
+		notes: 'Ultra-high efficiency, ENERGY STAR rated',
+		conditions: {
+			fuel: ['gas'],
+			ventType: ['pvc'],
+			interestedIn: ['tankless']
+		}
+	},
+	{
+		id: 'tankless_thermaforce_special',
+		type: 'tankless',
+		fuel: 'gas',
+		venting: 'pvc',
+		tier: 'special',
+		label: 'ThermaForce Tankless (Hard Water Optimized)',
+		uef: 0.90,
+		gpm: 10.1,
+		warranty: {
+			tank: 15,
+			parts: 5,
+			labor: 1
+		},
+		baseCost: 3250,
+		notes: 'Great for hard water areas. High flow with scale-resistance.',
+		conditions: {
+			fuel: ['gas'],
+			ventType: ['pvc'],
+			hardWater: ['yes'],
+			interestedIn: ['tankless']
 		}
 	}
 ];

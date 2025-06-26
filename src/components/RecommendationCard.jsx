@@ -51,7 +51,13 @@ export default function RecommendationCard({params}) {
 
 	const matchedModels = waterHeaterModels.filter(model => {
 		return Object.entries(model.conditions).every(([key, validValues]) => {
-			return validValues.includes(answers[key]);
+			const answerVal = answers[key];
+			if (!answerVal) return false;
+
+			const answerArray = Array.isArray(answerVal) ? answerVal : [answerVal];
+			const conditionArray = Array.isArray(validValues) ? validValues : [validValues];
+
+			return answerArray.some(val => conditionArray.includes(val));
 		});
 	});
 
@@ -63,7 +69,7 @@ export default function RecommendationCard({params}) {
 	const totalAddOnLow = applicableAddOns.reduce((sum, addOn) => sum + (addOn.cost?.[0] ?? 0), 0);
 	const totalAddOnHigh = applicableAddOns.reduce((sum, addOn) => sum + (addOn.cost?.[1] ?? 0), 0);
 
-	const tierOrder = {good: 1, better: 2, best: 3};
+	const tierOrder = {good: 1, recommended: 2, best: 3, special: 4};
 	matchedModels.sort((a, b) => tierOrder[a.tier] - tierOrder[b.tier]);
 
 	return (
@@ -73,7 +79,7 @@ export default function RecommendationCard({params}) {
 				<h2 className="text-2xl font-semibold mb-4">Your Recommended Water Heaters</h2>
 				<div className="mb-2">
 					<button
-						className="text-sm text-primary underline focus:outline-none"
+						className="text-sm text-primary underline focus:outline-none cursor-pointer"
 						onClick={() => setShowAnswers(v => !v)}
 						aria-expanded={showAnswers}
 						aria-controls="user-answers-dropdown"
@@ -97,24 +103,27 @@ export default function RecommendationCard({params}) {
 
 				<div className="flex flex-wrap justify-center items-stretch gap-8">
 					{matchedModels.map((model, index) => {
-						const totalLow = (model.baseCost?.[0] ?? 0) + totalAddOnLow;
-						const totalHigh = (model.baseCost?.[1] ?? 0) + totalAddOnHigh;
-						const tier = index === 0 ? 'standard' : index === 1 ? 'recommended' : 'best';
+						const totalLow = model.baseCost + totalAddOnLow;
+						const totalHigh = model.baseCost + totalAddOnHigh;
+						const tierLabel = model.tier?.toUpperCase();
 
 						return (
-							<div className="flex flex-col w-full max-w-84 bg-base-100 border border-base-300 rounded-lg shadow-md p-4 sm:p-6">
-								{/* Main content */}
+							<div key={model.id} className="flex flex-col w-full max-w-84 bg-base-100 border border-base-300 rounded-lg shadow-md p-4 sm:p-6">
 								<div className="flex-grow">
-									<h2 className="font-bold text-2xl text-primary">{`${tier?.toUpperCase()}`}</h2>
+									<h2 className="font-bold text-2xl text-primary">{tierLabel}</h2>
 									<h3 className="text-xl font-semibold mb-2">{model.label}</h3>
 									<p className="text-3xl sm:text-4xl font-bold text-primary">
 										${totalLow.toLocaleString()} – ${totalHigh.toLocaleString()}
 									</p>
 									<p className="text-sm text-gray-500 mb-2">Total installed price range</p>
-									<p className="text-sm text-gray-600 mb-6">{model.notes}</p>
+									<p className="text-sm text-gray-600 mb-4">{model.notes}</p>
+									<ul className="text-sm text-gray-600 mb-6">
+										{model.uef && <li>UEF Rating: {model.uef}</li>}
+										{model.gpm && <li>Max Flow: {model.gpm} GPM</li>}
+										<li>Warranty: {model.warranty.tank}yr tank, {model.warranty.parts}yr parts, {model.warranty.labor}yr labor</li>
+									</ul>
 								</div>
 
-								{/* Add-on box */}
 								{applicableAddOns.length > 0 && (
 									<div className="bg-gray-50 border border-gray-200 rounded p-3 mt-auto mb-4">
 										<p className="text-sm font-semibold mb-2">What's included in your price range:</p>
@@ -122,18 +131,15 @@ export default function RecommendationCard({params}) {
 											{applicableAddOns.map(addOn => (
 												<li key={addOn.id}>
 													<span className="font-medium">{addOn.label}:</span>
-													<span className="text-gray-500">
-														${addOn.cost[0].toLocaleString()}–{addOn.cost[1].toLocaleString()}
-													</span>
+													<span className="text-gray-500"> ${addOn.cost[0].toLocaleString()}–{addOn.cost[1].toLocaleString()}</span>
 												</li>
 											))}
 										</ul>
 									</div>
 								)}
 
-								{/* Buttons */}
 								<a href="#schedule-estimate/" className="w-full btn btn-primary text-lg h-fit py-2 flex items-center mx-auto text-center mb-4">
-									<p className="w-full">Book Now</p>
+									<p className="w-full">Book Quick-Price-Check</p>
 								</a>
 								<a href={`/products/${model.id}`} className="w-full btn btn-outline text-lg h-fit py-2 flex items-center mx-auto text-center">
 									Learn More
