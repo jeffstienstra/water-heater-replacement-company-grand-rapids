@@ -1,5 +1,5 @@
 const waterHeaterModels = [
-	// Natural Draft – Metal Vent
+	// Natural Draft – Metal Venting
 	{
 		id: 'natdraft_40_good',
 		type: 'tank',
@@ -15,7 +15,7 @@ const waterHeaterModels = [
 			parts: 6,
 			labor: 1
 		},
-		baseCost: 1200,
+		baseCost: 1600,
 		notes: 'Most common size for smaller households',
 		conditions: {
 			fuel: ['gas'],
@@ -38,7 +38,7 @@ const waterHeaterModels = [
 			parts: 6,
 			labor: 2
 		},
-		baseCost: 1350, // $1200 + $150 warranty upgrade
+		baseCost: 1900,
 		notes: 'Includes Rheem ProtectionPlus 10yr warranty + 2yr labor',
 		conditions: {
 			fuel: ['gas'],
@@ -62,7 +62,7 @@ const waterHeaterModels = [
 			parts: 6,
 			labor: 1
 		},
-		baseCost: 1350,
+		baseCost: 1750,
 		notes: 'Extra capacity for larger families',
 		conditions: {
 			fuel: ['gas'],
@@ -86,7 +86,7 @@ const waterHeaterModels = [
 			parts: 6,
 			labor: 2
 		},
-		baseCost: 1480, // $1350 + $130 warranty upgrade
+		baseCost: 2150,
 		notes: 'Includes Rheem ProtectionPlus 10yr warranty',
 		conditions: {
 			fuel: ['gas'],
@@ -162,7 +162,7 @@ const waterHeaterModels = [
 			parts: 6,
 			labor: 1
 		},
-		baseCost: 1100,
+		baseCost: 1495,
 		notes: 'Standard electric tank for smaller homes',
 		conditions: {
 			fuel: ['electric'],
@@ -185,7 +185,7 @@ const waterHeaterModels = [
 			parts: 6,
 			labor: 1
 		},
-		baseCost: 1250,
+		baseCost: 1595,
 		notes: 'Ideal for larger households',
 		conditions: {
 			fuel: ['electric'],
@@ -208,7 +208,7 @@ const waterHeaterModels = [
 			parts: 6,
 			labor: 2
 		},
-		baseCost: 1380, // $1250 + $130 warranty upgrade
+		baseCost: 1895,
 		notes: 'Includes ProtectionPlus 10yr tank / 2yr labor warranty',
 		conditions: {
 			fuel: ['electric'],
@@ -228,7 +228,7 @@ const waterHeaterModels = [
 		uef: 0.93,
 		gpm: 9.5,
 		warranty: {
-			tank: 15, // Heat exchanger
+			tank: 15,
 			parts: 5,
 			labor: 1
 		},
@@ -236,7 +236,7 @@ const waterHeaterModels = [
 		notes: 'Compact, high-efficiency tankless system',
 		conditions: {
 			fuel: ['gas'],
-			ventType: ['pvc'],
+			ventType: ['pvc', 'metal', 'unsure'],
 			showers: ['1', '2', '3'],
 			interestedIn: ['tankless'],
 		}
@@ -255,7 +255,7 @@ const waterHeaterModels = [
 			parts: 5,
 			labor: 1
 		},
-		baseCost: 3050,
+		baseCost: 3250,
 		notes: 'Ultra-high efficiency, ENERGY STAR rated',
 		conditions: {
 			fuel: ['gas'],

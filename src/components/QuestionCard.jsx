@@ -116,7 +116,7 @@ export default function QuestionCard({classes, question, options, step, paramKey
 
 	return (
 		<div className={`w-full bg-base-100 pb-6 rounded-b-lg flex flex-col items-center justify-between relative ${classes}`}>
-			<h2 className="px-1 text-xl font-semibold mb-4 text-center">{question}</h2>
+			<h2 className="px-1 text-xl font-semibold mb-4 text-center">{`${step ? step + '.' : ''} ${question}`}</h2>
 			<div className="flex flex-col gap-4 w-full max-w-md px-2">
 				{[...options, {
 					label: "I don't know",

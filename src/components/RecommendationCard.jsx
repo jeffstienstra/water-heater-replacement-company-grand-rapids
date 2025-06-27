@@ -63,11 +63,6 @@ export default function RecommendationCard({params}) {
 		});
 	});
 
-	if (matchedModels.length === 0) {
-		return <p>No suitable models found. Please check your answers or contact support.</p>;
-	}
-
-
 	matchedModels.sort((a, b) => a.baseCost - b.baseCost);
 	const tierLabels = ['Standard', 'Recommended', 'Upgrade'];
 	const limitedModels = matchedModels.slice(0, 3);
@@ -78,7 +73,7 @@ export default function RecommendationCard({params}) {
 	const totalAddOnHigh = applicableAddOns.reduce((sum, addOn) => sum + (addOn.cost?.[1] ?? 0), 0);
 
 	return (
-		<div className="w-full mx-auto max-w-8xl mt-22 px-2">
+		<div className="w-full mx-auto max-w-8xl mt-6">
 			<div className="mx-auto -mt-6 bg-primary h-4 rounded-t-sm" />
 			<div className="mx-auto bg-white p-4 sm:p-6 rounded-b-sm shadow text-center">
 				<h2 className="text-2xl font-semibold mb-4">Your Recommended Water Heaters</h2>
@@ -104,74 +99,82 @@ export default function RecommendationCard({params}) {
 						</div>
 					)}
 				</div>
-				<p className="mb-6 text-sm text-gray-500">Based on your answers, we recommend the following options:</p>
 
-				<div className="flex flex-wrap justify-center items-stretch gap-8">
-					{limitedModels.map((model, index) => {
-						const totalLow = model.baseCost + totalAddOnLow;
-						const totalHigh = model.baseCost + totalAddOnHigh;
-						const tierLabel = tierLabels[index] || 'Option';
-						console.log('model', model);
-						console.log('tierLabel', tierLabel);
+				{matchedModels.length === 0 ? (
+					<p>No suitable models found. Please check your answers or contact support.</p>
+				)
+				: (
+					<>
+						<p className="mb-6 text-sm text-gray-500">Based on your answers, we recommend the following options:</p>
 
-						return (
-							<div key={model.id} className="flex flex-col w-full max-w-84 bg-base-100 border border-base-300 rounded-lg shadow-md p-4 sm:p-6">
-								<div className="flex-grow">
-									{tierLabel === 'Recommended' ?
-									(
-										<div className="flex justify-center items-center mb-2">
-										<Star className="text-primary"/>
-										<h2 className="ml-2 font-bold text-2xl text-primary">{tierLabel}</h2>
+						<div className="flex flex-wrap justify-center items-stretch gap-8">
+							{limitedModels.map((model, index) => {
+								const totalLow = model.baseCost + totalAddOnLow;
+								const totalHigh = model.baseCost + totalAddOnHigh;
+								const tierLabel = tierLabels[index] || 'Option';
+								console.log('model', model);
+								console.log('tierLabel', tierLabel);
+
+								return (
+									<div key={model.id} className="flex flex-col w-full max-w-86 bg-base-100 border border-base-300 rounded-lg shadow-md p-4 sm:p-6">
+										<div className="flex-grow">
+											{tierLabel === 'Recommended' ?
+											(
+												<div className="flex justify-center items-center mb-2">
+												<Star className="text-primary"/>
+												<h2 className="ml-2 font-bold text-2xl text-primary">{tierLabel}</h2>
+											</div>
+											) : (
+												<h2 className="font-bold text-2xl text-primary">{tierLabel}</h2>
+											)}
+
+											<h3 className="text-xl font-semibold mb-2">{model.label}</h3>
+											<p className="text-3xl sm:text-4xl font-bold text-primary">
+												${totalLow.toLocaleString()} – ${totalHigh.toLocaleString()}
+											</p>
+											<p className="text-sm text-gray-500 mb-2">Total installed price range</p>
+											<p className="text-sm text-gray-600 mb-4">{model.notes}</p>
+											<ul className="text-sm text-gray-600 mb-6">
+												{model.uef && <li>UEF Rating: {model.uef}</li>}
+												{model.gpm && <li>Max Flow: {model.gpm} GPM</li>}
+												<li>Warranty: {model.warranty.tank}yr tank, {model.warranty.parts}yr parts, {model.warranty.labor}yr labor</li>
+											</ul>
+										</div>
+
+										{applicableAddOns.length > 0 && (
+											<div className="bg-gray-50 border border-gray-200 rounded p-3 mt-auto mb-4">
+												<p className="text-sm font-semibold mb-2">What's included in your price range:</p>
+												<ul className="list-disc list-inside text-sm text-gray-700 space-y-1">
+													{applicableAddOns.map(addOn => (
+														<li key={addOn.id}>
+															<span className="font-medium">{addOn.label}:</span>
+															<span className="text-gray-500"> ${addOn.cost[0].toLocaleString()}–{addOn.cost[1].toLocaleString()}</span>
+														</li>
+													))}
+												</ul>
+											</div>
+										)}
+
+										<a href="#schedule-estimate/" className="w-full btn btn-primary text-lg h-fit py-2 flex items-center mx-auto text-center mb-4">
+											<p className="w-full">Book Now</p>
+										</a>
+										<a href={`/products/${model.id}`} className="w-full btn btn-outline text-lg h-fit py-2 flex items-center mx-auto text-center">
+											Learn More
+										</a>
 									</div>
-									) : (
-										<h2 className="font-bold text-2xl text-primary">{tierLabel}</h2>
-									)}
+								);
+							})}
+						</div>
 
-									<h3 className="text-xl font-semibold mb-2">{model.label}</h3>
-									<p className="text-3xl sm:text-4xl font-bold text-primary">
-										${totalLow.toLocaleString()} – ${totalHigh.toLocaleString()}
-									</p>
-									<p className="text-sm text-gray-500 mb-2">Total installed price range</p>
-									<p className="text-sm text-gray-600 mb-4">{model.notes}</p>
-									<ul className="text-sm text-gray-600 mb-6">
-										{model.uef && <li>UEF Rating: {model.uef}</li>}
-										{model.gpm && <li>Max Flow: {model.gpm} GPM</li>}
-										<li>Warranty: {model.warranty.tank}yr tank, {model.warranty.parts}yr parts, {model.warranty.labor}yr labor</li>
-									</ul>
-								</div>
-
-								{applicableAddOns.length > 0 && (
-									<div className="bg-gray-50 border border-gray-200 rounded p-3 mt-auto mb-4">
-										<p className="text-sm font-semibold mb-2">What's included in your price range:</p>
-										<ul className="list-disc list-inside text-sm text-gray-700 space-y-1">
-											{applicableAddOns.map(addOn => (
-												<li key={addOn.id}>
-													<span className="font-medium">{addOn.label}:</span>
-													<span className="text-gray-500"> ${addOn.cost[0].toLocaleString()}–{addOn.cost[1].toLocaleString()}</span>
-												</li>
-											))}
-										</ul>
-									</div>
-								)}
-
-								<a href="#schedule-estimate/" className="w-full btn btn-primary text-lg h-fit py-2 flex items-center mx-auto text-center mb-4">
-									<p className="w-full">Book Now</p>
-								</a>
-								<a href={`/products/${model.id}`} className="w-full btn btn-outline text-lg h-fit py-2 flex items-center mx-auto text-center">
-									Learn More
-								</a>
-							</div>
-						);
-					})}
+						<p className="text-sm text-gray-500 mt-6">
+							*Venting, electrical and gas line upgrades are where we run into the largest price changes but most requirements can usually be clarified via video call or home visit.
+						</p>
+						<p className="text-sm text-gray-500 my-6">
+							Final price is always provided by email or text before work begins.
+						</p>
+						</>
+					)}
 				</div>
-
-				<p className="text-sm text-gray-500 mt-6">
-					*Venting, electrical and gas line upgrades are where we run into the largest price changes but most requirements can usually be clarified via video call or home visit.
-				</p>
-				<p className="text-sm text-gray-500 my-6">
-					Final price is always provided by email or text before work begins.
-				</p>
-			</div>
 		</div>
 	);
 }

@@ -14,7 +14,7 @@ const installAddons = [
     {
         id: 'route_water_line',
         label: 'Water line reroute',
-        cost: [150, 400],
+        cost: [250, 500],
         applyIf: (answers) => answers.interestedIn === 'tankless'
     },
     {
@@ -30,7 +30,7 @@ const installAddons = [
 	{
 		id: 'add_120v_outlet',
 		label: 'Add 120V outlet for tankless',
-		cost: [400, 800],
+		cost: [200, 400],
 		applyIf: (answers) => answers.interestedIn === 'tankless' && answers.typeToRemove === 'tank'
 	},
 	{

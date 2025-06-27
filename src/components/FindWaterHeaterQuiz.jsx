@@ -6,7 +6,15 @@ import urlHelper from '../lib/urlHelper.js';
 export const questions = [
 	{
 		paramKey: 'interestedIn',
-		question: '1. Which type of water heater are you interested in?',
+		question: 'Which type of water heater are you interested in?',
+		options: [
+			{label: 'Tank', value: 'tank'},
+			{label: 'Tankless', value: 'tankless'}
+		],
+	},
+	{
+		paramKey: 'typeToRemove',
+		question: 'What type of water heater will be removed?',
 		options: [
 			{label: 'Tank', value: 'tank'},
 			{label: 'Tankless', value: 'tankless'}
@@ -22,16 +30,8 @@ export const questions = [
 		]
 	},
 	{
-		paramKey: 'typeToRemove',
-		question: '2. What type of water heater will be removed?',
-		options: [
-			{label: 'Tank', value: 'tank'},
-			{label: 'Tankless', value: 'tankless'}
-		],
-	},
-	{
 		paramKey: 'location',
-		question: '3. Where is your water heater located?',
+		question: 'Where is your water heater located?',
 		options: [
 			{label: 'Basement', value: 'basement'},
 			{label: 'Crawlspace', value: 'crawlspace'},
@@ -40,7 +40,7 @@ export const questions = [
 	},
 	{
 		paramKey: 'fuel',
-		question: '4. What fuel type does your water heater use?',
+		question: 'What fuel type does your water heater use?',
 		options: [
 			{label: 'Natural Gas', value: 'gas'},
 			{label: 'Electric', value: 'electric'},
@@ -231,9 +231,9 @@ export default function FindWaterHeaterQuiz() {
 		setParams(updatedParams);
 	};
 
-	if (step > steps) {
-		return <RecommendationCard params={params} />;
-	}
+	// if (step > steps) {
+	// 	return <RecommendationCard params={params} />;
+	// }
 
 	const safeStep = Math.max(1, Math.min(step, steps));
 	const percent = safeStep === 1
@@ -241,21 +241,29 @@ export default function FindWaterHeaterQuiz() {
 		: `${Math.max(3, Math.min(100, ((safeStep - 1) / (steps - 1)) * 100))}%`;
 
 	return (
-		<div className="bg-white rounded-t-sm max-w-4xl mx-auto mt-16">
+		<div className="bg-white rounded-t-sm w-full max-w-6xl mx-auto mt-16">
 			{step > steps ? (
-				<RecommendationCard params={params} />
+				<>
+					<div className="flex -mt-8">
+						<button
+							className="px-0 btn btn-sm btn-ghost text-sm text-gray-500"
+							onClick={handleBack}
+						>
+							← Back
+						</button>
+					</div>
+					<RecommendationCard params={params} />
+				</>
 			) : (
 				<>
-					{step > 1 && (
-						<div className="flex -mt-8">
-							<button
-								className="px-0 btn btn-sm btn-ghost text-sm text-gray-500"
-								onClick={handleBack}
-							>
-								← Back
-							</button>
-						</div>
-					)}
+					<div className="flex -mt-8">
+						<button
+							className="px-0 btn btn-sm btn-ghost text-sm text-gray-500"
+							onClick={handleBack}
+						>
+							← Back
+						</button>
+					</div>
 					<div className="flex items-center w-full bg-primary/10 h-4 rounded-t-sm">
 						<div
 							className="bg-primary h-4 transition-all duration-300 ease-in-out rounded-t-sm"
