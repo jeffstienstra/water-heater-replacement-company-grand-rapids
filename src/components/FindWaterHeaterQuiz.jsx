@@ -5,6 +5,14 @@ import urlHelper from '../lib/urlHelper.js';
 
 export const questions = [
 	{
+		paramKey: 'interestedIn',
+		question: '1. Which type of water heater are you interested in?',
+		options: [
+			{label: 'Tank', value: 'tank'},
+			{label: 'Tankless', value: 'tankless'}
+		],
+	},
+	{
 		paramKey: 'showers',
 		question: 'How many showers are in your home?',
 		options: [
@@ -12,14 +20,6 @@ export const questions = [
 			{label: '2', value: '2'},
 			{label: '3+', value: '3'}
 		]
-	},
-	{
-		paramKey: 'interestedIn',
-		question: '1. Which type of water heater are you interested in?',
-		options: [
-			{label: 'Tank', value: 'tank'},
-			{label: 'Tankless', value: 'tankless'}
-		],
 	},
 	{
 		paramKey: 'typeToRemove',
@@ -56,7 +56,7 @@ export const questions = [
 			],
 			shouldShow: (answers) => {
 				const fuel = answers.fuel;
-				return fuel && fuel === 'gas';
+				return fuel && fuel === 'gas' || fuel === 'propane';
 			},
 			subQuestion: {
 				paramKey: 'ventingTermination',
@@ -95,12 +95,12 @@ export const questions = [
 					// },
 				],
 				subQuestion: {
-					paramKey: 'chimneyLiner',
+					paramKey: 'hasChimneyLiner',
 					question: 'Does your chimney already have a flexible stainless steel liner installed?',
 					options: [
 						{
 							label: 'Yes',
-							value: 'hasChimneyLiner',
+							value: 'yes',
 							hintImages: [
 								{src: '/images/wh-linerCap4.webp', alt: `If your home's chimney has a metal cap similar to this, its a good sign that a chimney liner is already installed. Your cap may have a slightly different design but should be metal.`},
 								{src: '/images/wh-linerCap2.webp', alt: `If your home's chimney has a metal cap similar to this, its a good sign that a chimney liner is already installed. Your cap may have a slightly different design but should be metal.`},
@@ -125,7 +125,7 @@ export const questions = [
 						},
 						{
 							label: 'No',
-							value: 'noChimneyLiner',
+							value: 'no',
 							hintImages: [
 								{
 									src: '/images/wh-noLiner4.webp',
@@ -266,7 +266,7 @@ export default function FindWaterHeaterQuiz() {
 						<p className=" text-sm text-gray-500 text-center font-bold mx-auto">Instant Quote: Step {step} of {steps}</p>
 						<div className="text-center">
 							{step === 1 && (
-								<p className="text-sm text-gray-500 mb-2">No email required.</p>
+								<p className="text-sm text-gray-500 mb-2">No email, phone, or address required.</p>
 							)}
 						</div>
 						<QuestionCard

@@ -3,7 +3,7 @@ const installAddons = [
 		id: 'chimney_liner',
 		label: 'Chimney liner install',
 		cost: [400, 1000],
-		applyIf: (answers) => answers.ventType === 'metal' && answers.ventingTermination === 'chimney'
+		applyIf: (answers) => answers.ventType === 'metal' && answers.ventingTermination === 'chimney' && answers.hasChimneyLiner === 'no'
 	},
 	{
 		id: 'upgrade_gas_line',
