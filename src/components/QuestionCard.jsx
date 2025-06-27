@@ -1,4 +1,4 @@
-import {useRef, useState} from 'react';
+import {useRef, useEffect, useState} from 'react';
 import Tank from './Tank.jsx';
 import Tankless from './Tankless.jsx';
 import MetalVent from './MetalVent.jsx';
@@ -11,6 +11,41 @@ export default function QuestionCard({classes, question, options, step, paramKey
 	const [selectedValue, setSelectedValue] = useState(null);
 	const answers = Object.fromEntries(params);
     const subQuestionRef = useRef(null);
+	const [currentImageIndex, setCurrentImageIndex] = useState(0);
+	const [imageHeight, setImageHeight] = useState(null);
+	const [showImage, setShowImage] = useState(false);
+	const imgRef = useRef(null);
+
+	const images = hintToShow?.hintImages || [];
+	console.log('images:', images);
+	const currentImage = images[currentImageIndex];
+
+
+	useEffect(() => {
+		if (hintToShow) {
+			document.body.style.overflow = 'hidden';
+		} else {
+			document.body.style.overflow = '';
+		}
+
+		return () => {
+			document.body.style.overflow = '';
+		};
+	}, [hintToShow]);
+
+	const handleImageLoad = () => {
+		if (imgRef.current) {
+			setImageHeight(imgRef.current.offsetHeight);
+		}
+	};
+
+	function prevImage() {
+		setCurrentImageIndex(i => (i === 0 ? images.length - 1 : i - 1));
+	}
+
+	function nextImage() {
+		setCurrentImageIndex(i => (i === images.length - 1 ? 0 : i + 1));
+	}
 
 	const shouldShowAnySubQuestions = (subQuestion, answers) => {
 		if (!subQuestion) return false;
@@ -59,12 +94,12 @@ export default function QuestionCard({classes, question, options, step, paramKey
         return (
             <div
 				ref={showThis ? subQuestionRef : null}
-				className="pl-2 border-l border-primary/50 mt-2"
+				className="pl-2 border-l border-primary/25 border-dashed py-8 mt-2"
 				style={{ scrollMarginTop: '30px' }}
 			>
                 {showThis && (
                     <QuestionCard
-                        classes="bg-primary/7 rounded-lg pt-4"
+                        classes="bg-primary/10 rounded-lg border-primary/75 border-2 pt-4"
                         question={subQuestion.question}
                         options={subQuestion.options}
                         paramKey={subQuestion.paramKey}
@@ -80,13 +115,18 @@ export default function QuestionCard({classes, question, options, step, paramKey
     };
 
 	return (
-		<div className={`w-full bg-base-100 py-1 rounded-b-lg flex flex-col items-center justify-between relative ${classes}`}>
+		<div className={`w-full bg-base-100 pb-6 rounded-b-lg flex flex-col items-center justify-between relative ${classes}`}>
 			<h2 className="px-1 text-xl font-semibold mb-4 text-center">{question}</h2>
 			<div className="flex flex-col gap-4 w-full max-w-md px-2">
-				{options.map(({label, value, hint, hintText, hintTitle}) => {
+				{[...options, {
+					label: "I don't know",
+					value: "unsure",
+					hintImages: [],
+					hintText: '',
+					hintTitle: ''
+				}].map(({label, value, hintImages, hintText, hintTitle}) => {
 					const isSelected = selectedValue === value;
 					const updatedAnswers = {...answers, [paramKey]: value};
-					const showThisSub = subQuestion && isSelected && subQuestion.shouldShow?.(updatedAnswers);
 
 					return (
 						<div key={value} className={`flex flex-col gap-2`}>
@@ -96,12 +136,13 @@ export default function QuestionCard({classes, question, options, step, paramKey
 								tabIndex={0}
 								role="radio"
 							>
-								{hint && (
+								{(hintImages?.length > 0) && (
 									<button
 										type="button"
 										onClick={e => {
 											e.stopPropagation();
-											setHintToShow({image: hint, text: hintText, title: hintTitle});
+											setHintToShow({hintImages, text: hintText, title: hintTitle});
+											setCurrentImageIndex(0);
 										}}
 										className="text-gray-400 hover:text-primary transition"
 										aria-label="View hint"
@@ -130,19 +171,11 @@ export default function QuestionCard({classes, question, options, step, paramKey
 						</div>
 					);
 				})}
-				<button
-					className='btn btn-ghost w-fit mx-auto text-gray-500'
-					onClick={(e) => {
-						e.preventDefault();
-						handleOptionSelect('unsure');
-					}}>
-					I don't know
-				</button>
 			</div>
 
 			{hintToShow && (
-				<div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center px-4" onClick={() => setHintToShow(null)}>
-					<div className="bg-white rounded-sm shadow-xl max-w-md w-full relative p-4" onClick={(e) => e.stopPropagation()}>
+				<div className="fixed inset-0 bg-black/60 z-50 flex justify-center px-4 overflow-scroll" onClick={() => setHintToShow(null)}>
+					<div className="bg-white h-fit my-4 rounded-sm shadow-xl max-w-md w-full relative p-4" onClick={(e) => e.stopPropagation()}>
 						<button onClick={() => setHintToShow(null)} className="px-3 py-2 absolute top-0 right-0 rounded-sm text-gray-400 hover:bg-gray-200">
 							X
 						</button>
@@ -150,9 +183,61 @@ export default function QuestionCard({classes, question, options, step, paramKey
 							<h3 className="text-lg font-semibold mb-2 text-center">{hintToShow.title}</h3>
 						)}
 						{hintToShow.text && (
-							<p className="mb-4 text-sm text-gray-700 text-center">{hintToShow.text}</p>
+							<p
+								className="mb-2 text-sm text-gray-700"
+								dangerouslySetInnerHTML={{__html: hintToShow.text}}
+							></p>
 						)}
-						<img src={hintToShow.image} alt="Hint" className="rounded-md max-w-full h-auto mx-auto" />
+						{images.length > 0 && (
+							<>
+								<div
+									className="mt-2 text-left text-xs text-gray-500 mb-1"
+									dangerouslySetInnerHTML={{__html: `Photo: ${currentImage.alt}`}}
+								></div>
+								<div
+									className="relative transition-all duration-100 ease-in-out"
+									style={{height: imageHeight || 'auto'}}
+								>
+									<img
+										ref={imgRef}
+										src={currentImage.src}
+										alt={currentImage.alt}
+										onLoad={handleImageLoad}
+										className="rounded-md w-full h-auto object-contain mx-auto"
+									/>
+									{images.length > 1 && (
+										<>
+											<button
+												onClick={prevImage}
+												className="absolute h-full left-0 top-0 bg-white/40 px-1 hover:bg-white/80 rounded-l-sm shadow"
+												aria-label="Previous image"
+											>
+												◀
+											</button>
+											<button
+												onClick={nextImage}
+												className="absolute h-full right-0 top-0 bg-white/50 px-1 hover:bg-white/80 rounded-r-sm shadow"
+												aria-label="Next image"
+											>
+												▶
+											</button>
+											<div className="absolute bottom-2 flex mx-auto w-full justify-center mt-2 gap-3">
+												{images.map((_, idx) => (
+													<button
+														key={idx}
+														onClick={() => setCurrentImageIndex(idx)}
+														className={`w-3 h-3 rounded-full ${
+															idx === currentImageIndex ? 'bg-primary' : 'bg-base-200'
+														}`}
+													></button>
+												))}
+											</div>
+										</>
+									)}
+								</div>
+
+							</>
+						)}
 					</div>
 				</div>
 			)}
