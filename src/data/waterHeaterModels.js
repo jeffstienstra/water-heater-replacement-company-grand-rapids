@@ -24,29 +24,6 @@ const waterHeaterModels = [
 			interestedIn: ['tank']
 		}
 	},
-	{		id: 'natdraft_40_recommended',
-		type: 'tank',
-		fuel: 'gas',
-		venting: 'metal',
-		tier: 'recommended',
-		label: '40-Gallon Natural Draft Water Heater – Extended Warranty',
-		size: 40,
-		uef: 0.62,
-		gpm: null,
-		warranty: {
-			tank: 10,
-			parts: 6,
-			labor: 2
-		},
-		baseCost: 1900,
-		notes: 'Includes Rheem ProtectionPlus 10yr warranty + 2yr labor',
-		conditions: {
-			fuel: ['gas'],
-			ventType: ['metal'],
-			showers: ['1', '2'],
-			interestedIn: ['tank']
-		}
-	},
 	{
 		id: 'natdraft_50_recommended',
 		type: 'tank',
@@ -71,30 +48,6 @@ const waterHeaterModels = [
 			interestedIn: ['tank']
 		}
 	},
-	{
-		id: 'natdraft_50_best',
-		type: 'tank',
-		fuel: 'gas',
-		venting: 'metal',
-		tier: 'best',
-		label: '50-Gallon Natural Draft Water Heater – Extended Warranty',
-		size: 50,
-		uef: 0.62,
-		gpm: null,
-		warranty: {
-			tank: 10,
-			parts: 6,
-			labor: 2
-		},
-		baseCost: 2150,
-		notes: 'Includes Rheem ProtectionPlus 10yr warranty',
-		conditions: {
-			fuel: ['gas'],
-			ventType: ['metal'],
-			showers: ['2', '3'],
-			interestedIn: ['tank']
-		}
-	},
 
 	// Power Vent – PVC
 	{
@@ -108,8 +61,8 @@ const waterHeaterModels = [
 		uef: 0.72,
 		gpm: null,
 		warranty: {
-			tank: 6,
-			parts: 6,
+			tank: 8,
+			parts: 8,
 			labor: 1
 		},
 		baseCost: 2250,
@@ -132,36 +85,12 @@ const waterHeaterModels = [
 		uef: 0.72,
 		gpm: null,
 		warranty: {
-			tank: 6,
-			parts: 6,
+			tank: 8,
+			parts: 8,
 			labor: 1
 		},
 		baseCost: 2475,
 		notes: 'Ideal for PVC venting or newer installations',
-		conditions: {
-			fuel: ['gas'],
-			ventType: ['pvc'],
-			showers: ['2', '3'],
-			interestedIn: ['tank']
-		}
-	},
-	{
-		id: 'powervent_50_recommended',
-		type: 'tank',
-		fuel: 'gas',
-		venting: 'pvc',
-		tier: 'recommended',
-		label: '50-Gallon Power Vent – Extended Warranty',
-		size: 50,
-		uef: 0.72,
-		gpm: null,
-		warranty: {
-			tank: 10,
-			parts: 6,
-			labor: 2
-		},
-		baseCost: 2775,
-		notes: 'Includes ProtectionPlus 10yr tank / 2yr labor warranty',
 		conditions: {
 			fuel: ['gas'],
 			ventType: ['pvc'],
@@ -217,29 +146,6 @@ const waterHeaterModels = [
 			interestedIn: ['tank']
 		}
 	},
-	{
-		id: 'electric_50_best',
-		type: 'tank',
-		fuel: 'electric',
-		venting: 'none',
-		tier: 'best',
-		label: '50-Gallon Electric Water Heater – Extended Warranty',
-		size: 50,
-		uef: 0.93,
-		gpm: null,
-		warranty: {
-			tank: 10,
-			parts: 6,
-			labor: 2
-		},
-		baseCost: 1895,
-		notes: 'Includes ProtectionPlus 10yr tank / 2yr labor warranty',
-		conditions: {
-			fuel: ['electric'],
-			showers: ['2', '3'],
-			interestedIn: ['tank']
-		}
-	},
 
 	// Tankless – Gas (PVC)
 	{
@@ -262,7 +168,7 @@ const waterHeaterModels = [
 			fuel: ['gas'],
 			ventType: ['pvc', 'metal', 'unsure'],
 			showers: ['1', '2', '3'],
-			interestedIn: ['tankless'],
+			// interestedIn: ['tankless'],
 		}
 	},
 	{
