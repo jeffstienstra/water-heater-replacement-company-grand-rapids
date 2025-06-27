@@ -5,6 +5,15 @@ import urlHelper from '../lib/urlHelper.js';
 
 export const questions = [
 	{
+		paramKey: 'showers',
+		question: 'How many showers are in your home?',
+		options: [
+			{label: '1', value: '1'},
+			{label: '2', value: '2'},
+			{label: '3+', value: '3'}
+		]
+	},
+	{
 		paramKey: 'interestedIn',
 		question: '1. Which type of water heater are you interested in?',
 		options: [
@@ -74,6 +83,21 @@ export const questions = [
 						hintText: 'If you are unsure about your water heater venting we can help! You can text us a few images, join a brief video call, or schedule a free on-site assessment.'
 					}
 				],
+				subQuestion: {
+					paramKey: 'chimneyLiner',
+					question: 'Does your chimney have a flexible stainless steel liner installed?',
+					options: [
+						{
+							label: 'Yes',
+							value: 'hasChimneyLiner',
+							hint: '/images/wh-chimneyLiner.jpg',
+							hintTitle: 'Identifying A Chimney Liner',
+							hintText: 'A chimney liner is a flexible metal tube that runs through the chimney to protect it from heat and corrosion. You may see a corrugated tube protruding from your chimney, or there may be a stainless steel sleeve. Chimney liners helps ensure safe and proper venting of your combustion appliances. If you have a chimney liner, it is important to ensure it is in good condition and properly sized for your water heater venting.'
+						},
+						{label: 'No', value: 'noChimneyLiner'}
+					],
+					shouldShow: (answers) => answers.ventingTermination === 'chimney',
+				},
 				shouldShow: (answers) => {
 					const ventType = answers.ventType;
 					const fuel = answers.fuel;
@@ -82,24 +106,15 @@ export const questions = [
 			}
 		},
 	},
-	{
-		paramKey: 'showers',
-		question: 'How many showers are in your home?',
-		options: [
-			{label: '1', value: '1'},
-			{label: '2', value: '2'},
-			{label: '3+', value: '3+'}
-		]
-	}
 ];
 
 export default function FindWaterHeaterQuiz() {
 	const [params, setParams] = useState(() => new URLSearchParams(window.location.search));
 	const [step, setStep] = useState(() => parseInt(params.get('step') || '1', 10));
 
-	// useEffect(() => {
-    //     window.scrollTo({ top: 0, behavior: 'smooth' });
-    // }, [step]);
+	useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, [step]);
 
 	const getAnswers = () => Object.fromEntries(params.entries());
 	const visibleQuestions = questions.filter(q => !q.shouldShow || q.shouldShow(getAnswers()));

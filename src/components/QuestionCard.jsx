@@ -64,7 +64,7 @@ export default function QuestionCard({classes, question, options, step, paramKey
 			>
                 {showThis && (
                     <QuestionCard
-                        classes="bg-primary/8 rounded-lg pt-4"
+                        classes="bg-primary/7 rounded-lg pt-4"
                         question={subQuestion.question}
                         options={subQuestion.options}
                         paramKey={subQuestion.paramKey}

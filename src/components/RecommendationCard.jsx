@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import {questions} from './FindWaterHeaterQuiz.jsx';
 
+import Star from "./icons/Star.jsx";
 import Pricing from "./Pricing.astro";
 import CalendarClock from "./icons/CalendarClock.astro";
 import waterHeaterModels from "../data/waterHeaterModels.js";
@@ -15,6 +16,7 @@ export default function RecommendationCard({params}) {
 	}
 
 	const answers = Object.fromEntries(params.entries());
+	console.log('answers:', answers);
 
 	function toTitleCase(str) {
 		return str.replace(/([A-Z])/g, ' $1')
@@ -51,13 +53,13 @@ export default function RecommendationCard({params}) {
 
 	const matchedModels = waterHeaterModels.filter(model => {
 		return Object.entries(model.conditions).every(([key, validValues]) => {
-			const answerVal = answers[key];
-			if (!answerVal) return false;
+			// If the condition isn't in user answers, skip it
+			if (!(key in answers)) return true;
 
-			const answerArray = Array.isArray(answerVal) ? answerVal : [answerVal];
-			const conditionArray = Array.isArray(validValues) ? validValues : [validValues];
-
-			return answerArray.some(val => conditionArray.includes(val));
+			const answerValue = answers[key];
+			return Array.isArray(validValues)
+				? validValues.includes(answerValue)
+				: validValues === answerValue;
 		});
 	});
 
@@ -65,12 +67,15 @@ export default function RecommendationCard({params}) {
 		return <p>No suitable models found. Please check your answers or contact support.</p>;
 	}
 
-	const applicableAddOns = installAddons.filter(addOn => addOn.applyIf(answers));
+
+	matchedModels.sort((a, b) => a.baseCost - b.baseCost);
+	const tierLabels = ['Standard', 'Recommended', 'Upgrade'];
+	const limitedModels = matchedModels.slice(0, 3);
+
+	console.log('limitedModels:', limitedModels);
+	const applicableAddOns = installAddons.filter(addOn => addOn.applyIf(answers, limitedModels));
 	const totalAddOnLow = applicableAddOns.reduce((sum, addOn) => sum + (addOn.cost?.[0] ?? 0), 0);
 	const totalAddOnHigh = applicableAddOns.reduce((sum, addOn) => sum + (addOn.cost?.[1] ?? 0), 0);
-
-	const tierOrder = {good: 1, recommended: 2, best: 3, special: 4};
-	matchedModels.sort((a, b) => tierOrder[a.tier] - tierOrder[b.tier]);
 
 	return (
 		<div className="w-full mx-auto max-w-8xl mt-22 px-2">
@@ -79,7 +84,7 @@ export default function RecommendationCard({params}) {
 				<h2 className="text-2xl font-semibold mb-4">Your Recommended Water Heaters</h2>
 				<div className="mb-2">
 					<button
-						className="text-sm text-primary underline focus:outline-none cursor-pointer"
+						className="text-sm text-primary underline focus:outline-none"
 						onClick={() => setShowAnswers(v => !v)}
 						aria-expanded={showAnswers}
 						aria-controls="user-answers-dropdown"
@@ -102,15 +107,26 @@ export default function RecommendationCard({params}) {
 				<p className="mb-6 text-sm text-gray-500">Based on your answers, we recommend the following options:</p>
 
 				<div className="flex flex-wrap justify-center items-stretch gap-8">
-					{matchedModels.map((model, index) => {
+					{limitedModels.map((model, index) => {
 						const totalLow = model.baseCost + totalAddOnLow;
 						const totalHigh = model.baseCost + totalAddOnHigh;
-						const tierLabel = model.tier?.toUpperCase();
+						const tierLabel = tierLabels[index] || 'Option';
+						console.log('model', model);
+						console.log('tierLabel', tierLabel);
 
 						return (
 							<div key={model.id} className="flex flex-col w-full max-w-84 bg-base-100 border border-base-300 rounded-lg shadow-md p-4 sm:p-6">
 								<div className="flex-grow">
-									<h2 className="font-bold text-2xl text-primary">{tierLabel}</h2>
+									{tierLabel === 'Recommended' ?
+									(
+										<div className="flex justify-center items-center mb-2">
+										<Star className="text-primary"/>
+										<h2 className="ml-2 font-bold text-2xl text-primary">{tierLabel}</h2>
+									</div>
+									) : (
+										<h2 className="font-bold text-2xl text-primary">{tierLabel}</h2>
+									)}
+
 									<h3 className="text-xl font-semibold mb-2">{model.label}</h3>
 									<p className="text-3xl sm:text-4xl font-bold text-primary">
 										${totalLow.toLocaleString()} – ${totalHigh.toLocaleString()}
@@ -139,7 +155,7 @@ export default function RecommendationCard({params}) {
 								)}
 
 								<a href="#schedule-estimate/" className="w-full btn btn-primary text-lg h-fit py-2 flex items-center mx-auto text-center mb-4">
-									<p className="w-full">Book Quick-Price-Check</p>
+									<p className="w-full">Book Now</p>
 								</a>
 								<a href={`/products/${model.id}`} className="w-full btn btn-outline text-lg h-fit py-2 flex items-center mx-auto text-center">
 									Learn More

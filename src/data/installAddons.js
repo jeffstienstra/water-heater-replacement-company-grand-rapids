@@ -21,20 +21,25 @@ const installAddons = [
         id: 'add_pvc_venting',
         label: 'PVC venting install',
         cost: [200, 400],
-        applyIf: (answers) => answers.fuel === 'gas' && answers.ventType === 'pvc'
+        applyIf: (answers, matchingModels) => {
+            console.log('Checking PVC venting for answers:', answers, 'and models:', matchingModels);
+            return answers.fuel === 'gas' && answers.ventType === 'metal' &&
+                matchingModels?.some(model => model.venting === 'pvc');
+        }
     },
 	{
 		id: 'add_120v_outlet',
-		label: '240V circuit upgrade',
+		label: 'Add 120V outlet for tankless',
 		cost: [400, 800],
-		applyIf: (answers) => answers.interestedIn === 'tankless' && answers.fuel === 'electric'
+		applyIf: (answers) => answers.interestedIn === 'tankless' && answers.typeToRemove === 'tank'
 	},
 	{
 		id: 'tight_space',
 		label: 'Tight-space Install',
 		cost: [150, 300],
 		applyIf: (answers) => answers.location === 'crawlspace' || answers.location === 'closet'
-	}
+	},
+
 ];
 
 export default installAddons;
