@@ -8,7 +8,7 @@ const installAddons = [
 	{
 		id: 'upgrade_gas_line',
         label: 'Gas line upgrade',
-        cost: [200, 500],
+        cost: [300, 500],
         applyIf: (answers) => answers.fuel === 'gas' && answers.interestedIn === 'tankless'
 	},
     {
@@ -39,7 +39,12 @@ const installAddons = [
 		cost: [150, 300],
 		applyIf: (answers) => answers.location === 'crawlspace' || answers.location === 'closet'
 	},
-
+    {
+        id: 'add_extended_warranty',
+        label: 'Extended Warranty',
+        cost: [350, 350],
+        applyIf: () => false // handled explicitly in UI toggle
+    }
 ];
 
 export default installAddons;
