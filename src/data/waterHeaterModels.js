@@ -140,7 +140,7 @@ const waterHeaterModels = [
 		notes: 'Includes ProtectionPlus 10yr tank / 2yr labor warranty',
 		conditions: {
 			fuel: ['gas'],
-			ventType: ['pvc', 'metal'],
+			ventType: ['pvc'],
 			showers: ['2', '3'],
 			interestedIn: ['tank']
 		}

@@ -109,11 +109,11 @@ export default function RecommendationCard({params}) {
 
 						<div className="flex flex-wrap justify-center items-stretch gap-8">
 							{limitedModels.map((model, index) => {
-								const totalLow = model.baseCost + totalAddOnLow;
-								const totalHigh = model.baseCost + totalAddOnHigh;
 								const tierLabel = tierLabels[index] || 'Option';
-								console.log('model', model);
-								console.log('tierLabel', tierLabel);
+
+									const modelAddOns = installAddons.filter(addOn => addOn.applyIf(answers, [model]));
+									const totalLow = model.baseCost + modelAddOns.reduce((sum, a) => sum + (a.cost?.[0] ?? 0), 0);
+									const totalHigh = model.baseCost + modelAddOns.reduce((sum, a) => sum + (a.cost?.[1] ?? 0), 0);
 
 								return (
 									<div key={model.id} className="flex flex-col w-full max-w-86 bg-base-100 border border-base-300 rounded-lg shadow-md p-4 sm:p-6">
@@ -141,11 +141,11 @@ export default function RecommendationCard({params}) {
 											</ul>
 										</div>
 
-										{applicableAddOns.length > 0 && (
+										{modelAddOns.length > 0 && (
 											<div className="bg-gray-50 border border-gray-200 rounded p-3 mt-auto mb-4">
 												<p className="text-sm font-semibold mb-2">What's included in your price range:</p>
 												<ul className="list-disc list-inside text-sm text-gray-700 space-y-1">
-													{applicableAddOns.map(addOn => (
+													{modelAddOns.map(addOn => (
 														<li key={addOn.id}>
 															<span className="font-medium">{addOn.label}:</span>
 															<span className="text-gray-500"> ${addOn.cost[0].toLocaleString()}–{addOn.cost[1].toLocaleString()}</span>
