@@ -90,7 +90,7 @@ const waterHeaterModels = [
 		notes: 'Includes Rheem ProtectionPlus 10yr warranty',
 		conditions: {
 			fuel: ['gas'],
-			vent: ['metal'],
+			ventType: ['metal'],
 			showers: ['2', '3'],
 			interestedIn: ['tank']
 		}
@@ -98,11 +98,35 @@ const waterHeaterModels = [
 
 	// Power Vent – PVC
 	{
-		id: 'powervent_50_good',
+		id: 'powervent_40_good',
 		type: 'tank',
 		fuel: 'gas',
 		venting: 'pvc',
 		tier: 'good',
+		label: '40-Gallon Power Vent Water Heater',
+		size: 50,
+		uef: 0.72,
+		gpm: null,
+		warranty: {
+			tank: 6,
+			parts: 6,
+			labor: 1
+		},
+		baseCost: 2250,
+		notes: 'Ideal for PVC venting or newer installations',
+		conditions: {
+			fuel: ['gas'],
+			ventType: ['pvc'],
+			showers: ['1', '2', '3'],
+			interestedIn: ['tank']
+		}
+	},
+	{
+		id: 'powervent_50_good',
+		type: 'tank',
+		fuel: 'gas',
+		venting: 'pvc',
+		tier: 'better',
 		label: '50-Gallon Power Vent Water Heater',
 		size: 50,
 		uef: 0.72,
@@ -112,11 +136,11 @@ const waterHeaterModels = [
 			parts: 6,
 			labor: 1
 		},
-		baseCost: 1650,
+		baseCost: 2475,
 		notes: 'Ideal for PVC venting or newer installations',
 		conditions: {
 			fuel: ['gas'],
-			vent: ['pvc'],
+			ventType: ['pvc'],
 			showers: ['2', '3'],
 			interestedIn: ['tank']
 		}
@@ -136,7 +160,7 @@ const waterHeaterModels = [
 			parts: 6,
 			labor: 2
 		},
-		baseCost: 1995,
+		baseCost: 2775,
 		notes: 'Includes ProtectionPlus 10yr tank / 2yr labor warranty',
 		conditions: {
 			fuel: ['gas'],
