@@ -5,6 +5,7 @@ import Star from './icons/Star.jsx';
 import waterHeaterModels from '../data/waterHeaterModels.js';
 import installAddons from '../data/installAddons.js';
 import StickyBar from './StickyBar.jsx';
+import QuestionMark from './icons/QuestionMark.jsx';
 
 export default function RecommendationCard({params}) {
     const [showAnswers, setShowAnswers] = useState(false);
@@ -140,7 +141,7 @@ export default function RecommendationCard({params}) {
                                 const totalHigh = model.baseCost + modelAddOns.reduce((sum, a) => sum + (a.cost?.[1] ?? 0), 0);
 
                                 return (
-                                    <div key={model.id} className='flex flex-col w-full max-w-86 bg-base-100 border border-base-300 rounded-lg shadow-md p-4 sm:p-6'>
+                                    <div key={model.id} className='relative flex flex-col w-full max-w-86 bg-base-100 border border-base-300 rounded-lg shadow-md p-4 sm:p-6'>
                                         <div className='flex-grow'>
                                             {tierLabel === 'Recommended' ? (
                                                 <div className='flex justify-center items-center '>
@@ -216,17 +217,15 @@ export default function RecommendationCard({params}) {
                                             </div>
                                         )}
 
-                                        <div className='mt-3 mb-6 flex items-center mx-auto gap-2'>
+                                        <div className='mt-3 mb-6 flex  gap-2'>
                                             <input id={`select-${model.id}`} type='checkbox' className='h-8 w-8 border-primary border-2 checkbox checkbox-primary rounded-sm' checked={selectedModelId === model.id} onChange={() => setSelectedModelId(selectedModelId === model.id ? null : model.id)} />
                                             <label htmlFor={`select-${model.id}`} className='text-lg font-bold text-gray-700'>
                                                 Choose This Model
                                             </label>
                                         </div>
 
-                                        <a href='#schedule-estimate/' className='w-full btn btn-primary text-lg h-fit py-2 flex items-center mx-auto text-center mb-4'>
-                                            <p className='w-full'>Book Now</p>
-                                        </a>
-                                        <a target='_blank' href={productLink} className='w-full btn btn-outline text-lg h-fit py-2 flex items-center mx-auto text-center'>
+                                        <a target='_blank' href={productLink} className='text-gray-500 font-normal absolute bottom-0 right-0 btn btn-ghost text-lg h-fit py-2'>
+											<QuestionMark className='text-gray-500 font-normal' />
                                             See Product Details
                                         </a>
                                     </div>
