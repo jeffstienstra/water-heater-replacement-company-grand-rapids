@@ -133,6 +133,18 @@ export default function RecommendationCard({params}) {
 
 						<div className="flex flex-wrap justify-center items-stretch gap-8">
 							{limitedModels.map((model, index) => {
+								let productLink;
+								if (model.type === 'tankless') {
+								productLink = `/products/tankless-water-heaters/`;
+								} else if (model.type === 'tank' && model.ventType === 'pvc') {
+								productLink = `/products/power-vent-water-heaters/`;
+								} else if (model.type === 'tank' && model.ventType === 'metal') {
+								productLink = `/products/tank-water-heaters/`;
+								} else {
+								// fallback for any other tank types (if needed)
+								productLink = `/products/tank-water-heaters/`;
+								};
+
 								const tierLabel = (model.id === 'tankless_prestige_recommended' ? 'Consider an Upgrade?' : tierLabels[index]);
 
 								const isWarrantySelected = warrantySelections[model.id];
@@ -164,12 +176,19 @@ export default function RecommendationCard({params}) {
 
 
 											<p className="text-sm text-gray-600 mb-4">{model.notes}</p>
-											<ul className="text-sm text-gray-600 mb-6">
-												{model.uef && <li>UEF Rating: {model.uef}</li>}
-												{model.gpm && <li>Max Flow: {model.gpm} GPM</li>}
-												<li>Warranty: {model.warranty.tank}yr tank, {model.warranty.parts}yr parts, {model.warranty.labor}yr labor</li>
+											<ul className=" text-left text-gray-600 mb-6">
+												{model.uef && <li>UEF Rating: <span className='font-semibold'>{model.uef}</span></li>}
+												{model.gpm && <li>Max Flow: <span className='font-semibold'>{model.gpm} GPM</span></li>}
+												<li>
+													Warranty:
+													<ul className="pl-6 list-disc">
+														<li><span className="font-semibold">{model.warranty.tank} Year Tank</span></li>
+														<li><span className="font-semibold">{model.warranty.parts} yr parts</span></li>
+														<li><span className="font-semibold">{model.warranty.labor} yr labor</span></li>
+													</ul>
+												</li>
 											</ul>
-											<div className="flex flex-row items-center gap-2 mt-3">
+											<div className="border border-base-300 rounded-lg shadow-sm pl-4 flex flex-row items-center gap-2 my-3">
 												<input
 													id={`warranty-${model.id}`}
 													className="checkbox checkbox-primary rounded-sm"
@@ -177,12 +196,19 @@ export default function RecommendationCard({params}) {
 													checked={isWarrantySelected || false}
 													onChange={() => toggleWarranty(model.id)}
 												/>
-												<label htmlFor={`warranty-${model.id}`} className="text-sm text-left p-4 text-gray-700">
-													<ul>Add Extended Warranty
-														<li>Tank: {model.warranty.tank + 4} Years</li>
+												<label htmlFor={`warranty-${model.id}`} className="text-sm text-left p-4 text-gray-600">
+													<ul className='font-semibold'>Add Extended Warranty
+														<li>{model.type === 'tankless' ? 'Heat exchanger:' : 'Tank: '}{model.warranty.tank + 4} Years</li>
 														<li>Labor: {model.warranty.labor + 1} Years</li>
 													</ul>
 												</label>
+												{/* <label htmlFor={`warranty-${model.id}`} className="text-sm text-left p-4 text-gray-700">
+													<ul>Add Extended Warranty
+														<li>{model.type === 'tankless' ? 'Heat exchanger:' : 'Tank: '} +4 = {model.warranty.tank + 4} Years</li>
+														<li>Parts: +0 = {model.warranty.parts} Years</li>
+														<li>Labor: +1 = {model.warranty.labor + 1} Years</li>
+													</ul>
+												</label> */}
 											</div>
 										</div>
 										{modelAddOns.length > 0 && (
@@ -204,17 +230,17 @@ export default function RecommendationCard({params}) {
 										<a href="#schedule-estimate/" className="w-full btn btn-primary text-lg h-fit py-2 flex items-center mx-auto text-center mb-4">
 											<p className="w-full">Book Now</p>
 										</a>
-										<a href={`/products/${model.id}`} className="w-full btn btn-outline text-lg h-fit py-2 flex items-center mx-auto text-center">
-											Learn More
+										<a target="_blank" href={productLink} className="w-full btn btn-outline text-lg h-fit py-2 flex items-center mx-auto text-center">
+											See Product Details
 										</a>
 									</div>
 								);
 							})}
 						</div>
 
-						<p className="text-sm text-gray-500 mt-6">
+						{/* <p className="text-sm text-gray-500 mt-6">
 							*Venting, electrical and gas line upgrades are where we run into the largest price changes but most requirements can usually be clarified via video call or home visit.
-						</p>
+						</p> */}
 						<p className="text-sm text-gray-500 my-6">
 							Final price is always provided by email or text before work begins.
 						</p>
