@@ -92,7 +92,7 @@ export default function RecommendationCard({params}) {
     return (
         <div className='w-full mx-auto max-w-8xl mt-6'>
             <div className='mx-auto -mt-6 bg-primary h-4 rounded-t-sm' />
-            <div className='mx-auto bg-white p-4 sm:p-6 rounded-b-sm shadow text-center'>
+            <div className='mx-auto bg-white p-4 pb-10 sm:p-6 rounded-b-sm shadow text-center'>
                 <h2 className='text-2xl font-semibold mb-4'>Your Recommended Water Heaters</h2>
                 <div className='mb-2'>
                     <button className='text-sm text-primary underline focus:outline-none' onClick={() => setShowAnswers((v) => !v)} aria-expanded={showAnswers} aria-controls='user-answers-dropdown'>
