@@ -16,9 +16,6 @@ const installAddons = [
         label: 'Gas line upgrade',
         cost: [300, 500],
         applyIf: (answers, model) => {
-            console.log('Outlet upgrade:', answers);
-            console.log('for model:', model);
-
             return (
                 answers.fuel === 'gas'
                 && answers.typeToRemove === 'tank'
