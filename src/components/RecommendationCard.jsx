@@ -9,6 +9,14 @@ import installAddons from "../data/installAddons.js";
 
 export default function RecommendationCard({params}) {
 	const [showAnswers, setShowAnswers] = useState(false);
+	const [warrantySelections, setWarrantySelections] = useState({});
+
+	const toggleWarranty = (modelId) => {
+		setWarrantySelections(prev => ({
+			...prev,
+			[modelId]: !prev[modelId]
+		}));
+	};
 
 	if (!params || typeof params.get !== 'function') {
 		console.error('Invalid or missing URLSearchParams in RecommendationCard');
@@ -65,12 +73,28 @@ export default function RecommendationCard({params}) {
 
 	matchedModels.sort((a, b) => a.baseCost - b.baseCost);
 	const tierLabels = ['Standard', 'Recommended', 'Upgrade'];
-	const limitedModels = matchedModels.slice(0, 3);
+	let limitedModels = matchedModels.slice(0, 3);
+
+	const fallbackTankless = waterHeaterModels.find(model =>
+		model.id === 'tankless_prestige_recommended' &&
+		Object.entries(model.conditions).every(([key, validValues]) => {
+			if (!(key in answers)) return true;
+			const answerValue = answers[key];
+			return Array.isArray(validValues)
+				? validValues.includes(answerValue)
+				: validValues === answerValue;
+		})
+	);
+
+	if (limitedModels.length === 2 && fallbackTankless) {
+		limitedModels.push(fallbackTankless);
+	}
+
 
 	console.log('limitedModels:', limitedModels);
-	const applicableAddOns = installAddons.filter(addOn => addOn.applyIf(answers, limitedModels));
-	const totalAddOnLow = applicableAddOns.reduce((sum, addOn) => sum + (addOn.cost?.[0] ?? 0), 0);
-	const totalAddOnHigh = applicableAddOns.reduce((sum, addOn) => sum + (addOn.cost?.[1] ?? 0), 0);
+	// const applicableAddOns = installAddons.filter(addOn => addOn.applyIf(answers, limitedModels));
+	// const totalAddOnLow = applicableAddOns.reduce((sum, addOn) => sum + (addOn.cost?.[0] ?? 0), 0);
+	// const totalAddOnHigh = applicableAddOns.reduce((sum, addOn) => sum + (addOn.cost?.[1] ?? 0), 0);
 
 	return (
 		<div className="w-full mx-auto max-w-8xl mt-6">
@@ -109,18 +133,22 @@ export default function RecommendationCard({params}) {
 
 						<div className="flex flex-wrap justify-center items-stretch gap-8">
 							{limitedModels.map((model, index) => {
-								const tierLabel = tierLabels[index] || 'Option';
+								const tierLabel = (model.id === 'tankless_prestige_recommended' ? 'Consider an Upgrade?' : tierLabels[index]);
 
-									const modelAddOns = installAddons.filter(addOn => addOn.applyIf(answers, [model]));
-									const totalLow = model.baseCost + modelAddOns.reduce((sum, a) => sum + (a.cost?.[0] ?? 0), 0);
-									const totalHigh = model.baseCost + modelAddOns.reduce((sum, a) => sum + (a.cost?.[1] ?? 0), 0);
+								const isWarrantySelected = warrantySelections[model.id];
+								const modelAddOns = installAddons.filter(addOn =>
+									addOn.applyIf(answers, model) || (isWarrantySelected && addOn.id === 'add_extended_warranty')
+								);
+
+								const totalLow = model.baseCost + modelAddOns.reduce((sum, a) => sum + (a.cost?.[0] ?? 0), 0);
+								const totalHigh = model.baseCost + modelAddOns.reduce((sum, a) => sum + (a.cost?.[1] ?? 0), 0);
 
 								return (
 									<div key={model.id} className="flex flex-col w-full max-w-86 bg-base-100 border border-base-300 rounded-lg shadow-md p-4 sm:p-6">
 										<div className="flex-grow">
 											{tierLabel === 'Recommended' ?
 											(
-												<div className="flex justify-center items-center mb-2">
+												<div className="flex justify-center items-center ">
 												<Star className="text-primary"/>
 												<h2 className="ml-2 font-bold text-2xl text-primary">{tierLabel}</h2>
 											</div>
@@ -130,30 +158,48 @@ export default function RecommendationCard({params}) {
 
 											<h3 className="text-xl font-semibold mb-2">{model.label}</h3>
 											<p className="text-3xl sm:text-4xl font-bold text-primary">
-												${totalLow.toLocaleString()} – ${totalHigh.toLocaleString()}
+												${totalLow.toLocaleString()} {totalLow.toLocaleString() === totalHigh.toLocaleString() ? null : ` – $${totalHigh.toLocaleString()}`}
 											</p>
 											<p className="text-sm text-gray-500 mb-2">Total installed price range</p>
+
+
 											<p className="text-sm text-gray-600 mb-4">{model.notes}</p>
 											<ul className="text-sm text-gray-600 mb-6">
 												{model.uef && <li>UEF Rating: {model.uef}</li>}
 												{model.gpm && <li>Max Flow: {model.gpm} GPM</li>}
 												<li>Warranty: {model.warranty.tank}yr tank, {model.warranty.parts}yr parts, {model.warranty.labor}yr labor</li>
 											</ul>
+											<div className="flex flex-row items-center gap-2 mt-3">
+												<input
+													id={`warranty-${model.id}`}
+													className="checkbox checkbox-primary rounded-sm"
+													type="checkbox"
+													checked={isWarrantySelected || false}
+													onChange={() => toggleWarranty(model.id)}
+												/>
+												<label htmlFor={`warranty-${model.id}`} className="text-sm text-left p-4 text-gray-700">
+													<ul>Add Extended Warranty
+														<li>Tank: {model.warranty.tank + 4} Years</li>
+														<li>Labor: {model.warranty.labor + 1} Years</li>
+													</ul>
+												</label>
+											</div>
 										</div>
-
 										{modelAddOns.length > 0 && (
-											<div className="bg-gray-50 border border-gray-200 rounded p-3 mt-auto mb-4">
+											<div className="bg-gray-50 border border-gray-200 rounded text-left p-3 mt-auto mb-4">
 												<p className="text-sm font-semibold mb-2">What's included in your price range:</p>
 												<ul className="list-disc list-inside text-sm text-gray-700 space-y-1">
 													{modelAddOns.map(addOn => (
 														<li key={addOn.id}>
 															<span className="font-medium">{addOn.label}:</span>
-															<span className="text-gray-500"> ${addOn.cost[0].toLocaleString()}–{addOn.cost[1].toLocaleString()}</span>
+															<span className="text-gray-500"> ${addOn.cost[0]?.toLocaleString()}{addOn.cost[0] !== addOn?.cost[1] ? `-${addOn.cost[1].toLocaleString()}` : null}</span>
 														</li>
 													))}
+
 												</ul>
 											</div>
 										)}
+
 
 										<a href="#schedule-estimate/" className="w-full btn btn-primary text-lg h-fit py-2 flex items-center mx-auto text-center mb-4">
 											<p className="w-full">Book Now</p>
