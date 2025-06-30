@@ -90,13 +90,13 @@ export default function RecommendationCard({params}) {
     }
 
     return (
-        <div className='w-full mx-auto max-w-8xl mt-6'>
-            <div className='mx-auto -mt-6 bg-primary h-4 rounded-t-sm' />
-            <div className='mx-auto bg-white p-4 pb-10 sm:p-6 rounded-b-sm shadow text-center'>
-                <h2 className='text-2xl font-semibold mb-4'>Your Recommended Water Heaters</h2>
+        <div className='w-full mx-auto mt-6'>
+            <div className='-mt-6 bg-primary h-4' />
+            <div className='bg-primary/5 p-4 sm:p-6 rounded-b-sm shadow text-center'>
+                <h2 className='text-2xl font-semibold'>Matched Water Heaters</h2>
                 <div className='mb-2'>
                     <button className='text-sm text-primary underline focus:outline-none' onClick={() => setShowAnswers((v) => !v)} aria-expanded={showAnswers} aria-controls='user-answers-dropdown'>
-                        {showAnswers ? 'Hide your answers ▲' : 'Show your answers ▼'}
+                        {showAnswers ? 'Hide your answers ▲' : 'Review your answers ▼'}
                     </button>
                     {showAnswers && (
                         <div id='user-answers-dropdown' className='mt-2 bg-base-100 border border-base-300 rounded p-3 text-left max-w-sm mx-auto shadow'>
@@ -118,7 +118,7 @@ export default function RecommendationCard({params}) {
                     <>
                         <p className='mb-6 text-sm text-gray-500'>Based on your answers, we recommend the following options:</p>
 
-                        <div className='flex flex-wrap justify-center items-stretch gap-8'>
+                        <div className='flex flex-wrap justify-center items-stretch gap-16'>
                             {limitedModels.map((model, index) => {
                                 let productLink;
                                 if (model.type === 'tankless') {
@@ -141,94 +141,114 @@ export default function RecommendationCard({params}) {
                                 const totalHigh = model.baseCost + modelAddOns.reduce((sum, a) => sum + (a.cost?.[1] ?? 0), 0);
 
                                 return (
-                                    <div key={model.id} className='relative flex flex-col w-full max-w-86 bg-base-100 border border-base-300 rounded-lg shadow-md p-4 sm:p-6'>
-                                        <div className='flex-grow'>
+									<div className='flex flex-col w-full max-w-86 shadow-lg'>
+										<div className=' bg-primary text-white items-center justify-center flex gap-2 p-4 rounded-t-lg'>
                                             {tierLabel === 'Recommended' ? (
-                                                <div className='flex justify-center items-center '>
-                                                    <Star className='text-primary' />
-                                                    <h2 className='ml-2 font-bold text-2xl text-primary'>{tierLabel}</h2>
-                                                </div>
-                                            ) : (
-                                                <h2 className='font-bold text-2xl text-primary'>{tierLabel}</h2>
-                                            )}
-
-                                            <h3 className='text-xl font-semibold mb-2'>{model.label}</h3>
-                                            <p className='text-3xl sm:text-4xl font-bold text-primary'>
-                                                ${totalLow.toLocaleString()} {totalLow.toLocaleString() === totalHigh.toLocaleString() ? null : ` – $${totalHigh.toLocaleString()}`}
-                                            </p>
-                                            <p className='text-sm text-gray-500 mb-2'>Total installed price range</p>
-
-                                            <p className='text-sm text-gray-600 mb-4'>{model.notes}</p>
-                                            <ul className=' text-left text-gray-600 mb-6'>
-                                                {model.uef && (
-                                                    <li>
-                                                        UEF Rating: <span className='font-semibold'>{model.uef}</span>
-                                                    </li>
-                                                )}
-                                                {model.gpm && (
-                                                    <li>
-                                                        Max Flow: <span className='font-semibold'>{model.gpm} GPM</span>
-                                                    </li>
-                                                )}
-                                                <li>
-                                                    Warranty:
-                                                    <ul className='pl-6 list-disc'>
-                                                        <li>
-                                                            <span className='font-semibold'>{model.warranty.tank} Year Tank</span>
-                                                        </li>
-                                                        <li>
-                                                            <span className='font-semibold'>{model.warranty.parts} yr parts</span>
-                                                        </li>
-                                                        <li>
-                                                            <span className='font-semibold'>{model.warranty.labor} yr labor</span>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                            <div className='border border-base-300 rounded-lg shadow-sm pl-4 flex flex-row items-center gap-2 my-3'>
-                                                <input id={`warranty-${model.id}`} className='checkbox checkbox-primary rounded-sm' type='checkbox' checked={isWarrantySelected || false} onChange={() => toggleWarranty(model.id)} />
-                                                <label htmlFor={`warranty-${model.id}`} className='text-sm text-left p-4 text-gray-600'>
-                                                    <ul className='font-semibold'>
-                                                        Add Extended Warranty
-                                                        <li>
-                                                            {model.type === 'tankless' ? 'Heat exchanger:' : 'Tank: '}
-                                                            {model.warranty.tank + 4} Years
-                                                        </li>
-                                                        <li>Labor: {model.warranty.labor + 1} Years</li>
-                                                    </ul>
-                                                </label>
-                                            </div>
+													<div className='flex justify-center items-center '>
+														<Star className='' />
+														<h2 className='ml-2 font-bold text-2xl'>{tierLabel}</h2>
+													</div>
+												) : (
+													<h2 className='font-bold text-2xl'>{tierLabel}</h2>
+												)}
                                         </div>
-                                        {modelAddOns.length > 0 && (
-                                            <div className='bg-gray-50 border border-gray-200 rounded text-left p-3 mt-auto mb-4'>
-                                                <p className='text-sm font-semibold mb-2'>What's included in your price range:</p>
-                                                <ul className='list-disc list-inside text-sm text-gray-700 space-y-1'>
-                                                    {modelAddOns.map((addOn) => (
-                                                        <li key={addOn.id}>
-                                                            <span className='font-medium'>{addOn.label}:</span>
-                                                            <span className='text-gray-500'>
-                                                                {' '}
-                                                                ${addOn.cost[0]?.toLocaleString()}
-                                                                {addOn.cost[0] !== addOn?.cost[1] ? `-${addOn.cost[1].toLocaleString()}` : null}
-                                                            </span>
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            </div>
-                                        )}
+										<div
+											key={model.id}
+											className='flex flex-col flex-grow w-full max-w-86 bg-base-100 border border-base-300 shadow-lg p-4 sm:p-6'
+										>
+											<div className='flex-grow'>
+												<h3 className='text-xl font-semibold mb-2'>{model.label}</h3>
+												<p className='text-3xl sm:text-4xl font-bold text-primary'>
+													${totalLow.toLocaleString()} {totalLow.toLocaleString() === totalHigh.toLocaleString() ? null : ` – $${totalHigh.toLocaleString()}`}
+												</p>
+												<p className='text-sm text-gray-500 mb-2'>Total installed price range</p>
 
-                                        <div className='mt-3 mb-6 flex  gap-2'>
-                                            <input id={`select-${model.id}`} type='checkbox' className='h-8 w-8 border-primary border-2 checkbox checkbox-primary rounded-sm' checked={selectedModelId === model.id} onChange={() => setSelectedModelId(selectedModelId === model.id ? null : model.id)} />
-                                            <label htmlFor={`select-${model.id}`} className='text-lg font-bold text-gray-700'>
+												{/* <p className='text-sm text-gray-600 mb-4'>{model.notes}</p> */}
+												<ul className=' text-left text-gray-600 mb-6'>
+													{model.brand && (
+														<li>
+															Brand: <span className='font-semibold'>{model.brand}</span>
+														</li>
+													)}
+													{model.uef && (
+														<li>
+															UEF Rating: <span className='font-semibold'>{model.uef}</span>
+														</li>
+													)}
+													{model.gpm && (
+														<li>
+															Max Flow: <span className='font-semibold'>{model.gpm} GPM</span>
+														</li>
+													)}
+													<li>
+														Warranty:
+														<ul className='pl-6 list-disc'>
+															<li>
+																<span className='font-semibold'>{model.warranty.tank} Year Tank</span>
+															</li>
+															<li>
+																<span className='font-semibold'>{model.warranty.parts} yr parts</span>
+															</li>
+															<li>
+																<span className='font-semibold'>{model.warranty.labor} yr labor</span>
+															</li>
+														</ul>
+													</li>
+
+												</ul>
+
+												{/* <div className='border border-base-300 rounded-lg shadow-sm pl-4 flex flex-row items-center gap-2 my-3'>
+													<input id={`warranty-${model.id}`} className='checkbox checkbox-primary rounded-sm' type='checkbox' checked={isWarrantySelected || false} onChange={() => toggleWarranty(model.id)} />
+													<label htmlFor={`warranty-${model.id}`} className='text-sm text-left p-4 text-gray-600'>
+														<ul className='font-semibold'>
+															Add Extended Warranty
+															<li>
+																{model.type === 'tankless' ? 'Heat exchanger:' : 'Tank: '}
+																{model.warranty.tank + 4} Years
+															</li>
+															<li>Labor: {model.warranty.labor + 1} Years</li>
+														</ul>
+													</label>
+												</div> */}
+											</div>
+											<a target='_blank' href={productLink} className='text-gray-500 font-normal btn btn-ghost text-lg h-fit py-2'>
+													<QuestionMark className='text-gray-500 font-normal' />
+													See Product Details
+												</a>
+											{modelAddOns.length > 0 && (
+												<div className='bg-primary/5 text-sm border border-primary/50 rounded-lg text-left p-3 mt-auto'>
+													<p className='font-semibold mb-2'>What's included in your price range:</p>
+													<ul className='list-disc list-inside text-gray-700 space-y-1 pb-2'>
+														{modelAddOns.map((addOn) => (
+															<li key={addOn.id} className='leading-snug pl-5 -indent-5'>
+																<span className='font-medium'>{addOn.label}:</span>
+																<span className='text-gray-500 text-nowrap '>
+																	{' '}
+																	${addOn.cost[0]?.toLocaleString()}
+																	{addOn.cost[0] !== addOn?.cost[1] ? `-${addOn.cost[1].toLocaleString()}` : null}
+																</span>
+															</li>
+														))}
+													</ul>
+													<p className='text- text-gray-500'>Note: Some disclaimer</p>
+												</div>
+											)}
+										</div>
+
+                                        <div className=' bg-primary text-white items-center justify-center flex gap-2 p-4 rounded-b-lg'>
+                                            <input
+												id={`select-${model.id}`}
+												type='checkbox'
+												className='h-8 w-8 border-primary/10 border-2 checkbox checkbox-primary rounded-sm bg-white'
+												checked={selectedModelId === model.id}
+												onChange={() => setSelectedModelId(selectedModelId === model.id ? null : model.id)} />
+                                            <label
+												htmlFor={`select-${model.id}`}
+												className='text-lg font-bold text-white'>
                                                 Choose This Model
                                             </label>
                                         </div>
-
-                                        <a target='_blank' href={productLink} className='text-gray-500 font-normal absolute bottom-0 right-0 btn btn-ghost text-lg h-fit py-2'>
-											<QuestionMark className='text-gray-500 font-normal' />
-                                            See Product Details
-                                        </a>
-                                    </div>
+									</div>
                                 );
                             })}
                         </div>

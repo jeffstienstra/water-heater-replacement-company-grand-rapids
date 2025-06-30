@@ -2,6 +2,7 @@ const waterHeaterModels = [
 	// Natural Draft – Metal Venting
 	{
 		id: 'natdraft_40_good',
+		brand: 'Rheem',
 		type: 'tank',
 		fuel: 'gas',
 		ventType: 'metal',
@@ -26,6 +27,7 @@ const waterHeaterModels = [
 	},
 	{
 		id: 'natdraft_50_recommended',
+		brand: 'Rheem',
 		type: 'tank',
 		fuel: 'gas',
 		ventType: 'metal',
@@ -52,6 +54,7 @@ const waterHeaterModels = [
 	// Power Vent – PVC
 	{
 		id: 'powervent_40_good',
+		brand: 'Rheem',
 		type: 'tank',
 		fuel: 'gas',
 		ventType: 'pvc',
@@ -76,6 +79,7 @@ const waterHeaterModels = [
 	},
 	{
 		id: 'powervent_50_good',
+		brand: 'Rheem',
 		type: 'tank',
 		fuel: 'gas',
 		ventType: 'pvc',
@@ -102,6 +106,7 @@ const waterHeaterModels = [
 	// Electric Tank
 	{
 		id: 'electric_40_good',
+		brand: 'Rheem',
 		type: 'tank',
 		fuel: 'electric',
 		ventType: 'none',
@@ -125,6 +130,7 @@ const waterHeaterModels = [
 	},
 	{
 		id: 'electric_50_recommended',
+		brand: 'Rheem',
 		type: 'tank',
 		fuel: 'electric',
 		ventType: 'none',
@@ -150,6 +156,7 @@ const waterHeaterModels = [
 	// Tankless – Gas (PVC)
 	{
 		id: 'tankless_prestige_recommended',
+		brand: 'Rheem',
 		type: 'tankless',
 		fuel: 'gas',
 		ventType: 'pvc',
@@ -172,6 +179,7 @@ const waterHeaterModels = [
 	},
 	{
 		id: 'tankless_ikonic_best',
+		brand: 'Rheem',
 		type: 'tankless',
 		fuel: 'gas',
 		ventType: 'pvc',
@@ -195,6 +203,7 @@ const waterHeaterModels = [
 	},
 	{
 		id: 'tankless_thermaforce_special',
+		brand: 'Rheem',
 		type: 'tankless',
 		fuel: 'gas',
 		ventType: 'pvc',

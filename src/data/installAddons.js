@@ -65,6 +65,8 @@ const installAddons = [
 		cost: [150, 300],
 		applyIf: (answers) => answers.location === 'crawlspace' || answers.location === 'closet'
 	},
+
+    // User-selectable Add-Ons
     {
         id: 'add_extended_warranty',
         userSelectable: true,

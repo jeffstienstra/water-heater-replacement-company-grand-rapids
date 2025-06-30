@@ -241,17 +241,17 @@ export default function FindWaterHeaterQuiz() {
 		: `${Math.max(3, Math.min(100, ((safeStep - 1) / (steps - 1)) * 100))}%`;
 
 	return (
-		<div className="bg-white rounded-t-sm w-full max-w-6xl mx-auto mt-16">
+		<div className={`bg-white w-full mt-16 ${step > steps ? 'px-0 pt-0.25' : 'pt-16 max-w-6xl mx-auto px-4'}`}>
 			{step > steps ? (
 				<>
-					<div className="flex -mt-8">
+					{/* <div className="flex -mt-8">
 						<button
 							className="px-0 btn btn-sm btn-ghost text-sm text-gray-500"
 							onClick={handleBack}
 						>
 							← Back
 						</button>
-					</div>
+					</div> */}
 					<RecommendationCard params={params} />
 				</>
 			) : (
