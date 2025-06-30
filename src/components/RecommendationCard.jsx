@@ -92,33 +92,36 @@ export default function RecommendationCard({params}) {
     return (
         <div className='w-full mx-auto mt-6'>
             <div className='-mt-6 bg-primary h-4' />
-            <div className='bg-primary/5 p-4 sm:p-6 rounded-b-sm shadow text-center'>
-                <h2 className='text-2xl font-semibold'>Matched Water Heaters</h2>
-                <div className='mb-2'>
-                    <button className='text-sm text-primary underline focus:outline-none' onClick={() => setShowAnswers((v) => !v)} aria-expanded={showAnswers} aria-controls='user-answers-dropdown'>
-                        {showAnswers ? 'Hide your answers ▲' : 'Review your answers ▼'}
-                    </button>
-                    {showAnswers && (
-                        <div id='user-answers-dropdown' className='mt-2 bg-base-100 border border-base-300 rounded p-3 text-left max-w-sm mx-auto shadow'>
-                            <ul className='text-sm'>
-                                {displayAnswers.map(({key, value}) => (
-                                    <li key={key} className='flex justify-between py-1 border-b border-base-200 last:border-b-0'>
-                                        <span className='font-medium'>{key}</span>
-                                        <span className='text-gray-700 text-right pl-4'>{value}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    )}
-                </div>
-
+            <div className='bg-primary/5 pt-4 rounded-b-sm shadow text-center'>
+                {/* <h2 className='text-2xl font-semibold'>Matched Water Heaters</h2> */}
                 {matchedModels.length === 0 ? (
                     <p>No suitable models found. Please check your answers or contact support.</p>
                 ) : (
                     <>
-                        <p className='mb-6 text-sm text-gray-500'>Based on your answers, we recommend the following options:</p>
+											<StickyBar
+							selectedModel={selectedModelId}
+							onConfirmClick={() => setShowConfirmModal(true)}
+						/>
 
-                        <div className='flex flex-wrap justify-center items-stretch gap-16'>
+                        <p className='text-sm text-gray-500'>We matched the following options:</p>
+						<div className='mb-6 sm:mb-12'>
+							<button className='text-sm text-primary underline focus:outline-none' onClick={() => setShowAnswers((v) => !v)} aria-expanded={showAnswers} aria-controls='user-answers-dropdown'>
+								{showAnswers ? 'Hide your answers ▲' : 'Review your answers ▼'}
+							</button>
+							{showAnswers && (
+								<div id='user-answers-dropdown' className='bg-base-100 border border-base-300 rounded p-3 text-left max-w-sm mx-auto shadow'>
+									<ul className='text-sm'>
+										{displayAnswers.map(({key, value}) => (
+											<li key={key} className='flex justify-between py-1 border-b border-base-200 last:border-b-0'>
+												<span className='font-medium'>{key}</span>
+												<span className='text-gray-700 text-right pl-4'>{value}</span>
+											</li>
+										))}
+									</ul>
+								</div>
+							)}
+						</div>
+                        <div className='px-4 flex flex-wrap justify-center items-stretch gap-16'>
                             {limitedModels.map((model, index) => {
                                 let productLink;
                                 if (model.type === 'tankless') {
@@ -141,7 +144,7 @@ export default function RecommendationCard({params}) {
                                 const totalHigh = model.baseCost + modelAddOns.reduce((sum, a) => sum + (a.cost?.[1] ?? 0), 0);
 
                                 return (
-									<div className='flex flex-col w-full max-w-86 shadow-lg'>
+									<div key={`${model.modelNumber}-${index}`} className={`flex flex-col w-full max-w-86 shadow-lg ${selectedModelId === model.id && 'outline-primary rounded-lg outline-4'}`}>
 										<div className=' bg-primary text-white items-center justify-center flex gap-2 p-4 rounded-t-lg'>
                                             {tierLabel === 'Recommended' ? (
 													<div className='flex justify-center items-center '>
@@ -164,40 +167,20 @@ export default function RecommendationCard({params}) {
 												<p className='text-sm text-gray-500 mb-2'>Total installed price range</p>
 
 												{/* <p className='text-sm text-gray-600 mb-4'>{model.notes}</p> */}
-												<ul className=' text-left text-gray-600 mb-6'>
-													{model.brand && (
-														<li>
-															Brand: <span className='font-semibold'>{model.brand}</span>
+												<ul className='text-left text-gray-600 mb-6 list-disc list-inside'>
+													{model.features?.map((feature, idx) => (
+														<li key={idx}>
+															<span className='font-semibold'>{feature.label}</span>: {feature.value}
 														</li>
-													)}
-													{model.uef && (
-														<li>
-															UEF Rating: <span className='font-semibold'>{model.uef}</span>
-														</li>
-													)}
-													{model.gpm && (
-														<li>
-															Max Flow: <span className='font-semibold'>{model.gpm} GPM</span>
-														</li>
-													)}
-													<li>
-														Warranty:
-														<ul className='pl-6 list-disc'>
-															<li>
-																<span className='font-semibold'>{model.warranty.tank} Year Tank</span>
-															</li>
-															<li>
-																<span className='font-semibold'>{model.warranty.parts} yr parts</span>
-															</li>
-															<li>
-																<span className='font-semibold'>{model.warranty.labor} yr labor</span>
-															</li>
-														</ul>
-													</li>
-
+													))}
 												</ul>
 
-												{/* <div className='border border-base-300 rounded-lg shadow-sm pl-4 flex flex-row items-center gap-2 my-3'>
+
+												<a target='_blank' href={productLink} className='text-gray-500 text-sm font-normal btn btn-ghost h-fit'>
+													{/* <QuestionMark className='text-gray-500 font-normal' /> */}
+													More Product Info
+												</a>
+												<div className='border border-base-300 rounded-lg shadow-sm pl-4 flex flex-row items-center gap-2 my-3'>
 													<input id={`warranty-${model.id}`} className='checkbox checkbox-primary rounded-sm' type='checkbox' checked={isWarrantySelected || false} onChange={() => toggleWarranty(model.id)} />
 													<label htmlFor={`warranty-${model.id}`} className='text-sm text-left p-4 text-gray-600'>
 														<ul className='font-semibold'>
@@ -209,15 +192,11 @@ export default function RecommendationCard({params}) {
 															<li>Labor: {model.warranty.labor + 1} Years</li>
 														</ul>
 													</label>
-												</div> */}
+												</div>
 											</div>
-											<a target='_blank' href={productLink} className='text-gray-500 font-normal btn btn-ghost text-lg h-fit py-2'>
-													<QuestionMark className='text-gray-500 font-normal' />
-													See Product Details
-												</a>
 											{modelAddOns.length > 0 && (
 												<div className='bg-primary/5 text-sm border border-primary/50 rounded-lg text-left p-3 mt-auto'>
-													<p className='font-semibold mb-2'>What's included in your price range:</p>
+													<p className='font-semibold mb-2'>Included in price range: *</p>
 													<ul className='list-disc list-inside text-gray-700 space-y-1 pb-2'>
 														{modelAddOns.map((addOn) => (
 															<li key={addOn.id} className='leading-snug pl-5 -indent-5'>
@@ -230,7 +209,7 @@ export default function RecommendationCard({params}) {
 															</li>
 														))}
 													</ul>
-													<p className='text- text-gray-500'>Note: Some disclaimer</p>
+													<p className='text- text-gray-500'>Note: ...</p>
 												</div>
 											)}
 										</div>
@@ -239,7 +218,7 @@ export default function RecommendationCard({params}) {
                                             <input
 												id={`select-${model.id}`}
 												type='checkbox'
-												className='h-8 w-8 border-primary/10 border-2 checkbox checkbox-primary rounded-sm bg-white'
+												className='h-8 w-8 checkbox checkbox-primary checked:bg-white text-primary rounded-sm bg-white'
 												checked={selectedModelId === model.id}
 												onChange={() => setSelectedModelId(selectedModelId === model.id ? null : model.id)} />
                                             <label
@@ -252,13 +231,9 @@ export default function RecommendationCard({params}) {
                                 );
                             })}
                         </div>
-                        <p className='text-sm text-gray-500 mt-8'>Final price is always provided by email or text before work begins.</p>
+                        <p className='text-sm text-gray-500 mt-8 p-2'>* Call us or schedule an onsite Price Confirmation to verify which of these services are required. Final price is always provided by email or text before work begins.</p>
                     </>
                 )}
-				<StickyBar
-					selectedModel={selectedModelId}
-					onConfirmClick={() => setShowConfirmModal(true)}
-				/>
 			</div>
             {showConfirmModal && (
                 <div className='fixed inset-0 z-50 flex items-center justify-center bg-black/50'>

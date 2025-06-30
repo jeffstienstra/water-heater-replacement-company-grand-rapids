@@ -6,7 +6,7 @@ import urlHelper from '../lib/urlHelper.js';
 export const questions = [
 	{
 		paramKey: 'interestedIn',
-		question: 'Which type of water heater are you interested in?',
+		question: 'What type of water heater are you interested in?',
 		options: [
 			{label: 'Tank', value: 'tank'},
 			{label: 'Tankless', value: 'tankless'}
@@ -19,6 +19,16 @@ export const questions = [
 			{label: 'Tank', value: 'tank'},
 			{label: 'Tankless', value: 'tankless'}
 		],
+	},
+	{
+		paramKey: 'homeType',
+		question: 'What type of home do you have?',
+		options: [
+			{label: 'Single Family Home', value: 'singleFamily'},
+			{label: 'Townhome', value: 'townhome'},
+			{label: 'Mobile Home', value: 'mobileHome'},
+			{label: 'Condo/Apartment', value: 'condo'},
+		]
 	},
 	{
 		paramKey: 'showers',
@@ -179,6 +189,7 @@ export const questions = [
 export default function FindWaterHeaterQuiz() {
 	const [params, setParams] = useState(() => new URLSearchParams(window.location.search));
 	const [step, setStep] = useState(() => parseInt(params.get('step') || '1', 10));
+	const [loadingResults, setLoadingResults] = useState(true);
 
 	useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -198,6 +209,14 @@ export default function FindWaterHeaterQuiz() {
 		window.addEventListener('popstate', handlePopState);
 		return () => window.removeEventListener('popstate', handlePopState);
 	}, []);
+
+	useEffect(() => {
+		if (step > steps) {
+			setLoadingResults(true);
+			const timeout = setTimeout(() => setLoadingResults(false), 2000 + Math.random() * 2000); // 2–4s
+			return () => clearTimeout(timeout);
+		}
+	}, [step]);
 
 	const handleAnswer = (paramKey, value, shouldAdvanceStep = true) => {
 		const updatedParams = new URLSearchParams(window.location.search);
@@ -240,30 +259,30 @@ export default function FindWaterHeaterQuiz() {
 		? '3%'
 		: `${Math.max(3, Math.min(100, ((safeStep - 1) / (steps - 1)) * 100))}%`;
 
-	return (
-		<div className={`bg-white w-full mt-16 ${step > steps ? 'px-0 pt-0.25' : 'pt-16 max-w-6xl mx-auto px-4'}`}>
+console.log('step', step, 'steps', steps, 'percent', percent);
+		return (
+		<div className={`bg-white w-full mt-16 ${!params.get('step') && 'pt-0 px-0'} ${(params.get('step') && step <= steps) && 'pt-16 px-2 max-w-6xl mx-auto'} ${step > steps && 'pt-12'} `}>
 			{step > steps ? (
-				<>
-					{/* <div className="flex -mt-8">
-						<button
-							className="px-0 btn btn-sm btn-ghost text-sm text-gray-500"
-							onClick={handleBack}
-						>
-							← Back
-						</button>
-					</div> */}
+				loadingResults ? (
+					<div className="flex flex-col items-center justify-center py-20">
+						<span className="loading loading-spinner text-primary w-12 h-12 mb-4" />
+						<p className="text-sm text-gray-500">Calculating your best options...</p>
+					</div>
+				) : (
 					<RecommendationCard params={params} />
-				</>
+				)
 			) : (
 				<>
-					<div className="flex -mt-8">
-						<button
-							className="px-0 btn btn-sm btn-ghost text-sm text-gray-500"
-							onClick={handleBack}
-						>
-							← Back
-						</button>
-					</div>
+					{step > 1 && (
+						<div className="flex">
+							<button
+								className="px-0 btn btn-sm btn-ghost text-sm text-gray-500"
+								onClick={handleBack}
+							>
+								← Back
+							</button>
+						</div>
+					)}
 					<div className="flex items-center w-full bg-primary/10 h-4 rounded-t-sm">
 						<div
 							className="bg-primary h-4 transition-all duration-300 ease-in-out rounded-t-sm"

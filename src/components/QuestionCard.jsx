@@ -56,25 +56,38 @@ export default function QuestionCard({classes, question, options, step, paramKey
 	const handleOptionSelect = (value) => {
 		// Update URL params as before
 		const updatedParams = new URLSearchParams(window.location.search);
+
+		console.log('selectedValue:', selectedValue);
+		console.log('value:', value);
+		if (selectedValue === value) {
+			updatedParams.delete(paramKey);
+			setSelectedValue(null);
+			window.history.replaceState({}, '', `${window.location.pathname}?${updatedParams}`);
+			onSelect(paramKey, null, false);
+			return;
+		} else {
+
 		updatedParams.set(paramKey, value);
 
 		// Remove all subQuestion keys from URL
 		const allKeys = urlHelper.getAllParamKeys([{paramKey, subQuestion}]);
-		allKeys.forEach(key => {
-			if (key !== paramKey) updatedParams.delete(key);
-		});
+			allKeys.forEach(key => {
+				if (key !== paramKey) updatedParams.delete(key);
+			});
 
-		window.history.replaceState({}, '', `${window.location.pathname}?${updatedParams}`);
+			window.history.replaceState({}, '', `${window.location.pathname}?${updatedParams}`);
 
-		const updatedAnswers = Object.fromEntries(updatedParams.entries());
+			const updatedAnswers = Object.fromEntries(updatedParams.entries());
 
-		setSelectedValue(value);
+			setSelectedValue(value);
 
-		const shouldShowSubs = subQuestion && shouldShowAnySubQuestions(subQuestion, updatedAnswers);
-		const shouldAdvance = !shouldShowSubs;
-		onSelect(paramKey, value, shouldAdvance);
+			const shouldShowSubs = subQuestion && shouldShowAnySubQuestions(subQuestion, updatedAnswers);
+			const shouldAdvance = !shouldShowSubs;
+			onSelect(paramKey, value, shouldAdvance);
+		}
 	};
 
+		console.log('paramKey:', paramKey);
 
 	const renderSubQuestion = (subQuestion, answers) => {
         if (!subQuestion) return null;
