@@ -13,6 +13,8 @@ export default function RecommendationCard({params}) {
     const [selectedModelId, setSelectedModelId] = useState(null);
     const [showConfirmModal, setShowConfirmModal] = useState(false);
 
+    const warrantyAddon = installAddons.find((addon) => addon.id === 'add_extended_warranty');
+
     const toggleWarranty = (modelId) => {
         setWarrantySelections((prev) => ({
             ...prev,
@@ -98,7 +100,7 @@ export default function RecommendationCard({params}) {
                     <p>No suitable models found. Please check your answers or contact support.</p>
                 ) : (
                     <>
-											<StickyBar
+                        <StickyBar
 							selectedModel={selectedModelId}
 							onConfirmClick={() => setShowConfirmModal(true)}
 						/>
@@ -162,10 +164,12 @@ export default function RecommendationCard({params}) {
 										>
 											<div className='flex-grow'>
 												<h3 className='text-xl mb-4 font-semibold'>{model.label}</h3>
+                                                <div>
 												<p className='text-sm text-left pl-6'>Complete installation</p>
 												<p className='text-3xl sm:text-4xl font-bold text-primary'>
 													{priceRange}
 												</p>
+                                            </div>
 
 												{/* <p className='text-sm text-gray-600 mb-4'>{model.notes}</p> */}
 												<ul className='text-left my-6 list-disc list-inside'>
@@ -176,13 +180,35 @@ export default function RecommendationCard({params}) {
 														</li>
 													))}
 												</ul>
+                                                {modelAddOns.length > 0 && (
+                                                    <div className='text-sm border border-base-300 rounded-lg text-left p-3 mt-auto mb-2'>
+                                                        <p className='font-semibold mb-2'>Your price also includes*: </p>
+                                                        <ul className='list-disc list-inside text-gray-700 space-y-1 pb-2'>
+                                                            {modelAddOns.map((addOn) => {
+                                                                if (addOn.id === 'add_extended_warranty') return null;
+                                                                return (
+                                                                <li key={addOn.id} className='leading-snug pl-5 -indent-5'>
+                                                                    <span className='font-medium'>{addOn.label}:</span>
+                                                                    <span className='text-gray-500 text-nowrap '>
+                                                                        {' '}
+                                                                        ${addOn.cost[0]?.toLocaleString()}
+                                                                        {addOn.cost[0] !== addOn?.cost[1] ? `-${addOn.cost[1].toLocaleString()}` : null}
+                                                                    </span>
+                                                                </li>
+                                                                );
+                                                            }
+                                                            )}
+                                                        </ul>
+                                                        <p className='text- text-gray-500'>*Note: A site visit or video call is required to determine your exact final price.</p>
+                                                    </div>
+                                                )}
 											</div>
 
 											<a target='_blank' href={productLink} className='text-gray-500 text-sm font-normal btn btn-ghost h-fit'>
 												<LinkInternal className='text-gray-500 font-normal' />
 												Additional Product Info
 											</a>
-											<div className='bg-primary/5 border border-base-300 rounded-lg shadow-sm pr-4 flex flex-row items-center gap-2 mt-2 mb-4'>
+											<div className='bg-primary/5 border border-base-300 rounded-lg shadow-sm pr-4 flex flex-row items-center gap-2 mt-2'>
 												<label htmlFor={`warranty-${model.id}`} className='text-sm text-left p-4'>
 													<ul className='font-semibold'>
 														Include Rheem's ProtectionPlus Extended Warranty:
@@ -191,28 +217,11 @@ export default function RecommendationCard({params}) {
 															{model.warranty.tank + 4} Years
 														</li>
 														<li>Labor: {model.warranty.labor + 1} Years</li>
+                                                        <li>Cost: ${warrantyAddon?.cost[0]}</li>
 													</ul>
 												</label>
 												<input id={`warranty-${model.id}`} className='checkbox checkbox-primary rounded-sm' type='checkbox' checked={isWarrantySelected || false} onChange={() => toggleWarranty(model.id)} />
 											</div>
-											{modelAddOns.length > 0 && (
-												<div className='text-sm border border-base-300 rounded-lg text-left p-3 mt-auto'>
-													<p className='font-semibold mb-2'>*Your price {priceRange} also includes: </p>
-													<ul className='list-disc list-inside text-gray-700 space-y-1 pb-2'>
-														{modelAddOns.map((addOn) => (
-															<li key={addOn.id} className='leading-snug pl-5 -indent-5'>
-																<span className='font-medium'>{addOn.label}:</span>
-																<span className='text-gray-500 text-nowrap '>
-																	{' '}
-																	${addOn.cost[0]?.toLocaleString()}
-																	{addOn.cost[0] !== addOn?.cost[1] ? `-${addOn.cost[1].toLocaleString()}` : null}
-																</span>
-															</li>
-														))}
-													</ul>
-													{/* <p className='text- text-gray-500'>Notes...</p> */}
-												</div>
-											)}
 										</div>
 
                                         <div className=' bg-primary text-white items-center justify-center flex gap-2 p-4 rounded-b-lg'>

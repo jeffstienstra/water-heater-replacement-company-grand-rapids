@@ -71,7 +71,7 @@ const installAddons = [
         id: 'add_extended_warranty',
         userSelectable: true,
         label: 'Extended Warranty',
-        cost: [350, 350],
+        cost: [395, 395],
         getDetails: (model) => [
             `Tank: ${model.warranty.tank + 4} Years`,
             `Parts: ${model.warranty.parts + 4} Years`,

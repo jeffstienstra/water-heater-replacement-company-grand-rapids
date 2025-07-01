@@ -3,7 +3,7 @@ const waterHeaterModels = [
 	{
 		id: 'natdraft_40_good',
 		brand: 'Rheem',
-		label: 'Rheem 40 Gallon Professional Classic Series: Atmospheric',
+		label: 'Rheem 40 Gallon Professional Classic Series Water Heater: Atmospheric',
 		modelNumber: 'PROG40-40N RH62',
 		type: 'tank',
 		tankCapacity: '40',
@@ -18,7 +18,7 @@ const waterHeaterModels = [
 		notes: 'Most common size for smaller households',
 		conditions: {
 			homeType: ['singleFamily', 'townhome', 'condo'],
-			fuel: ['gas'],
+			fuel: ['gas', 'propane'],
 			ventType: ['metal'],
 			showers: ['1', '2'],
 			interestedIn: ['tank']
@@ -36,7 +36,7 @@ const waterHeaterModels = [
 	{
 		id: 'natdraft_50_recommended',
 		brand: 'Rheem',
-		label: 'Rheem 50 Gallon Professional Classic Series: Atmospheric',
+		label: 'Rheem 50 Gallon Professional Classic Series Water Heater: Atmospheric',
 		modelNumber: 'PROG50-42N RH67',
 		type: 'tank',
 		tankCapacity: '50',
@@ -51,7 +51,7 @@ const waterHeaterModels = [
 		notes: 'Extra capacity for larger families',
 		conditions: {
 			homeType: ['singleFamily', 'townhome', 'condo'],
-			fuel: ['gas'],
+			fuel: ['gas', 'propane'],
 			ventType: ['metal'],
 			showers: ['2', '3'],
 			interestedIn: ['tank']
@@ -71,7 +71,7 @@ const waterHeaterModels = [
 	{
 		id: 'powervent_40_good',
 		brand: 'Rheem',
-		label: 'Rheem 40 Gallon Professional Classic Series: Power Vent',
+		label: 'Rheem 40 Gallon Professional Classic Series Water Heater: Power Vent',
 		modelNumber: 'PROG40S-36N RH62 PV',
 		type: 'tank',
 		tankCapacity: '40',
@@ -86,7 +86,7 @@ const waterHeaterModels = [
 		notes: 'Ideal for PVC venting or newer installations',
 		conditions: {
 			homeType: ['singleFamily', 'townhome', 'condo'],
-			fuel: ['gas'],
+			fuel: ['gas', 'propane'],
 			ventType: ['pvc'],
 			showers: ['1', '2', '3'],
 			interestedIn: ['tank']
@@ -104,7 +104,7 @@ const waterHeaterModels = [
 	{
 		id: 'powervent_50_good',
 		brand: 'Rheem',
-		label: 'Rheem 50 Gallon Professional Classic Series: Power Vent',
+		label: 'Rheem 50 Gallon Professional Classic Series Water Heater: Power Vent',
 		modelNumber: 'PROG50-42N RH67 PV',
 		type: 'tank',
 		tankCapacity: '50',
@@ -119,7 +119,7 @@ const waterHeaterModels = [
 		notes: 'Ideal for PVC venting or newer installations',
 		conditions: {
 			homeType: ['singleFamily', 'townhome', 'condo'],
-			fuel: ['gas'],
+			fuel: ['gas', 'propane'],
 			ventType: ['pvc'],
 			showers: ['2', '3'],
 			interestedIn: ['tank']
@@ -139,7 +139,7 @@ const waterHeaterModels = [
 	{
 		id: 'electric_40_good',
 		brand: 'Rheem',
-		label: 'Rheem 40 Gallon Professional Classic Series: Standard Electric',
+		label: 'Rheem 40 Gallon Professional Classic Series Water Heater: Standard Electric',
 		modelNumber: 'PROE40 T2 RH95',
 		type: 'tank',
 		tankCapacity: '40',
@@ -171,7 +171,7 @@ const waterHeaterModels = [
 	{
 		id: 'electric_50_recommended',
 		brand: 'Rheem',
-		label: 'Rheem 50 Gallon Professional Classic Series: Standard Electric',
+		label: 'Rheem 50 Gallon Professional Classic Series Water Heater: Standard Electric',
 		modelNumber: 'PROE50 T2 RH95',
 		type: 'tank',
 		tankCapacity: '50',
@@ -218,7 +218,7 @@ const waterHeaterModels = [
 		notes: 'Compact, high-efficiency tankless system',
 		conditions: {
 			homeType: ['singleFamily', 'townhome', 'condo'],
-			fuel: ['gas'],
+			fuel: ['gas', 'propane'],
 			ventType: ['pvc', 'metal', 'unsure'],
 			showers: ['1', '2', '3']
 		},
@@ -249,7 +249,7 @@ const waterHeaterModels = [
 		notes: 'Ultra-high efficiency, ENERGY STAR rated',
 		conditions: {
 			homeType: ['singleFamily', 'townhome', 'condo'],
-			fuel: ['gas'],
+			fuel: ['gas', 'propane'],
 			ventType: ['pvc'],
 			showers: ['3'],
 			interestedIn: ['tankless']
@@ -281,7 +281,7 @@ const waterHeaterModels = [
 		notes: 'Great for hard water areas. High flow with scale-resistance.',
 		conditions: {
 			homeType: ['singleFamily', 'townhome', 'condo'],
-			fuel: ['gas'],
+			fuel: ['gas', 'propane'],
 			ventType: ['pvc'],
 			hardWater: ['yes'],
 			showers: ['3'],
@@ -298,6 +298,8 @@ const waterHeaterModels = [
 			{label: 'Recirculation', value: 'Built-in Recirculation Ready'}
 		]
 	}
+	// Hybrid water heaters
+
 ];
 
 export default waterHeaterModels;
