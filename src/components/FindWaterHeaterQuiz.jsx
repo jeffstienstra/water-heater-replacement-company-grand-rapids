@@ -250,16 +250,11 @@ export default function FindWaterHeaterQuiz() {
 		setParams(updatedParams);
 	};
 
-	// if (step > steps) {
-	// 	return <RecommendationCard params={params} />;
-	// }
-
 	const safeStep = Math.max(1, Math.min(step, steps));
 	const percent = safeStep === 1
 		? '3%'
 		: `${Math.max(3, Math.min(100, ((safeStep - 1) / (steps - 1)) * 100))}%`;
 
-console.log('step', step, 'steps', steps, 'percent', percent);
 		return (
 		<div className={`bg-white w-full mt-16 ${!params.get('step') && 'pt-0 px-0'} ${(params.get('step') && step <= steps) && 'pt-16 px-2 max-w-6xl mx-auto'} ${step > steps && 'pt-12'} `}>
 			{step > steps ? (

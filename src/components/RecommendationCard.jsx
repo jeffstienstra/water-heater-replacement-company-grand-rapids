@@ -5,7 +5,7 @@ import Star from './icons/Star.jsx';
 import waterHeaterModels from '../data/waterHeaterModels.js';
 import installAddons from '../data/installAddons.js';
 import StickyBar from './StickyBar.jsx';
-import QuestionMark from './icons/QuestionMark.jsx';
+import LinkInternal from './icons/LinkInternal.jsx';
 
 export default function RecommendationCard({params}) {
     const [showAnswers, setShowAnswers] = useState(false);
@@ -142,6 +142,7 @@ export default function RecommendationCard({params}) {
 
                                 const totalLow = model.baseCost + modelAddOns.reduce((sum, a) => sum + (a.cost?.[0] ?? 0), 0);
                                 const totalHigh = model.baseCost + modelAddOns.reduce((sum, a) => sum + (a.cost?.[1] ?? 0), 0);
+								const priceRange = totalLow === totalHigh ? `$${totalLow.toLocaleString()}` : `$${totalLow.toLocaleString()} - $${totalHigh.toLocaleString()}`;
 
                                 return (
 									<div key={`${model.modelNumber}-${index}`} className={`flex flex-col w-full max-w-86 shadow-lg ${selectedModelId === model.id && 'outline-primary rounded-lg outline-4'}`}>
@@ -157,12 +158,12 @@ export default function RecommendationCard({params}) {
                                         </div>
 										<div
 											key={model.id}
-											className='flex flex-col flex-grow w-full max-w-86 bg-base-100 border border-base-300 shadow-lg p-4 sm:p-6'
+											className='flex flex-col flex-grow w-full max-w-86 bg-base-100 border border-base-300 shadow-lg p-4'
 										>
 											<div className='flex-grow'>
 												<h3 className='text-xl font-semibold mb-2'>{model.label}</h3>
 												<p className='text-3xl sm:text-4xl font-bold text-primary'>
-													${totalLow.toLocaleString()} {totalLow.toLocaleString() === totalHigh.toLocaleString() ? null : ` – $${totalHigh.toLocaleString()}`}
+													{priceRange}
 												</p>
 												<p className='text-sm text-gray-500 mb-2'>Total installed price range</p>
 
@@ -174,29 +175,28 @@ export default function RecommendationCard({params}) {
 														</li>
 													))}
 												</ul>
+											</div>
 
-
-												<a target='_blank' href={productLink} className='text-gray-500 text-sm font-normal btn btn-ghost h-fit'>
-													{/* <QuestionMark className='text-gray-500 font-normal' /> */}
-													More Product Info
-												</a>
-												<div className='border border-base-300 rounded-lg shadow-sm pl-4 flex flex-row items-center gap-2 my-3'>
-													<input id={`warranty-${model.id}`} className='checkbox checkbox-primary rounded-sm' type='checkbox' checked={isWarrantySelected || false} onChange={() => toggleWarranty(model.id)} />
-													<label htmlFor={`warranty-${model.id}`} className='text-sm text-left p-4 text-gray-600'>
-														<ul className='font-semibold'>
-															Add Extended Warranty
-															<li>
-																{model.type === 'tankless' ? 'Heat exchanger:' : 'Tank: '}
-																{model.warranty.tank + 4} Years
-															</li>
-															<li>Labor: {model.warranty.labor + 1} Years</li>
-														</ul>
-													</label>
-												</div>
+											<a target='_blank' href={productLink} className='text-gray-500 text-sm font-normal btn btn-ghost h-fit'>
+												<LinkInternal className='text-gray-500 font-normal' />
+												Additional Product Info
+											</a>
+											<div className='bg-primary/5 border border-base-300 rounded-lg shadow-sm pr-4 flex flex-row items-center gap-2 mt-2 mb-4'>
+												<label htmlFor={`warranty-${model.id}`} className='text-sm text-left p-4 text-gray-600'>
+													<ul className='font-semibold'>
+														Include Rheem's ProtectionPlus Extended Warranty:
+														<li>
+															{model.type === 'tankless' ? 'Heat exchanger: ' : 'Tank: '}
+															{model.warranty.tank + 4} Years
+														</li>
+														<li>Labor: {model.warranty.labor + 1} Years</li>
+													</ul>
+												</label>
+												<input id={`warranty-${model.id}`} className='checkbox checkbox-primary rounded-sm' type='checkbox' checked={isWarrantySelected || false} onChange={() => toggleWarranty(model.id)} />
 											</div>
 											{modelAddOns.length > 0 && (
-												<div className='bg-primary/5 text-sm border border-primary/50 rounded-lg text-left p-3 mt-auto'>
-													<p className='font-semibold mb-2'>Included in price range: *</p>
+												<div className='text-sm border border-base-300 rounded-lg text-left p-3 mt-auto'>
+													<p className='font-semibold mb-2'>Your price {priceRange} also includes: </p>
 													<ul className='list-disc list-inside text-gray-700 space-y-1 pb-2'>
 														{modelAddOns.map((addOn) => (
 															<li key={addOn.id} className='leading-snug pl-5 -indent-5'>
@@ -209,7 +209,7 @@ export default function RecommendationCard({params}) {
 															</li>
 														))}
 													</ul>
-													<p className='text- text-gray-500'>Note: ...</p>
+													{/* <p className='text- text-gray-500'>Notes...</p> */}
 												</div>
 											)}
 										</div>
@@ -231,7 +231,7 @@ export default function RecommendationCard({params}) {
                                 );
                             })}
                         </div>
-                        <p className='text-sm text-gray-500 mt-8 p-2'>* Call us or schedule an onsite Price Confirmation to verify which of these services are required. Final price is always provided by email or text before work begins.</p>
+                        <p className='text-sm text-gray-500 mt-8 p-2'>* Some of these services may not be required but commonly are. Call us or schedule an onsite Price Confirmation to verify your unique system. Final price is always provided by email or text before work begins.</p>
                     </>
                 )}
 			</div>
