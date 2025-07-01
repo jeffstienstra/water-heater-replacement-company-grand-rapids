@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {questions} from './FindWaterHeaterQuiz.jsx';
+import questions from '../data/questions.js';
 
 import Star from './icons/Star.jsx';
 import waterHeaterModels from '../data/waterHeaterModels.js';
@@ -91,8 +91,8 @@ export default function RecommendationCard({params}) {
 
     return (
         <div className='w-full mx-auto mt-6'>
-            <div className='-mt-6 bg-primary h-4' />
-            <div className='bg-primary/5 pt-4 rounded-b-sm shadow text-center'>
+            <div className='-mt-9 sm:-mt-3 bg-primary h-4' />
+            <div className='bg-primary/5 pt-4 rounded-b-sm text-center'>
                 {/* <h2 className='text-2xl font-semibold'>Matched Water Heaters</h2> */}
                 {matchedModels.length === 0 ? (
                     <p>No suitable models found. Please check your answers or contact support.</p>
@@ -161,14 +161,15 @@ export default function RecommendationCard({params}) {
 											className='flex flex-col flex-grow w-full max-w-86 bg-base-100 border border-base-300 shadow-lg p-4'
 										>
 											<div className='flex-grow'>
-												<h3 className='text-xl font-semibold mb-2'>{model.label}</h3>
+												<h3 className='text-xl mb-4 font-semibold'>{model.label}</h3>
+												<p className='text-sm text-left pl-6'>Complete installation</p>
 												<p className='text-3xl sm:text-4xl font-bold text-primary'>
 													{priceRange}
 												</p>
-												<p className='text-sm text-gray-500 mb-2'>Total installed price range</p>
 
 												{/* <p className='text-sm text-gray-600 mb-4'>{model.notes}</p> */}
-												<ul className='text-left text-gray-600 mb-6 list-disc list-inside'>
+												<ul className='text-left my-6 list-disc list-inside'>
+													<span className='text-xl  font-semibold '>Features:</span>
 													{model.features?.map((feature, idx) => (
 														<li key={idx}>
 															<span className='font-semibold'>{feature.label}</span>: {feature.value}
@@ -182,7 +183,7 @@ export default function RecommendationCard({params}) {
 												Additional Product Info
 											</a>
 											<div className='bg-primary/5 border border-base-300 rounded-lg shadow-sm pr-4 flex flex-row items-center gap-2 mt-2 mb-4'>
-												<label htmlFor={`warranty-${model.id}`} className='text-sm text-left p-4 text-gray-600'>
+												<label htmlFor={`warranty-${model.id}`} className='text-sm text-left p-4'>
 													<ul className='font-semibold'>
 														Include Rheem's ProtectionPlus Extended Warranty:
 														<li>
@@ -196,7 +197,7 @@ export default function RecommendationCard({params}) {
 											</div>
 											{modelAddOns.length > 0 && (
 												<div className='text-sm border border-base-300 rounded-lg text-left p-3 mt-auto'>
-													<p className='font-semibold mb-2'>Your price {priceRange} also includes: </p>
+													<p className='font-semibold mb-2'>*Your price {priceRange} also includes: </p>
 													<ul className='list-disc list-inside text-gray-700 space-y-1 pb-2'>
 														{modelAddOns.map((addOn) => (
 															<li key={addOn.id} className='leading-snug pl-5 -indent-5'>
@@ -231,7 +232,7 @@ export default function RecommendationCard({params}) {
                                 );
                             })}
                         </div>
-                        <p className='text-sm text-gray-500 mt-8 p-2'>* Some of these services may not be required but commonly are. Call us or schedule an onsite Price Confirmation to verify your unique system. Final price is always provided by email or text before work begins.</p>
+                        <p className='max-w-3xl mx-auto text-sm text-gray-500 mt-8 p-4 pb-12'>* Some of these services may not be required for your home, though they commonly are. Call us or schedule an onsite Price Confirmation to verify your unique system. Final price is always provided by email or text before work begins.</p>
                     </>
                 )}
 			</div>
@@ -239,7 +240,7 @@ export default function RecommendationCard({params}) {
                 <div className='fixed inset-0 z-50 flex items-center justify-center bg-black/50'>
                     <div className='bg-white rounded-lg shadow-lg p-6 w-full max-w-lg mx-auto'>
                         <h2 className='text-xl font-bold mb-4'>Confirm Your System</h2>
-                        {/* We'll populate this with details later */}
+                        {/* Add details later */}
                         <p className='text-sm text-gray-600 mb-4'>Summary of selected system goes here...</p>
                         <div className='flex justify-end gap-2 mt-4'>
                             <button className='btn btn-outline btn-sm' onClick={() => setShowConfirmModal(false)}>
