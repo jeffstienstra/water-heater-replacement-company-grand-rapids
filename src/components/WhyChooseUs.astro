@@ -1,30 +1,46 @@
 ---
-// WhyChooseUs.astro
+import Avatar from "./icons/Avatar.astro"
 ---
 <section id="why-trust-us" class="py-20 px-6 bg-base-100 border-t border-base-300 text-base-content">
 	<div class="max-w-5xl mx-auto text-center">
-		<h2 class="text-4xl font-semibold mb-6">Why West Michigan Trusts Us to Replace Their Water Heaters</h2>
+		<h2 class="text-4xl font-semibold mb-6">Why Homeowners Call Us First</h2>
 		<p class="text-lg mb-8 max-w-2xl mx-auto">
-			We’re not a franchise. We’re a licensed local contractor with <span class="font-semibold">25+ years of experience</span> and a reputation for getting the job done right.
+			We’re a local, licensed, family-run contractor — not a franchise — with <span class="font-semibold">25+ years of experience</span> and a reputation for doing things right.
 		</p>
 		<div class="grid gap-8 lg:grid-cols-4 text-left">
 			<div>
 				<h3 class="font-bold text-lg mb-2">Licensed & Local</h3>
-				<p>Based in West Michigan, we handle permits, follow code, and carry full liability insurance — no shortcuts, no subcontractors.</p>
+				<p>We handle permits, follow code, and carry full insurance. No shortcuts. No subcontractors. Just solid work done the right way.</p>
 			</div>
 			<div>
-				<h3 class="font-bold text-lg mb-2">Upfront, Flat-Rate Pricing</h3>
-				<p>We keep it simple: clear prices, no pressure, no surprise fees. Just fast, affordable replacements you can trust.</p>
+				<h3 class="font-bold text-lg mb-2">Flat-Rate Pricing</h3>
+				<p>Clear pricing with fast and affordable replacements. No salesman. No pressure. No surprise fees.</p>
 			</div>
 			<div>
 				<h3 class="font-bold text-lg mb-2">Reliable & Respectful</h3>
-				<p>We show up on time, work efficiently, and treat your home with care. Most installs are done in a few hours — no mess left behind.</p>
+				<p>We show up on time, work efficiently, and leave no mess. Most installs are done in a few hours.</p>
 			</div>
 			<div>
 				<h3 class="font-bold text-lg mb-2">Top Brands & Warranties</h3>
-				<p>We install only trusted names like Rheem and Bradford White. Every job includes at least a <span class="font-semibold">1-year labor warranty</span> plus full manufacturer coverage.</p>
+				<p>We install Rheem water heaters with a <span class="font-semibold">1-year labor warranty</span>, full manufacturer coverage, and optional extended protection.</p>
 			</div>
-
+		</div>
+		<div class="grid gap-8 md:grid-cols-3 text-left mt-12">
+			<div class="bg-base-100 p-6 rounded-xl shadow border border-base-300">
+				<Avatar class="w-8 h-8 mx-auto mb-4 text-secondary" />
+				<p class="italic">“They showed up on time, handled everything professionally, and had hot water running again the same day. Highly recommend.”</p>
+				<p class="mt-4 font-bold">— Amanda J., Grand Rapids</p>
+			</div>
+			<div class="bg-base-100 p-6 rounded-xl shadow border border-base-300">
+				<Avatar class="w-8 h-8 mx-auto mb-4 text-secondary" />
+				<p class="italic">“I appreciated how clean and fast the crew worked. No nonsense, just honest, quality service.”</p>
+				<p class="mt-4 font-bold">— Greg M., Wyoming, MI</p>
+			</div>
+			<div class="bg-base-100 p-6 rounded-xl shadow border border-base-300">
+				<Avatar class="w-8 h-8 mx-auto mb-4 text-secondary" />
+				<p class="italic">“I’m a builder and use these guys when a water heater goes out in a rental. Always dependable.”</p>
+				<p class="mt-4 font-bold">— Tom S., Property Manager</p>
+			</div>
 		</div>
 	</div>
 </section>

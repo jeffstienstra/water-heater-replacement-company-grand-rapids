@@ -1,101 +1,62 @@
 ---
 import ArrowDownIcon from './icons/ArrowDown.astro';
 import PriceReceipt from './icons/PriceReceipt.astro';
+import questions from '../data/questions';
 import UserCheck from './icons/UserCheck.astro';
 import QuestionMark from './icons/QuestionMark.jsx';
 import MagnifyingGlass from './icons/MagnifyingGlass.astro';
 ---
 <section id="how-it-works" class="py-20 px-6 text-base-content text-center">
 	<div class="max-w-4xl mx-auto">
-		<h2 class="text-4xl sm:text-5xl font-bold ">How It Works</h2>
+		<h2 class="text-4xl sm:text-5xl font-bold">How It Works</h2>
 		<h3 class="text-2xl sm:text-3xl mb-12">4 Easy Steps</h3>
 		<div class="grid gap-0 text-left">
+
+			<!-- Step 1 -->
 			<div class="card bg-base-200 border-1 border-base-300 p-6">
 				<h4 class="text-3xl font-bold text-primary mb-4">Step 1</h4>
 				<h5 class="text-xl font-semibold mb-2">Tell Us About Your Setup</h5>
-				<p class="mb-2">Answer simple questions about your current water heater and hot water needs.</p>
-                <p>We don’t store your answers — it’s just to help guide your match.</p>
+				<p class="mb-2">Answer {questions?.length ?? 'a few quick'} questions about your home, water heater and hot water needs.</p>
+				<p class="text-gray-500 text-sm">No personal data required.</p>
 			</div>
-            <ArrowDownIcon class="h-8 w-full text-primary -mt-1 mb-2" />
+
+			<ArrowDownIcon class="h-8 w-full text-primary -mt-1 mb-2" />
+
+			<!-- Step 2 -->
 			<div class="card bg-base-200 border-1 border-base-300 p-6">
 				<h4 class="text-3xl font-bold text-primary mb-4">Step 2</h4>
-				<h5 class="text-xl font-semibold mb-2">Get A Fixed Price Range For A Replacement</h5>
-				<p>We’ll recommend the best-fit model for your home — along with a fixed price range (like $1,475–$1,900) so you know exactly what to expect.</p>
+				<h5 class="text-xl font-semibold mb-2">See Actual Prices and Recommended Options Instantly</h5>
+				<p>Based on your answers we’ll recommend the best-fit models for your home with a clear price range — so you know what to expect and what it should cost.</p>
 			</div>
-            <ArrowDownIcon class="h-8 w-full text-primary -mt-1 mb-2" />
+
+			<ArrowDownIcon class="h-8 w-full text-primary -mt-1 mb-2" />
+
+			<!-- Step 3 -->
 			<div class="card bg-base-200 border-1 border-base-300 p-6">
-                <h4 class="text-3xl font-bold text-primary mb-4">Step 3</h4>
-                <h5 class="text-xl font-semibold mb-2">Book A Quick-Price-Check To Confirm Your Setup
-				</h5>
-				<p class=" mb-2">
-					You’ve already got your min and max quote. To guarantee your lowest possible price, a tech just needs to quickly check a few key details — venting, gas, water, electrical, drainage, and more.
-				</p>
-				<p class="mb-2">
-					A <span class="font-bold">Quick-Price-Check</span> is exactly that: a technician stops by, checks your home’s setup and final price, and that’s it.
-
-				</p>
-				<p class="mb-2">
-					No pressure. No upsells. No long-winded presentations. Just a locked-in price and clear answers to your questions.
-				</p>
-				<p class="mb-2">
-					<span class="font-semibold">Bonus</span>: If you’re ready — and there’s time in the schedule — your tech can even get the process started on the spot. That means draining the tank, disconnecting lines, and streamlining your install to save time.
-				</p>
-
-				<p class="flex text-bottom items-baseline underline  gap-0 text-primary font-bold cursor-pointer" onclick="document.getElementById('price-lock-modal').classList.add('modal-open')">
-					<QuestionMark className="mr-1 mb-auto" />
-					Learn More About Our Quick-Price-Check
-				</p>
+				<h4 class="text-3xl font-bold text-primary mb-4">Step 3</h4>
+				<h5 class="text-xl font-semibold mb-2">Verify Your Setup (Video Call or In-Person)</h5>
+				<p class="mb-2">Your instant price range depends on factors like gas and water lines, venting, and drain setup. A quick video call with a tech lets us confirm those details — and often avoid unnecessary upgrades.</p>
+				<p class="mb-2">No pressure, no upsells — just a final locked-in quote.</p>
+				<p class="text-sm text-gray-500">Can't do video? <a aria-label="call 555-867-5309" href="tel:555-867-5309" class="underline">Call 555-867-5309</a> to schedule a free in-person check.</p>
 			</div>
-            <ArrowDownIcon class="h-8 w-full text-primary -mt-1 mb-2" />
+
+			<ArrowDownIcon class="h-8 w-full text-primary -mt-1 mb-2" />
+
+			<!-- Step 4 -->
 			<div class="card bg-base-200 border-1 border-base-300 p-6">
 				<h4 class="text-3xl font-bold text-primary mb-4">Step 4</h4>
-				<h5 class="text-xl font-semibold mb-2">Book Your Water Heater Replacement</h5>
-				<p class="mb-2">Book online or give us a call — most installs happen the next day.</p>
-                <p>
-					If you skipped the Quick-Price-Check, we’ll confirm the exact price on-site before we begin.
-				</p>
-
+				<h5 class="text-xl font-semibold mb-2">Book Your Install Online</h5>
+				<p class="mb-2">Choose a time that works for you — most installs are available next day.</p>
+				<p class="text-sm text-gray-500">Happy with the price range and want to skip the video call? We’ll still confirm your price on-site before work begins.</p>
 			</div>
-            <ArrowDownIcon class="h-8 w-full animate-bounce text-secondary mt-2" />
+
+			<ArrowDownIcon class="h-8 w-full animate-bounce text-secondary mt-2" />
+
 		</div>
-            <a href="/instant-quote/" class="btn btn-secondary text-lg w-full max-w-xs py-2 mx-auto">
-                <PriceReceipt />
-                <p class="">Get My Instant Quote</p>
-            </a>
-	</div>
 
-	<!-- create a modal to explain what the Quick Home Check is. it should appear when the highlighted text 'Quick Home Check' in Step 3 is clicked -->
-	<div class="modal h-screen px-2 py-4 flex flex-col justify-center items-center" id="price-lock-modal">
-			<div class="modal-box shadow-lg text-left sm:text-justify">
-				<h3 class="font-bold text-lg">What’s a Quick-Price-Check?</h3>
-				<p class="pt-4">Our Instant Quote Tool gives you a solid price range based on typical setups — but not everyone needs the same parts or upgrades.</p>
-				<p class="pt-4">Our Instant Quote Tool offers a solid price range based on typical setups, but not everyone needs the same parts or upgrades.</p>
-				<p class="pt-4">At your home, we’ll <span class="font-semibold">walk through an Instant Quote together</span> — right from our website — to confirm your answers and make sure the price range makes sense.</p>
-				<p class="pt-4">Then we check the unique needs of your water heating system — things like venting, gas line size, or drainage — to see if any specific parts or upgrades are actually required.</p>
-				<p class="pt-4">That way, you’ll see exactly how the final price is calculated — <span class="font-semibold">starting with the same Instant Quote everyone gets</span> and adjusted only when your actual setup calls for it.</p>
-				<p class="pt-4 font-semibold">Our goal is transparent pricing.</p>
-				<p class="font-extrabold text-left pt-4">During the visit we'll:</p>
-				<ul class="list-disc text-left pl-6 mb-4 font-bold">
-					<li>Walk through your Instant Quote to verify an accurate starting price range</li>
-					<li>Make sure you’re not paying for anything unnecessary</li>
-					<li>Confirm you get the right parts and equipment</li>
-					<li>Ensure your install will be fully up to code</li>
-					<li>Answer any questions — from a tech who knows what to look for</li>
-					<li>Lock in your final installation price</li>
-					<li>Optional:</li>
-						<ul class="list-disc text-left pl-6 mb-4 font-bold">
-							<li>Book your install appointment, or</li>
-							<li>If you’re ready — and we’ve got room in the schedule — your tech can start removing your old water heater on the spot</li>
-						</ul>
-				</ul>
-				<div class="text-gray-500">
-				<p class="mb-2">We’ve built a modular pricing system from hundreds of installs, covering nearly every add-on — like chimney liners, gas line upgrades, expansion tank swaps, or relocation work.</p>
-				<p class="mb-2">Each add-on has a set price range based on real-world factors like time, distance, or materials — and is determined by a checklist, not “sales instinct.” That means two homes with the same setup always get the same fair price.</p>
-				<p class="mb-2">No guesswork. No kidding.</p>
-				<p class="mb-2 font-bold">In the time it took to read this, your tech could have already locked in your price. :)</p>
-				</div>
-				<div class="modal-action">
-					<button class="btn btn-primary" onclick="document.getElementById('price-lock-modal').classList.remove('modal-open')">Got it!</button>
-			</div>
+		<a href="/instant-quote/?step=1" class="btn btn-secondary text-lg w-full max-w-xs py-2 mx-auto">
+			<PriceReceipt />
+			<p class="">Get My Instant Quote</p>
+		</a>
 	</div>
 </section>
