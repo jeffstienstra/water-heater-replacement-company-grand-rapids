@@ -100,29 +100,26 @@ export default function RecommendationCard({params}) {
                     <p>No suitable models found. Please check your answers or contact support.</p>
                 ) : (
                     <>
-                        <StickyBar
-							selectedModel={selectedModelId}
-							onConfirmClick={() => setShowConfirmModal(true)}
-						/>
+                        <StickyBar selectedModel={selectedModelId} onConfirmClick={() => setShowConfirmModal(true)} />
 
                         <p className='text-sm text-gray-500'>We matched the following options:</p>
-						<div className='mb-6 sm:mb-12'>
-							<button className='text-sm text-primary underline focus:outline-none' onClick={() => setShowAnswers((v) => !v)} aria-expanded={showAnswers} aria-controls='user-answers-dropdown'>
-								{showAnswers ? 'Hide your answers ▲' : 'Review your answers ▼'}
-							</button>
-							{showAnswers && (
-								<div id='user-answers-dropdown' className='bg-base-100 border border-base-300 rounded p-3 text-left max-w-sm mx-auto shadow'>
-									<ul className='text-sm'>
-										{displayAnswers.map(({key, value}) => (
-											<li key={key} className='flex justify-between py-1 border-b border-base-200 last:border-b-0'>
-												<span className='font-medium'>{key}</span>
-												<span className='text-gray-700 text-right pl-4'>{value}</span>
-											</li>
-										))}
-									</ul>
-								</div>
-							)}
-						</div>
+                        <div className='mb-6 sm:mb-12'>
+                            <button className='text-sm text-primary underline focus:outline-none' onClick={() => setShowAnswers((v) => !v)} aria-expanded={showAnswers} aria-controls='user-answers-dropdown'>
+                                {showAnswers ? 'Hide your answers ▲' : 'Review your answers ▼'}
+                            </button>
+                            {showAnswers && (
+                                <div id='user-answers-dropdown' className='bg-base-100 border border-base-300 rounded p-3 text-left max-w-sm mx-auto shadow'>
+                                    <ul className='text-sm'>
+                                        {displayAnswers.map(({key, value}) => (
+                                            <li key={key} className='flex justify-between py-1 border-b border-base-200 last:border-b-0'>
+                                                <span className='font-medium'>{key}</span>
+                                                <span className='text-gray-700 text-right pl-4'>{value}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
+                        </div>
                         <div className='px-4 flex flex-wrap justify-center items-stretch gap-16'>
                             {limitedModels.map((model, index) => {
                                 let productLink;
@@ -144,107 +141,129 @@ export default function RecommendationCard({params}) {
 
                                 const totalLow = model.baseCost + modelAddOns.reduce((sum, a) => sum + (a.cost?.[0] ?? 0), 0);
                                 const totalHigh = model.baseCost + modelAddOns.reduce((sum, a) => sum + (a.cost?.[1] ?? 0), 0);
-								const priceRange = totalLow === totalHigh ? `$${totalLow.toLocaleString()}` : `$${totalLow.toLocaleString()} - $${totalHigh.toLocaleString()}`;
+                                const priceRange = totalLow === totalHigh ? `$${totalLow.toLocaleString()}` : `$${totalLow.toLocaleString()} - $${totalHigh.toLocaleString()}`;
+
+                                const [expandedCards, setExpandedCards] = useState({});
+
+                                const toggleCardExpand = (id) => {
+                                    setExpandedCards((prev) => ({
+                                        ...prev,
+                                        [id]: !prev[id],
+                                    }));
+                                };
+
+                                const isExpanded = expandedCards[model.id];
 
                                 return (
-									<div key={`${model.modelNumber}-${index}`} className={`flex flex-col w-full max-w-86 shadow-lg ${selectedModelId === model.id && 'outline-primary rounded-lg outline-4'}`}>
-										<div className=' bg-primary text-white items-center justify-center flex gap-2 p-4 rounded-t-lg'>
+                                    <div key={`${model.modelNumber}-${index}`} className={`flex flex-col w-full max-w-86 shadow-lg ${selectedModelId === model.id && 'outline-primary rounded-lg outline-4'}`}>
+                                        <div className=' bg-primary text-white items-center justify-center flex gap-2 p-4 rounded-t-lg'>
                                             {tierLabel === 'Recommended' ? (
-													<div className='flex justify-center items-center '>
-														<Star className='' />
-														<h2 className='ml-2 font-bold text-2xl'>{tierLabel}</h2>
-													</div>
-												) : (
-													<h2 className='font-bold text-2xl'>{tierLabel}</h2>
-												)}
+                                                <div className='flex justify-center items-center '>
+                                                    <Star className='' />
+                                                    <h2 className='ml-2 font-bold text-2xl'>{tierLabel}</h2>
+                                                </div>
+                                            ) : (
+                                                <h2 className='font-bold text-2xl'>{tierLabel}</h2>
+                                            )}
                                         </div>
-										<div
-											key={model.id}
-											className='flex flex-col flex-grow w-full max-w-86 bg-base-100 border border-base-300 shadow-lg p-4'
-										>
-											<div className='flex-grow'>
-												<h3 className='text-xl mb-4 font-semibold'>{model.label}</h3>
-                                                <div>
-												<p className='text-sm text-left pl-6'>Complete installation</p>
-												<p className='text-3xl sm:text-4xl font-bold text-primary'>
-													{priceRange}
-												</p>
-                                            </div>
+                                        <div key={model.id} className='flex flex-col flex-grow w-full max-w-86 bg-base-100 border border-base-300 shadow-lg p-4'>
+                                            {/* <div className='flex-grow'> */}
+                                            <h3 className='text-xl mb-0 font-semibold'>{model.label}</h3>
+                                            <img className='max-h-48 mx-auto m-6' src={`${model.imagePath}`} alt={`${model.brand} ${model.label}`} />
 
-												{/* <p className='text-sm text-gray-600 mb-4'>{model.notes}</p> */}
-												<ul className='text-left my-6 list-disc list-inside'>
-													<span className='text-xl  font-semibold '>Features:</span>
-													{model.features?.map((feature, idx) => (
-														<li key={idx}>
-															<span className='font-semibold'>{feature.label}</span>: {feature.value}
-														</li>
-													))}
-												</ul>
-                                                {modelAddOns.length > 0 && (
-                                                    <div className='text-sm border border-base-300 rounded-lg text-left p-3 mt-auto mb-2'>
-                                                        <p className='font-semibold mb-2'>Your price also includes*: </p>
-                                                        <ul className='list-disc list-inside text-gray-700 space-y-1 pb-2'>
-                                                            {modelAddOns.map((addOn) => {
-                                                                if (addOn.id === 'add_extended_warranty') return null;
-                                                                return (
-                                                                <li key={addOn.id} className='leading-snug pl-5 -indent-5'>
-                                                                    <span className='font-medium'>{addOn.label}:</span>
-                                                                    <span className='text-gray-500 text-nowrap '>
-                                                                        {' '}
-                                                                        ${addOn.cost[0]?.toLocaleString()}
-                                                                        {addOn.cost[0] !== addOn?.cost[1] ? `-${addOn.cost[1].toLocaleString()}` : null}
-                                                                    </span>
-                                                                </li>
-                                                                );
-                                                            }
-                                                            )}
-                                                        </ul>
-                                                        <p className='text- text-gray-500'>*Note: A site visit or video call is required to determine your exact final price.</p>
-                                                    </div>
+                                            <div className='w-fit mx-auto flex flex-col items-left mb-4'>
+                                                <p className='text-3xl text-left sm:text-4xl font-bold text-primary'>{priceRange}</p>
+                                                <p className='text-sm text-left '>Complete installation</p>
+                                                {isWarrantySelected && (
+                                                    <p className='flex text-sm text-left items-center'>Includes Extended Warranty
+                                                        <span className="ml-1 text-gray-500">${warrantyAddon?.cost[0]}</span>
+                                                        <button className='btn btn-primary ml-1 px-1 max-h-[20px] max-w-[20px]'
+                                                        onClick={() => toggleWarranty(model.id)}>X</button>
+                                                    </p>
                                                 )}
-											</div>
+                                            </div>
+                                            {/* <p className='text-sm text-gray-600 mb-4'>{model.notes}</p> */}
 
-											<a target='_blank' href={productLink} className='text-gray-500 text-sm font-normal btn btn-ghost h-fit'>
-												<LinkInternal className='text-gray-500 font-normal' />
-												Additional Product Info
-											</a>
-											<div className='bg-primary/5 border border-base-300 rounded-lg shadow-sm pr-4 flex flex-row items-center gap-2 mt-2'>
-												<label htmlFor={`warranty-${model.id}`} className='text-sm text-left p-4'>
-													<ul className='font-semibold'>
-														Include Rheem's ProtectionPlus Extended Warranty:
-														<li>
-															{model.type === 'tankless' ? 'Heat exchanger: ' : 'Tank: '}
-															{model.warranty.tank + 4} Years
-														</li>
-														<li>Labor: {model.warranty.labor + 1} Years</li>
-                                                        <li>Cost: ${warrantyAddon?.cost[0]}</li>
-													</ul>
-												</label>
-												<input id={`warranty-${model.id}`} className='checkbox checkbox-primary rounded-sm' type='checkbox' checked={isWarrantySelected || false} onChange={() => toggleWarranty(model.id)} />
-											</div>
-										</div>
+                                            {/* hide model details */}
+                                            <button onClick={() => toggleCardExpand(model.id)} className='text-sm text-primary underline mt-2' aria-expanded={isExpanded}>
+                                                {isExpanded ? 'Hide Details ▲' : 'Show Details ▼'}
+                                            </button>
+                                            <div
+                                                className={`transition-all duration-300 ease-in-out overflow-hidden
+                                                    ${isExpanded ? 'max-h-[1000px] pt- pb-4' : 'max-h-0 pt-0 pb-0'}`}
+                                            >
+                                                <div className='flex-grow'>
+                                                    <ul className='text-left list-disc list-inside'>
+                                                        <span className='text-xl  font-semibold '>Features:</span>
+                                                        {model.features?.map((feature, idx) => (
+                                                            <li key={idx}>
+                                                                <span className='font-semibold'>{feature.label}</span>: {feature.value}
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+
+                                                    <a target='_blank' href={productLink} className='mt-2 mb-6 text-gray-500 text-sm font-normal btn btn-ghost h-fit'>
+                                                        <LinkInternal className='text-gray-500 font-normal' />
+                                                        Additional Product Info
+                                                    </a>
+
+                                                    {modelAddOns.length > 0 && (
+                                                        <div className='text-sm border border-base-300 rounded-lg text-left p-3 mt-auto mb-2'>
+                                                            <p className='font-semibold mb-2'>
+                                                                Most homes like yours need the following services <span className='text-sm font-normal text-gray-500'>(already included in your price): </span>
+                                                            </p>
+                                                            {/* <p className='text- text-gray-500'>(Already included in the total price range shown)</p> */}
+                                                            <ul className='list-disc list-inside text-gray-700 space-y-1 pb-2'>
+                                                                {modelAddOns.map((addOn) => {
+                                                                    if (addOn.id === 'add_extended_warranty') return null;
+                                                                    return (
+                                                                        <li key={addOn.id} className='leading-snug pl-5 -indent-5'>
+                                                                            <span className='font-medium'>{addOn.label}:</span>
+                                                                            <span className='text-gray-500 text-nowrap '>
+                                                                                {' '}
+                                                                                ${addOn.cost[0]?.toLocaleString()}
+                                                                                {addOn.cost[0] !== addOn?.cost[1] ? `-${addOn.cost[1].toLocaleString()}` : null}
+                                                                            </span>
+                                                                        </li>
+                                                                    );
+                                                                })}
+                                                            </ul>
+                                                            <p className='text- text-gray-500'>Final needs may vary. A quick site visit or video call will confirm your exact price before any work begins.</p>
+                                                        </div>
+                                                    )}
+                                                </div>
+                                                <div className='bg-primary/5 border border-base-300 rounded-lg shadow-sm pr-4 flex flex-row items-center gap-2 mt-2'>
+                                                    <label htmlFor={`warranty-${model.id}`} className='text-sm text-left p-4'>
+                                                        <ul className='font-semibold'>
+                                                            Include Rheem's ProtectionPlus Extended Warranty:
+                                                            <li>
+                                                                {model.type === 'tankless' ? 'Heat exchanger: ' : 'Tank: '}
+                                                                {model.warranty.tank + 4} Years
+                                                            </li>
+                                                            <li>Labor: {model.warranty.labor + 1} Years</li>
+                                                            <li>Cost: ${warrantyAddon?.cost[0]}</li>
+                                                        </ul>
+                                                    </label>
+                                                    <input id={`warranty-${model.id}`} className='checkbox checkbox-primary rounded-sm' type='checkbox' checked={isWarrantySelected || false} onChange={() => toggleWarranty(model.id)} />
+                                                </div>
+
+                                            </div>
+                                        </div>
 
                                         <div className=' bg-primary text-white items-center justify-center flex gap-2 p-4 rounded-b-lg'>
-                                            <input
-												id={`select-${model.id}`}
-												type='checkbox'
-												className='h-8 w-8 checkbox checkbox-primary checked:bg-white text-primary rounded-sm bg-white'
-												checked={selectedModelId === model.id}
-												onChange={() => setSelectedModelId(selectedModelId === model.id ? null : model.id)} />
-                                            <label
-												htmlFor={`select-${model.id}`}
-												className='text-lg font-bold text-white'>
+                                            <input id={`select-${model.id}`} type='checkbox' className='h-8 w-8 checkbox checkbox-primary checked:bg-white text-primary rounded-sm bg-white' checked={selectedModelId === model.id} onChange={() => setSelectedModelId(selectedModelId === model.id ? null : model.id)} />
+                                            <label htmlFor={`select-${model.id}`} className='text-lg font-bold text-white'>
                                                 Choose This Model
                                             </label>
                                         </div>
-									</div>
+                                    </div>
                                 );
                             })}
                         </div>
-                        <p className='max-w-3xl mx-auto text-sm text-gray-500 mt-8 p-4 pb-12'>* Some of these services may not be required for your home, though they commonly are. Call us or schedule an onsite Price Confirmation to verify your unique system. Final price is always provided by email or text before work begins.</p>
+                        <p className='max-w-3xl mx-auto text-sm text-gray-500 mt-8 p-4 pb-12'>* Some of the included services may not be required for your home, though they commonly are. Schedule an onsite visit or video call to verify your unique system and get a final price. Final price is always provided by email or text before work begins.</p>
                     </>
                 )}
-			</div>
+            </div>
             {showConfirmModal && (
                 <div className='fixed inset-0 z-50 flex items-center justify-center bg-black/50'>
                     <div className='bg-white rounded-lg shadow-lg p-6 w-full max-w-lg mx-auto'>
