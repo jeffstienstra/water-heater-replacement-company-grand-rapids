@@ -6,6 +6,7 @@ import waterHeaterModels from '../data/waterHeaterModels.js';
 import installAddons from '../data/installAddons.js';
 import StickyBar from './StickyBar.jsx';
 import LinkInternal from './icons/LinkInternal.jsx';
+import PriceReceipt from './icons/PriceReceipt.jsx';
 
 export default function RecommendationCard({params}) {
     const [showAnswers, setShowAnswers] = useState(false);
@@ -86,6 +87,15 @@ export default function RecommendationCard({params}) {
                 return Array.isArray(validValues) ? validValues.includes(answerValue) : validValues === answerValue;
             })
     );
+        console.log(answers.fuel, 'answers.fuel')
+
+    let noMatchMessage = '';
+    if (answers?.fuel === 'oil') {
+        console.log(answers.fuel, 'answers.fuel')
+        noMatchMessage = 'We do not install fuel oil water heaters at this time. Please check your answers or contact us at 555-867-5309.';
+    } else if (limitedModels.length === 0) {
+        noMatchMessage = 'No water heaters matched your answers. Please check your responses or contact support.';
+    }
 
     if (limitedModels.length === 2 && fallbackTankless) {
         limitedModels.push(fallbackTankless);
@@ -97,7 +107,30 @@ export default function RecommendationCard({params}) {
             <div className='bg-primary/5 pt-4 rounded-b-sm text-center'>
                 {/* <h2 className='text-2xl font-semibold'>Matched Water Heaters</h2> */}
                 {matchedModels.length === 0 ? (
-                    <p>No suitable models found. Please check your answers or contact support.</p>
+                    <>
+                        <p className='pb-4 px-4'>{noMatchMessage}</p>
+                        <div className='mb-6'>
+                            <button className='text-sm text-primary underline focus:outline-none' onClick={() => setShowAnswers((v) => !v)} aria-expanded={showAnswers} aria-controls='user-answers-dropdown'>
+                                {showAnswers ? 'Hide your answers ▲' : 'Review your answers ▼'}
+                            </button>
+                            {showAnswers && (
+                                <div id='user-answers-dropdown' className='bg-base-100 border border-base-300 rounded p-3 text-left max-w-sm mx-auto shadow'>
+                                    <ul className='text-sm'>
+                                        {displayAnswers.map(({key, value}) => (
+                                            <li key={key} className='flex justify-between py-1 border-b border-base-200 last:border-b-0'>
+                                                <span className='font-medium'>{key}</span>
+                                                <span className='text-gray-700 text-right pl-4'>{value}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
+                        </div>
+                        <a href="/instant-quote/?step=1" class="btn btn-primary text-lg text-white py-2 w-64 max-w-xs mx-auto mb-4">
+                            <PriceReceipt />
+                            <p>Instant Quote</p>
+                        </a>
+                    </>
                 ) : (
                     <>
                         <StickyBar selectedModel={selectedModelId} onConfirmClick={() => setShowConfirmModal(true)} />
@@ -137,10 +170,12 @@ export default function RecommendationCard({params}) {
                                 const tierLabel = model.id === 'tankless_prestige_recommended' ? 'Consider an Upgrade?' : tierLabels[index];
 
                                 const isWarrantySelected = warrantySelections[model.id];
-                                const modelAddOns = installAddons.filter((addOn) => addOn.applyIf(answers, model) || (isWarrantySelected && addOn.id === 'add_extended_warranty'));
+                                const modelAddOns = installAddons.filter((addOn) => addOn.applyIf(answers, model));
 
-                                const totalLow = model.baseCost + modelAddOns.reduce((sum, a) => sum + (a.cost?.[0] ?? 0), 0);
-                                const totalHigh = model.baseCost + modelAddOns.reduce((sum, a) => sum + (a.cost?.[1] ?? 0), 0);
+                                let totalLow = model.baseCost + modelAddOns.reduce((sum, a) => sum + (a.cost?.[0] ?? 0), 0);
+                                let totalHigh = model.baseCost + modelAddOns.reduce((sum, a) => sum + (a.cost?.[1] ?? 0), 0);
+                                totalLow += isWarrantySelected ? warrantyAddon?.cost[0] : 0;
+                                totalHigh += isWarrantySelected ? warrantyAddon?.cost[1] : 0;
                                 const priceRange = totalLow === totalHigh ? `$${totalLow.toLocaleString()}` : `$${totalLow.toLocaleString()} - $${totalHigh.toLocaleString()}`;
 
                                 const [expandedCards, setExpandedCards] = useState({});
@@ -155,7 +190,7 @@ export default function RecommendationCard({params}) {
                                 const isExpanded = expandedCards[model.id];
 
                                 return (
-                                    <div key={`${model.modelNumber}-${index}`} className={`flex flex-col w-full max-w-86 shadow-lg ${selectedModelId === model.id && 'outline-primary rounded-lg outline-4'}`}>
+                                    <div key={`${model.modelNumber}-${index}`} className={`flex h-fit flex-col w-full max-w-86 ${selectedModelId === model.id && 'outline-primary rounded-lg outline-4'}`}>
                                         <div className=' bg-primary text-white items-center justify-center flex gap-2 p-4 rounded-t-lg'>
                                             {tierLabel === 'Recommended' ? (
                                                 <div className='flex justify-center items-center '>
@@ -166,22 +201,22 @@ export default function RecommendationCard({params}) {
                                                 <h2 className='font-bold text-2xl'>{tierLabel}</h2>
                                             )}
                                         </div>
-                                        <div key={model.id} className='flex flex-col flex-grow w-full max-w-86 bg-base-100 border border-base-300 shadow-lg p-4'>
+                                        <div key={model.id} className='flex flex-col  w-full max-w-86 bg-base-100 border border-base-300 shadow-lg p-4 pb-0'>{/* flex-grow?? */}
                                             {/* <div className='flex-grow'> */}
-                                            <h3 className='text-xl mb-0 font-semibold'>{model.label}</h3>
+                                            <h3 className='text-xl mb-0 font-semibold min-h-20'>{model.label}</h3>
                                             <img className='max-h-48 mx-auto m-6' src={`${model.imagePath}`} alt={`${model.brand} ${model.label}`} />
 
-                                            <div className='w-fit mx-auto flex flex-col items-left mb-4'>
+                                            <div className='w-fit mx-auto flex flex-col items-left'>
                                                 <p className='text-3xl text-left sm:text-4xl font-bold text-primary'>{priceRange}</p>
                                                 <p className='text-sm text-left '>Complete installation</p>
+                                            </div>
                                                 {isWarrantySelected && (
-                                                    <p className='flex text-sm text-left items-center'>Includes Extended Warranty
+                                                    <p className='flex justify-center items-center text-sm'>Includes Extended Warranty
                                                         <span className="ml-1 text-gray-500">${warrantyAddon?.cost[0]}</span>
                                                         <button className='btn btn-primary ml-1 px-1 max-h-[20px] max-w-[20px]'
                                                         onClick={() => toggleWarranty(model.id)}>X</button>
                                                     </p>
                                                 )}
-                                            </div>
                                             {/* <p className='text-sm text-gray-600 mb-4'>{model.notes}</p> */}
 
                                             {/* hide model details */}
@@ -202,7 +237,7 @@ export default function RecommendationCard({params}) {
                                                         ))}
                                                     </ul>
 
-                                                    <a target='_blank' href={productLink} className='mt-2 mb-6 text-gray-500 text-sm font-normal btn btn-ghost h-fit'>
+                                                    <a target='_blank' href={model.productLink} className='mt-2 mb-6 text-gray-500 text-sm font-normal btn btn-ghost h-fit'>
                                                         <LinkInternal className='text-gray-500 font-normal' />
                                                         Additional Product Info
                                                     </a>
@@ -260,7 +295,7 @@ export default function RecommendationCard({params}) {
                                 );
                             })}
                         </div>
-                        <p className='max-w-3xl mx-auto text-sm text-gray-500 mt-8 p-4 pb-12'>* Some of the included services may not be required for your home, though they commonly are. Schedule an onsite visit or video call to verify your unique system and get a final price. Final price is always provided by email or text before work begins.</p>
+                            <p className='max-w-3xl mx-auto text-sm text-gray-500 mt-8 p-4 pb-12'>* Schedule an onsite visit or video call to verify your unique system and get a final price. Some of the included services may not be required for your home, though they commonly are. Final price is always provided by email or text before work begins.</p>
                     </>
                 )}
             </div>

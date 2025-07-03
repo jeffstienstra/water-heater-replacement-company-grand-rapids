@@ -63,7 +63,10 @@ const installAddons = [
 		id: 'tight_space',
 		label: 'Tight-space Install',
 		cost: [150, 300],
-		applyIf: (answers) => answers.location === 'crawlspace' || answers.location === 'closet'
+		applyIf: (answers) => {
+            return (answers.location === 'crawlspace' || answers.location === 'closet')
+                && answers.homeType !== 'mobileHome';
+        }
 	},
 
     // User-selectable Add-Ons
