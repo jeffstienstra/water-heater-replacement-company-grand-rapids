@@ -1,24 +1,37 @@
 import {useState} from 'react';
+import MapboxAddressInput from './MapboxAddressInput';
 
 export default function ConfirmQuoteModal({quoteData, onClose, onCancel}) {
 	const [submitting, setSubmitting] = useState(false);
 	const [submitted, setSubmitted] = useState(false);
 	const [error, setError] = useState(null);
+    const [customer, setCustomer] = useState({
+        name: '',
+        address: null, // expect full address object from Mapbox
+        phone: '',
+        email: ''
+    });
+
+const isFormValid =
+	customer.name.trim() &&
+	customer.address?.place_name && // or your preferred property from Mapbox object
+	customer.phone.trim() &&
+	customer.email.includes('@');
 
 	const {selectedModel, answers} = quoteData;
 
 	function getRandomConfirmationPhrase() {
 		const phrases = [
-			"A fine selection, if we may say so.",
-			"That’s a solid choice.",
-			"Ooh, great choice!",
-			"Smart move — that one’s a winner.",
-			"Excellent pick. You know your stuff.",
-			"Nice choice — it’s a popular one for a reason.",
-			"That’ll do the job beautifully.",
-			"Great call. That one’s built to last.",
+			// "A fine selection, if we may say so.",
+			// "That’s a solid choice.",
+			// "Ooh, great choice!",
+			// "Smart move — that one’s a winner.",
+			// "Excellent pick. You know your stuff.",
+			// "Nice choice — it’s a popular one for a reason.",
+			// "That’ll do the job beautifully.",
+			// "Great call. That one’s built to last.",
 			"Nice choice, can’t go wrong with that one.",
-			"Strong pick. You’ve got good instincts."
+			// "Strong pick. You’ve got good instincts."
 		];
 		return phrases[Math.floor(Math.random() * phrases.length)];
 	}
@@ -30,7 +43,10 @@ export default function ConfirmQuoteModal({quoteData, onClose, onCancel}) {
 			const response = await fetch('/api/submit-quote', {
 				method: 'POST',
 				headers: {'Content-Type': 'application/json'},
-				body: JSON.stringify(quoteData)
+                body: JSON.stringify({
+                    ...quoteData,
+                    customer
+                })
 			});
 			if (!response.ok) throw new Error('Failed to submit quote.');
 			setSubmitted(true);
@@ -43,9 +59,9 @@ export default function ConfirmQuoteModal({quoteData, onClose, onCancel}) {
 	};
 
 	const priceRange =
-		selectedModel.totalLow === selectedModel.totalHigh
-			? `$${selectedModel.totalLow.toLocaleString()}`
-			: `$${selectedModel.totalLow.toLocaleString()} - $${selectedModel.totalHigh.toLocaleString()}`;
+		selectedModel?.totalLow === selectedModel?.totalHigh
+			? `$${selectedModel?.totalLow.toLocaleString()}`
+			: `$${selectedModel?.totalLow.toLocaleString()} - $${selectedModel?.totalHigh.toLocaleString()}`;
 
 	if (submitted) {
 		return (
@@ -56,6 +72,12 @@ export default function ConfirmQuoteModal({quoteData, onClose, onCancel}) {
 			</div>
 		);
 	}
+
+    const isPhoneValid = /^\d{10,}$/.test(customer.phone);
+    const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customer.email);
+    const isNameValid = customer.name.trim().length > 1;
+
+    const canSubmit = isPhoneValid && isEmailValid && isNameValid;
 
 	return (
 		<>
@@ -75,12 +97,62 @@ export default function ConfirmQuoteModal({quoteData, onClose, onCancel}) {
 
 
 				{error && <p className="text-red-500 mb-2">{error}</p>}
+                <div className="mb-6 grid gap-4">
+                    <div>
+                        <label className="block text-sm font-medium">Full Name</label>
+                        <input
+                            type="text"
+                            className="input input-bordered w-full"
+                            value={customer.name}
+                            onChange={e => setCustomer({...customer, name: e.target.value})}
+                            required
+                        />
+                    </div>
+
+                    <div>
+                        <label className="block text-sm font-medium">Address</label>
+                        <MapboxAddressInput
+                            value={customer.address}
+                            onSelect={(addr) => setCustomer({...customer, address: addr})}
+                            required
+                        />
+                    </div>
+
+                    <div>
+                        <label className="block text-sm font-medium">Phone</label>
+                        <input
+                            type="tel"
+                            className="input input-bordered w-full"
+                            value={customer.phone}
+                            onChange={e => setCustomer({...customer, phone: e.target.value})}
+                            required
+                            minLength={10}
+                            pattern="[0-9]{10,}"
+                            placeholder="e.g. 6165551234"
+                        />
+                    </div>
+
+                    <div>
+                        <label className="block text-sm font-medium">Email</label>
+                        <input
+                            type="email"
+                            className="input input-bordered w-full"
+                            value={customer.email}
+                            onChange={e => setCustomer({...customer, email: e.target.value})}
+                            required
+                        />
+                    </div>
+                </div>
 
 				<div className="flex gap-4 justify-end">
 					<button className="btn btn-outline" onClick={onCancel}>Cancel</button>
-					<button className="btn btn-primary" onClick={handleSubmit} disabled={submitting}>
-						{submitting ? 'Submitting...' : 'Submit My Quote'}
-					</button>
+                    <button
+                        className="btn btn-primary"
+                        onClick={handleSubmit}
+                        disabled={!canSubmit || submitting}
+                    >
+                        {submitting ? 'Submitting...' : 'Submit My Quote'}
+                    </button>
 				</div>
 			</div>
 		</>
