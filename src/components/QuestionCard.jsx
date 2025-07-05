@@ -54,11 +54,8 @@ export default function QuestionCard({classes, question, options, step, paramKey
 	};
 
 	const handleOptionSelect = (value) => {
-		// Update URL params as before
 		const updatedParams = new URLSearchParams(window.location.search);
 
-		console.log('selectedValue:', selectedValue);
-		console.log('value:', value);
 		if (selectedValue === value) {
 			updatedParams.delete(paramKey);
 			setSelectedValue(null);
@@ -86,8 +83,6 @@ export default function QuestionCard({classes, question, options, step, paramKey
 			onSelect(paramKey, value, shouldAdvance);
 		}
 	};
-
-		console.log('paramKey:', paramKey);
 
 	const renderSubQuestion = (subQuestion, answers) => {
         if (!subQuestion) return null;

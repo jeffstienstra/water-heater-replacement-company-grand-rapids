@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import questions from '../data/questions.js';
 
 import Star from './icons/Star.jsx';
@@ -7,11 +7,12 @@ import installAddons from '../data/installAddons.js';
 import StickyBar from './StickyBar.jsx';
 import LinkInternal from './icons/LinkInternal.jsx';
 import PriceReceipt from './icons/PriceReceipt.jsx';
+import SubmissionModal from './SubmissionModal.jsx';
 
 export default function RecommendationCard({params}) {
     const [showAnswers, setShowAnswers] = useState(false);
     const [warrantySelections, setWarrantySelections] = useState({});
-    const [selectedModelId, setSelectedModelId] = useState(null);
+    const [selectedModel, setSelectedModel] = useState(null);
     const [showConfirmModal, setShowConfirmModal] = useState(false);
 
     const warrantyAddon = installAddons.find((addon) => addon.id === 'add_extended_warranty');
@@ -22,6 +23,19 @@ export default function RecommendationCard({params}) {
             [modelId]: !prev[modelId],
         }));
     };
+
+    useEffect(() => {
+        if (showConfirmModal) {
+            document.body.classList.add('overflow-hidden');
+        } else {
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        // Cleanup on unmount
+        return () => {
+            document.body.classList.remove('overflow-hidden');
+        };
+    }, [showConfirmModal]);
 
     if (!params || typeof params.get !== 'function') {
         console.error('Invalid or missing URLSearchParams in RecommendationCard');
@@ -87,11 +101,9 @@ export default function RecommendationCard({params}) {
                 return Array.isArray(validValues) ? validValues.includes(answerValue) : validValues === answerValue;
             })
     );
-        console.log(answers.fuel, 'answers.fuel')
 
     let noMatchMessage = '';
     if (answers?.fuel === 'oil') {
-        console.log(answers.fuel, 'answers.fuel')
         noMatchMessage = 'We do not install fuel oil water heaters at this time. Please check your answers or contact us at 555-867-5309.';
     } else if (limitedModels.length === 0) {
         noMatchMessage = 'No water heaters matched your answers. Please check your responses or contact support.';
@@ -133,12 +145,12 @@ export default function RecommendationCard({params}) {
                     </>
                 ) : (
                     <>
-                        <StickyBar selectedModel={selectedModelId} onConfirmClick={() => setShowConfirmModal(true)} />
+                        <StickyBar selectedModel={selectedModel} onConfirmClick={() => setShowConfirmModal(true)} />
 
-                        <p className='text-sm text-gray-500'>We matched the following options:</p>
+                        <p className='pt-14 text-sm text-gray-500'>We matched the following options:</p>
                         <div className='mb-6 sm:mb-12'>
                             <button className='text-sm text-primary underline focus:outline-none' onClick={() => setShowAnswers((v) => !v)} aria-expanded={showAnswers} aria-controls='user-answers-dropdown'>
-                                {showAnswers ? 'Hide your answers ▲' : 'Review your answers ▼'}
+                                {showAnswers ? 'Hide your answers ▲' : 'Need to review your answers? ▼'}
                             </button>
                             {showAnswers && (
                                 <div id='user-answers-dropdown' className='bg-base-100 border border-base-300 rounded p-3 text-left max-w-sm mx-auto shadow'>
@@ -190,7 +202,7 @@ export default function RecommendationCard({params}) {
                                 const isExpanded = expandedCards[model.id];
 
                                 return (
-                                    <div key={`${model.modelNumber}-${index}`} className={`flex h-fit flex-col w-full max-w-86 ${selectedModelId === model.id && 'outline-primary rounded-lg outline-4'}`}>
+                                    <div key={`${model.modelNumber}-${index}`} className={`flex h-fit flex-col w-full max-w-86 ${selectedModel === model.id && 'outline-primary rounded-lg outline-4'}`}>
                                         <div className=' bg-primary text-white items-center justify-center flex gap-2 p-4 rounded-t-lg'>
                                             {tierLabel === 'Recommended' ? (
                                                 <div className='flex justify-center items-center '>
@@ -201,14 +213,14 @@ export default function RecommendationCard({params}) {
                                                 <h2 className='font-bold text-2xl'>{tierLabel}</h2>
                                             )}
                                         </div>
-                                        <div key={model.id} className='flex flex-col  w-full max-w-86 bg-base-100 border border-base-300 shadow-lg p-4 pb-0'>{/* flex-grow?? */}
+                                        <div key={model.id} className='flex flex-col w-full max-w-86 bg-base-100 border border-base-300 shadow-lg p-4 pb-0'>{/* flex-grow?? */}
                                             {/* <div className='flex-grow'> */}
                                             <h3 className='text-xl mb-0 font-semibold min-h-20'>{model.label}</h3>
                                             <img className='max-h-48 mx-auto m-6' src={`${model.imagePath}`} alt={`${model.brand} ${model.label}`} />
 
                                             <div className='w-fit mx-auto flex flex-col items-left'>
-                                                <p className='text-3xl text-left sm:text-4xl font-bold text-primary'>{priceRange}</p>
-                                                <p className='text-sm text-left '>Complete installation</p>
+                                                <p className='mx-auto text-3xl text-left sm:text-4xl font-bold text-primary'>{priceRange}</p>
+                                                <p className='mx-auto text-sm text-left '>Complete installation</p>
                                             </div>
                                                 {isWarrantySelected && (
                                                     <p className='flex justify-center items-center text-sm'>Includes Extended Warranty
@@ -228,8 +240,8 @@ export default function RecommendationCard({params}) {
                                                     ${isExpanded ? 'max-h-[1000px] pt- pb-4' : 'max-h-0 pt-0 pb-0'}`}
                                             >
                                                 <div className='flex-grow'>
-                                                    <ul className='text-left list-disc list-inside'>
-                                                        <span className='text-xl  font-semibold '>Features:</span>
+                                                    <ul className='text-left list-disc list-outside ml-4'>
+                                                        <span className='text-xl font-semibold '>Features:</span>
                                                         {model.features?.map((feature, idx) => (
                                                             <li key={idx}>
                                                                 <span className='font-semibold'>{feature.label}</span>: {feature.value}
@@ -281,12 +293,27 @@ export default function RecommendationCard({params}) {
                                                     </label>
                                                     <input id={`warranty-${model.id}`} className='checkbox checkbox-primary rounded-sm' type='checkbox' checked={isWarrantySelected || false} onChange={() => toggleWarranty(model.id)} />
                                                 </div>
-
                                             </div>
                                         </div>
 
                                         <div className=' bg-primary text-white items-center justify-center flex gap-2 p-4 rounded-b-lg'>
-                                            <input id={`select-${model.id}`} type='checkbox' className='h-8 w-8 checkbox checkbox-primary checked:bg-white text-primary rounded-sm bg-white' checked={selectedModelId === model.id} onChange={() => setSelectedModelId(selectedModelId === model.id ? null : model.id)} />
+                                            <input
+                                                id={`select-${model.id}`}
+                                                type='checkbox'
+                                                className='h-8 w-8 checkbox checkbox-primary checked:bg-white text-primary rounded-sm bg-white'
+                                                checked={selectedModel?.id === model.id}
+                                                onChange={() => {
+                                                    const isSelected = selectedModel?.id === model.id;
+                                                    setSelectedModel(isSelected ? null : {
+                                                        ...model,
+                                                        totalLow,
+                                                        totalHigh,
+                                                        isWarrantySelected,
+                                                        modelAddOns
+                                                    });
+                                                }}
+
+                                            />
                                             <label htmlFor={`select-${model.id}`} className='text-lg font-bold text-white'>
                                                 Choose This Model
                                             </label>
@@ -300,17 +327,16 @@ export default function RecommendationCard({params}) {
                 )}
             </div>
             {showConfirmModal && (
-                <div className='fixed inset-0 z-50 flex items-center justify-center bg-black/50'>
-                    <div className='bg-white rounded-lg shadow-lg p-6 w-full max-w-lg mx-auto'>
-                        <h2 className='text-xl font-bold mb-4'>Confirm Your System</h2>
-                        {/* Add details later */}
-                        <p className='text-sm text-gray-600 mb-4'>Summary of selected system goes here...</p>
-                        <div className='flex justify-end gap-2 mt-4'>
-                            <button className='btn btn-outline btn-sm' onClick={() => setShowConfirmModal(false)}>
-                                Cancel
-                            </button>
-                            <button className='btn btn-primary btn-sm'>Continue</button>
-                        </div>
+                <div className='fixed inset-0 z-50 p-2 flex items-center justify-center bg-black/75'>
+                    <div className='bg-white rounded-lg shadow-lg w-full max-w-lg mx-auto'>
+                            <SubmissionModal
+                                quoteData={{
+                                    selectedModel: selectedModel,
+                                    answers: answers,
+                                }}
+                                onClose={() => setShowConfirmModal(false)}
+                                onCancel={() => setShowConfirmModal(false)}
+                            />
                     </div>
                 </div>
             )}

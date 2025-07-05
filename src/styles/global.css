@@ -43,6 +43,12 @@ html {
 	}
 }
 
+body.overflow-hidden {
+	overflow: hidden;
+    padding-right: 0.75rem; /* adjust as needed */
+
+}
+
 .animate-fade-it-in {
 	animation: fade-it-in 0.3s ease-in;
 }
