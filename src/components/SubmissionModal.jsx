@@ -85,8 +85,7 @@ const isFormValid =
 				<h2 className="text-xl font-semibold">{getRandomConfirmationPhrase()}</h2>
 			</div>
 			<div className="p-6">
-				<p className="mb-2">Once you submit your quote we'll pass it to one of our techs.</p>
-				<p className="mb-4">They'll confirm your setup and final price with a quick video call or site check. No commitment required.</p>
+				<p className="mb-2">Submit your quote to one of our techs. They'll confirm your setup by scheduling a quick video call or site visit to give you your exact price.</p>
 
 				<ul className="list-disc list-outside ml-4 mb-4 text-sm">
                     <li><strong>Model:</strong> {selectedModel.label}</li>
@@ -99,7 +98,7 @@ const isFormValid =
 				{error && <p className="text-red-500 mb-2">{error}</p>}
                 <div className="mb-6 grid gap-4">
                     <div>
-                        <label className="block text-sm font-medium">Full Name</label>
+                        <label className="block text-sm font-medium">Full Name*</label>
                         <input
                             type="text"
                             className="input input-bordered w-full"
@@ -110,7 +109,7 @@ const isFormValid =
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium">Address</label>
+                        <label className="block text-sm font-medium">Address*</label>
                         <MapboxAddressInput
                             value={customer.address}
                             onSelect={(addr) => setCustomer({...customer, address: addr})}
@@ -119,7 +118,7 @@ const isFormValid =
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium">Phone</label>
+                        <label className="block text-sm font-medium">Phone*</label>
                         <input
                             type="tel"
                             className="input input-bordered w-full"
@@ -133,7 +132,7 @@ const isFormValid =
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium">Email</label>
+                        <label className="block text-sm font-medium">Email*</label>
                         <input
                             type="email"
                             className="input input-bordered w-full"
