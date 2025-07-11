@@ -284,7 +284,7 @@ const waterHeaterModels = [
 
 	// Tankless – Gas (PVC)
 	{
-		baseCost: 2800,
+		baseCost: 2875,
 		brand: 'Rheem',
 		fuel: 'gas',
 		gpm: 9.5,

@@ -109,8 +109,9 @@ export default function RecommendationCard({params}) {
         noMatchMessage = 'No water heaters matched your answers. Please check your responses or contact support.';
     }
 
-    if (limitedModels.length === 2 && fallbackTankless) {
-        limitedModels.push(fallbackTankless);
+    if (fallbackTankless && limitedModels.length < 3 && !limitedModels.some(m => m.id === fallbackTankless.id)) {
+        const fallbackWithFlag = {...fallbackTankless, isFallback: true};
+        limitedModels.push(fallbackWithFlag);
     }
 
     return (
@@ -167,6 +168,7 @@ export default function RecommendationCard({params}) {
                         </div>
                         <div className='px-4 flex flex-wrap justify-center items-stretch gap-16'>
                             {limitedModels.map((model, index) => {
+                                console.log('Model:', model);
                                 let productLink;
                                 if (model.type === 'tankless') {
                                     productLink = `/products/tankless-water-heaters/`;
@@ -179,7 +181,9 @@ export default function RecommendationCard({params}) {
                                 }
                                 // add hybrid tank link if needed
 
-                                const tierLabel = model.id === 'tankless_prestige_recommended' ? 'Consider an Upgrade?' : tierLabels[index];
+                                const tierLabel = model.isFallback
+                                    ? 'Consider an Upgrade?'
+                                    : tierLabels[index];
 
                                 const isWarrantySelected = warrantySelections[model.id];
                                 const modelAddOns = installAddons.filter((addOn) => addOn.applyIf(answers, model));
@@ -202,7 +206,7 @@ export default function RecommendationCard({params}) {
                                 const isExpanded = expandedCards[model.id];
 
                                 return (
-                                    <div key={`${model.modelNumber}-${index}`} className={`flex h-fit flex-col w-full max-w-86 ${selectedModel === model.id && 'outline-primary rounded-lg outline-4'}`}>
+                                    <div key={`${model.modelNumber}`} className={`flex h-fit flex-col w-full max-w-86 ${selectedModel === model.id && 'outline-primary rounded-lg outline-4'}`}>
                                         <div className=' bg-primary text-white items-center justify-center flex gap-2 p-4 rounded-t-lg'>
                                             {tierLabel === 'Recommended' ? (
                                                 <div className='flex justify-center items-center '>
