@@ -168,7 +168,6 @@ export default function RecommendationCard({params}) {
                         </div>
                         <div className='px-4 flex flex-wrap justify-center items-stretch gap-16'>
                             {limitedModels.map((model, index) => {
-                                console.log('Model:', model);
                                 let productLink;
                                 if (model.type === 'tankless') {
                                     productLink = `/products/tankless-water-heaters/`;
