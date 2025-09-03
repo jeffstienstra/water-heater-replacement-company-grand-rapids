@@ -214,7 +214,7 @@ const waterHeaterModels = [
 		],
 	},
 	{
-		baseCost: 1595,
+		baseCost: 1695,
 		brand: 'Rheem',
 		fuel: 'electric',
 		gpm: null,
