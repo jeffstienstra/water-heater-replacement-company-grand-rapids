@@ -187,7 +187,7 @@ export default function RecommendationCard({params}) {
                                 const isWarrantySelected = warrantySelections[model.id];
                                 const modelAddOns = installAddons.filter((addOn) => addOn.applyIf(answers, model));
 
-                                let totalLow = model.baseCost + modelAddOns.reduce((sum, a) => sum + (a.cost?.[0] ?? 0), 0);
+                                let totalLow = model.baseCost;
                                 let totalHigh = model.baseCost + modelAddOns.reduce((sum, a) => sum + (a.cost?.[1] ?? 0), 0);
                                 totalLow += isWarrantySelected ? warrantyAddon?.cost[0] : 0;
                                 totalHigh += isWarrantySelected ? warrantyAddon?.cost[1] : 0;
@@ -290,7 +290,7 @@ export default function RecommendationCard({params}) {
                                                                 {model.type === 'tankless' ? 'Heat exchanger: ' : 'Tank: '}
                                                                 {model.warranty.tank + 4} Years
                                                             </li>
-                                                            <li>Labor: {model.warranty.labor + 1} Years</li>
+                                                            {/* <li>Labor: {model.warranty.labor} Year</li> */}
                                                             <li>Cost: ${warrantyAddon?.cost[0]}</li>
                                                         </ul>
                                                     </label>
