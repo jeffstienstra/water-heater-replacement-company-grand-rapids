@@ -22,16 +22,14 @@ const isFormValid =
 
 	function getRandomConfirmationPhrase() {
 		const phrases = [
-			// "A fine selection, if we may say so.",
-			// "That’s a solid choice.",
-			// "Ooh, great choice!",
-			// "Smart move — that one’s a winner.",
-			// "Excellent pick. You know your stuff.",
-			// "Nice choice — it’s a popular one for a reason.",
-			// "That’ll do the job beautifully.",
-			// "Great call. That one’s built to last.",
+			"A fine selection, if we may say so.",
+			"That’s a solid choice.",
+			"Smart move — that one’s a winner.",
+			"Excellent pick. You know your stuff.",
+			"That’ll do the job beautifully.",
+			"Great call. That one’s built to last.",
 			"Nice choice, can’t go wrong with that one.",
-			// "Strong pick. You’ve got good instincts."
+			"Strong pick. You’ve got good instincts."
 		];
 		return phrases[Math.floor(Math.random() * phrases.length)];
 	}
