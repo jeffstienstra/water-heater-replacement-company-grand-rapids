@@ -74,11 +74,11 @@ const installAddons = [
         id: 'add_extended_warranty',
         userSelectable: true,
         label: 'Extended Warranty',
-        cost: [395, 395],
+        cost: [295, 295],
         getDetails: (model) => [
             `Tank: ${model.warranty.tank + 4} Years`,
             `Parts: ${model.warranty.parts + 4} Years`,
-            `Labor: ${model.warranty.labor + 1} Years`
+            `Labor: ${model.warranty.labor} Years`
         ],
         applyIf: () => false // uses UI toggle
     },
@@ -86,7 +86,7 @@ const installAddons = [
         id: 'expansion_tank',
         userSelectable: true,
         label: 'Expansion Tank',
-        cost: [200, 300],
+        cost: [350, 350],
         getDetails: () => [
             'Extends water heater life',
             'Protects water heater and pipes',
