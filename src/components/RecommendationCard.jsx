@@ -104,7 +104,7 @@ export default function RecommendationCard({params}) {
 
     let noMatchMessage = '';
     if (answers?.fuel === 'oil') {
-        noMatchMessage = 'We do not install fuel oil water heaters at this time. Please check your answers or contact us at 555-867-5309.';
+        noMatchMessage = 'We do not install fuel oil water heaters at this time. Please check your answers or contact us at 616-315-0999.';
     } else if (limitedModels.length === 0) {
         noMatchMessage = 'No water heaters matched your answers. Please check your responses or contact support.';
     }
