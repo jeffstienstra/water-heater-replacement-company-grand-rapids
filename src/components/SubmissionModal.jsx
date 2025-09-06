@@ -23,13 +23,13 @@ const isFormValid =
 	function getRandomConfirmationPhrase() {
 		const phrases = [
 			"A fine selection, if we may say so.",
-			"That’s a solid choice.",
-			"Smart move — that one’s a winner.",
-			"Excellent pick. You know your stuff.",
-			"That’ll do the job beautifully.",
-			"Great call. That one’s built to last.",
-			"Nice choice, can’t go wrong with that one.",
-			"Strong pick. You’ve got good instincts."
+			// "That’s a solid choice.",
+			// "Smart move — that one’s a winner.",
+			// "Excellent pick. You know your stuff.",
+			// "That’ll do the job beautifully.",
+			// "Great call. That one’s built to last.",
+			// "Nice choice, can’t go wrong with that one.",
+			// "Strong pick. You’ve got good instincts."
 		];
 		return phrases[Math.floor(Math.random() * phrases.length)];
 	}
@@ -84,7 +84,7 @@ const isFormValid =
 			</div>
 			<div className="p-6">
 				<p className="mb-2">Submit your quote to one of our techs. They'll confirm your setup by scheduling a quick video call or site visit to give you your exact price.</p>
-
+                <p  className="mb-2">If you entered everything correctly, your price will be within the range provided below.</p>
 				<ul className="list-disc list-outside ml-4 mb-4 text-sm">
                     <li><strong>Model:</strong> {selectedModel.label}</li>
                     <li><strong>Fuel Type:</strong> {answers.fuel}</li>
@@ -113,6 +113,7 @@ const isFormValid =
                             onSelect={(addr) => setCustomer({...customer, address: addr})}
                             required
                         />
+                    {/* <p className="text-sm text-gray-500">*You must select your address from the list</p> */}
                     </div>
 
                     <div>
