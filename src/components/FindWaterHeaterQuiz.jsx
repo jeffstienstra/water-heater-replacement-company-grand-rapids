@@ -31,7 +31,7 @@ export default function FindWaterHeaterQuiz() {
 	useEffect(() => {
 		if (step > steps) {
 			setLoadingResults(true);
-			const timeout = setTimeout(() => setLoadingResults(false), 2000 + Math.random() * 2000); // 2–4s
+			const timeout = setTimeout(() => setLoadingResults(false), 1000 + Math.random() * 2000); // 2–4s
 			return () => clearTimeout(timeout);
 		}
 	}, [step]);
