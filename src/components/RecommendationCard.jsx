@@ -294,7 +294,7 @@ export default function RecommendationCard({params}) {
                                                             <li>Cost: ${warrantyAddon?.cost[0]}</li>
                                                         </ul>
                                                     </label>
-                                                    <input id={`warranty-${model.id}`} className='checkbox checkbox-primary rounded-sm' type='checkbox' checked={isWarrantySelected || false} onChange={() => toggleWarranty(model.id)} />
+                                                    <input id={`warranty-${model.id}`} className='checkbox checkbox-primary rounded-sm' type='checkbox' checked={isWarrantySelected} onChange={() => toggleWarranty(model.id)} />
                                                 </div>
                                             </div>
                                         </div>
