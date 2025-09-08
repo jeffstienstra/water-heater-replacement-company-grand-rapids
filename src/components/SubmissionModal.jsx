@@ -7,7 +7,8 @@ const SERVICE_ZIP_CODES = [
 
 export default function SubmissionModal({  quoteData, onClose, onCancel }) {
     const [customer, setCustomer] = useState({
-        name: '',
+        firstname: '',
+        lastname: '',
         address: null, // Mapbox address object
         phone: '',
         email: ''
@@ -24,7 +25,7 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
     const { selectedModel, answers } = quoteData;
 
     // Validation functions
-    const isNameValid = customer.name.trim().length > 1;
+    const isNameValid = customer.firstname.trim().length > 1 && customer.lastname.trim().length > 1;
     const isPhoneValid = /^\d{10,}$/.test(customer.phone.replace(/\D/g, ''));
     const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customer.email);
     const isAddressValid = !!customer.address?.place_name && zipValid;
@@ -101,15 +102,28 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                     <h3 className="text-xl font-semibold text-primary mb-4">Submit Your Quote</h3>
 
                     <div>
-                        <label className="block text-sm font-medium">Full Name*</label>
+                        <label className="block text-sm font-medium">First Name*</label>
                         <input
                             type="text"
-                            name="name"
+                            name="firstname"
                             required
-                            placeholder="Full name"
+                            placeholder="First name"
                             className={`w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary ${!isNameValid && customer.name ? 'border-red-500' : ''}`}
-                            value={customer.name}
-                            onChange={e => setCustomer({ ...customer, name: e.target.value })}
+                            value={customer.firstname}
+                            onChange={e => setCustomer({ ...customer, firstname: e.target.value })}
+                        />
+                    </div>
+
+                    <div>
+                        <label className="block text-sm font-medium">Last Name*</label>
+                        <input
+                            type="text"
+                            name="lastname"
+                            required
+                            placeholder="Last name"
+                            className={`w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary ${!isNameValid && customer.name ? 'border-red-500' : ''}`}
+                            value={customer.lastname}
+                            onChange={e => setCustomer({ ...customer, lastname: e.target.value })}
                         />
                     </div>
 
