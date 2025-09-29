@@ -110,7 +110,7 @@ const waterHeaterModels = [
 
 	// Power Vent – PVC
 	{
-		baseCost: 2650,
+		baseCost: 2450,
 		brand: 'Rheem',
 		fuel: 'gas',
 		gpm: null,
