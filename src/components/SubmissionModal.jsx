@@ -131,6 +131,7 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                         <label className="block text-sm font-medium">Address*</label>
                         <MapboxAddressInput
                             value={customer.address}
+                            classes={`background-red w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary ${customer.address && !zipValid ? 'border-red-500' : ''}`}
                             onSelect={addr => {
                                 setCustomer({ ...customer, address: addr });
                                 const zip = getZipFromMapboxFeature(addr);

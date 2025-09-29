@@ -3,7 +3,7 @@ import {useEffect, useRef, useState} from 'react';
 
 const MAPBOX_TOKEN = "pk.eyJ1IjoiamVmZnN0aWVuc3RyYSIsImEiOiJjbWNxaTVraXEwZ3lwMm1wdHJrZHZqZGVlIn0.ndeL1OgVgh4LWekrZKLueQ";
 
-export default function MapboxAddressInput({value, onSelect, requireDropdown = true}) {
+export default function MapboxAddressInput({value, onSelect, requireDropdown = true, classes}) {
     const [inputValue, setInputValue] = useState(value?.place_name || '');
     const [suggestions, setSuggestions] = useState([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
@@ -81,7 +81,7 @@ export default function MapboxAddressInput({value, onSelect, requireDropdown = t
                 value={inputValue}
                 onChange={handleInputChange}
                 onBlur={handleBlur}
-                className="input input-bordered w-full"
+                className={`${classes}`}
                 placeholder="Enter your address"
                 autoComplete="off"
                 required
