@@ -72,7 +72,7 @@ const waterHeaterModels = [
 	},
 	// Mobile Home (HUD approved) Natural Draft - Metal Venting
 	{
-		baseCost: 2200,
+		baseCost: 2695,
 		brand: 'Rheem',
 		fuel: 'gas',
 		gpm: null,

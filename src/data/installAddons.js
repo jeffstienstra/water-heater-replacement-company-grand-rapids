@@ -7,7 +7,7 @@ const installAddons = [
             return (
                 answers.ventType === 'metal'
                 && answers.ventingTermination === 'chimney'
-                && answers.hasChimneyLiner === 'no'
+                && (answers.hasChimneyLiner === 'no' || answers.hasChimneyLiner === 'unsure')
             );
         }
 	},
