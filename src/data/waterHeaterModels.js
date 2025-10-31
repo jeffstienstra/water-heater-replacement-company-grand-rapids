@@ -22,7 +22,7 @@ const waterHeaterModels = [
 			homeType: ['singleFamily', 'townhome', 'condo'],
 			fuel: ['gas', 'propane'],
 			ventType: ['metal'],
-			showers: ['1', '2'],
+			showers: ['1', '2', 'unsure'],
 			interestedIn: ['tank']
 		},
 		features: [
@@ -57,7 +57,7 @@ const waterHeaterModels = [
 			homeType: ['singleFamily', 'townhome', 'condo'],
 			fuel: ['gas', 'propane'],
 			ventType: ['metal'],
-			showers: ['2', '3'],
+			showers: ['2', '3', 'unsure'],
 			interestedIn: ['tank']
 		},
 		features: [
@@ -93,7 +93,7 @@ const waterHeaterModels = [
 			homeType: ['mobileHome'],
 			fuel: ['gas', 'propane'],
 			ventType: ['metal'],
-			showers: ['1', '2', '3'],
+			showers: ['1', '2', '3', 'unsure'],
 			interestedIn: ['tank']
 		},
 		features: [
@@ -130,7 +130,7 @@ const waterHeaterModels = [
 		conditions: {
 			fuel: ['gas', 'propane'],
 			ventType: ['pvc'],
-			showers: ['1', '2'],
+			showers: ['1', '2', 'unsure'],
 			interestedIn: ['tank']
 		},
 		features: [
@@ -164,7 +164,7 @@ const waterHeaterModels = [
 		conditions: {
 			fuel: ['gas', 'propane'],
 			ventType: ['pvc'],
-			showers: ['2', '3'],
+			showers: ['2', '3', 'unsure'],
 			interestedIn: ['tank']
 		},
 		features: [
@@ -200,7 +200,7 @@ const waterHeaterModels = [
 		warranty: {tank: 6, parts: 6, labor: 1},
 		conditions: {
 			fuel: ['electric'],
-			showers: ['1', '2'],
+			showers: ['1', '2', 'unsure'],
 			interestedIn: ['tank']
 		},
 		features: [
@@ -233,7 +233,7 @@ const waterHeaterModels = [
 		warranty: {tank: 6, parts: 6, labor: 1},
 		conditions: {
 			fuel: ['electric'],
-			showers: ['2', '3'],
+			showers: ['2', '3', 'unsure'],
 			interestedIn: ['tank']
 		},
 		features: [
@@ -268,7 +268,7 @@ const waterHeaterModels = [
 		conditions: {
 			homeType: ['mobileHome'],
 			fuel: ['electric'],
-			showers: ['1', '2', '3'],
+			showers: ['1', '2', '3', 'unsure'],
 			interestedIn: ['tank']
 		},
 		features: [
@@ -303,7 +303,7 @@ const waterHeaterModels = [
 			homeType: ['singleFamily', 'townhome', 'condo'],
 			fuel: ['gas', 'propane'],
 			ventType: ['pvc', 'metal', 'unsure'],
-			showers: ['1', '2', '3']
+			showers: ['1', '2', '3', 'unsure'],
 		},
 		features: [
 			{label: 'Model', value: 'RTGH-95DVLN'},
@@ -335,7 +335,7 @@ const waterHeaterModels = [
 			homeType: ['singleFamily', 'townhome', 'condo'],
 			fuel: ['gas', 'propane'],
 			ventType: ['pvc'],
-			showers: ['3'],
+			showers: ['3', 'unsure'],
 			interestedIn: ['tankless']
 		},
 		features: [
@@ -369,7 +369,7 @@ const waterHeaterModels = [
 			fuel: ['gas', 'propane'],
 			ventType: ['pvc'],
 			hardWater: ['yes'],
-			showers: ['3'],
+			showers: ['3', 'unsure'],
 			interestedIn: ['tankless']
 		},
 		features: [
