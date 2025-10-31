@@ -331,7 +331,7 @@ export default function RecommendationCard({params}) {
             </div>
             {showConfirmModal && (
                 <div className='fixed inset-0 py-8 pt-40 sm:pt-0 z-50 p-2 flex items-center justify-center bg-black/75 overflow-scroll'>
-                    <div className='bg-white rounded-lg shadow-lg w-full max-w-lg mx-auto'>
+                    <div className='mt-auto bg-white rounded-lg shadow-lg w-full max-w-lg mx-auto'>
                             <SubmissionModal
                                 quoteData={{
                                     selectedModel: selectedModel,
