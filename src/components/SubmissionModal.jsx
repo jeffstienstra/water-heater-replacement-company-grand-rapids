@@ -95,7 +95,7 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                     action="https://contact-form-handler.jeffstienstra.workers.dev/"
                     method="POST"
                     encType="application/x-www-form-urlencoded"
-                    className="bg-white rounded-xl shadow-lg p-8 space-y-6"
+                    className="bg-white rounded-xl shadow-lg p-4 space-y-6"
                     onSubmit={handleFormSubmit}
                     autoComplete="off"
                 >
@@ -202,7 +202,7 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                             type="submit"
                             disabled={!isFormValid || !turnstilePassed || submitting}
                         >
-                            {submitting ? 'Submitting...' : 'Submit My Quote'}
+                            {submitting ? 'Submitting...' : 'Submit My Quote For Review'}
                         </button>
                     </div>
                 </form>
