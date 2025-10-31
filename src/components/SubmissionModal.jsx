@@ -160,7 +160,7 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                             required
                             minLength={10}
                             pattern="[0-9]{10,}"
-                            placeholder="e.g. 6165551234"
+                            placeholder="e.g. 616-315-0999"
                             className={`w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary ${!isPhoneValid && customer.phone ? 'border-red-500' : ''}`}
                             value={customer.phone}
                             onChange={e => setCustomer({ ...customer, phone: e.target.value.replace(/\D/g, '') })}

@@ -8,6 +8,7 @@ import StickyBar from './StickyBar.jsx';
 import LinkInternal from './icons/LinkInternal.jsx';
 import PriceReceipt from './icons/PriceReceipt.jsx';
 import SubmissionModal from './SubmissionModal.jsx';
+import Phone from "./icons/Phone.astro";
 
 export default function RecommendationCard({params}) {
     const [showAnswers, setShowAnswers] = useState(false);
@@ -106,7 +107,7 @@ export default function RecommendationCard({params}) {
     if (answers?.fuel === 'oil') {
         noMatchMessage = 'We do not install fuel oil water heaters at this time. Please check your answers or contact us at 616-315-0999.';
     } else if (limitedModels.length === 0) {
-        noMatchMessage = 'Looks like you need some help deciding, why not schedule an in-home quote where a technician will walk through the Instant Quote form with you? Call us at 616-315-0999 to schedule.';
+        noMatchMessage = 'Looks like you need some help deciding, why not schedule an in-home quote where a technician will walk through the Instant Quote form with you?';
     }
 
     if (fallbackTankless && limitedModels.length < 3 && !limitedModels.some(m => m.id === fallbackTankless.id)) {
@@ -139,10 +140,16 @@ export default function RecommendationCard({params}) {
                                 </div>
                             )}
                         </div>
-                        <a href="/instant-quote/?step=1" class="btn btn-primary text-lg text-white py-2 w-64 max-w-xs mx-auto mb-4">
-                            <PriceReceipt />
-                            <p>Instant Quote</p>
-                        </a>
+                        <div class="flex flex-col justify-center gap-2 pb-8">
+                            <a href="tel:616-315-0999" class="btn btn-primary text-lg text-white py-2 w-64 max-w-xs mx-auto mb-4">
+                                {/* <Phone /> */}
+                                <p>Call For A Quote</p>
+                            </a>
+                            <a href="/instant-quote/?step=1" class="btn btn-outline text-lg bg-white/50 text-black py-2 w-64 max-w-xs mx-auto mb-4 shadow-sm">
+                                <PriceReceipt />
+                                <p>Restart Instant Quote</p>
+                            </a>
+                        </div>
                     </>
                 ) : (
                     <>
