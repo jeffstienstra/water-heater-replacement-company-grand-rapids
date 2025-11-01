@@ -107,7 +107,7 @@ export default function RecommendationCard({params}) {
     if (answers?.fuel === 'oil') {
         noMatchMessage = 'We do not install fuel oil water heaters at this time. Please check your answers or contact us at 616-315-0999.';
     } else if (limitedModels.length === 0) {
-        noMatchMessage = 'Looks like you need some help deciding, why not schedule an in-home quote where a technician will walk through the Instant Quote form with you?';
+        noMatchMessage = 'Looks like you need some help deciding; why not schedule an in-home quote where a technician will walk through the Instant Quote form with you?';
     }
 
     if (fallbackTankless && limitedModels.length < 3 && !limitedModels.some(m => m.id === fallbackTankless.id)) {
