@@ -86,7 +86,7 @@ const questions = [
 						],
 						hintTitle: 'Horizontal Venting Into Chimney',
 						hintText: `This is a standard natural draft water heater vented horizontally into a masonry chimney.<br/><br/>
-							It has a metal vent pipe that runs from the top of the water heater to the chimney. Your water heater may combine its metal vent with your furnace or other metal vent pipes before reaching the chimney—that is perfectly fine.<br/><br/>
+							It has a metal vent pipe that runs from the top of the water heater to the chimney. Your water heater may combine its metal vent with your furnace or other metal vent pipes before reaching the chimney — that is perfectly fine.<br/><br/>
 							This is the general idea of what to look for.`
 					},
 					// {
