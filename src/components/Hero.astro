@@ -14,7 +14,6 @@ import CalendarClock from './icons/CalendarClock.astro';
 		bg-no-repeat
 		text-base-content
 		sm:bg-fixed
-        lg:h-full
 	"
 >
     <div class="h-full bg-white/90 pb-6">
@@ -75,12 +74,12 @@ import CalendarClock from './icons/CalendarClock.astro';
             </div>
         </div>
         <div class="px-4 text-base-content text-center">
-            <div id="instant-quote" class="mx-auto max-w-5xl">
+            <div id="instant-quote" class="mx-auto max-w-5xl mb-16 lg:mb-64">
                 <FindWaterHeaterQuiz  client:only />
             </div>
-            <p class="hidden lg:block mt-4 text-sm text-gray-400 max-w-sm mx-auto">
+            <!-- <p class="hidden lg:block mt-4 text-sm text-gray-400 max-w-sm mx-auto">
                 Scroll down to see how it works.
-            </p>
+            </p> -->
         </div>
     </div>
 </section>
