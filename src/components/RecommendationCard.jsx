@@ -253,7 +253,7 @@ export default function RecommendationCard({params}) {
                                                     <ul className='text-left list-disc list-outside ml-4'>
                                                         <span className='text-xl font-semibold '>Features:</span>
                                                         {model.features?.map((feature, idx) => (
-                                                            <li key={idx}>
+                                                            <li className='ml-5' key={idx}>
                                                                 <span className='font-semibold'>{feature.label}</span>: {feature.value}
                                                             </li>
                                                         ))}
