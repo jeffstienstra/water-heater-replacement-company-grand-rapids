@@ -8,13 +8,14 @@ const installAddons = [
                 answers.ventType === 'metal'
                 && answers.ventingTermination === 'chimney'
                 && (answers.hasChimneyLiner === 'no' || answers.hasChimneyLiner === 'unsure')
+                && !model.type === 'tankless'
             );
         }
 	},
 	{
 		id: 'upgrade_gas_line',
         label: 'Gas line upgrade',
-        cost: [300, 500],
+        cost: [500, 1000],
         applyIf: (answers, model) => {
             return (
                 answers.fuel === 'gas'
@@ -26,7 +27,7 @@ const installAddons = [
     {
         id: 'route_water_line',
         label: 'Water line reroute',
-        cost: [250, 500],
+        cost: [500, 1000],
         applyIf: (answers, model) => {
             return (
                 answers.typeToRemove === 'tank'
@@ -37,7 +38,7 @@ const installAddons = [
     {
         id: 'add_pvc_venting',
         label: 'PVC venting install',
-        cost: [200, 400],
+        cost: [300, 600],
         applyIf: (answers, model) => {
             return (
                 answers.fuel === 'gas'
@@ -49,7 +50,7 @@ const installAddons = [
 	{
 		id: 'add_120v_outlet',
 		label: 'Add 120V outlet',
-		cost: [200, 400],
+		cost: [250, 600],
 		applyIf: (answers, model) => {
             return (
                 answers.fuel !== 'electric'
@@ -110,7 +111,7 @@ const installAddons = [
         id: 'mixing_valve',
         userSelectable: true,
         label: 'Mixing Valve',
-        cost: [300, 450],
+        cost: [450, 750],
         getDetails: () => [
             'Prevents scalding',
             'Increases hot water availability',
@@ -122,7 +123,7 @@ const installAddons = [
         id: 'recirc_pump',
         userSelectable: true,
         label: 'Recirculation Pump',
-        cost: [500, 700],
+        cost: [500, 1000],
         getDetails: () => [
             'Instant hot water at fixtures',
             'Reduces water waste',
@@ -134,7 +135,7 @@ const installAddons = [
         id: 'water_alarm',
         userSelectable: true,
         label: 'Water Leak Alarm',
-        cost: [100, 200],
+        cost: [195, 295],
         getDetails: () => [
             'Alerts you to leaks early',
             'Can prevent major water damage',

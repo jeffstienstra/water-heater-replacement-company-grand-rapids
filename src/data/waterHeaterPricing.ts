@@ -1,7 +1,7 @@
 export const pricingOptions = [
 	{
 		title: "40-Gallon Standard Tank Water Heater (Gas or Electric)",
-		price: "$1,495",
+		price: "$1,600",
 		image: "natDraftGroup",
 		features: [
 			"Standard replacement in same location",
@@ -13,7 +13,7 @@ export const pricingOptions = [
 	},
 	{
 		title: "50-Gallon Standard Tank Water Heater (Gas or Electric)",
-		price: "$1,595",
+		price: "$1,750",
 		image: "natDraftGroup",
 		features: [
 			"Standard replacement in same location",
@@ -24,7 +24,7 @@ export const pricingOptions = [
 	},
 	{
 		title: "40-Gallon Gas Power Vent Tank Water Heater",
-		price: "$1,995",
+		price: "$2,450",
 		image: "powerVentGroup",
 		features: [
 			"Standard replacement in same location",
@@ -35,7 +35,7 @@ export const pricingOptions = [
 	},
 	{
 		title: "50-Gallon Gas Power Vent Tank Water Heater",
-		price: "$2,095",
+		price: "$2,600",
 		image: "powerVentGroup",
 		features: [
 			"Standard replacement in same location",
