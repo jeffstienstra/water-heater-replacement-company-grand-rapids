@@ -195,7 +195,7 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                         data-auto-render="false"
                     />
 
-                    <div className="flex gap-4 justify-end">
+                    <div className="flex flex-wrap gap-4 justify-end">
                         <button className="btn btn-outline" type="button" onClick={onCancel}>Cancel</button>
                         <button
                             className="btn btn-primary"
