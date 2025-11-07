@@ -1,7 +1,7 @@
 export const pricingOptions = [
 	{
 		title: "40-Gallon Standard Tank Water Heater (Gas or Electric)",
-		price: "$1,495-1,995",
+		price: "$1,495",
 		image: "natDraftGroup",
 		features: [
 			"Standard replacement in same location",
@@ -13,7 +13,7 @@ export const pricingOptions = [
 	},
 	{
 		title: "50-Gallon Standard Tank Water Heater (Gas or Electric)",
-		price: "$1,595-2,095",
+		price: "$1,595",
 		image: "natDraftGroup",
 		features: [
 			"Standard replacement in same location",
@@ -24,7 +24,7 @@ export const pricingOptions = [
 	},
 	{
 		title: "40-Gallon Gas Power Vent Tank Water Heater",
-		price: "$1,995-2,295",
+		price: "$1,995",
 		image: "powerVentGroup",
 		features: [
 			"Standard replacement in same location",
@@ -35,7 +35,7 @@ export const pricingOptions = [
 	},
 	{
 		title: "50-Gallon Gas Power Vent Tank Water Heater",
-		price: "$2,095-2,495",
+		price: "$2,095",
 		image: "powerVentGroup",
 		features: [
 			"Standard replacement in same location",
@@ -46,7 +46,7 @@ export const pricingOptions = [
 	},
 	{
 		title: "Tankless Water Heater",
-		price: "$3,495-4,595",
+		price: "$3,495",
 		image: "tanklessGroup",
 		features: [
 			"Standard replacement in same location",
@@ -58,18 +58,18 @@ export const pricingOptions = [
 			"Home visit required if upgrading from a tank to tankless water heater (due to additional requirements)"
 		]
 	},
-	{
-		title: "Heat Pump Water Heater",
-		price: "$3,295-4,795",
-		image: "hybridGroup",
-		features: [
-			"Standard replacement in same location",
-			"Removal & disposal of old unit",
-			"All required utility connections (water, gas, venting, electric)*",
-			"All work to code, with permit",
-			"Price varies based on existing setup and requirements",
-			"Heat pump systems may require additional electrical upgrades",
-			"Home visit required if upgrading from a tank to heat pump water heater (due to additional electrical requirements)"
-		]
-	}
+	// {
+	// 	title: "Heat Pump Water Heater",
+	// 	price: "$3,295",
+	// 	image: "hybridGroup",
+	// 	features: [
+	// 		"Standard replacement in same location",
+	// 		"Removal & disposal of old unit",
+	// 		"All required utility connections (water, gas, venting, electric)*",
+	// 		"All work to code, with permit",
+	// 		"Price varies based on existing setup and requirements",
+	// 		"Heat pump systems may require additional electrical upgrades",
+	// 		"Home visit required if upgrading from a tank to heat pump water heater (due to additional electrical requirements)"
+	// 	]
+	// }
 ];

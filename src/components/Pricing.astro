@@ -6,6 +6,7 @@ import natDraftGroup from '../assets/images/wh-natDraftGroup.png';
 import powerVentGroup from '../assets/images/wh-powerVentGroup.png';
 import tanklessGroup from '../assets/images/wh-tanklessGroup.png';
 import hybridGroup from '../assets/images/wh-hybridGroup.png';
+import PriceReceipt from "../components/icons/PriceReceipt.astro";
 
 const imageMap = {
 	natDraftGroup,
@@ -38,21 +39,26 @@ const imageMap = {
 		</div>
 	</div>
 
-	<div class="grid gap-10 sm:grid-cols-3">
+	<div class="grid gap-10 xl:grid-cols-3">
 		{pricingOptions.map(option => (
 			<div class="bg-base-100 border border-base-300 rounded-xl shadow-md p-4 sm:p-8 text-left flex flex-col w-full max-w-md mx-auto">
 				<img src={imageMap[option.image].src} alt={option.title} class="w-full h-48 object-contain rounded-lg mb-4" />
 				<div class="flex-grow">
 					<h2 class="text-2xl font-semibold mb-2">{option.title}</h2>
-					<p class="text-3xl sm:text-4xl font-bold text-primary">{option.price}</p>
-					<p class="text-lg font-bold text-primary mb-4">Installed</p>
+					<p class="text-lg font-bold text-primary">Starting at</p>
+					<p class="text-3xl sm:text-4xl font-bold text-primary mb-4">{option.price} <span class="text-2xl">installed</span></p>
+					{/* <p class="text-lg font-bold text-primary mb-4">Installed</p> */}
 					<ul class="list-disc list-inside text-left text-sm leading-relaxed space-y-1 mb-6">
 						{option.features.map(feature => (
 							<li>{feature}</li>
 						))}
 					</ul>
 				</div>
-				<a href="#schedule-estimate/" class="btn btn-primary text-lg h-fit py-2 flex items-center mx-auto text-center">
+				<a href="/instant-quote/?step=1" class="btn btn-primary text-lg h-fit py-2 flex items-center mx-auto text-center mb-4">
+					<PriceReceipt />
+					<p class="">Get My Instant Quote</p>
+				</a>
+				{/* <a href="#schedule-estimate/" class="btn btn-primary text-lg h-fit py-2 flex items-center mx-auto text-center">
 					<svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width={2} stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-clock mr-2">
 						<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
 						<path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3" />
@@ -63,10 +69,10 @@ const imageMap = {
 						<path d="M18 16.5v1.5l.5 .5" />
 					</svg>
 					<p class="w-full">Book Now</p>
-				</a>
-				<a href={`/products/${option.slug}`} class="btn btn-outline text-lg h-fit py-2 flex items-center mx-auto mt-4 text-center">
+				</a> */}
+				{/* <a href={`/products/${option.slug}`} class="btn btn-outline text-lg h-fit py-2 flex items-center mx-auto mt-4 text-center">
 					Learn More
-				</a>
+				</a> */}
 			</div>
 		))}
 	</div>
