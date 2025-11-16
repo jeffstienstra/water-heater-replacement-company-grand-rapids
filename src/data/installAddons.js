@@ -2,14 +2,15 @@ const installAddons = [
 	{
 		id: 'chimney_liner',
 		label: 'Chimney liner install',
-		cost: [400, 1000],
+		cost: [400, 800],
 		applyIf: (answers, model) => {
-            return (
-                answers.ventType === 'metal'
-                && answers.ventingTermination === 'chimney'
-                && (answers.hasChimneyLiner === 'no' || answers.hasChimneyLiner === 'unsure')
-                && !model.type === 'tankless'
-            );
+            const isTank = model.type === 'tank';
+            const ventIsUnsure = answers.ventType === 'unsure';
+            const ventIsMetal = answers.ventType === 'metal';
+            const terminationIsChimney = ['chimney', 'unsure'].includes(answers.ventingTermination);
+            const hasNoLiner = answers.hasChimneyLiner !== 'yes'; // undefined also treated as "no"
+
+            return isTank && (ventIsUnsure || (ventIsMetal && terminationIsChimney && hasNoLiner));
         }
 	},
 	{

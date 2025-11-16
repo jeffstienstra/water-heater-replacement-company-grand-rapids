@@ -10,7 +10,7 @@ export default function getRecommendations(answers) {
 	});
 
 	// Add applicable add-ons
-	const applicableAddons = installAddons.filter(addon => addon.applyIf(answers));
+	const applicableAddons = installAddons.filter(addon => addon.applyIf(answers, model));
 	const addonTotal = (rangeIndex) =>
 		applicableAddons.reduce((sum, addon) => sum + addon.cost[rangeIndex], 0);
 

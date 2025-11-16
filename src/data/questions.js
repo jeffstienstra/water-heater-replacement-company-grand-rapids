@@ -4,7 +4,7 @@ const questions = [
 		question: 'What type of water heater are you interested in?',
 		options: [
 			{label: 'Tank', value: 'tank'},
-			{label: 'Tankless', value: 'tankless'}
+			{label: 'Tankless', value: 'tankless'},
 		],
 	},
 	{
@@ -23,7 +23,7 @@ const questions = [
 			{label: 'Townhome', value: 'townhome'},
 			{label: 'Mobile Home', value: 'mobileHome'},
 			{label: 'Condo/Apartment', value: 'condo'},
-		]
+		],
 	},
 	{
 		paramKey: 'showers',
@@ -32,7 +32,7 @@ const questions = [
 			{label: '1', value: '1'},
 			{label: '2', value: '2'},
 			{label: '3+', value: '3'}
-		]
+		],
 	},
 	{
 		paramKey: 'location',
@@ -40,7 +40,8 @@ const questions = [
 		options: [
 			{label: 'Basement', value: 'basement'},
 			{label: 'Crawlspace', value: 'crawlspace'},
-			{label: 'Closet', value: 'closet'}
+			{label: 'Closet', value: 'closet'},
+			{label: "I don't know", value: 'unsure'}
 		],
 	},
 	{
@@ -58,6 +59,7 @@ const questions = [
 			options: [
 				{label: 'Plastic', value: 'pvc'},
 				{label: 'Metal', value: 'metal'},
+				{label: "I don't know", value: 'unsure'}
 			],
 			shouldShow: (answers) => {
 				const fuel = answers.fuel;
@@ -89,15 +91,7 @@ const questions = [
 							It has a metal vent pipe that runs from the top of the water heater to the chimney. Your water heater may combine its metal vent with your furnace or other metal vent pipes before reaching the chimney — that is perfectly fine.<br/><br/>
 							This is the general idea of what to look for.`
 					},
-					// {
-					// 	label: "I'd like a pro to assess it",
-					// 	value: 'askPro',
-					// 	hintImages: [
-					// 		{src: '/images/wh-tech-profile.webp', alt: 'Profile photo of a technician'},
-					// 	],
-					// 	hintTitle: 'Get Help From A Pro',
-					// 	hintText: 'If you are unsure about your water heater venting we can help! You can text us a few images, join a brief video call, or schedule a free on-site assessment.'
-					// },
+					{label: "I don't know", value: 'unsure'}
 				],
 				subQuestion: {
 					paramKey: 'hasChimneyLiner',
@@ -167,7 +161,8 @@ const questions = [
 									<li>Reduces carbon monoxide risk in your home</li>
 								</ul>
 							`
-						}
+						},
+						{label: "I don't know", value: 'unsure'}
 					],
 					shouldShow: (answers) => answers.ventingTermination === 'chimney',
 				},

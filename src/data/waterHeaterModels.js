@@ -21,7 +21,7 @@ const waterHeaterModels = [
 		conditions: {
 			homeType: ['singleFamily', 'townhome', 'condo'],
 			fuel: ['gas', 'propane'],
-			ventType: ['metal'],
+			ventType: ['metal', 'unsure'],
 			showers: ['1', '2', 'unsure'],
 			interestedIn: ['tank']
 		},
@@ -56,7 +56,7 @@ const waterHeaterModels = [
 		conditions: {
 			homeType: ['singleFamily', 'townhome', 'condo'],
 			fuel: ['gas', 'propane'],
-			ventType: ['metal'],
+			ventType: ['metal', 'unsure'],
 			showers: ['2', '3', 'unsure'],
 			interestedIn: ['tank']
 		},
@@ -92,7 +92,7 @@ const waterHeaterModels = [
 		conditions: {
 			homeType: ['mobileHome'],
 			fuel: ['gas', 'propane'],
-			ventType: ['metal'],
+			ventType: ['metal', 'unsure'],
 			showers: ['1', '2', '3', 'unsure'],
 			interestedIn: ['tank']
 		},
