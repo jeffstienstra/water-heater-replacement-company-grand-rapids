@@ -289,20 +289,20 @@ export default function RecommendationCard({params}) {
                                                         </div>
                                                     )}
                                                 </div>
-                                                <div className='bg-primary/5 border border-base-300 rounded-lg shadow-sm pr-4 flex flex-row items-center gap-2 mt-2'>
+                                                {/* <div className='bg-primary/5 border border-base-300 rounded-lg shadow-sm pr-4 flex flex-row items-center gap-2 mt-2'>
                                                     <label htmlFor={`warranty-${model.id}`} className='text-sm text-left p-4'>
                                                         <ul className='font-semibold'>
-                                                            Include Rheem's ProtectionPlus Extended Warranty:
+                                                            Add Extended Warranty:
                                                             <li>
                                                                 {model.type === 'tankless' ? 'Heat exchanger: ' : 'Tank: '}
                                                                 {model.warranty.tank + 4} Years
                                                             </li>
-                                                            {/* <li>Labor: {model.warranty.labor} Year</li> */}
+                                                            <li>Labor: {model.warranty.labor} Year</li>
                                                             <li>Cost: ${warrantyAddon?.cost[0]}</li>
                                                         </ul>
                                                     </label>
                                                     <input id={`warranty-${model.id}`} className='checkbox checkbox-primary rounded-sm' type='checkbox' checked={isWarrantySelected} onChange={() => toggleWarranty(model.id)} />
-                                                </div>
+                                                </div> */}
                                             </div>
                                         </div>
 
@@ -332,7 +332,7 @@ export default function RecommendationCard({params}) {
                                 );
                             })}
                         </div>
-                            <p className='max-w-3xl mx-auto text-sm text-gray-500 mt-8 p-4 pb-12'>* Schedule an onsite visit or video call to verify your unique system and get a final price. Some of the included services may not be required for your home, though they commonly are. Final price is always provided by email or text before work begins.</p>
+                            <p className='max-w-3xl mx-auto text-sm text-gray-500 mt-8 p-4 pb-12'>* Schedule an onsite visit or video call to verify your unique system needs for a final price. Some of the included services may not be required for your home, though they commonly are. Final price is always provided in writing before work begins.</p>
                     </>
                 )}
             </div>
