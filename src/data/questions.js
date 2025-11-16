@@ -59,7 +59,7 @@ const questions = [
 			options: [
 				{label: 'Plastic', value: 'pvc'},
 				{label: 'Metal', value: 'metal'},
-				{label: "I don't know", value: 'unsure'}
+				// {label: "I don't know", value: 'unsure'}
 			],
 			shouldShow: (answers) => {
 				const fuel = answers.fuel;
