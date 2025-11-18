@@ -13,7 +13,7 @@ const questions = [
 		options: [
 			{label: 'Standard: 40-50 Gallons (most common)', value: 'standard'},
 			{label: 'Large: 60-75 Gallons', value: 'large'},
-			{label: 'Extra Large: 80+ Gallons', value: 'XL'},
+			// {label: 'Extra Large: 80+ Gallons', value: 'XL'},
 		],
 		shouldShow: (answers) => answers.interestedIn === 'tank',
 	},
