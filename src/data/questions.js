@@ -8,12 +8,23 @@ const questions = [
 		],
 	},
 	{
+		paramKey: 'neededCapacity',
+		question: 'What size tank water heater do you need?',
+		options: [
+			{label: 'Standard: 40-50 Gallons (most common)', value: 'standard'},
+			{label: 'Large: 60-75 Gallons', value: 'large'},
+			{label: 'Extra Large: 80+ Gallons', value: 'XL'},
+		],
+		shouldShow: (answers) => answers.interestedIn === 'tank',
+	},
+	{
 		paramKey: 'typeToRemove',
 		question: 'What type of water heater will be removed?',
 		options: [
 			{label: 'Tank', value: 'tank'},
 			{label: 'Tankless', value: 'tankless'}
 		],
+		shouldShow: (answers) => answers.interestedIn === 'tankless',
 	},
 	{
 		paramKey: 'homeType',
@@ -55,7 +66,7 @@ const questions = [
 		],
 		subQuestion: {
 			paramKey: 'ventType',
-			question: 'How is your water heater vented?',
+			question: 'How is your current water heater vented?',
 			options: [
 				{label: 'Plastic', value: 'pvc'},
 				{label: 'Metal', value: 'metal'},

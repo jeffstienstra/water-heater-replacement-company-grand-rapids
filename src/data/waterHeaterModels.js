@@ -19,11 +19,12 @@ const waterHeaterModels = [
 		ventType: 'metal',
 		warranty: {tank: 6, parts: 6, labor: 1},
 		conditions: {
+			interestedIn: ['tank'],
+			neededCapacity: ['standard'],
 			homeType: ['singleFamily', 'townhome', 'condo'],
 			fuel: ['gas', 'propane'],
 			ventType: ['metal', 'unsure'],
 			showers: ['1', '2', 'unsure'],
-			interestedIn: ['tank']
 		},
 		features: [
 			{label: 'Model', value: 'PROG40-40N RH62'},
@@ -31,7 +32,7 @@ const waterHeaterModels = [
 			{label: 'Capacity', value: '40 Gallon'},
 			{label: 'Ignition', value: 'Standing Pilot'},
 			{label: 'Venting', value: 'Metal Venting'},
-			{label: '1st Hour Delivery', value: '53 GPH'},
+			{label: '1st Hour Delivery', value: '53 Gal'},
 			{label: 'Recovery', value: '34.3 GPH at 90°F Rise'}
 		],
 	},
@@ -54,11 +55,12 @@ const waterHeaterModels = [
 		ventType: 'metal',
 		warranty: {tank: 6, parts: 6, labor: 1},
 		conditions: {
+			interestedIn: ['tank'],
+			neededCapacity: ['standard'],
 			homeType: ['singleFamily', 'townhome', 'condo'],
 			fuel: ['gas', 'propane'],
 			ventType: ['metal', 'unsure'],
 			showers: ['2', '3', 'unsure'],
-			interestedIn: ['tank']
 		},
 		features: [
 			{label: 'Model', value: 'PROG50-42N RH67'},
@@ -66,8 +68,44 @@ const waterHeaterModels = [
 			{label: 'Capacity', value: '50 Gallon'},
 			{label: 'Ignition', value: 'Standing Pilot'},
 			{label: 'Venting', value: 'Direct Metal Vent'},
-			{label: '1st Hour Delivery', value: '87 GPH'},
+			{label: '1st Hour Delivery', value: '87 Gal'},
 			{label: 'Recovery', value: '42.4 GPH at 90°F Rise'}
+		],
+	},
+	{
+		baseCost: 2450,
+		brand: 'Rheem',
+		fuel: 'gas',
+		gpm: null,
+		id: 'natdraft_75_recommended',
+		imagePath: '/images/rheem/natDraft_tank.webp',
+		label: 'Rheem 75 Gallon Performance Series Water Heater: Atmospheric',
+		modelNumber: 'PROG75-75U RH EC1',
+		notes: 'Extra capacity for larger families',
+		productLink: '/products/gas-tank-water-heaters/',
+		size: 75,
+		tankCapacity: '75',
+		tier: 'recommended',
+		type: 'tank',
+		uef: 0.59,
+		ventType: 'metal',
+		warranty: {tank: 8, parts: 8, labor: 1},
+		conditions: {
+			interestedIn: ['tank'],
+			neededCapacity: ['large'],
+			homeType: ['singleFamily', 'townhome', 'condo'],
+			fuel: ['gas', 'propane'],
+			ventType: ['metal', 'unsure'],
+			showers: ['2', '3', 'unsure'],
+		},
+		features: [
+			{label: 'Model', value: 'PROG75-75U RH EC1'},
+			{label: 'UEF', value: 0.59},
+			{label: 'Capacity', value: '75 Gallon'},
+			{label: 'Ignition', value: 'Standing Pilot'},
+			{label: 'Venting', value: 'Direct Metal Vent'},
+			{label: '1st Hour Delivery', value: '135 Gal'},
+			{label: 'Recovery', value: '72.8 GPH at 90°F Rise'}
 		],
 	},
 	// Mobile Home (HUD approved) Natural Draft - Metal Venting
@@ -90,11 +128,12 @@ const waterHeaterModels = [
 		ventType: 'metal',
 		warranty: {tank: 6, parts: 6, labor: 1},
 		conditions: {
+			interestedIn: ['tank'],
+			neededCapacity: ['standard'],
 			homeType: ['mobileHome'],
 			fuel: ['gas', 'propane'],
 			ventType: ['metal', 'unsure'],
 			showers: ['1', '2', '3', 'unsure'],
-			interestedIn: ['tank']
 		},
 		features: [
 			{label: 'Model', value: 'XG40T06MD30U1'},
@@ -103,7 +142,7 @@ const waterHeaterModels = [
 			{label: 'Ignition', value: 'Standing Pilot'},
 			{label: 'Venting', value: 'Direct Venting (Metal)'},
 			{label: 'Location', value: 'No external door or closet ventilation required'},
-			{label: '1st Hour Delivery', value: '58 GPH'},
+			{label: '1st Hour Delivery', value: '58 Gal'},
 			{label: 'Recovery', value: '30.3 GPH at 90°F Rise'},
 		]
 	},
@@ -128,10 +167,12 @@ const waterHeaterModels = [
 		ventType: 'pvc',
 		warranty: {tank: 8, parts: 8, labor: 1},
 		conditions: {
+			interestedIn: ['tank'],
+			neededCapacity: ['standard'],
+			homeType: ['singleFamily', 'townhome', 'condo'],
 			fuel: ['gas', 'propane'],
 			ventType: ['pvc'],
 			showers: ['1', '2', 'unsure'],
-			interestedIn: ['tank']
 		},
 		features: [
 			{label: 'Model', value: 'PROG40S-36N RH62 PV'},
@@ -139,7 +180,7 @@ const waterHeaterModels = [
 			{label: 'Capacity', value: '40 Gallon'},
 			{label: 'Ignition', value: 'Spark Ignition'},
 			{label: 'Venting', value: 'Power Venting (PVC)'},
-			{label: '1st Hour Delivery', value: '69 GPH'},
+			{label: '1st Hour Delivery', value: '69 Gal'},
 			{label: 'Recovery', value: '36.4 GPH at 90°F Rise'},
 		]
 	},
@@ -162,10 +203,12 @@ const waterHeaterModels = [
 		ventType: 'pvc',
 		warranty: {tank: 8, parts: 8, labor: 1},
 		conditions: {
+			interestedIn: ['tank'],
+			neededCapacity: ['standard'],
+			homeType: ['singleFamily', 'townhome', 'condo'],
 			fuel: ['gas', 'propane'],
 			ventType: ['pvc'],
 			showers: ['2', '3', 'unsure'],
-			interestedIn: ['tank']
 		},
 		features: [
 			{label: 'Model', value: 'PROG50-42N RH67 PV'},
@@ -174,8 +217,45 @@ const waterHeaterModels = [
 			{label: 'BTU', value: '42,000 BTU/hr'},
 			{label: 'Ignition', value: 'Spark Ignition'},
 			{label: 'Venting', value: 'Power Venting (PVC)'},
-			{label: '1st Hour Delivery', value: '87 GPH'},
+			{label: '1st Hour Delivery', value: '87 Gal'},
 			{label: 'Recovery', value: '42.4 GPH at 90°F Rise'},
+		]
+	},
+	{
+		baseCost: 3250,
+		brand: 'Rheem',
+		fuel: 'gas',
+		gpm: null,
+		id: 'powervent_75_recommended',
+		imagePath: '/images/rheem/powerVent_tank.webp',
+		label: 'Rheem 75 Gallon Professional Classic Series Water Heater: Power Vent',
+		modelNumber: 'PROG65T-65N CN62 PDV',
+		notes: 'Ideal for PVC venting or newer installations',
+		productLink: '/products/power-vent-water-heaters/',
+		size: 75,
+		tankCapacity: '75',
+		tier: 'better',
+		type: 'tank',
+		uef: 0.72,
+		ventType: 'pvc',
+		warranty: {tank: 8, parts: 8, labor: 1},
+		conditions: {
+			interestedIn: ['tank'],
+			neededCapacity: ['large'],
+			homeType: ['singleFamily', 'townhome', 'condo'],
+			fuel: ['gas', 'propane'],
+			ventType: ['pvc'],
+			showers: ['2', '3', 'unsure'],
+		},
+		features: [
+			{label: 'Model', value: 'PROG65T-65N CN62 PDV'},
+			{label: 'UEF', value: 0.63},
+			{label: 'Capacity', value: '75 Gallon'},
+			{label: 'BTU', value: '75,100 BTU/hr'},
+			{label: 'Ignition', value: 'Hot Surface Ignition'},
+			{label: 'Venting', value: 'Power Venting (PVC)'},
+			{label: '1st Hour Delivery', value: '120 Gal'},
+			{label: 'Recovery', value: '72.8 GPH at 90°F Rise'},
 		]
 	},
 
@@ -199,9 +279,11 @@ const waterHeaterModels = [
 		ventType: 'none',
 		warranty: {tank: 6, parts: 6, labor: 1},
 		conditions: {
+			interestedIn: ['tank'],
+			neededCapacity: ['standard'],
+			homeType: ['singleFamily', 'townhome', 'condo'],
 			fuel: ['electric'],
 			showers: ['1', '2', 'unsure'],
-			interestedIn: ['tank']
 		},
 		features: [
 			{label: 'Model', value: 'PROE40 T2 RH95'},
@@ -209,7 +291,7 @@ const waterHeaterModels = [
 			{label: 'Capacity', value: '40 Gallon'},
 			{label: 'Elements', value: 'Dual 4500W'},
 			{label: 'Venting', value: 'No Venting Required'},
-			{label: '1st Hour Delivery', value: '53 GPH'},
+			{label: '1st Hour Delivery', value: '53 Gal'},
 			{label: 'Recovery', value: '21 GPH at 90°F Rise'}
 		],
 	},
@@ -232,9 +314,11 @@ const waterHeaterModels = [
 		ventType: 'none',
 		warranty: {tank: 6, parts: 6, labor: 1},
 		conditions: {
+			interestedIn: ['tank'],
+			neededCapacity: ['standard'],
+			homeType: ['singleFamily', 'townhome', 'condo'],
 			fuel: ['electric'],
 			showers: ['2', '3', 'unsure'],
-			interestedIn: ['tank']
 		},
 		features: [
 			{label: 'Model', value: 'PROE50 T2 RH95'},
@@ -242,7 +326,7 @@ const waterHeaterModels = [
 			{label: 'Capacity', value: '50 Gallon'},
 			{label: 'Elements', value: 'Dual 4500W'},
 			{label: 'Venting', value: 'No Venting Required'},
-			{label: '1st Hour Delivery', value: '62 GPH'},
+			{label: '1st Hour Delivery', value: '62 Gal'},
 			{label: 'Recovery', value: '21 GPH at 90°F Rise'},
 		],
 	},
@@ -266,10 +350,11 @@ const waterHeaterModels = [
 		ventType: 'none',
 		warranty: {tank: 6, parts: 6, labor: 1},
 		conditions: {
+			interestedIn: ['tank'],
+			neededCapacity: ['standard'],
 			homeType: ['mobileHome'],
 			fuel: ['electric'],
 			showers: ['1', '2', '3', 'unsure'],
-			interestedIn: ['tank']
 		},
 		features: [
 			{label: 'Model', value: 'PROE40 1 RH95 MH'},
@@ -277,7 +362,7 @@ const waterHeaterModels = [
 			{label: 'Capacity', value: '40 Gallon'},
 			{label: 'Elements', value: 'Dual 3500W'},
 			{label: 'Venting', value: 'No Venting Required'},
-			{label: '1st Hour Delivery', value: '34 GPH'},
+			{label: '1st Hour Delivery', value: '34 Gal'},
 			{label: 'Recovery', value: '17 GPH at 90°F Rise'},
 		]
 	},
@@ -300,10 +385,11 @@ const waterHeaterModels = [
 		ventType: 'pvc',
 		warranty: {tank: 15, parts: 5, labor: 1},
 		conditions: {
+			// interestedIn: ['tankless'],
 			homeType: ['singleFamily', 'townhome', 'condo'],
 			fuel: ['gas', 'propane'],
-			ventType: ['pvc', 'metal', 'unsure'],
-			showers: ['1', '2', '3', 'unsure'],
+			// ventType: ['pvc', 'metal', 'unsure'],
+			// showers: ['1', '2', '3', 'unsure'],
 		},
 		features: [
 			{label: 'Model', value: 'RTGH-95DVLN'},
@@ -332,11 +418,11 @@ const waterHeaterModels = [
 		ventType: 'pvc',
 		warranty: {tank: 15, parts: 5, labor: 1},
 		conditions: {
+			interestedIn: ['tankless'],
 			homeType: ['singleFamily', 'townhome', 'condo'],
 			fuel: ['gas', 'propane'],
-			ventType: ['pvc'],
+			// ventType: ['pvc'],
 			showers: ['3', 'unsure'],
-			interestedIn: ['tankless']
 		},
 		features: [
 			{label: 'Model', value: 'RTGHS11iN'},
@@ -365,12 +451,12 @@ const waterHeaterModels = [
 		ventType: 'pvc',
 		warranty: {tank: 15, parts: 5, labor: 1},
 		conditions: {
+			interestedIn: ['tankless'],
 			homeType: ['singleFamily', 'townhome', 'condo'],
 			fuel: ['gas', 'propane'],
-			ventType: ['pvc'],
+			// ventType: ['pvc'],
 			hardWater: ['yes'],
 			showers: ['3', 'unsure'],
-			interestedIn: ['tankless']
 		},
 		features: [
 			{label: 'Model', value: 'RTGHL199iN'},

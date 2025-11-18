@@ -37,6 +37,17 @@ const installAddons = [
         }
     },
     {
+        id: 'minor_water_line',
+        label: 'Water line adjustments',
+        cost: [250, 500],
+        applyIf: (answers, model) => {
+            return (
+                answers.typeToRemove === 'tankless'
+                && model.type === 'tankless'
+            );
+        }
+    },
+    {
         id: 'add_pvc_venting',
         label: 'PVC venting install',
         cost: [300, 600],
