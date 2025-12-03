@@ -24,7 +24,7 @@ export const pricingOptions = [
 	},
 	{
 		title: "40-Gallon Gas Power Vent Tank Water Heater",
-		price: "$2,450",
+		price: "$2,250",
 		image: "powerVentGroup",
 		features: [
 			"Standard replacement in same location",
@@ -35,7 +35,7 @@ export const pricingOptions = [
 	},
 	{
 		title: "50-Gallon Gas Power Vent Tank Water Heater",
-		price: "$2,600",
+		price: "$2,395",
 		image: "powerVentGroup",
 		features: [
 			"Standard replacement in same location",

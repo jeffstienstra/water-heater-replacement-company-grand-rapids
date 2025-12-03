@@ -158,7 +158,7 @@ export default function RecommendationCard({params}) {
                         <p className='pt-14 text-sm text-gray-500'>We matched the following options:</p>
                         <div className='mb-6 sm:mb-12'>
                             <button className='text-sm text-primary underline focus:outline-none' onClick={() => setShowAnswers((v) => !v)} aria-expanded={showAnswers} aria-controls='user-answers-dropdown'>
-                                {showAnswers ? 'Hide your answers ▲' : 'Need to review your answers? ▼'}
+                                {showAnswers ? 'Hide your answers ▲' : 'Review your answers ▼'}
                             </button>
                             {showAnswers && (
                                 <div id='user-answers-dropdown' className='bg-base-100 border border-base-300 rounded p-3 text-left max-w-sm mx-auto shadow'>
