@@ -10,8 +10,21 @@ export default function FindWaterHeaterQuiz() {
 	const [loadingResults, setLoadingResults] = useState(true);
 
 	useEffect(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, [step]);
+        // If we arrived with a hash (e.g. #how-it-works) we want to allow client components
+        // (like this quiz) to mount and settle layout, then re-scroll to that anchor.
+        if (!window.location.hash) return;
+
+        // wait one frame (or a little longer) so the quiz and other client-only components finish rendering
+        requestAnimationFrame(() => {
+            // small extra delay to handle images/animations/layout shifts
+            setTimeout(() => {
+                const el = document.querySelector(window.location.hash);
+                if (el) {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 50);
+        });
+    }, []);
 
 	const getAnswers = () => Object.fromEntries(params.entries());
 	const visibleQuestions = questions.filter(q => !q.shouldShow || q.shouldShow(getAnswers()));
@@ -103,7 +116,7 @@ export default function FindWaterHeaterQuiz() {
 						/>
 					</div>
 					<div key={step} className="animate-fade-it-in shadow p-2 sm:p-6 pt-2">
-						<p className=" text-sm text-gray-500 text-center font-bold mx-auto">Instant Quote: Step {step} of {steps}</p>
+						<p className=" text-sm text-gray-500 text-center font-bold mx-auto">Instant Quote: Step {step}</p>
 						<div className="text-center">
 							{step === 1 && (
 								<p className="text-sm text-gray-500 mb-2">No email, phone, or address required.</p>

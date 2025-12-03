@@ -26,17 +26,17 @@ const { showNavigation = true } = Astro.props;
                         <li>
                             <a aria-label="How It Works" href="/#how-it-works">How It Works</a>
                         </li>
-                        <li>
-                            <a aria-label="pricing" href="/water-heater-pricing/">Water Heater Pricing</a>
-                        </li>
+                            <li>
+                                <a aria-label="pricing" href="/water-heater-pricing/">Water Heater Pricing</a>
+                            </li>
                         <li>
                             <details id="desktop-products-menu">
                                 <summary>Products</summary>
-                                <ul class="p-2 w-64 top-6">
+                                <ul class="p-2 w-64 top-6 right-0">
                                     <li><a aria-label="Tank Water Heaters" href="/products/tank-water-heaters/">Standard Tank Water Heaters</a></li>
                                     <li><a aria-label="Power Vent Water Heaters" href="/products/power-vent-water-heaters/">Power Vent Water Heaters</a></li>
                                     <li><a aria-label="Tankless Water Heaters" href="/products/tankless-water-heaters/">Tankless Water Heaters</a></li>
-                                    <li><a aria-label="Heat Pump Water Heaters" href="/products/heat-pump-water-heaters/">Heat Pump Water Heaters</a></li>
+                                    {/* <li><a aria-label="Heat Pump Water Heaters" href="/products/heat-pump-water-heaters/">Heat Pump Water Heaters</a></li> */}
                                 </ul>
                             </details>
                         </li>
@@ -51,16 +51,16 @@ const { showNavigation = true } = Astro.props;
                         <path d="m17.38 10.79-2.2-2.2c-.28-.28-.36-.67-.25-1.02.37-1.12.57-2.32.57-3.57 0-.55.45-1 1-1H20c.55 0 1 .45 1 1 0 9.39-7.61 17-17 17-.55 0-1-.45-1-1v-3.49c0-.55.45-1 1-1 1.24 0 2.45-.2 3.57-.57.35-.12.75-.03 1.02.24l2.2 2.2c2.83-1.45 5.15-3.76 6.59-6.59z"></path>
                     </svg>
                 </a>
-                <div class="ml-4 hidden lg:block">
-                    <a aria-label="instant quote" href="/instant-quote/?step=1" class="btn btn-primary w-40 h-12">
-                        <PriceReceipt />
-                        Instant Quote
-                    </a>
-                </div>
+                    <div class="ml-4 hidden lg:block">
+                        <a aria-label="instant quote" href="/instant-quote/?step=1" class="btn btn-primary w-40 h-12">
+                            <PriceReceipt />
+                            Instant Quote
+                        </a>
+                    </div>
         )}
 
-        <div class="dropdown">
-            {showNavigation && (
+        {showNavigation && (
+            <div class="dropdown">
                 <div aria-label="dropdown button" tabindex="0" role="button" class="btn btn-ghost lg:hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
@@ -69,13 +69,13 @@ const { showNavigation = true } = Astro.props;
                 <ul
                     tabindex="0"
                     class="menu menu-sm right-1 dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-                >
+                    >
                     <li>
                             <a aria-label="How It Works" href="/#how-it-works">How It Works</a>
                     </li>
-                    <li>
-                        <a aria-label="about" aria-disabled="true" href="/water-heater-pricing/">Water Heater Pricing</a>
-                    </li>
+                        <li>
+                            <a aria-label="about" aria-disabled="true" href="/water-heater-pricing/">Water Heater Pricing</a>
+                        </li>
                     <li>
                         <p class="pointer-events-none" aria-label="parent">Products</p>
                         <ul class="p-2">
@@ -88,21 +88,20 @@ const { showNavigation = true } = Astro.props;
                             <li>
                                 <a aria-label="Tankless Water Heaters" href="/products/tankless-water-heaters/">Tankless Water Heaters</a>
                             </li>
-                            <li>
+                            {/* <li>
                                 <a aria-label="Heat Pump Water Heaters" href="/products/heat-pump-water-heaters/">Heat Pump Water Heaters</a>
-                            </li>
+                            </li> */}
                         </ul>
                     </li>
-                    <div class="mt-2 lg:hidden w-full">
-                        <a aria-label="w-full mx-auto instant quote" href="/instant-quote/?step=1" class="btn btn-primary w-40 h-12">
-                            <PriceReceipt />
-                            Instant Quote
-                        </a>
-                    </div>
-
+                        <div class="mt-2 lg:hidden w-full">
+                            <a aria-label="w-full mx-auto instant quote" href="/instant-quote/?step=1" class="btn btn-primary w-40 h-12">
+                                <PriceReceipt />
+                                Instant Quote
+                            </a>
+                        </div>
                 </ul>
-            )}
-        </div>
+            </div>
+        )}
     </div>
 
 
