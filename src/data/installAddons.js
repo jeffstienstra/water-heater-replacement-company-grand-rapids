@@ -19,8 +19,8 @@ const installAddons = [
         cost: [500, 1000],
         applyIf: (answers, model) => {
             return (
-                answers.fuel === 'gas'
-                && answers.typeToRemove === 'tank'
+                (answers.typeToRemove === 'tank' || answers.typeToRemove === undefined)
+                && answers.fuel === 'gas'
                 && model.type === 'tankless'
             );
         }
@@ -31,7 +31,7 @@ const installAddons = [
         cost: [500, 1000],
         applyIf: (answers, model) => {
             return (
-                answers.typeToRemove === 'tank'
+                (answers.typeToRemove === 'tank' || answers.typeToRemove === undefined)
                 && model.type === 'tankless'
             );
         }
@@ -65,8 +65,8 @@ const installAddons = [
 		cost: [250, 600],
 		applyIf: (answers, model) => {
             return (
-                answers.fuel !== 'electric'
-                && answers.typeToRemove === 'tank'
+                (answers.typeToRemove === 'tank' || answers.typeToRemove === undefined)
+                && answers.fuel !== 'electric'
                 && answers.ventType === 'metal'
                 && model.ventType === 'pvc'
             );
