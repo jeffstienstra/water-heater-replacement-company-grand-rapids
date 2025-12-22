@@ -93,6 +93,7 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                 <form
                     ref={formRef}
                     action="https://contact-form-handler.jeffstienstra.workers.dev/"
+                    // action="http://localhost:8787"
                     method="POST"
                     encType="application/x-www-form-urlencoded"
                     className="bg-white rounded-xl shadow-lg p-4 space-y-6"

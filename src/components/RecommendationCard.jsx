@@ -294,10 +294,10 @@ export default function RecommendationCard({params}) {
                                                         <ul className='font-semibold'>
                                                             Add Extended Warranty:
                                                             <li>
-                                                                {model.type === 'tankless' ? 'Heat exchanger: ' : 'Tank: '}
+                                                                {model.type === 'tankless' ? 'Heat Exchanger: ' : 'Tank: '}
                                                                 {model.warranty.tank + 4} Years
                                                             </li>
-                                                            <li>Labor: {model.warranty.labor} Year</li>
+                                                            <li>Labor: {model.warranty.labor + 1} Years</li>
                                                             <li>Cost: ${warrantyAddon?.cost[0]}</li>
                                                         </ul>
                                                     </label>

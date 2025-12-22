@@ -1,7 +1,7 @@
 const waterHeaterModels = [
 	// Natural Draft – Metal Venting
 	{
-		baseCost: 1600,
+		baseCost: 1795,
 		brand: 'Rheem',
 		fuel: 'gas',
 		gpm: null,
@@ -37,7 +37,7 @@ const waterHeaterModels = [
 		],
 	},
 	{
-		baseCost: 1750,
+		baseCost: 1895,
 		brand: 'Rheem',
 		fuel: 'gas',
 		gpm: null,
@@ -73,7 +73,7 @@ const waterHeaterModels = [
 		],
 	},
 	{
-		baseCost: 2450,
+		baseCost: 2795,
 		brand: 'Rheem',
 		fuel: 'gas',
 		gpm: null,
@@ -110,7 +110,7 @@ const waterHeaterModels = [
 	},
 	// Mobile Home (HUD approved) Natural Draft - Metal Venting
 	{
-		baseCost: 2695,
+		baseCost: 2895,
 		brand: 'Rheem',
 		fuel: 'gas',
 		gpm: null,
@@ -149,7 +149,7 @@ const waterHeaterModels = [
 
 	// Power Vent – PVC
 	{
-		baseCost: 2450,
+		baseCost: 2695,
 		brand: 'Rheem',
 		fuel: 'gas',
 		gpm: null,
@@ -185,7 +185,7 @@ const waterHeaterModels = [
 		]
 	},
 	{
-		baseCost: 2600,
+		baseCost: 2795,
 		brand: 'Rheem',
 		fuel: 'gas',
 		gpm: null,
@@ -222,7 +222,7 @@ const waterHeaterModels = [
 		]
 	},
 	{
-		baseCost: 3250,
+		baseCost: 3450,
 		brand: 'Rheem',
 		fuel: 'gas',
 		gpm: null,
@@ -261,7 +261,7 @@ const waterHeaterModels = [
 
 	// Electric Tank
 	{
-		baseCost: 1495,
+		baseCost: 1595,
 		brand: 'Rheem',
 		fuel: 'electric',
 		gpm: null,

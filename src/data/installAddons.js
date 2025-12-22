@@ -1,18 +1,18 @@
 const installAddons = [
-	{
-		id: 'chimney_liner',
-		label: 'Chimney liner install',
-		cost: [400, 800],
-		applyIf: (answers, model) => {
-            const isTank = model.type === 'tank';
-            const ventIsUnsure = answers.ventType === 'unsure';
-            const ventIsMetal = answers.ventType === 'metal';
-            const terminationIsChimney = ['chimney', 'unsure'].includes(answers.ventingTermination);
-            const hasNoLiner = answers.hasChimneyLiner !== 'yes'; // undefined also treated as "no"
+	// {
+	// 	id: 'chimney_liner',
+	// 	label: 'Chimney liner install',
+	// 	cost: [400, 800],
+	// 	applyIf: (answers, model) => {
+    //         const isTank = model.type === 'tank';
+    //         const ventIsUnsure = answers.ventType === 'unsure';
+    //         const ventIsMetal = answers.ventType === 'metal';
+    //         const terminationIsChimney = ['chimney', 'unsure'].includes(answers.ventingTermination);
+    //         const hasNoLiner = answers.hasChimneyLiner !== 'yes'; // undefined also treated as "no"
 
-            return isTank && (ventIsUnsure || (ventIsMetal && terminationIsChimney && hasNoLiner));
-        }
-	},
+    //         return isTank && (ventIsUnsure || (ventIsMetal && terminationIsChimney && hasNoLiner));
+    //     }
+	// },
 	{
 		id: 'upgrade_gas_line',
         label: 'Gas line upgrade',
@@ -72,15 +72,15 @@ const installAddons = [
             );
         }
 	},
-	{
-		id: 'tight_space',
-		label: 'Tight-space Install',
-		cost: [150, 300],
-		applyIf: (answers) => {
-            return (answers.location === 'crawlspace' || answers.location === 'closet')
-                && answers.homeType !== 'mobileHome';
-        }
-	},
+	// {
+	// 	id: 'tight_space',
+	// 	label: 'Tight-space Install',
+	// 	cost: [150, 300],
+	// 	applyIf: (answers) => {
+    //         return (answers.location === 'crawlspace' || answers.location === 'closet')
+    //             && answers.homeType !== 'mobileHome';
+    //     }
+	// },
 
     // User-selectable Add-Ons
     {
