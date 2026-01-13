@@ -73,8 +73,13 @@ export default function RecommendationCard({params}) {
                 const option = question.options.find((opt) => opt.value === value);
                 if (option) label = option.label;
             }
+
+            const displayKey = key === 'neededCapacity'
+                ? 'Capacity'
+                : toTitleCase(key);
+
             return {
-                key: toTitleCase(key),
+                key: displayKey,
                 value: label,
             };
         });
@@ -103,12 +108,47 @@ export default function RecommendationCard({params}) {
             })
     );
 
-    let noMatchMessage = '';
-    if (answers?.fuel === 'oil') {
-        noMatchMessage = 'We do not install fuel oil water heaters at this time. Please check your answers or contact us at 616-315-0999.';
-    } else if (limitedModels.length === 0) {
-        noMatchMessage = "Need some help? Looks like that wasn't enough info to provide you with a meaningful price. Try again and answer a few more questions or schedule an in-home quote where a technician can walk through the Instant Quote form with you";
-    }
+    // let noMatchMessage = '';
+    // if (answers?.fuel === 'oil') {
+    //     noMatchMessage = 'We do not install fuel oil water heaters at this time. Please check your answers or contact us at 616-315-0999.';
+    // } else if (limitedModels.length === 0) {
+    //     noMatchMessage = `Almost there. We just need a bit more information to match you with the right water heater and price. You can restart the instant quote to answer a few additional questions, or if you’d rather talk it through, a technician can walk through the process with you by phone or in person.`;
+    // }
+
+    const getNoMatchContent = () => {
+        if (answers?.fuel === 'oil') {
+            return {
+                title: 'Heads up.',
+                body: (
+                    <>
+                        We don’t install fuel oil water heaters at this time. Please review your answers or call{' '}
+                        <a href="tel:616-315-0999" className="underline font-medium">
+                            616-315-0999
+                        </a>.
+                    </>
+                ),
+            };
+        }
+
+        if (limitedModels.length === 0) {
+            return {
+                title: 'Almost there.',
+                body: (
+                    <>
+                        We just need a bit more information to match you with the right water heater and price.
+                        <br />
+                        <br />
+                        You can restart the instant quote to answer a few additional questions, or if you’d rather talk it through,
+                        a technician can walk through the process with you by phone or in person.
+                    </>
+                ),
+            };
+        }
+
+        return null;
+    };
+
+    const noMatchContent = getNoMatchContent();
 
     if (fallbackTankless && limitedModels.length < 3 && !limitedModels.some(m => m.id === fallbackTankless.id)) {
         const fallbackWithFlag = {...fallbackTankless, isFallback: true};
@@ -120,9 +160,12 @@ export default function RecommendationCard({params}) {
             <div className='-mt-9 sm:-mt-3 bg-primary h-4' />
             <div className='bg-primary/5 pt-4 rounded-b-sm text-center'>
                 {/* <h2 className='text-2xl font-semibold'>Matched Water Heaters</h2> */}
-                {matchedModels.length === 0 ? (
+                {matchedModels.length === 0 && (
                     <>
-                        <p className='pb-4 px-4 sm:max-w-[50%] mx-auto'>{noMatchMessage}</p>
+                        <div className="pb-4 px-4 sm:max-w-[50%] mx-auto">
+                            <p className="text-lg font-semibold mb-2">{noMatchContent.title}</p>
+                            <p className="text-base">{noMatchContent.body}</p>
+                        </div>
                         <div className='mb-6'>
                             <button className='text-sm text-primary underline focus:outline-none' onClick={() => setShowAnswers((v) => !v)} aria-expanded={showAnswers} aria-controls='user-answers-dropdown'>
                                 {showAnswers ? 'Hide your answers ▲' : 'Review your answers ▼'}
@@ -140,23 +183,23 @@ export default function RecommendationCard({params}) {
                                 </div>
                             )}
                         </div>
-                        <div class="flex flex-col justify-center gap-2 pb-8">
-                            <a href="tel:616-315-0999" class="btn btn-primary text-lg text-white py-2 w-64 max-w-xs mx-auto mb-4">
+                        <div className="flex flex-col justify-center gap-2 pb-8">
+                            <a href="tel:616-315-0999" className="btn btn-primary text-lg text-white py-2 w-64 max-w-xs mx-auto mb-4">
                                 <PhoneReact />
                                 <p>Call Now For A Quote</p>
                             </a>
-                            <a href="/instant-quote/?step=1" class="btn btn-outline text-lg bg-white/50 text-black py-2 w-64 max-w-xs mx-auto mb-4 shadow-sm">
+                            <a href="/instant-quote/?step=1" className="btn btn-outline text-lg bg-white/50 text-black py-2 w-64 max-w-xs mx-auto mb-4 shadow-sm">
                                 <PriceReceipt />
                                 <p>Restart Instant Quote</p>
                             </a>
                         </div>
                     </>
-                ) : (
+                )}
+                {matchedModels.length > 0 && (
                     <>
                         <StickyBar selectedModel={selectedModel} onConfirmClick={() => setShowConfirmModal(true)} />
 
-                        <p className='pt-14 text-sm text-gray-500'>We matched the following options:</p>
-                        <div className='mb-6 sm:mb-12'>
+                        <div className='mb-4 sm:mb-6 px-4'>
                             <button className='text-sm text-primary underline focus:outline-none' onClick={() => setShowAnswers((v) => !v)} aria-expanded={showAnswers} aria-controls='user-answers-dropdown'>
                                 {showAnswers ? 'Hide your answers ▲' : 'Review your answers ▼'}
                             </button>
@@ -285,7 +328,7 @@ export default function RecommendationCard({params}) {
                                                                     );
                                                                 })}
                                                             </ul>
-                                                            <p className='text- text-gray-500'>Final needs may vary. A quick site visit or video call will confirm your exact price before any work begins.</p>
+                                                            <p className='text- text-gray-500'>Final needs may vary. A quick home visit or video call will confirm your current setup before any work begins.</p>
                                                         </div>
                                                     )}
                                                 </div>
@@ -332,12 +375,12 @@ export default function RecommendationCard({params}) {
                                 );
                             })}
                         </div>
-                            <p className='max-w-3xl mx-auto text-sm text-gray-500 mt-8 p-4 pb-12'>* Schedule an onsite visit or video call to verify your unique system needs for a final price. Some of the included services may not be required for your home, though they commonly are. Final price is always provided in writing before work begins.</p>
+                            <p className='max-w-3xl mx-auto text-sm text-gray-500 mt-8 p-4 pb-12'>*Prices shown apply to standard water heater replacements and are confirmed during verification.</p>
                     </>
                 )}
             </div>
             {showConfirmModal && (
-                <div className='fixed inset-0 py-8 pt-40 sm:pt-0 z-50 p-2 flex items-center justify-center bg-black/75 overflow-scroll'>
+                <div className='fixed inset-0 py-8 pt-16 sm:pt-0 z-30 p-2 flex items-center justify-center bg-black/75 overflow-scroll'>
                     <div className='mt-auto bg-white rounded-lg shadow-lg w-full max-w-lg min-w-xs mx-auto'>
                             <SubmissionModal
                                 quoteData={{

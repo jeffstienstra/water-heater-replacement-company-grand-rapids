@@ -30,6 +30,12 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
     const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customer.email);
     const isAddressValid = !!customer.address?.place_name && zipValid;
     const isFormValid = isNameValid && isPhoneValid && isEmailValid && isAddressValid;
+    const fuelNameMap = {
+        gas: 'Natural Gas',
+        electric: 'Electric',
+        propane: 'Propane',
+        oil: 'Fuel Oil'
+    };
 
     function getZipFromMapboxFeature(feature) {
         const zipContext = feature?.context?.find(c => c.id.startsWith('postcode'));
@@ -76,16 +82,29 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
     return (
         <>
             <div className="bg-primary text-white items-center justify-center flex gap-2 p-4 rounded-t-lg">
-                <h2 className="text-xl font-semibold">A fine selection, if we may say so.</h2>
+                <h2 className="text-xl font-semibold">Good pick. Let’s make sure it fits.</h2>
             </div>
             <div className="p-6">
-                <p className="mb-2">Submit your quote to one of our techs. They'll confirm your setup by scheduling a quick video call or site visit to give you your exact price.</p>
-                <p className="mb-2">If you entered everything correctly, your price will be within the range provided below.</p>
+                <h3 className="text-xl font-semibold text-primary mb-0">What Happens Next:</h3>
+
+                <p className="mb-2">
+                    A technician will confirm this model fits your home’s existing connections.
+                </p>
+
+                <p className="mb-2">
+                    This is done by quick video call or short home visit at no cost.
+                </p>
+                <p className="mb-4">
+                    Our vans are pre-stocked with common models and materials to avoid delays, allowing for same-day installation or scheduling for another time.
+                </p>
+
+                <h3 className="text-xl font-semibold text-primary">Model Information</h3>
+
                 <ul className="list-disc list-outside ml-4 mb-4 text-sm">
                     <li><strong>Model:</strong> {selectedModel.label}</li>
-                    <li><strong>Fuel Type:</strong> {answers.fuel}</li>
+                    <li><strong>Fuel Type:</strong> {fuelNameMap[answers.fuel]}</li>
                     <li><strong>Extended Warranty:</strong> {selectedModel.isWarrantySelected ? 'Yes' : 'No'}</li>
-                    <li><strong>Total Price Range:</strong> {priceRange}</li>
+                    <li><strong>Installed Price:</strong> {priceRange}</li>
                 </ul>
 
                 {error && <p className="text-red-500 mb-2">{error}</p>}
@@ -96,11 +115,11 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                     // action="http://localhost:8787"
                     method="POST"
                     encType="application/x-www-form-urlencoded"
-                    className="bg-white rounded-xl shadow-lg p-4 space-y-6"
+                    className="bg-white space-y-6"
                     onSubmit={handleFormSubmit}
                     autoComplete="off"
                 >
-                    <h3 className="text-xl font-semibold text-primary mb-4">Submit Your Quote</h3>
+                    <h3 className="text-xl font-semibold text-primary mb-0">Contact Details</h3>
 
                     <div>
                         <label className="block text-sm font-medium">First Name*</label>
@@ -203,7 +222,7 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                             type="submit"
                             disabled={!isFormValid || !turnstilePassed || submitting}
                         >
-                            {submitting ? 'Submitting...' : 'Submit My Quote For Review'}
+                            {submitting ? 'Submitting...' : 'Submit For Verification'}
                         </button>
                     </div>
                 </form>
