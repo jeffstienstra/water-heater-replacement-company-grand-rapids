@@ -87,7 +87,7 @@ export default function MapboxAddressInput({value, onSelect, requireDropdown = t
                 required
             />
             {showSuggestions && suggestions.length > 0 && (
-                <ul className="absolute z-50 mt-1 w-full bg-white border rounded shadow">
+                <ul className="absolute z-30 mt-1 w-full bg-white border rounded shadow">
                     {suggestions.map((feature) => (
                         <li
                             key={feature.id}

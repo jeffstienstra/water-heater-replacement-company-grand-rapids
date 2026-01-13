@@ -14,7 +14,7 @@ export default function StickyBar({selectedModel, onConfirmClick}) {
 	}, [selectedModel]);
 
 	return (
-		<div className="fixed top-[64px] left-0 right-0 z-50 bg-primary text-white font-bold transition-all ease-in-out duration-500">
+		<div className="fixed top-[64px] left-0 right-0 z-30 bg-primary text-white font-bold transition-all ease-in-out duration-500">
 			<div className="flex flex-col items-center text-center px-4 py-4 sm:p-6">
 				<p className="text-sm sm:text-xl">
 					{selectedModel ? "You're almost done!" : 'Please Choose A Model'}
@@ -29,7 +29,7 @@ export default function StickyBar({selectedModel, onConfirmClick}) {
 						className="btn btn-outline bg-white checked:bg-white text-primary font-bold w-full max-w-96 text-lg py-6 animate-pulse"
 						onClick={onConfirmClick}
 					>
-						Confirm Your System
+						Make Sure This Fits My Home
 					</button>
 				</div>
 			</div>

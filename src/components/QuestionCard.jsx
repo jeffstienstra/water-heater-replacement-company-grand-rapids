@@ -175,7 +175,7 @@ export default function QuestionCard({classes, question, options, step, paramKey
 			</div>
 
 			{hintToShow && (
-				<div className="fixed inset-0 bg-black/60 z-50 flex justify-center px-4 overflow-scroll" onClick={() => setHintToShow(null)}>
+				<div className="fixed inset-0 bg-black/60 z-30 flex justify-center px-4 overflow-scroll" onClick={() => setHintToShow(null)}>
 					<div className="bg-white h-fit my-4 rounded-sm shadow-xl max-w-md w-full relative p-4" onClick={(e) => e.stopPropagation()}>
 						<button onClick={() => setHintToShow(null)} className="px-3 py-2 absolute top-0 right-0 rounded-sm text-gray-400 hover:bg-gray-200">
 							X
