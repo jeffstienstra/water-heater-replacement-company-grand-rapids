@@ -3,23 +3,13 @@
 const faqs = [
 	{
 		question: "How much does a water heater replacement cost?",
-		answer: `Think of it like this:
-			“<span class="font-semibold">Cheap now, expensive later</span>” vs. “<span class="font-semibold">Expensive now, cheap later</span>”.
-			<br/><br/>
-			A basic tank-style water heater is cheaper upfront but will cost you more over time in energy bills and has a shorter lifespan.
-			On the other hand, a high-efficiency tankless system costs more to install but saves you money every month and can last over 10 years longer.
-			<br/><br/>
-
-			Get an <a href="/instant-quote/?step=1" class="text-primary font-bold">instant quote</a> to see the price range for both options based on your home setup and hot water needs.
-			We’ll help you compare them and give you a clear, all-in price before any work starts — no surprises.`
+		answer: `We don't do 'estimates' because we know our business. Use our tool to get an exact, all-inclusive price for your specific home. This includes the unit, labor, permits, and even the haul-away of your old tank. The price you see online is the price you'll see on your invoice after installation.`
 	},
 	{
 		question: "Do I really get a price without giving my email?",
-		answer: `Yes. You’re not a lead. You’re a person looking for hot water and we’re not here to trap you in a sales funnel. Besides, there are only so many ways to heat water.
+		answer: `Yes. You get an exact price without a sales pitch. We believe that if we give you a fair, honest price upfront, you’ll hire us because we’re the easiest company to work with in West Michigan. And dare we say, the funnest? What do you call an unappreciative water heater? Tankless.
 			<br/><br/>
-			Our <a href="/instant-quote/?step=1" class="text-primary font-bold">Instant Quote tool</a> will give you an accurate price range based on your answers, and you can decide if and when it works for you. No strings attached.
-			<br/><br/>
-			We're always here to help if you have questions or need more details, just give us a call.`
+			But seriously, we're always here if you have questions or need more details. <a aria-label="call 616-315-0999" href="tel:616-315-0999" class="underline">Call 616-315-0999</a> anytime.`
 	},
 	{
 		question: "What’s the difference between standard, atmospheric, natural draft, power vent, hybrid, and tankless water heaters?",
@@ -27,15 +17,19 @@ const faqs = [
 			<br/><br/>
 			<span class="font-semibold">Power vent tank water heaters</span> do the same job but use a fan to push exhaust out of the home through a PVC pipe. It's slightly more efficient but much more flexible for installation location since it vents with PVC. They cost more upfront than natural-draft water heaters and require a standard outlet nearby (to power the exhaust fan), but offer mediocre savings compared to the standard natural-draft gas water heater tanks. So think of it as a convenience upgrade, not an energy saver.
 			<br/><br/>
-			A<span class="font-semibold"> hybrid (heat pump) water heater</span> uses a refrigerant circuit and compressor to pull heat from the surrounding air and transfer it into the water tank. This is similar to an AC system but instead of an outdoor unit with a fan blowing away the heat, it captures the heat in a water tank. Hybrid water heaters are extremely efficient in the right scenario but households in cold winter climates (like Michigan) or with high hot water needs - think several showers in a row - will regularly cause its backup electric heater to kick in, zapping all the savings away.
+			A<span class="font-semibold"> hybrid (heat pump) water heater</span> uses a refrigerant circuit and compressor to pull heat from the surrounding air and transfer it into the water tank. This is similar to an AC system but instead of an outdoor unit with a fan blowing away the heat, it captures the heat in a water tank. Hybrid water heaters are extremely efficient in the right scenario but households in cold winter climates (like West Michigan) or with high hot water needs - think several showers in a row - will regularly cause its backup electric heater to kick in, zapping all the savings away.
 			<br/><br/>
 			<span class="font-semibold">Tankless or on-demand water heaters</span> don’t store hot water, they heat it right when you use it. You save space, energy, and never “run out” of hot water even with every faucet open, laundry running, and steamy shower flowing. But you’ll pay more upfront and may need to upgrade your gas line and install an outlet nearby to support it. But in the long run, they’re the most efficient and longest-lasting option available. They do require regular maintenance of flushing/descaling the heat exchanger with vinegar or other solutions, but this is fairly simple to do yourself or hire out at a moderate cost. Some claim the money tankless water heaters save is eaten up by people taking longer showers, but we find most people just enjoy the endless hot water and extra floorspace and aren't planning to use the energy savings to fund their retirement.`
 	},
 	{
-		question: "Why do I need a photo or video call to narrow down my price range?",
-		answer: `Because we really want your quote to be right. A quick video call or brief home visit helps us confirm what your home needs — and what it doesn't — for a safe, code-compliant installation at the lowest price possible. Every home's plumbing setup is a little different. For example, we'll check whether you have things like a chimney liner, drain pan, expansion tank, proper shutoff valves, recirulation pump, etc.
-			<br/><br/>
-			These details make sure your new water heater will operate safely, meet code, and last as long as possible. It’s a simple check before we start work — no salesperson, just a technician making sure everything’s clear for launch. We often have the right water heater on the truck and can do the install right then and there if you’re ready to go.`
+		question: "Why do I need to send a photo or join a video call to lock in my price?",
+		answer: `The video call isn't for us to 'sell' you—it's for us to guarantee your price. We check for small details like chimney liners or specific piping and valve needs so we can arrive with the right parts and ensure there are zero price changes once we’re on-site.
+			<br />
+			<br />
+			In the case of in-person checks, we send a technician to your home for a quick 10-minute visit to verify those same details. We do stock several of the most common water heater models in each van so if everything checks out, we can often begin the install right then.
+			<br />
+			<br />
+			Either way, there’s no cost or obligation to move forward. We want you to feel 100% comfortable in your decision.`
 	},
 	{
 		question: "How do I know if I need a new water heater?",
@@ -50,8 +44,8 @@ const faqs = [
 		answer: `No problem — just answer a few simple questions (or send a photo), and we’ll identify your current setup. From there, we’ll match you with the most compatible replacement or help you explore high efficiency options if desired.`
 	},
 	{
-		question: "Do I need a permit to replace my water heater in Michigan?",
-		answer: `Yes — in most municipalities, a plumbing/mechanical permit is required. We handle the permitting process and make sure your install is up to code so you don’t have to worry. An inspector may schedule an inspection after the install to verify everything is safe and code compliant.`
+		question: "Do I need a permit to replace my water heater in West Michigan?",
+		answer: `Yes — whether you are in Grand Rapids or Grandville, Hudsonville or Holland, a plumbing/mechanical permit is required. We handle the permitting process and make sure your install is up to code so you don’t have to worry. An inspector may schedule an inspection after the install to verify everything is safe and code compliant.`
 	},
 	{
 		question: "Do you service both gas and electric water heaters?",
@@ -59,9 +53,9 @@ const faqs = [
 	},
 	{
 		question: "Can I upgrade to a tankless system?",
-		answer: `Yes, you can absolutely upgrade to a tankless systems. Keep in mind not every home is ready for one simply by removing your old water heater — they often require gas line upgrades, additional venting, and an outlet installed nearby. We may even need to install a chimney liner if your old water heater shared a chimney with your furnace or boiler. Each of these factors affects the installation cost.
+		answer: `Yes, you can absolutely upgrade to a tankless systems. Keep in mind not every home is ready for one simply by removing your old water heater — they often require gas line upgrades, rerouting water lines, additional venting, and an outlet installed nearby. We may even need to install a chimney liner if your old water heater shared a chimney with your furnace or boiler.
 			<br/><br/>
-			While we try to give as rigid of a price range as possible with our <a href="/instant-quote/?step=1" class="text-primary font-bold">instant quote tool</a>, upgrading from a tank to tankless has the most 'unknowns' to verify. We’ll confirm the exact price on-site before starting work.`
+			While tankless upgrades have more variables, our <a href="/instant-quote/?step=1" class="text-primary font-bold">instant quote tool</a> will give you a clear baseline. We’ll then verify your home's setup via photo, video, or in-person to give you a guaranteed, locked-in quote before we even pull into your driveway.`
 	},
 	{
 		question: "How long does the installation take?",
@@ -77,7 +71,7 @@ const faqs = [
 	},
 	{
 		question: "Is the work guaranteed?",
-		answer: `Yes — every job includes a minimum <span class="font-bold">1-Year Labor Warranty</span>, a <span class="font-bold">Manufacturer Warranty</span>, and a <span class="font-bold">Satisfaction Guarantee</span>. We install everything up to Michigan code requirements so you won’t have issues during home sales, inspections, or insurance claims.
+		answer: `Yes — every job includes a minimum <span class="font-bold">1-Year Labor Warranty</span>, a <span class="font-bold">Manufacturer Warranty</span>, and a <span class="font-bold">Satisfaction Guarantee</span>. We install everything to meet code requirements so you won’t have issues during home sales, inspections, or insurance claims.
 			<br/><br/>
 			Most tanks include a 6-12 year manufacturer warranty. Tankless units include a 10-12 year heat exchanger warranty and 5 year parts warranty. Extended labor and equipment warranties are also available starting at $295.`
 	}

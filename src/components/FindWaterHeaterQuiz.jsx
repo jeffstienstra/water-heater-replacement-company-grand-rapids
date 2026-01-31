@@ -119,7 +119,10 @@ export default function FindWaterHeaterQuiz() {
 						<p className=" text-sm text-gray-500 text-center font-bold mx-auto">Instant Quote: Step {step}</p>
 						<div className="text-center">
 							{step === 1 && (
-								<p className="text-sm text-gray-500 mb-2">No email, phone, or address required.</p>
+								<div className="my-2">
+								<p className="text-sm text-gray-500">Takes less than a minute.</p>
+								<p className="text-sm text-gray-500">No email, phone, or address required.</p>
+								</div>
 							)}
 						</div>
 						<QuestionCard

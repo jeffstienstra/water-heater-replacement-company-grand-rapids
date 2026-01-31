@@ -375,7 +375,7 @@ export default function RecommendationCard({params}) {
                                 );
                             })}
                         </div>
-                            <p className='max-w-3xl mx-auto text-sm text-gray-500 mt-8 p-4 pb-12'>*Prices shown apply to standard water heater replacements and are confirmed during verification.</p>
+                            <p className='max-w-3xl mx-auto text-sm text-gray-500 mt-8 p-4 pb-12'>*Prices shown apply to standard water heater replacements and are confirmed during the verification step.</p>
                     </>
                 )}
             </div>
