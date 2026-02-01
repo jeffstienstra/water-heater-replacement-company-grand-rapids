@@ -3,29 +3,30 @@ import MagnifyingGlass from "./icons/MagnifyingGlass.astro";
 import PriceReceipt from "./icons/PriceReceipt.astro";
 import UserCheck from "./icons/UserCheck.astro";
 import Phone from "./icons/Phone.astro";
+
 const {
-	title = "Ready to Replace Your Water Heater?",
-	subtitle = "Get matched to the right model, see your price instantly, then book the job - no sales pitch required." } = Astro.props;
+    title = "Get Your Hot Water Back—Minus the Sales Pitch",
+    subtitle = "See your exact installed price in 30 seconds. No hidden fees, no pressure, and no personal info required to see your quote."
+} = Astro.props;
 ---
 
 <section class="py-20 px-6 bg-base-100 text-base-content border-t border-base-300">
-	<div class="max-w-3xl mx-auto text-center">
-		<h2 class="text-3xl sm:text-4xl font-semibold mb-4">{title}</h2>
-		<p class="text-lg mb-8">{subtitle}</p>
+    <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">{title}</h2>
+        <p class="text-lg mb-8 opacity-90">{subtitle}</p>
 
-		<div class="flex flex-col justify-center gap-4">
-			<a href="/instant-quote/?step=1" class="btn btn-outline text-lg w-full max-w-xs py-2 mx-auto">
+        <div class="flex flex-col justify-center gap-4">
+            <a href="/instant-quote/?step=1" class="btn btn-primary text-lg w-full max-w-xs py-2 mx-auto">
                 <PriceReceipt />
-                <p class="">Get My Instant Quote</p>
+                <span>Get My Exact Quote</span>
             </a>
-			<a href="tel:616-315-0999" class="btn btn-primary text-lg py-2 w-full max-w-xs mx-auto ">
-				<Phone />
-				<p class="text-white">616-315-0999</p>
-			</a>
-		</div>
 
-		<p class="mt-6 text-sm text-gray-500">No commitment. No pressure. Just fast, timely help when you need it.</p>
-	</div>
+            <a href="tel:616-315-0999" class="btn btn-outline border-primary text-primary hover:bg-primary hover:text-white text-lg py-2 w-full max-w-xs mx-auto">
+                <Phone />
+                <span>616-315-0999</span>
+            </a>
+        </div>
+    </div>
 </section>
 
 <!-- <section class="bg-primary text-primary-content py-16 px-6 text-center">

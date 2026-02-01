@@ -1,28 +1,28 @@
 ---
 // filepath: /Users/jeffstienstra/projects/water-heater-replacement-company-grand-rapids/src/components/Faq.astro
+import NatDraftImage from '../assets/images/wh-natDraft.webp';
+import PowerVentImage from '../assets/images/wh-pv.webp';
+import ElectricImage from '../assets/images/wh-elec.webp';
+import HPImage from '../assets/images/wh-hp.webp';
+import TanklessImage from '../assets/images/wh-tankless.webp';
+
 const faqs = [
 	{
 		question: "How much does a water heater replacement cost?",
-		answer: `We don't do 'estimates' because we know our business. Use our tool to get an exact, all-inclusive price for your specific home. This includes the unit, labor, permits, and even the haul-away of your old tank. The price you see online is the price you'll see on your invoice after installation.`
+		answer: `We don't do 'estimates' because we know our business. Use our 30-second tool to get an <span class="font-semibold text-secondary">Exact Installed Price</span> for your specific home. This includes the unit, labor, permits, and even the haul-away of your old tank. The price you see online is the price you'll see on your invoice after installation.`
 	},
 	{
 		question: "Do I really get a price without giving my email?",
-		answer: `Yes. You get an exact price without a sales pitch. We believe that if we give you a fair, honest price upfront, you’ll hire us because we’re the easiest company to work with in West Michigan. And dare we say, the funnest? What do you call an unappreciative water heater? Tankless.
+		answer: `Yes. You get an exact price without a sales pitch. We believe that if we give you a fair, honest price upfront, you’ll hire us because we’re the easiest company to work with in West Michigan. And dare we say, the funnest? What do you call an extremely unappreciative water heater? ...Tankless.
 			<br/><br/>
-			But seriously, we're always here if you have questions or need more details. <a aria-label="call 616-315-0999" href="tel:616-315-0999" class="underline">Call 616-315-0999</a> anytime.`
+			But seriously, we're always here if you have questions or need more details. <a aria-label="call 616-315-0999" href="tel:616-315-0999" class="underline text-primary">Call 616-315-0999</a> anytime.`
 	},
 	{
 		question: "What’s the difference between standard, atmospheric, natural draft, power vent, hybrid, and tankless water heaters?",
-		answer: `<span class="font-semibold">Standard tank water heaters</span> use either electric or gas to heat the water. The gas version vents the exhaust through a chimney or metal flue using an atmospheric or natural draft — no fans, just the fact that heat rises. The electric version has no venting needs but rather heats electric elements inside the tank (similar to an electric oven) and costs more to operate.  These are typically the cheapest to install but the least efficient and cost the most to operate long term.
-			<br/><br/>
-			<span class="font-semibold">Power vent tank water heaters</span> do the same job but use a fan to push exhaust out of the home through a PVC pipe. It's slightly more efficient but much more flexible for installation location since it vents with PVC. They cost more upfront than natural-draft water heaters and require a standard outlet nearby (to power the exhaust fan), but offer mediocre savings compared to the standard natural-draft gas water heater tanks. So think of it as a convenience upgrade, not an energy saver.
-			<br/><br/>
-			A<span class="font-semibold"> hybrid (heat pump) water heater</span> uses a refrigerant circuit and compressor to pull heat from the surrounding air and transfer it into the water tank. This is similar to an AC system but instead of an outdoor unit with a fan blowing away the heat, it captures the heat in a water tank. Hybrid water heaters are extremely efficient in the right scenario but households in cold winter climates (like West Michigan) or with high hot water needs - think several showers in a row - will regularly cause its backup electric heater to kick in, zapping all the savings away.
-			<br/><br/>
-			<span class="font-semibold">Tankless or on-demand water heaters</span> don’t store hot water, they heat it right when you use it. You save space, energy, and never “run out” of hot water even with every faucet open, laundry running, and steamy shower flowing. But you’ll pay more upfront and may need to upgrade your gas line and install an outlet nearby to support it. But in the long run, they’re the most efficient and longest-lasting option available. They do require regular maintenance of flushing/descaling the heat exchanger with vinegar or other solutions, but this is fairly simple to do yourself or hire out at a moderate cost. Some claim the money tankless water heaters save is eaten up by people taking longer showers, but we find most people just enjoy the endless hot water and extra floorspace and aren't planning to use the energy savings to fund their retirement.`
-	},
+		type: "typesGrid"
+    },
 	{
-		question: "Why do I need to send a photo or join a video call to lock in my price?",
+		question: "Why do I need to send a photo or join a video call to verify my price?",
 		answer: `The video call isn't for us to 'sell' you—it's for us to guarantee your price. We check for small details like chimney liners or specific piping and valve needs so we can arrive with the right parts and ensure there are zero price changes once we’re on-site.
 			<br />
 			<br />
@@ -49,13 +49,13 @@ const faqs = [
 	},
 	{
 		question: "Do you service both gas and electric water heaters?",
-		answer: `Yes. We install and replace both gas and electric water heaters, including tank, tankless, and hybrid models. We’ll confirm your home's fuel type during the quote process to ensure you get the right model. Need to switch from gas to electric or vice versa? We can help with that too, but keep in mind it may require additional work like electrical upgrades or gas line installation, which will affect the overall cost.`
+		answer: `Yes. We install and replace both gas and electric water heaters, including tank, tankless, and hybrid models. We’ll confirm your home's fuel type during the quote process to ensure you get the right model. Need to switch from gas to electric or vice versa? We can help with that too, but keep in mind it may require additional work like electrical upgrades or gas line installation, which will require a site visit.`
 	},
 	{
 		question: "Can I upgrade to a tankless system?",
-		answer: `Yes, you can absolutely upgrade to a tankless systems. Keep in mind not every home is ready for one simply by removing your old water heater — they often require gas line upgrades, rerouting water lines, additional venting, and an outlet installed nearby. We may even need to install a chimney liner if your old water heater shared a chimney with your furnace or boiler.
+		answer: `Yes, you can absolutely upgrade to a tankless system. Keep in mind not every home is ready for one simply by removing your old water heater — they often require gas line upgrades, rerouting water lines, additional venting, and an outlet installed nearby. We may even need to install a chimney liner if your old water heater shared a chimney with your furnace or boiler.
 			<br/><br/>
-			While tankless upgrades have more variables, our <a href="/instant-quote/?step=1" class="text-primary font-bold">instant quote tool</a> will give you a clear baseline. We’ll then verify your home's setup via photo, video, or in-person to give you a guaranteed, locked-in quote before we even pull into your driveway.`
+			While tankless upgrades have more variables, our <a href="/instant-quote/?step=1" class="text-primary font-bold">30-second tool</a> will give you a clear baseline. We’ll then verify your home's setup via photo, video, or in-person to give you a guaranteed, locked-in quote before we even pull into your driveway.`
 	},
 	{
 		question: "How long does the installation take?",
@@ -71,7 +71,7 @@ const faqs = [
 	},
 	{
 		question: "Is the work guaranteed?",
-		answer: `Yes — every job includes a minimum <span class="font-bold">1-Year Labor Warranty</span>, a <span class="font-bold">Manufacturer Warranty</span>, and a <span class="font-bold">Satisfaction Guarantee</span>. We install everything to meet code requirements so you won’t have issues during home sales, inspections, or insurance claims.
+		answer: `Yes — every job includes a minimum <span class="font-bold">2-Year Labor Warranty</span>, a <span class="font-bold">Manufacturer Warranty</span>, and a <span class="font-bold">Satisfaction Guarantee</span>. We install everything to meet code requirements so you won’t have issues during home sales, inspections, or insurance claims.
 			<br/><br/>
 			Most tanks include a 6-12 year manufacturer warranty. Tankless units include a 10-12 year heat exchanger warranty and 5 year parts warranty. Extended labor and equipment warranties are also available starting at $295.`
 	}
@@ -83,11 +83,80 @@ const faqs = [
         <h2 class="text-4xl font-semibold mb-12 text-center tracking-tight">Water Heater Replacement FAQ</h2>
         <div class="space-y-6">
             {faqs.map(faq => (
-                <div class="bg-base-100 border border-base-300 rounded-lg p-5 shadow-sm">
-                    <h3 class="text-lg font-semibold mb-2">{faq.question}</h3>
-                    <p set:html={faq.answer} />
+    <div class="bg-base-100 border border-base-300 rounded-lg p-5 shadow-sm">
+        <h3 class="text-lg font-semibold mb-2">{faq.question}</h3>
+        {/* render the grid here for the special case */}
+        {faq.type === 'typesGrid' ? (
+            <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-base-200 p-4 rounded-lg border border-base-300">
+                    <div class="aspect-video bg-gray-300 rounded mb-4 flex items-center justify-center text-gray-500 italic">
+                        <img
+                            src={NatDraftImage.src}
+                            alt="Rheem natural draft water heater with metal vent pipe"
+                            class="w-full h-full object-contain p-2"
+                        />
+                    </div>
+                    <h4 class="font-bold text-lg mb-2">Standard (ie Atmospheric or Natural Draft)</h4>
+                    <p class="text-xs font-bold uppercase tracking-wider text-gray-500 mb-2 italic">Metal vent pipe</p>
+                    <p class="text-sm opacity-90">Uses a chimney/metal flue and natural draft (heat rises) to vent the exhaust. Lowest upfront cost, but least efficient for long-term use.</p>
                 </div>
-            ))}
+
+                <div class="bg-base-200 p-4 rounded-lg border border-base-300">
+                    <div class="aspect-video bg-gray-300 rounded mb-4 flex items-center justify-center text-gray-500 italic">
+                        <img
+                            src={PowerVentImage.src}
+                            alt="Rheem power vent water heater with PVC vent pipe"
+                            class="w-full h-full object-contain p-2"
+                        />
+                    </div>
+                    <h4 class="font-bold text-lg mb-2">Power Vent</h4>
+                    <p class="text-xs font-bold uppercase tracking-wider text-gray-500 mb-2 italic">PVC vent pipe</p>
+                    <p class="text-sm opacity-90">Uses an electric fan to push exhaust through PVC pipes. Great for flexible installation, but requires a nearby outlet. Slightly more efficient than a standard, natural draft tank.</p>
+                </div>
+
+                <div class="bg-base-200 p-4 rounded-lg border border-base-300">
+                    <div class="aspect-video bg-gray-300 rounded mb-4 flex items-center justify-center text-gray-500 italic">
+                        <img
+                            src={ElectricImage.src}
+                            alt="Rheem electric water heater"
+                            class="w-full h-full object-contain p-2"
+                        />
+                    </div>
+                    <h4 class="font-bold text-lg mb-2">Electric Tank</h4>
+                    <p class="text-xs font-bold uppercase tracking-wider text-gray-500 mb-2 italic">No Venting Required</p>
+                    <p class="text-sm opacity-90">No gas or venting needed. Uses electric elements to directly heat the water. Simple and affordable to install, but typically has the highest monthly operating cost.</p>
+                </div>
+
+                <div class="bg-base-200 p-4 rounded-lg border border-base-300">
+                    <div class="aspect-video bg-gray-300 rounded mb-4 flex items-center justify-center text-gray-500 italic">
+                        <img
+                            src={HPImage.src}
+                            alt="Rheem Heat Pump water heater"
+                            class="w-full h-full object-contain p-2"
+                        />
+                    </div>
+                    <h4 class="font-bold text-lg mb-2">Hybrid (Heat Pump)</h4>
+                    <p class="text-xs font-bold uppercase tracking-wider text-gray-500 mb-2 italic">No Venting Required</p>
+                    <p class="text-sm opacity-90">Pulls heat from the surrounding air. Ultra-efficient, though cold West Michigan winters can cause the backup electric heating elements to kick on, significantly reducing the energy savings.</p>
+                </div>
+
+                <div class="bg-base-200 p-4 rounded-lg border border-base-300">
+                    <div class="aspect-video bg-gray-300 rounded mb-4 flex items-center justify-center text-gray-500 italic">
+                        <img
+                            src={TanklessImage.src}
+                            alt="Rheem tankless water heater"
+                            class="w-full h-full object-contain p-2"
+                        />
+                    </div>
+                    <h4 class="font-bold text-lg mb-2">Tankless (On-Demand)</h4>
+                    <p class="text-sm opacity-90">Very energy efficient and reliable. Heats water only when you need it. Provides endless hot water and saves massive floor space, but typically requires gas/venting/piping upgrades.</p>
+                </div>
+            </div>
+        ) : (
+            typeof faq.answer === 'string' ? <p set:html={faq.answer} /> : faq.answer
+        )}
+    </div>
+))}
         </div>
     </div>
 </section>

@@ -116,11 +116,11 @@ export default function FindWaterHeaterQuiz() {
 						/>
 					</div>
 					<div key={step} className="animate-fade-it-in shadow p-2 sm:p-6 pt-2">
-						<p className=" text-sm text-gray-500 text-center font-bold mx-auto">Instant Quote: Step {step}</p>
+						<p className=" text-sm text-gray-500 text-center font-bold mx-auto">Exact Quote: Step {step}</p>
 						<div className="text-center">
 							{step === 1 && (
 								<div className="my-2">
-								<p className="text-sm text-gray-500">Takes less than a minute.</p>
+								<p className="text-sm text-gray-500">Only takes 30 seconds.</p>
 								<p className="text-sm text-gray-500">No email, phone, or address required.</p>
 								</div>
 							)}
