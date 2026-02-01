@@ -3,12 +3,51 @@ import FindWaterHeaterQuiz from './FindWaterHeaterQuiz';
 import PriceReceipt from './icons/PriceReceipt.astro';
 import Phone from './icons/Phone.astro';
 import CalendarClock from './icons/CalendarClock.astro';
+import Photo from '../assets/images/whrc-van-image.webp'
 
+const brandCheck = `
+	<span class="brand-check">
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			stroke-width="4"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+		>
+			<polyline points="20 6 9 17 4 12"></polyline>
+		</svg>
+	</span>
+
+	<style>
+		.brand-check {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 1.25rem; /* Matches your text size */
+			height: 1.25rem;
+			/* Using your brand blue: adjust hex code if needed */
+			color: #0b5091;
+			flex-shrink: 0;
+		}
+	</style>
+`;
 ---
+<style>
+    .brand-check {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.25rem; /* Matches your text size */
+        height: 1.25rem;
+        /* Using your brand blue: adjust hex code if needed */
+        color: #0b5091;
+        flex-shrink: 0;
+    }
+</style>
 <section
     class="
-		bg-[url('/images/heroBgMobile.webp')]
-		sm:bg-[url('/images/heroBgDesktop.webp')]
 		bg-cover
 		bg-left
 		bg-no-repeat
@@ -31,50 +70,71 @@ import CalendarClock from './icons/CalendarClock.astro';
             "
         >
             <div id="hero-section" class="p-4 flex flex-col flex-shrink-0 rounded-lg">
-				<h1 class="text-xl xs:text-2xl sm:text-4xl font-bold leading-tight mb-2">
-					Tired of Waiting on a Salesman For a Water Heater Replacement Price?
-				</h1>
-				<p class="text-lg sm:text-2xl mb-4">
-					Skip the sales visit. Get an <span class="font-bold text-primary">Exact Installed Price</span> in 30 seconds.
-				</p>
+				<div id="hero-section" class="p-4 flex flex-col items-center text-center">
 
-				<a  href="/instant-quote/?step=1" class="btn btn-primary text-lg text-white py-2 w-72 max-w-xs mx-auto mb-2">
-					<PriceReceipt />
-					<p>Get My Instant Quote Now</p>
-				</a>
-				<p class="text-xs sm:text-sm opacity-75 mb-8">
-					All-Inclusive • No Surprise Fees • Same-Day Service
-				</p>
+					<h1 class="text-primary font-bold tracking-widest uppercase text-sm sm:text-base mb-4">
+						Water Heater Replacement <br> Grand Rapids & West Michigan
+					</h1>
 
-				<ul class="text-left mx-auto pr-2 mb-8">
-					<p class="font-semibold sm:text-2xl mb-">
-						Why Choose Us?
+					<h2 class="text-2xl sm:text-5xl font-black mb-4 md:mb-8 max-w-3xl">
+						Tired of Waiting on a Salesman for a Price?
+					</h2>
+
+					<p class="text-lg sm:text-2xl mb-2 md:mb-4 max-w-2xl">
+						Why wait? Get an <span class="font-bold text-primary">Exact Installed Price</span> in <span class="font-extrabold text-secondary">30 seconds</span>.
 					</p>
-					<li class="sm:text-2xl leading-tight sm:max-w-2xl max-w-3xl mx-auto">
-						• Locally Owned
-					</li>
-					<li class="sm:text-2xl leading-tight sm:max-w-2xl max-w-3xl mx-auto">
-						• No Commissions
-					</li>
-					<li class="sm:text-2xl leading-tight sm:max-w-2xl max-w-3xl mx-auto">
-						• Price Lock Guarantee
-					</li>
-					<li class="sm:text-2xl leading-tight sm:max-w-2xl max-w-3xl mx-auto">
-						• 2-Year Labor Warranties
-					</li>
-					<li class="sm:text-2xl leading-tight sm:max-w-2xl max-w-3xl mx-auto">
-						• Same-Day & Next-Day Installs
-					</li>
-					<li class="sm:text-2xl leading-tight sm:max-w-2xl max-w-3xl mx-auto">
-						• Licensed & Insured West Michigan Pros
-					</li>
-				</ul>
 
-				<p class="mb-2 sm:text-2xl leading-tight sm:max-w-2xl max-w-3xl mx-auto">Speak to a water heater specialist now.</p>
-				<a href="tel:616-315-0999" class="btn btn-primary text-lg text-white py-2 w-72 max-w-xs mx-auto mb-4">
+					<a href="/instant-quote/?step=1" class="btn btn-primary text-white btn-lg w-full max-w-xs mb-4 md:mb-8">
+						<PriceReceipt />
+						Get My Exact Quote Now
+					</a>
+				</div>
+
+				<p class="text-lg sm:text-2xl sm:max-w-2xl max-w-3xl mx-auto mb-2 md:mb-4">Or speak to a water heater technician.</p>
+				<a href="tel:616-315-0999" class="btn btn-primary text-lg text-white max-w-xs mx-auto w-64 mb-12 md:mb-16">
 					<Phone />
 					<p>616-315-0999</p>
 				</a>
+
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center text-left">
+					<div class="rounded-xl overflow-hidden shadow-lg">
+						<img
+							src={Photo.src}
+							alt="Water Heater Replacement Company service van serving Grand Rapids, Holland, and West Michigan"
+							class="w-full h-auto object-cover"
+						/>
+					</div>
+
+					<div>
+						<h3 class="text-2xl font-bold mb-4 md:mb-6 text-center md:text-left">Why Choose Us?</h3>
+						<ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-4">
+							<li class="flex items-center gap-2 text-sm sm:text-base">
+								<span class="brand-check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<strong>Locally Owned</strong>
+							</li>
+							<li class="flex items-center gap-2 text-sm sm:text-base">
+								<span class="brand-check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<strong>No Commissions</strong>
+							</li>
+							<li class="flex items-center gap-2 text-sm sm:text-base">
+								<span class="brand-check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<strong>Same-Day Installs</strong>
+							</li>
+							<li class="flex items-center gap-2 text-sm sm:text-base">
+								<span class="brand-check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<strong>Price Lock Guarantee</strong>
+							</li>
+							<li class="flex items-center gap-2 text-sm sm:text-base">
+								<span class="brand-check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<strong>2-Year Labor Warranties</strong>
+							</li>
+							<li class="flex items-center gap-2 text-sm sm:text-base">
+								<span class="brand-check"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+								<strong>Grand Rapids to Holland</strong>
+							</li>
+						</ul>
+					</div>
+				</div>
 
 				<!-- <a aria-label="Book Now" href="/pricing/" class="btn btn-outline text-lg bg-white/50 text-black py-2 w-72 max-w-xs mx-auto mb-4 shadow-sm">
 					<CalendarClock />
