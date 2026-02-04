@@ -60,3 +60,14 @@ body.overflow-hidden {
 .fill-secondary {
 	fill: var(--tw-color-secondary);
 }
+
+.brand-check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.25rem; /* Matches text size */
+    height: 1.25rem;
+    /* Brand blue: adjust hex code if needed */
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
