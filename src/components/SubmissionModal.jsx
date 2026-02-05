@@ -82,21 +82,27 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
     return (
         <>
             <div className="bg-primary text-white items-center justify-center flex gap-2 p-4 rounded-t-lg">
-                <h2 className="text-xl font-semibold">Good pick. Let’s make sure it fits.</h2>
-            </div>
-            <div className="p-6">
-                <h3 className="text-xl font-semibold text-primary mb-0">What Happens Next:</h3>
+	<h2 className="text-xl font-semibold">Good pick. Let’s lock it in.</h2>
+</div>
 
-                <p className="mb-2">
-                    A technician will confirm this model fits your home’s existing connections.
-                </p>
+<div className="p-6">
+	<h3 className="text-xl font-semibold text-primary mb-2">What happens next:</h3>
 
-                <p className="mb-2">
-                    This is done by quick video call or short home visit at no cost.
-                </p>
-                <p className="mb-4">
-                    Our vans are pre-stocked with common models and materials to avoid delays, allowing for same-day installation or scheduling for another time.
-                </p>
+	<p className="mb-2">
+		A technician will quickly confirm this model matches your home’s existing setup.
+	</p>
+
+	<p className="mb-2">
+		For most homes, this just means texting a few photos of your water heater and the surrounding area.
+	</p>
+
+	<p className="mb-2">
+		If needed, we can also confirm everything by a quick video call or a short, no-cost home visit.
+	</p>
+
+	<p className="mb-4">
+		Once confirmed, your <span className="font-semibold text-primary">Exact Quote is locked</span>. Our vans are stocked with common water heater models and materials, so we can often install the same day or schedule a time that works for you.
+	</p>
 
                 <h3 className="text-xl font-semibold text-primary">Model Information</h3>
 
