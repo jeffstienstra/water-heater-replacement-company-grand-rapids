@@ -3,7 +3,7 @@ const questions = [
 		paramKey: 'interestedIn',
 		question: 'What type of water heater are you interested in?',
 		options: [
-			{label: 'Tank', value: 'tank'},
+			{label: 'Tank (most common)', value: 'tank'},
 			{label: 'Tankless', value: 'tankless'},
 		],
 	},
