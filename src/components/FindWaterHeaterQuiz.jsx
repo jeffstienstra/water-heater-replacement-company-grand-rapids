@@ -43,6 +43,8 @@ export default function FindWaterHeaterQuiz() {
 
 	useEffect(() => {
 		if (step > steps) {
+			// TODO: report results page loaded to cloudflare KV analytics here
+
 			setLoadingResults(true);
 			const timeout = setTimeout(() => setLoadingResults(false), 1000 + Math.random() * 2000); // 2–4s
 			return () => clearTimeout(timeout);

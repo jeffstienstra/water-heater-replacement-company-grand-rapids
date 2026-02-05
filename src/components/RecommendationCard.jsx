@@ -357,6 +357,7 @@ export default function RecommendationCard({params}) {
                                                 checked={selectedModel?.id === model.id}
                                                 onChange={() => {
                                                     const isSelected = selectedModel?.id === model.id;
+                                                    // TODO: report model selected to cloudflare KV analytics here
                                                     setSelectedModel(isSelected ? null : {
                                                         ...model,
                                                         totalLow,
@@ -380,7 +381,7 @@ export default function RecommendationCard({params}) {
                 )}
             </div>
             {showConfirmModal && (
-                <div className='fixed inset-0 py-8 pt-16 sm:pt-0 z-30 p-2 flex items-center justify-center bg-black/75 overflow-scroll'>
+                <div className='fixed inset-0 py-8 md:mt-16 pt-18 md:pt-4 z-30 p-2 flex items-center justify-center bg-black/75 overflow-scroll'>
                     <div className='mt-auto bg-white rounded-lg shadow-lg w-full max-w-lg min-w-xs mx-auto'>
                             <SubmissionModal
                                 quoteData={{

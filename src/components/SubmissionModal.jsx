@@ -82,27 +82,10 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
     return (
         <>
             <div className="bg-primary text-white items-center justify-center flex gap-2 p-4 rounded-t-lg">
-	<h2 className="text-xl font-semibold">Good pick. Let’s lock it in.</h2>
-</div>
+                <h2 className="text-xl font-semibold">Good pick. One quick check and your quote is set.</h2>
+            </div>
 
-<div className="p-6">
-	<h3 className="text-xl font-semibold text-primary mb-2">What happens next:</h3>
-
-	<p className="mb-2">
-		A technician will quickly confirm this model matches your home’s existing setup.
-	</p>
-
-	<p className="mb-2">
-		For most homes, this just means texting a few photos of your water heater and the surrounding area.
-	</p>
-
-	<p className="mb-2">
-		If needed, we can also confirm everything by a quick video call or a short, no-cost home visit.
-	</p>
-
-	<p className="mb-4">
-		Once confirmed, your <span className="font-semibold text-primary">Exact Quote is locked</span>. Our vans are stocked with common water heater models and materials, so we can often install the same day or schedule a time that works for you.
-	</p>
+            <div className="p-6">
 
                 <h3 className="text-xl font-semibold text-primary">Model Information</h3>
 
@@ -113,19 +96,28 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                     <li><strong>Installed Price:</strong> {priceRange}</li>
                 </ul>
 
+                <h3 className="text-xl font-semibold text-primary mb-2">How should we contact you?</h3>
+
+                <p className="mb-2">
+                    We simply need to confirm a few details — usually by photos, sometimes a brief video call, or a short in-home check if needed.
+                </p>
+                <p className="mb-2">
+                    No sales pressure. Just verification.
+                </p>
+
                 {error && <p className="text-red-500 mb-2">{error}</p>}
 
                 <form
+                    className="bg-white space-y-6 mt-6"
                     ref={formRef}
                     action="https://contact-form-handler.jeffstienstra.workers.dev/"
                     // action="http://localhost:8787"
                     method="POST"
                     encType="application/x-www-form-urlencoded"
-                    className="bg-white space-y-6"
                     onSubmit={handleFormSubmit}
                     autoComplete="off"
                 >
-                    <h3 className="text-xl font-semibold text-primary mb-0">Contact Details</h3>
+                    <h3 className="text-xl font-semibold text-primary mb-2">Your details</h3>
 
                     <div>
                         <label className="block text-sm font-medium">First Name*</label>
@@ -221,16 +213,19 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                         data-auto-render="false"
                     />
 
-                    <div className="flex flex-wrap gap-4 justify-end">
+                    <div className="flex flex-wrap gap-4 justify-end -mt-3">
                         <button className="btn btn-outline" type="button" onClick={onCancel}>Cancel</button>
                         <button
                             className="btn btn-primary"
                             type="submit"
                             disabled={!isFormValid || !turnstilePassed || submitting}
                         >
-                            {submitting ? 'Submitting...' : 'Submit For Verification'}
+                            {submitting ? 'Submitting...' : 'Submit Quote'}
                         </button>
                     </div>
+                    <p className='text-gray-500'>
+                        Or call <a href="tel:616-315-0999" className="underline">616-315-0999</a> — you'll reach a technician.
+                    </p>
                 </form>
             </div>
         </>
