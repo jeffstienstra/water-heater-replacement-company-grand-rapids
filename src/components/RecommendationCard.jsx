@@ -268,7 +268,7 @@ export default function RecommendationCard({params}) {
                                         </div>
                                         <div key={model.id} className='flex flex-col w-full max-w-86 bg-base-100 border border-base-300 shadow-lg p-4 pb-0'>{/* flex-grow?? */}
                                             {/* <div className='flex-grow'> */}
-                                            <h3 className='text-xl mb-0 font-semibold min-h-20'>{model.label}</h3>
+                                            <h3 className='text-xl mb-0 font-semibold min-h-20'>{`${model.brand} ${model.label}`}</h3>
                                             <img className='max-h-48 mx-auto m-6' src={`${model.imagePath}`} alt={`${model.brand} ${model.label}`} />
 
                                             <div className='w-fit mx-auto flex flex-col items-left'>
@@ -301,7 +301,14 @@ export default function RecommendationCard({params}) {
                                                             </li>
                                                         ))}
                                                     </ul>
-
+                                                    {model.warranty && (
+                                                        <ul className='text-left list-disc list-outside ml-4 mt-3'>
+                                                            <span className='text-xl font-semibold '>Warranty:</span>
+                                                            <li className='ml-5 font-semibold'>Tank: {model.warranty.tank} Years</li>
+                                                            <li className='ml-5 font-semibold'>Parts: {model.warranty.parts} Years</li>
+                                                            <li className='ml-5 font-semibold'>Labor: {model.warranty.labor} Years</li>
+                                                        </ul>
+                                                    )}
                                                     <a target='_blank' href={model.productLink} className='mt-2 mb-6 text-gray-500 text-sm font-normal btn btn-ghost h-fit'>
                                                         <LinkInternal className='text-gray-500 font-normal' />
                                                         Additional Product Info

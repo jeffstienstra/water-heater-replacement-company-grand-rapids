@@ -50,13 +50,12 @@ export const pricingOptions = [
 		price: "$3,495",
 		image: "tanklessGroup",
 		features: [
-			"Standard replacement in same location",
 			"Removal & disposal of old unit",
 			"All required utility connections",
 			"Work performed to code, with permit",
 			"Price varies based on existing setup and requirements",
 			"Tankless systems may require additional venting, gas, and electrical upgrades",
-			"Home visit required if upgrading from a tank to tankless water heater (due to additional requirements)"
+			"A free on-site verification is generally recommended if upgrading from a tank to tankless water heater due to additional installation requirements"
 		]
 	},
 	// {
