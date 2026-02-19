@@ -3,6 +3,7 @@ import ThemeSelector from './ThemeSelector.astro';
 import logoIcon from '../assets/images/whrc-logo-icon.png';
 import logoText from '../assets/images/whrc-logo-text.png';
 import fullLogo from '../assets/images/logo-full-whrc.png';
+import Phone from './icons/Phone.astro';
 import CalendarClock from './icons/CalendarClock.astro';
 import PriceReceipt from './icons/PriceReceipt.astro';
 
@@ -26,9 +27,9 @@ const { showNavigation = true } = Astro.props;
                         <li>
                             <a aria-label="How It Works" href="/#how-it-works">How It Works</a>
                         </li>
-                            <li>
-                                <a aria-label="pricing" href="/water-heater-pricing/">Water Heater Pricing</a>
-                            </li>
+                            {/* <li>
+                                <a aria-label="pricing" href="/services/">Services</a>
+                            </li> */}
                         <li>
                             <details id="desktop-products-menu">
                                 <summary>Products</summary>
@@ -50,9 +51,9 @@ const { showNavigation = true } = Astro.props;
                     </svg>
                 </a>
                     <div class="ml-4 hidden lg:block">
-                        <a aria-label="instant quote" href="/instant-quote/?step=1" class="btn btn-primary w-40 h-12">
+                        <a aria-label="Get My Exact Quote" href="/instant-quote/?step=1" class="btn btn-primary text-white w-full min-w-52 h-12">
                             <PriceReceipt />
-                            Instant Quote
+                            Get My Exact Quote
                         </a>
                     </div>
         )}
@@ -66,25 +67,25 @@ const { showNavigation = true } = Astro.props;
                 </div>
                 <ul
                     tabindex="0"
-                    class="menu menu-sm right-1 dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+                    class="menu menu-sm right-1 dropdown-content bg-base-100 rounded-box z-1 mt-3 w-72 p-2 shadow gap-1"
                     >
                     <li>
-                            <a aria-label="How It Works" href="/#how-it-works">How It Works</a>
+                            <a aria-label="How It Works" href="/#how-it-works" class="text-lg font-bold">How It Works</a>
                     </li>
-                        <li>
-                            <a aria-label="about" aria-disabled="true" href="/water-heater-pricing/">Water Heater Pricing</a>
-                        </li>
+                        {/* <li>
+                            <a aria-label="about" aria-disabled="true" href="/services/" class="text-lg font-bold">Services</a>
+                        </li> */}
                     <li>
-                        <p class="pointer-events-none" aria-label="parent">Products</p>
+                        <p class="pointer-events-none text-lg" aria-label="parent" class="">Products</p>
                         <ul class="p-2">
                             <li>
-                                <a aria-label="Tank Water Heaters" href="/products/tank-water-heaters/">Tank Water Heaters</a>
+                                <a aria-label="Tank Water Heaters" href="/products/tank-water-heaters/" class="text-lg font-bold">Tank Water Heaters</a>
                             </li>
                             {/* <li>
                                 <a aria-label="Power Vent Water Heaters" href="/products/power-vent-water-heaters/">Power Vent Water Heaters</a>
                             </li> */}
                             <li>
-                                <a aria-label="Tankless Water Heaters" href="/products/tankless-water-heaters/">Tankless Water Heaters</a>
+                                <a aria-label="Tankless Water Heaters" href="/products/tankless-water-heaters/" class="text-lg font-bold">Tankless Water Heaters</a>
                             </li>
                             {/* <li>
                                 <a aria-label="Heat Pump Water Heaters" href="/products/heat-pump-water-heaters/">Heat Pump Water Heaters</a>
@@ -92,9 +93,13 @@ const { showNavigation = true } = Astro.props;
                         </ul>
                     </li>
                         <div class="mt-2 lg:hidden w-full">
-                            <a aria-label="w-full mx-auto instant quote" href="/instant-quote/?step=1" class="btn btn-primary w-40 h-12">
+                            <a aria-label="exact quote" href="/instant-quote/?step=1" class="btn btn-primary text-white w-full h-12 px-0 my-8">
                                 <PriceReceipt />
-                                Instant Quote
+                                Get My Exact Quote
+                            </a>
+                            <a href="tel:616-315-0999" class="btn btn-outline text-primary text-lg font-semibold w-full h-12 px-0">
+                                <Phone />
+                                616-315-0999
                             </a>
                         </div>
                 </ul>
