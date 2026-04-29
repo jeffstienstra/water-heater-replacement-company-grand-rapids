@@ -8,6 +8,7 @@ export default defineConfig({
         plugins: [tailwindcss()],
     },
     redirects: {
+        '/how-to-stop-a-water-leak/': '/resources/how-to-stop-a-water-leak/',
         '/tank-vs-tankless-water-heaters/': '/resources/tank-vs-tankless-water-heaters/',
         '/products/tank-water-heaters/': '/resources/tank-water-heaters/',
         '/products/tankless-water-heaters/': '/resources/tankless-water-heaters/',

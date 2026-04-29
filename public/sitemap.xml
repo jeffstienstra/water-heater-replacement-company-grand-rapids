@@ -1,39 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- ─── HOME ──────────────────────────────────────────────────────────────── -->
   <url>
     <loc>https://waterheaterreplacementcompany.com/</loc>
-    <lastmod>2025-09-03T13:01:10+00:00</lastmod>
+    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
     <priority>1.00</priority>
   </url>
+
+  <!-- ─── CONVERSION ────────────────────────────────────────────────────────── -->
   <url>
-    <loc>https://waterheaterreplacementcompany.com/instant-quote/?step=1</loc>
-    <lastmod>2025-09-03T13:01:10+00:00</lastmod>
-    <priority>0.80</priority>
+    <loc>https://waterheaterreplacementcompany.com/instant-quote/</loc>
+    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- ─── SERVICES ──────────────────────────────────────────────────────────── -->
+  <url>
+    <loc>https://waterheaterreplacementcompany.com/services/</loc>
+    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
+    <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://waterheaterreplacementcompany.com/pricing/</loc>
-    <lastmod>2025-09-03T13:01:10+00:00</lastmod>
+    <loc>https://waterheaterreplacementcompany.com/services/water-heater-replacement/</loc>
+    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://waterheaterreplacementcompany.com/services/water-heater-repair/</loc>
+    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://waterheaterreplacementcompany.com/services/leaking-water-heater-emergency/</loc>
+    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- ─── RESOURCES ─────────────────────────────────────────────────────────── -->
+  <url>
+    <loc>https://waterheaterreplacementcompany.com/resources/tank-vs-tankless-water-heaters/</loc>
+    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://waterheaterreplacementcompany.com/resources/tank-water-heaters/</loc>
-    <lastmod>2025-09-03T13:01:10+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://waterheaterreplacementcompany.com/resources/power-vent-water-heaters/</loc>
-    <lastmod>2025-09-03T13:01:10+00:00</lastmod>
+    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://waterheaterreplacementcompany.com/resources/tankless-water-heaters/</loc>
-    <lastmod>2025-09-03T13:01:10+00:00</lastmod>
+    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
     <priority>0.80</priority>
   </url>
+
+  <!-- ─── TOOLS / CONTENT ───────────────────────────────────────────────────── -->
   <url>
-    <loc>https://waterheaterreplacementcompany.com/resources/heat-pump-water-heaters/</loc>
-    <lastmod>2025-09-03T13:01:10+00:00</lastmod>
-    <priority>0.80</priority>
+    <loc>https://waterheaterreplacementcompany.com/resources/how-to-stop-a-water-leak/</loc>
+    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
+    <priority>0.70</priority>
   </url>
+
 </urlset>
