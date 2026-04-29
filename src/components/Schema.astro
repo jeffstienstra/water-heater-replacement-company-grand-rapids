@@ -77,6 +77,17 @@ const areaServedPlaces = [
 			},
 			image: { '@id': logoUrl },
 			sameAs: sameAsUrls,
+			hasCredential: {
+                '@type': 'EducationalOccupationalCredential',
+                name: 'Mechanical Contractor License',
+                credentialCategory: 'license',
+                credentialId: '7117187',
+                recognizedBy: {
+                    '@type': 'Organization',
+                    name: 'State of Michigan Bureau of Construction Codes',
+                    url: 'https://www.michigan.gov/lara/bureau-list/bcc'
+                }
+            },
 		},
 		{
 			'@type': 'WebSite',
@@ -169,7 +180,7 @@ const areaServedPlaces = [
 				'Bradford White Water Heaters',
 			],
 			areaServed: areaServedPlaces,
-			"potentialAction": {
+			potentialAction: {
 				'@type': 'TradeAction',
 				name: 'Get a Free Instant Quote',
 				description: 'Get an exact installed water heater price in 30 seconds with no personal info required.',
