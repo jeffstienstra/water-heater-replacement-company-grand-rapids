@@ -142,6 +142,19 @@ const areaServedPlaces = cities.map(({ city, state, lat, lon }) => ({
 			},
 			priceRange: '$$',
 			areaServed: areaServedPlaces,
+			"potentialAction": {
+				'@type': 'TradeAction',
+				name: 'Get a Free Instant Quote',
+				description: 'Get an exact installed water heater price in 30 seconds with no personal info required.',
+				target: {
+					'@type': 'EntryPoint',
+					urlTemplate: 'https://waterheaterreplacementcompany.com/instant-quote/?step=1',
+					actionPlatform: [
+						'http://schema.org/DesktopWebPlatform',
+						'http://schema.org/MobileWebPlatform'
+					]
+				}
+			},
 			serviceArea: {
 				'@type': 'GeoCircle',
 				geoMidpoint: {

@@ -51,6 +51,11 @@ interface BusinessInfo {
         googleSiteVerificationId: string;
         partytown: boolean;
     };
+    brand: {
+        "@type": "Brand";
+        name: string;
+        slogan: string;
+    };
     name: string;
     logo: string;
     mainImage: ImageObject;
@@ -116,6 +121,11 @@ export const businessInfo: BusinessInfo = {
         googleTagManagerId: 'GTM-T2QWW9RC',
         googleSiteVerificationId: '',
         partytown: true,
+    },
+    brand: {
+        "@type": "Brand",
+        name: "Water Heater Replacement Company",
+        slogan: "Zero-Commission Technicians · Instant Price Quotes · 2-Year Labor Warranty",
     },
     name: 'Water Heater Replacement Company',
     address: {
