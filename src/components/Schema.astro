@@ -1,0 +1,174 @@
+---
+import { businessInfo } from '../data/businessInfo';
+import { businessServices } from '../data/businessServices';
+import { cities } from '../data/cities';
+import { sortServicesByPageContext } from '../utils/sortServices';
+import { sanitizeUrl } from '../utils/urls';
+
+interface FaqItem {
+	q: string;
+	a: string;
+}
+
+interface Props {
+	pageTitle: string;
+	pageUrl: string;
+	publishDate?: string;
+	faqs?: FaqItem[];
+}
+
+const {
+	pageTitle = 'Water Heater Replacement Company',
+	pageUrl = 'https://waterheaterreplacementcompany.com',
+	publishDate,
+	faqs,
+} = Astro.props;
+
+const sortedServices = sortServicesByPageContext(businessServices, pageTitle, pageUrl);
+const logoUrl = businessInfo.logo;
+const websiteUrl = businessInfo.url;
+const sameAsUrls = Object.values(businessInfo.social).filter(
+	(link): link is string => typeof link === 'string' && link.trim().length > 0
+);
+
+const areaServedPlaces = cities.map(({ city, state, lat, lon }) => ({
+	'@type': 'City',
+	name: city,
+	address: {
+		'@type': 'PostalAddress',
+		addressLocality: city,
+		addressRegion: state,
+		addressCountry: businessInfo.address.country,
+	},
+	geo: {
+		'@type': 'GeoCoordinates',
+		latitude: lat,
+		longitude: lon,
+	},
+}));
+---
+
+<script type="application/ld+json" set:html={JSON.stringify({
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'Organization',
+			'@id': `${websiteUrl}#organization`,
+			name: businessInfo.name,
+			url: websiteUrl,
+			logo: {
+				'@type': 'ImageObject',
+				'@id': logoUrl,
+				url: logoUrl,
+				contentUrl: logoUrl,
+				width: 600,
+				height: 600,
+			},
+			image: { '@id': logoUrl },
+			sameAs: sameAsUrls,
+		},
+		{
+			'@type': 'WebSite',
+			'@id': `${websiteUrl}#website`,
+			url: websiteUrl,
+			name: businessInfo.name,
+			potentialAction: {
+				'@type': 'SearchAction',
+				target: {
+					'@type': 'EntryPoint',
+					urlTemplate: `${websiteUrl}/?s={search_term_string}`,
+				},
+				'query-input': 'required name=search_term_string',
+			},
+		},
+		{
+			'@type': 'WebPage',
+			'@id': `${pageUrl}#webpage`,
+			url: pageUrl,
+			name: pageTitle,
+			image: businessInfo.mainImage,
+			primaryImageOfPage: { '@id': businessInfo.mainImage.url },
+			isPartOf: { '@id': `${websiteUrl}#website` },
+		},
+		...(publishDate ? [
+			{
+				'@type': 'Article',
+				'@id': `${pageUrl}#article`,
+				headline: pageTitle,
+				datePublished: publishDate,
+				author: {
+					'@type': 'Organization',
+					'@id': `${websiteUrl}#organization`,
+				},
+				publisher: {
+					'@type': 'Organization',
+					'@id': `${websiteUrl}#organization`,
+				},
+				mainEntityOfPage: {
+					'@type': 'WebPage',
+					'@id': pageUrl,
+				},
+			},
+		] : []),
+		{
+			'@type': ['HVACBusiness', 'HomeAndConstructionBusiness', 'LocalBusiness'],
+			'@id': `${websiteUrl}#localbusiness`,
+			name: businessInfo.name,
+			description: businessInfo.description,
+			url: websiteUrl,
+			telephone: businessInfo.primaryPhone,
+			email: businessInfo.email,
+			address: {
+				'@type': 'PostalAddress',
+				streetAddress: businessInfo.address.street,
+				addressLocality: businessInfo.address.city,
+				addressRegion: businessInfo.address.state,
+				postalCode: businessInfo.address.zip,
+				addressCountry: businessInfo.address.country,
+			},
+			geo: {
+				'@type': 'GeoCoordinates',
+				latitude: businessInfo.geo.lat,
+				longitude: businessInfo.geo.lng,
+			},
+			openingHoursSpecification: businessInfo.hours,
+			priceRange: '$$',
+			areaServed: areaServedPlaces,
+			hasOfferCatalog: { '@id': `${websiteUrl}#services` },
+			sameAs: sameAsUrls,
+		},
+		{
+			'@type': 'OfferCatalog',
+			'@id': `${websiteUrl}#services`,
+			name: 'Water Heater Services',
+			itemListElement: sortedServices.map(service => ({
+				'@type': 'Offer',
+				itemOffered: {
+					'@type': 'Service',
+					name: service.name,
+					description: service.description,
+					url: sanitizeUrl(`${websiteUrl}/${service.url}`),
+					areaServed: areaServedPlaces,
+					provider: { '@id': `${websiteUrl}#localbusiness` },
+					serviceType: service.serviceType,
+				},
+			})),
+		},
+	],
+})} />
+
+{faqs && faqs.length > 0 && (
+	<script type="application/ld+json" set:html={JSON.stringify({
+		'@context': 'https://schema.org',
+		'@type': 'FAQPage',
+		mainEntity: faqs.map(({ q, a }) => ({
+			'@type': 'Question',
+			name: q,
+			acceptedAnswer: {
+				'@type': 'Answer',
+				text: a,
+			},
+		})),
+	})} />
+)}
+

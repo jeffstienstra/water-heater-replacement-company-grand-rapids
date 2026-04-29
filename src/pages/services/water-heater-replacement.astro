@@ -8,12 +8,41 @@ import heroImg from "../../assets/images/whrc-van-image.webp";
 import techImg from "../../assets/images/wh-tech1.jpg";
 import UnitTypes from "../../components/UnitTypes.astro";
 import TrustStrip from "../../components/TrustStrip.astro";
+import Faq from "../../components/Faq.astro";
+
+const faqs = [
+    {
+        q: "How much does a water heater replacement cost in Grand Rapids?",
+        a: `Costs vary based on the unit type, size, venting requirements, and your home's setup. Use our <a href="/instant-quote/?step=1" class="text-primary underline font-semibold">Exact Quote tool</a> to see a real installed price in 30 seconds — no email required. Or <a href="tel:1234567890" class="text-primary underline font-semibold">call us</a> and get a quote over the phone in minutes.`,
+    },
+    {
+        q: "How long does a replacement take?",
+        a: "Most standard tank water heater replacements take 2–4 hours from arrival to hot water restored. Complex setups with venting changes or unit relocations may take longer, but we'll let you know up front. Tankless water heater installations typically take a full day - sometimes more - due to the additional plumbing and electrical work involved. Again, we'll be clear about the timeline before we start so you know what to expect. But we always get the hot water flowing as soon as possible without cutting corners on quality or safety.",
+    },
+    {
+        q: "Do you handle permits?",
+        a: "Yes. A mechanical permit is required for every water heater replacement in Michigan. We apply for the permit, handle the scheduling, and make sure everything is code compliant — all included in your price. Some contractors skip this to save money, time and hassle; we won't. It is required by the state for your protection and ensures the work is inspected for safety and code compliance. If you see a quote that doesn't include a permit, or a contractor that offers a discount to bypass an inspection, that's a red flag and you should avoid them.",
+    },
+    {
+        q: "What brands do you install?",
+        a: "We primarily install Rheem professional grade units, not the budget models sold at big-box stores. Rheem water heaters carry strong manufacturer warranties and are well-suited to West Michigan's water conditions. Other brands may be available upon request, but we find Rheem offers the best combination of reliability, efficiency, and value for our customers. If you have a specific brand in mind, just ask and we'll do our best to accommodate.",
+    },
+    {
+        q: "Can you replace it the same day?",
+        a: "In many cases, yes. If you contact us early enough we can often complete the install same-day. Next-day appointments are also typically available throughout the West Michigan area.",
+    },
+    {
+        q: "Do I need to be home during the installation?",
+        a: "Yes, someone 18 or older needs to be present for the installation and to pay and sign off on the completed work. Most installs are done in 2-4 hours so you won't be waiting around all day. :)",
+    },
+];
 ---
 
 <BaseLayout
     title="Water Heater Replacement in Grand Rapids | Same-Day Service"
     description="Fast, affordable water heater replacement in Grand Rapids and West Michigan. Upfront pricing, same-day installs, no hidden fees. Call or get an exact quote in 30 seconds."
     canonical="https://waterheaterreplacementcompany.com/services/water-heater-replacement/"
+    faqs={faqs}
 >
 
     <!-- ─── HERO ─────────────────────────────────────────────────────────────── -->
@@ -332,51 +361,7 @@ import TrustStrip from "../../components/TrustStrip.astro";
     <SocialProof />
 
     <!-- ─── FAQ ───────────────────────────────────────────────────────────────── -->
-    <section class="py-20 px-6 bg-base-100 text-base-content border-t border-base-300">
-        <div class="max-w-3xl mx-auto">
-            <div class="text-center mb-10">
-                <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">FAQ</span>
-                <h2 class="text-3xl sm:text-4xl font-bold">Common Questions</h2>
-            </div>
-
-            <div class="flex flex-col gap-3">
-                {[
-                    {
-                        q: "How much does a water heater replacement cost in Grand Rapids?",
-                        a: `Costs vary based on the unit type, size, venting requirements, and your home's setup. Use our <a href="/instant-quote/?step=1" class="text-primary underline font-semibold">Exact Quote tool</a> to see a real installed price in 30 seconds — no email required. Or <a href="tel:1234567890" class="text-primary underline font-semibold">call us</a> and get a quote over the phone in minutes.`,
-                    },
-                    {
-                        q: "How long does a replacement take?",
-                        a: "Most standard tank water heater replacements take 2–4 hours from arrival to hot water restored. Complex setups with venting changes or unit relocations may take longer, but we'll let you know up front. Tankless water heater installations typically take a full day - sometimes more - due to the additional plumbing and electrical work involved. Again, we'll be clear about the timeline before we start so you know what to expect. But we always get the hot water flowing as soon as possible without cutting corners on quality or safety.",
-                    },
-                    {
-                        q: "Do you handle permits?",
-                        a: "Yes. A mechanical permit is required for every water heater replacement in Michigan. We apply for the permit, handle the scheduling, and make sure everything is code compliant — all included in your price. Some contractors skip this to save money, time and hassle; we won't. It is required by the state for your protection and ensures the work is inspected for safety and code compliance. If you see a quote that doesn't include a permit, or a contractor that offers a discount to bypass an inspection, that's a red flag and you should avoid them.",
-                    },
-                    {
-                        q: "What brands do you install?",
-                        a: "We primarily install Rheem professional grade units, not the budget models sold at big-box stores. Rheem water heaters carry strong manufacturer warranties and are well-suited to West Michigan's water conditions. Other brands may be available upon request, but we find Rheem offers the best combination of reliability, efficiency, and value for our customers. If you have a specific brand in mind, just ask and we'll do our best to accommodate.",
-                    },
-                    {
-                        q: "Can you replace it the same day?",
-                        a: "In many cases, yes. If you contact us early enough we can often complete the install same-day. Next-day appointments are also typically available throughout the West Michigan area.",
-                    },
-                    {
-                        q: "Do I need to be home during the installation?",
-                        a: "Yes, someone 18 or older needs to be present for the installation and to pay and sign off on the completed work. Most installs are done in 2-4 hours so you won't be waiting around all day. :)",
-                    },
-                ].map(({ q, a }, i) => (
-                    <div class="collapse collapse-arrow border border-base-300 rounded-2xl bg-base-100">
-                        <input type="radio" name="faq-replacement" checked={i === 0} />
-                        <div class="collapse-title text-base font-semibold py-5 pr-10">{q}</div>
-                        <div class="collapse-content text-gray-600 text-sm leading-relaxed">
-                            <p set:html={a} />
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    </section>
+    <Faq faqs={faqs} name="faq-replacement" />
 
     <!-- ─── FINAL CTA ─────────────────────────────────────────────────────────── -->
     <Cta

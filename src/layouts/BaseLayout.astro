@@ -1,13 +1,25 @@
 ---
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
+import Schema from '../components/Schema.astro';
 import '../styles/global.css';
+
+interface FaqItem {
+	q: string;
+	a: string;
+}
 
 const {
 	title: pageTitle,
 	description: pageDescription,
 	canonical: pageCanonical,
-} = Astro.props;
+	faqs,
+} = Astro.props as {
+	title?: string;
+	description?: string;
+	canonical?: string;
+	faqs?: FaqItem[];
+};
 
 const defaultDescription = 'Get an instant online quote for water heater replacement in Grand Rapids. No emails, no appointments, just real prices from us — a locally-owned contractor.';
 const description = pageDescription || defaultDescription;
@@ -90,6 +102,12 @@ const metadata = {
 		{metadata.twitter.images.map(img => (
 			<meta name="twitter:image" content={img} />
 		))}
+
+		<Schema
+			pageTitle={metadata.title}
+			pageUrl={metadata.canonical}
+			faqs={faqs}
+		/>
 	</head>
 
 	<body>

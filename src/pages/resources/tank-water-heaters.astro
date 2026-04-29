@@ -11,12 +11,41 @@ import natDraftSingleImg from "../../assets/images/wh-natDraft.webp";
 import powerVentSingleImg from "../../assets/images/wh-pv.webp";
 import electricImg from "../../assets/images/wh-elec.webp";
 import TrustStrip from "../../components/TrustStrip.astro";
+import Faq from "../../components/Faq.astro";
+
+const faqs = [
+    {
+        q: "How do I know if I have a natural draft or power vent water heater?",
+        a: "Look at the top of your water heater. If there's a large metal flue pipe (3\"–4\" diameter) that connects to your chimney or runs up through the ceiling, it's natural draft. If there's plastic PVC pipe running horizontally out through a wall, that's a power vent. You'll also notice a small blower fan and electrical cord on top of a power vent water heater.",
+    },
+    {
+        q: "What size tank do I need?",
+        a: "For most West Michigan households: 40 gallons handles 1–3 people, 50 gallons handles 3–4 people, and 75+ gallons is appropriate for 5 or more. But first-hour rating matters more than tank size alone — a 50-gallon gas unit can deliver far more hot water in the first hour than a 50-gallon electric unit. We'll help you right-size based on your household's actual usage pattern.",
+    },
+    {
+        q: "Can I switch from natural draft to power vent?",
+        a: "Yes, and it's a common upgrade. If your vertical flue is deteriorating, you want to remove your chimney, or you want to move the unit, switching to power vent avoids the expense of rebuilding a metal flue. The PVC venting for a power vent unit is less expensive and more flexible. We'll let you know if a switch makes sense for your situation.",
+    },
+    {
+        q: "Can I switch from gas to electric, or electric to gas?",
+        a: "You can, but it comes with tradeoffs. Switching from electric to gas requires a gas line to be run to the location, which adds cost but results in a faster-recovering, lower-operating-cost unit. Switching from gas to electric is simpler if you have a 240V circuit nearby, but you'll give up some recovery speed. If you're already replacing a failed unit, we can walk you through whether a fuel switch makes sense.",
+    },
+    {
+        q: "How long does a tank water heater installation take?",
+        a: "Most standard replacements — same vent type, same location — take 2–3 hours from arrival. If you're switching vent types, moving the unit, or upgrading a gas line, plan for a half-day to full day. We'll give you an accurate time estimate before we start.",
+    },
+    {
+        q: "Do I need a permit for a water heater replacement in West Michigan?",
+        a: "Yes. A permit is required for all water heater replacements in Grand Rapids and most West Michigan municipalities. We pull the permit and schedule the inspection as part of every installation — it's included in your price. Some contractors skip this to save time and hassle; we won't. It is required by the state for your protection and ensures the work is inspected for safety and code compliance. If you see a quote that doesn't include a permit, or a contractor that offers a discount to bypass an inspection, that's a red flag.",
+    },
+];
 ---
 
 <BaseLayout
     title="Tank Water Heaters | Natural Draft, Power Vent, Gas, Electric | Grand Rapids"
     description="Everything you need to know about tank water heaters — natural draft vs power vent, gas vs electric vs propane, lifespan, pros and cons, and how to choose the right one for your West Michigan home."
     canonical="https://waterheaterreplacementcompany.com/resources/tank-water-heaters/"
+    faqs={faqs}
 >
 
     <!-- ─── HERO ─────────────────────────────────────────────────────────────── -->
@@ -570,51 +599,7 @@ import TrustStrip from "../../components/TrustStrip.astro";
     <SocialProof />
 
     <!-- ─── FAQ ───────────────────────────────────────────────────────────────── -->
-    <section class="py-20 px-6 bg-base-100 text-base-content border-t border-base-300">
-        <div class="max-w-3xl mx-auto">
-            <div class="text-center mb-10">
-                <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">FAQ</span>
-                <h2 class="text-3xl sm:text-4xl font-bold">Common Questions</h2>
-            </div>
-
-            <div class="flex flex-col gap-3">
-                {[
-                    {
-                        q: "How do I know if I have a natural draft or power vent water heater?",
-                        a: "Look at the top of your water heater. If there's a large metal flue pipe (3\"–4\" diameter) that connects to your chimney or runs up through the ceiling, it's natural draft. If there's plastic PVC pipe running horizontally out through a wall, that's a power vent. You'll also notice a small blower fan and electrical cord on top of a power vent water heater.",
-                    },
-                    {
-                        q: "What size tank do I need?",
-                        a: "For most West Michigan households: 40 gallons handles 1–3 people, 50 gallons handles 3–4 people, and 75+ gallons is appropriate for 5 or more. But first-hour rating matters more than tank size alone — a 50-gallon gas unit can deliver far more hot water in the first hour than a 50-gallon electric unit. We'll help you right-size based on your household's actual usage pattern.",
-                    },
-                    {
-                        q: "Can I switch from natural draft to power vent?",
-                        a: "Yes, and it's a common upgrade. If your vertical flue is deteriorating, you want to remove your chimney, or you want to move the unit, switching to power vent avoids the expense of rebuilding a metal flue. The PVC venting for a power vent unit is less expensive and more flexible. We'll let you know if a switch makes sense for your situation.",
-                    },
-                    {
-                        q: "Can I switch from gas to electric, or electric to gas?",
-                        a: "You can, but it comes with tradeoffs. Switching from electric to gas requires a gas line to be run to the location, which adds cost but results in a faster-recovering, lower-operating-cost unit. Switching from gas to electric is simpler if you have a 240V circuit nearby, but you'll give up some recovery speed. If you're already replacing a failed unit, we can walk you through whether a fuel switch makes sense.",
-                    },
-                    {
-                        q: "How long does a tank water heater installation take?",
-                        a: "Most standard replacements — same vent type, same location — take 2–3 hours from arrival. If you're switching vent types, moving the unit, or upgrading a gas line, plan for a half-day to full day. We'll give you an accurate time estimate before we start.",
-                    },
-                    {
-                        q: "Do I need a permit for a water heater replacement in West Michigan?",
-                        a: "Yes. A permit is required for all water heater replacements in Grand Rapids and most West Michigan municipalities. We pull the permit and schedule the inspection as part of every installation — it's included in your price. Some contractors skip this to save time and hassle; we won't. It is required by the state for your protection and ensures the work is inspected for safety and code compliance. If you see a quote that doesn't include a permit, or a contractor that offers a discount to bypass an inspection, that's a red flag.",
-                    },
-                ].map(({ q, a }, i) => (
-                    <div class="collapse collapse-arrow border border-base-300 rounded-2xl bg-base-100">
-                        <input type="radio" name="faq-tank" checked={i === 0} />
-                        <div class="collapse-title text-base font-semibold py-5 pr-10">{q}</div>
-                        <div class="collapse-content text-gray-600 text-sm leading-relaxed">
-                            <p>{a}</p>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    </section>
+    <Faq faqs={faqs} name="faq-tank" />
 
     <!-- ─── FINAL CTA ─────────────────────────────────────────────────────────── -->
     <Cta

@@ -8,13 +8,37 @@ import heroImg from "../../assets/images/whrc-van-image.webp";
 import tankLeakImg from "../../assets/images/wh-leak.webp";
 import UnitTypes from "../../components/UnitTypes.astro";
 import TrustStrip from "../../components/TrustStrip.astro";
+import Faq from "../../components/Faq.astro";
 
+const faqs = [
+    {
+        q: "My water heater is leaking from the bottom — can it be repaired?",
+        a: "A leak from the bottom of the tank usually indicates the inner steel lining has corroded through, which cannot be patched or sealed. Replacement is the only safe, permanent solution to prevent a basement flood.",
+    },
+    {
+        q: "How quickly can you replace a leaking water heater?",
+        a: "We prioritize leaks and often provide same-day service throughout Grand Rapids. If you call early in the day, our technicians can often arrive and complete the installation in a single visit because our vans stay fully stocked with common unit sizes.",
+    },
+    {
+        q: "What if the leak is from a fitting or the pressure relief valve, not the tank itself?",
+        a: "Leaks at connections or valves can often be repaired without replacing the entire unit. Because our technicians don't work on commission, we will give you an honest assessment of whether a simple repair is safe or if the age of the unit makes a replacement more economical.",
+    },
+    {
+        q: "Will my homeowner's insurance cover a leaking water heater?",
+        a: "Most policies cover the resulting water damage to your floors or drywall, but not the water heater unit itself. We recommend taking photos of the damage immediately for your claim; we can provide a detailed invoice to assist with your insurance filing.",
+    },
+    {
+        q: "Is it safe to stay in my home with a leaking water heater?",
+        a: "As long as you have shut off the water supply and the power or gas, your home is generally safe. However, if you smell gas at any point, leave the house immediately without touching any electrical switches and call your utility company from outside.",
+    },
+];
 ---
 
 <BaseLayout
     title="Leaking Water Heater Emergency | Grand Rapids Same-Day Response"
     description="Leaking water heater in Grand Rapids? We respond fast. Stop the leak, protect your home, and get a same-day replacement. Call 616-315-0999 now."
     canonical="https://waterheaterreplacementcompany.com/services/leaking-water-heater-emergency/"
+    faqs={faqs}
 >
 
     <!-- ─── HERO ─────────────────────────────────────────────────────────────── -->
@@ -274,47 +298,7 @@ import TrustStrip from "../../components/TrustStrip.astro";
     <UnitTypes />
 
     <!-- ─── FAQ ───────────────────────────────────────────────────────────────── -->
-    <section class="py-20 px-6 bg-base-100 text-base-content border-t border-base-300">
-        <div class="max-w-3xl mx-auto">
-            <div class="text-center mb-10">
-                <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">FAQ</span>
-                <h2 class="text-3xl sm:text-4xl font-bold">Common Questions</h2>
-            </div>
-
-            <div class="flex flex-col gap-3">
-                {[
-                    {
-                        q: "My water heater is leaking from the bottom — can it be repaired?",
-                        a: "A leak from the bottom of the tank usually indicates the inner steel lining has corroded through, which cannot be patched or sealed. Replacement is the only safe, permanent solution to prevent a basement flood.",
-                    },
-                    {
-                        q: "How quickly can you replace a leaking water heater?",
-                        a: "We prioritize leaks and often provide same-day service throughout Grand Rapids. If you call early in the day, our technicians can often arrive and complete the installation in a single visit because our vans stay fully stocked with common unit sizes.",
-                    },
-                    {
-                        q: "What if the leak is from a fitting or the pressure relief valve, not the tank itself?",
-                        a: "Leaks at connections or valves can often be repaired without replacing the entire unit. Because our technicians don't work on commission, we will give you an honest assessment of whether a simple repair is safe or if the age of the unit makes a replacement more economical.",
-                    },
-                    {
-                        q: "Will my homeowner's insurance cover a leaking water heater?",
-                        a: "Most policies cover the resulting water damage to your floors or drywall, but not the water heater unit itself. We recommend taking photos of the damage immediately for your claim; we can provide a detailed invoice to assist with your insurance filing.",
-                    },
-                    {
-                        q: "Is it safe to stay in my home with a leaking water heater?",
-                        a: "As long as you have shut off the water supply and the power or gas, your home is generally safe. However, if you smell gas at any point, leave the house immediately without touching any electrical switches and call your utility company from outside.",
-                    },
-                ].map(({ q, a }, i) => (
-                    <div class="collapse collapse-arrow border border-base-300 rounded-2xl bg-base-100">
-                        <input type="radio" name="faq-leak" checked={i === 0} />
-                        <div class="collapse-title text-base font-semibold py-5 pr-10">{q}</div>
-                        <div class="collapse-content text-gray-600 text-sm leading-relaxed">
-                            <p>{a}</p>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    </section>
+    <Faq faqs={faqs} name="faq-leak" />
 
     <!-- ─── FINAL CTA ─────────────────────────────────────────────────────────── -->
     <Cta

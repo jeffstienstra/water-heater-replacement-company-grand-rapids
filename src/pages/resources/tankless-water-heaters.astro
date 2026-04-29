@@ -8,13 +8,41 @@ import heroImg from "../../assets/images/wh-tankless-product-family.webp";
 import productImg from "../../assets/images/wh-tanklessEdit3.png";
 import cutawayImg from "../../assets/images/wh-tanklessCutaway.jpg";
 import TrustStrip from "../../components/TrustStrip.astro";
+import Faq from "../../components/Faq.astro";
 
+const faqs = [
+    {
+        q: "Can I switch from a tank to tankless in one visit?",
+        a: "It depends on your home's existing gas line size and venting setup. Tankless units draw significantly more BTUs than a tank and often require a larger-diameter gas line and a new venting run. In some homes this is straightforward; in others it requires more prep work. We assess your setup before committing to a timeline and will tell you exactly what's needed.",
+    },
+    {
+        q: "Why can't I get an electric tankless water heater?",
+        a: "Whole-home electric tankless units require 150–200+ amps of dedicated service, more than most homes have in their entire electrical panel. The installation cost of upgrading your service to accommodate one typically far exceeds the cost of a gas tankless unit. We install gas and propane tankless only. If your home is all-electric and you want on-demand performance, call us — we can talk through the options.",
+    },
+    {
+        q: "What is the 'cold water sandwich' and is it a real problem?",
+        a: "It's a real but minor quirk. When you turn on a hot tap briefly, turn it off, and then turn it back on shortly after, a small slug of cold water can emerge before the hot arrives. This happens because residual warm water in the pipe is followed by a momentary burst of cold water before the unit re-fires and heats the new flow. Most households adapt to it quickly, and it's most noticeable on short back-to-back draws.",
+    },
+    {
+        q: "Do I need to descale my tankless water heater every year?",
+        a: "In West Michigan, yes — annual descaling is strongly recommended. Our water is hard, meaning it carries dissolved minerals (primarily calcium and magnesium) that deposit inside the heat exchanger over time. If left unchecked, scale buildup reduces efficiency and can cause the unit to overheat and fail prematurely. Annual flushing with a descaling solution takes under an hour and keeps the unit running at peak efficiency.",
+    },
+    {
+        q: "How long does a tankless installation take?",
+        a: "A straight swap — replacing an existing tankless unit with a new one on the same venting and gas line — typically takes 3–4 hours. A conversion from tank to tankless is more involved: expect a half-day to full day depending on what gas line and venting work is needed. We'll give you an accurate estimate before we start.",
+    },
+    {
+        q: "Do I need a permit for a tankless water heater installation in West Michigan?",
+        a: "Yes. A mechanical permit is required for all water heater installations in Grand Rapids and most West Michigan municipalities. We pull the permit and schedule the inspection as part of every job — it's included in your price. Any contractor who skips the permit to save time is putting you at risk: uninspected work can create liability issues when you sell your home.",
+    },
+];
 ---
 
 <BaseLayout
     title="Tankless Water Heaters | On-Demand Gas & Propane | Grand Rapids"
     description="Learn what tankless water heaters are, how they work, and why homeowners make the switch — plus honest considerations and what's included with every installation in Grand Rapids and West Michigan."
     canonical="https://waterheaterreplacementcompany.com/resources/tankless-water-heaters/"
+    faqs={faqs}
 >
 
     <!-- ─── HERO ─────────────────────────────────────────────────────────────── -->
@@ -456,51 +484,7 @@ import TrustStrip from "../../components/TrustStrip.astro";
     <SocialProof />
 
     <!-- ─── FAQ ───────────────────────────────────────────────────────────────── -->
-    <section class="py-20 px-6 bg-base-100 text-base-content border-t border-base-300">
-        <div class="max-w-3xl mx-auto">
-            <div class="text-center mb-10">
-                <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">FAQ</span>
-                <h2 class="text-3xl sm:text-4xl font-bold">Common Questions</h2>
-            </div>
-
-            <div class="flex flex-col gap-3">
-                {[
-                    {
-                        q: "Can I switch from a tank to tankless in one visit?",
-                        a: "It depends on your home's existing gas line size and venting setup. Tankless units draw significantly more BTUs than a tank and often require a larger-diameter gas line and a new venting run. In some homes this is straightforward; in others it requires more prep work. We assess your setup before committing to a timeline and will tell you exactly what's needed.",
-                    },
-                    {
-                        q: "Why can't I get an electric tankless water heater?",
-                        a: "Whole-home electric tankless units require 150–200+ amps of dedicated service, more than most homes have in their entire electrical panel. The installation cost of upgrading your service to accommodate one typically far exceeds the cost of a gas tankless unit. We install gas and propane tankless only. If your home is all-electric and you want on-demand performance, call us — we can talk through the options.",
-                    },
-                    {
-                        q: "What is the 'cold water sandwich' and is it a real problem?",
-                        a: "It's a real but minor quirk. When you turn on a hot tap briefly, turn it off, and then turn it back on shortly after, a small slug of cold water can emerge before the hot arrives. This happens because residual warm water in the pipe is followed by a momentary burst of cold water before the unit re-fires and heats the new flow. Most households adapt to it quickly, and it's most noticeable on short back-to-back draws.",
-                    },
-                    {
-                        q: "Do I need to descale my tankless water heater every year?",
-                        a: "In West Michigan, yes — annual descaling is strongly recommended. Our water is hard, meaning it carries dissolved minerals (primarily calcium and magnesium) that deposit inside the heat exchanger over time. If left unchecked, scale buildup reduces efficiency and can cause the unit to overheat and fail prematurely. Annual flushing with a descaling solution takes under an hour and keeps the unit running at peak efficiency.",
-                    },
-                    {
-                        q: "How long does a tankless installation take?",
-                        a: "A straight swap — replacing an existing tankless unit with a new one on the same venting and gas line — typically takes 3–4 hours. A conversion from tank to tankless is more involved: expect a half-day to full day depending on what gas line and venting work is needed. We'll give you an accurate estimate before we start.",
-                    },
-                    {
-                        q: "Do I need a permit for a tankless water heater installation in West Michigan?",
-                        a: "Yes. A mechanical permit is required for all water heater installations in Grand Rapids and most West Michigan municipalities. We pull the permit and schedule the inspection as part of every job — it's included in your price. Any contractor who skips the permit to save time is putting you at risk: uninspected work can create liability issues when you sell your home.",
-                    },
-                ].map(({ q, a }, i) => (
-                    <div class="collapse collapse-arrow border border-base-300 rounded-2xl bg-base-100">
-                        <input type="radio" name="faq-tankless" checked={i === 0} />
-                        <div class="collapse-title text-base font-semibold py-5 pr-10">{q}</div>
-                        <div class="collapse-content text-gray-600 text-sm leading-relaxed">
-                            <p>{a}</p>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    </section>
+    <Faq faqs={faqs} name="faq-tankless" />
 
     <!-- ─── FINAL CTA ─────────────────────────────────────────────────────────── -->
     <Cta

@@ -9,12 +9,41 @@ import tanklessGroupImg from "../../assets/images/wh-tanklessGroup.png";
 import tankFamilyImg from "../../assets/images/wh-tank-product-family.webp";
 import tanklessFamilyImg from "../../assets/images/wh-tankless-product-family.webp";
 import TrustStrip from "../../components/TrustStrip.astro";
+import Faq from "../../components/Faq.astro";
+
+const faqs = [
+    {
+        q: "Can I switch from a tank to tankless in one visit?",
+        a: "It depends on your home's existing gas line size and venting setup. Tankless units often require a dedicated larger-diameter gas line and a new PVC venting run, which adds time and cost. In some homes it's straightforward; in others it requires more prep work. We'll assess your setup and give you an honest timeline before committing.",
+    },
+    {
+        q: "Is a tankless water heater available in electric?",
+        a: "Whole-home electric tankless units require extremely high amperage (often 150–200A dedicated) that most West Michigan homes aren't wired for. We install gas and propane tankless units only. If your home is electric and you want on-demand performance, we can talk through your options — including right-sizing a high-efficiency electric tank.",
+    },
+    {
+        q: "How long does a tankless water heater actually last?",
+        a: "With regular annual maintenance (mainly descaling the heat exchanger), tankless units routinely last 20–25 years. The main serviceable components — the heat exchanger, igniter, and flow sensor — can all be replaced individually, which is why the lifespan is so much longer than a storage tank.",
+    },
+    {
+        q: "What's a 'cold water sandwich' and does it matter?",
+        a: "A cold water sandwich is a brief burst of cold (or lukewarm) water that can occur when you turn a hot tap on and off quickly in succession. It happens because the tankless unit briefly re-fires and the residual warm water in the pipes is followed by a slug of cold before the unit heats up again. It's a minor quirk most people adapt to quickly, and it's less noticeable in larger households with more continuous hot water use.",
+    },
+    {
+        q: "Do tank water heaters really run out of hot water?",
+        a: "Yes — if back-to-back showers, laundry, and a dishwasher all run at once, a tank can be depleted. A properly sized tank for your household (which we help you select) minimizes this significantly. If you're frequently running out, it often means you need a larger tank rather than an immediate switch to tankless.",
+    },
+    {
+        q: "Which type is more expensive to repair?",
+        a: "Tankless repairs are generally more expensive — the parts (heat exchangers, control boards, flow sensors) cost more, and the diagnosis is more involved. That said, tankless units need repair less often and last longer. Tank repairs are cheaper per visit, but tanks are more likely to reach a point where repair isn't worth it.",
+    },
+];
 ---
 
 <BaseLayout
     title="Tank vs. Tankless Water Heaters | Grand Rapids Comparison Guide"
     description="Not sure whether to go with a tank or tankless water heater? We break down the real differences in cost, hot water supply, installation, and lifespan to help you decide."
     canonical="https://waterheaterreplacementcompany.com/resources/tank-vs-tankless-water-heaters/"
+    faqs={faqs}
 >
 
     <!-- ─── HERO ─────────────────────────────────────────────────────────────── -->
@@ -380,51 +409,7 @@ import TrustStrip from "../../components/TrustStrip.astro";
     <SocialProof />
 
     <!-- ─── FAQ ───────────────────────────────────────────────────────────────── -->
-    <section class="py-20 px-6 bg-base-100 text-base-content border-t border-base-300">
-        <div class="max-w-3xl mx-auto">
-            <div class="text-center mb-10">
-                <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">FAQ</span>
-                <h2 class="text-3xl sm:text-4xl font-bold">Common Questions</h2>
-            </div>
-
-            <div class="flex flex-col gap-3">
-                {[
-                    {
-                        q: "Can I switch from a tank to tankless in one visit?",
-                        a: "It depends on your home's existing gas line size and venting setup. Tankless units often require a dedicated larger-diameter gas line and a new PVC venting run, which adds time and cost. In some homes it's straightforward; in others it requires more prep work. We'll assess your setup and give you an honest timeline before committing.",
-                    },
-                    {
-                        q: "Is a tankless water heater available in electric?",
-                        a: "Whole-home electric tankless units require extremely high amperage (often 150–200A dedicated) that most West Michigan homes aren't wired for. We install gas and propane tankless units only. If your home is electric and you want on-demand performance, we can talk through your options — including right-sizing a high-efficiency electric tank.",
-                    },
-                    {
-                        q: "How long does a tankless water heater actually last?",
-                        a: "With regular annual maintenance (mainly descaling the heat exchanger), tankless units routinely last 20–25 years. The main serviceable components — the heat exchanger, igniter, and flow sensor — can all be replaced individually, which is why the lifespan is so much longer than a storage tank.",
-                    },
-                    {
-                        q: "What's a 'cold water sandwich' and does it matter?",
-                        a: "A cold water sandwich is a brief burst of cold (or lukewarm) water that can occur when you turn a hot tap on and off quickly in succession. It happens because the tankless unit briefly re-fires and the residual warm water in the pipes is followed by a slug of cold before the unit heats up again. It's a minor quirk most people adapt to quickly, and it's less noticeable in larger households with more continuous hot water use.",
-                    },
-                    {
-                        q: "Do tank water heaters really run out of hot water?",
-                        a: "Yes — if back-to-back showers, laundry, and a dishwasher all run at once, a tank can be depleted. A properly sized tank for your household (which we help you select) minimizes this significantly. If you're frequently running out, it often means you need a larger tank rather than an immediate switch to tankless.",
-                    },
-                    {
-                        q: "Which type is more expensive to repair?",
-                        a: "Tankless repairs are generally more expensive — the parts (heat exchangers, control boards, flow sensors) cost more, and the diagnosis is more involved. That said, tankless units need repair less often and last longer. Tank repairs are cheaper per visit, but tanks are more likely to reach a point where repair isn't worth it.",
-                    },
-                ].map(({ q, a }, i) => (
-                    <div class="collapse collapse-arrow border border-base-300 rounded-2xl bg-base-100">
-                        <input type="radio" name="faq-comparison" checked={i === 0} />
-                        <div class="collapse-title text-base font-semibold py-5 pr-10">{q}</div>
-                        <div class="collapse-content text-gray-600 text-sm leading-relaxed">
-                            <p>{a}</p>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    </section>
+    <Faq faqs={faqs} name="faq-comparison" />
 
     <!-- ─── FINAL CTA ─────────────────────────────────────────────────────────── -->
     <Cta

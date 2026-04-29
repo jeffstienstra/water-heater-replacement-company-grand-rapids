@@ -9,12 +9,41 @@ import pvImg from "../../assets/images/wh-pv.webp";
 import techImg from "../../assets/images/wh-tech1.jpg";
 import UnitTypes from "../../components/UnitTypes.astro";
 import TrustStrip from "../../components/TrustStrip.astro";
+import Faq from "../../components/Faq.astro";
+
+const faqs = [
+    {
+        q: "Do you charge a diagnostic fee?",
+        a: "Yes, we charge a $75 diagnostic fee. This covers our time and expertise to thoroughly inspect your unit, identify the root cause of the problem, and provide you with a clear written estimate for the repair. If you choose to proceed with the repair, the diagnostic fee is applied toward the total cost. Companies that advertise 'free diagnostics' often push unnecessary repairs or replacements to recoup their costs. We prefer to be upfront about our fees and provide straighforward, transparent pricing that is not influenced by sales commissions.",
+    },
+    {
+        q: "What if you come out and determine it can't be repaired?",
+        a: "If replacement is the right move, we'll be straightforward with you and can provide a quote on the spot for a same-day or next-day replacement so you're not waiting on a second appointment. Your service fee will be applied toward the cost of the replacement if you choose to go that route. Otherwise, the service fee is expected to be paid and you are free to decline further service. We want to make sure you have all the information you need to make the best decision for your home and budget, without any pressure or upselling tactics.",
+    },
+    {
+        q: "Do you repair both gas and electric water heaters?",
+        a: "Yes. We service both gas and electric tank water heaters and tankless on-demand water heaters throughout the Grand Rapids and West Michigan area, including natural draft, power vent, and direct vent gas configurations.",
+    },
+    {
+        q: "Do you repair tankless water heaters?",
+        a: "Yes. Tankless repairs are more complex and parts-dependent than tank water heaters. Our technicians are trained to troubleshoot and repair all manner of issues with tankless units, but the cost and feasibility of repairs can vary widely based on the specific problem and the unit's age. We approach tankless repairs with the same honest, transparent philosophy as our tank water heater services — if a repair makes sense, we'll recommend it. If replacement is the better long-term solution, we'll provide a clear quote and let you decide without any pressure.",
+    },
+    {
+        q: "Is a repaired water heater covered under warranty?",
+        a: "Yes — our labor on repairs is covered by our labor warranty. Replacement parts may carry a manufacturer's warranty depending on the component. We document everything installed so you have a clear warranty record.",
+    },
+    {
+        q: "How do I know if it's worth repairing vs. replacing?",
+        a: `A good rule of thumb: if the repair costs more than 50% of a new unit and the tank is over 8 years old, replacement is usually the smarter investment. For tankless systems, if the repair costs more than 50% of a new unit and the system is over 10-15 years old, replacement is often the better choice. We'll walk you through both numbers side-by-side so the decision is easy. You can also get a <a href="/instant-quote/?step=1" class="text-primary underline font-semibold">replacement quote in 30 seconds</a> before we even arrive.`,
+    },
+];
 ---
 
 <BaseLayout
     title="Water Heater Repair in Grand Rapids | Honest Diagnosis, No Upsells"
     description="Water heater not working in Grand Rapids? We diagnose the problem honestly and tell you whether repair or replacement makes more sense. Call 616-315-0999."
     canonical="https://waterheaterreplacementcompany.com/services/water-heater-repair/"
+    faqs={faqs}
 >
 
     <!-- ─── HERO ─────────────────────────────────────────────────────────────── -->
@@ -306,51 +335,7 @@ import TrustStrip from "../../components/TrustStrip.astro";
     <SocialProof />
 
     <!-- ─── FAQ ───────────────────────────────────────────────────────────────── -->
-    <section class="py-20 px-6 bg-base-100 text-base-content border-t border-base-300">
-        <div class="max-w-3xl mx-auto">
-            <div class="text-center mb-10">
-                <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">FAQ</span>
-                <h2 class="text-3xl sm:text-4xl font-bold">Common Questions</h2>
-            </div>
-
-            <div class="flex flex-col gap-3">
-                {[
-                    {
-                        q: "Do you charge a diagnostic fee?",
-                        a: "Yes, we charge a $75 diagnostic fee. This covers our time and expertise to thoroughly inspect your unit, identify the root cause of the problem, and provide you with a clear written estimate for the repair. If you choose to proceed with the repair, the diagnostic fee is applied toward the total cost. Companies that advertise 'free diagnostics' often push unnecessary repairs or replacements to recoup their costs. We prefer to be upfront about our fees and provide straighforward, transparent pricing from the start.",
-                    },
-                    {
-                        q: "What if you come out and determine it can't be repaired?",
-                        a: "If replacement is the right move, we'll be straightforward with you and can provide a quote on the spot for a same-day or next-day replacement so you're not waiting on a second appointment. Your service fee will be applied toward the cost of the replacement if you choose to go that route. Otherwise, the service fee is expected to be paid and you are free to decline further service. We want to make sure you have all the information you need to make the best decision for your home and budget, without any pressure or upselling tactics.",
-                    },
-                    {
-                        q: "Do you repair both gas and electric water heaters?",
-                        a: "Yes. We service both gas and electric tank water heaters and tankless on-demand water heaters throughout the Grand Rapids and West Michigan area, including natural draft, power vent, and direct vent gas configurations.",
-                    },
-                    {
-                        q: "Do you repair tankless water heaters?",
-                        a: "Yes. Tankless repairs are more complex and parts-dependent than tank water heaters. Our technicians are trained to troubleshoot and repair all manner of issues with tankless units, but the cost and feasibility of repairs can vary widely based on the specific problem and the unit's age. We approach tankless repairs with the same honest, transparent philosophy as our tank water heater services — if a repair makes sense, we'll recommend it. If replacement is the better long-term solution, we'll provide a clear quote and let you decide without any pressure.",
-                    },
-                    {
-                        q: "Is a repaired water heater covered under warranty?",
-                        a: "Yes — our labor on repairs is covered by our labor warranty. Replacement parts may carry a manufacturer's warranty depending on the component. We document everything installed so you have a clear warranty record.",
-                    },
-                    {
-                        q: "How do I know if it's worth repairing vs. replacing?",
-                        a: `A good rule of thumb: if the repair costs more than 50% of a new unit and the tank is over 8 years old, replacement is usually the smarter investment. For tankless systems, if the repair costs more than 50% of a new unit and the system is over 10-15 years old, replacement is often the better choice. We'll walk you through both numbers side-by-side so the decision is easy. You can also get a <a href="/instant-quote/?step=1" class="text-primary underline font-semibold">replacement quote in 30 seconds</a> before we even arrive.`,
-                    },
-                ].map(({ q, a }, i) => (
-                    <div class="collapse collapse-arrow border border-base-300 rounded-2xl bg-base-100">
-                        <input type="radio" name="faq-repair" checked={i === 0} />
-                        <div class="collapse-title text-base font-semibold py-5 pr-10">{q}</div>
-                        <div class="collapse-content text-gray-600 text-sm leading-relaxed">
-                            <p set:html={a} />
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    </section>
+    <Faq faqs={faqs} name="faq-repair" />
 
     <UnitTypes />
 
