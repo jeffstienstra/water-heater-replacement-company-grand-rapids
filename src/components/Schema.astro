@@ -31,21 +31,32 @@ const sameAsUrls = Object.values(businessInfo.social).filter(
 	(link): link is string => typeof link === 'string' && link.trim().length > 0
 );
 
-const areaServedPlaces = cities.map(({ city, state, lat, lon }) => ({
-	'@type': 'City',
-	name: city,
-	address: {
-		'@type': 'PostalAddress',
-		addressLocality: city,
-		addressRegion: state,
-		addressCountry: businessInfo.address.country,
+const areaServedPlaces = [
+	...cities.map(({ city, state, lat, lon }) => ({
+		'@type': 'City',
+		name: city,
+		address: {
+			'@type': 'PostalAddress',
+			addressLocality: city,
+			addressRegion: state,
+			addressCountry: businessInfo.address.country,
+		},
+		geo: {
+			'@type': 'GeoCoordinates',
+			latitude: lat,
+			longitude: lon,
+		},
+	})),
+	{
+		'@type': 'GeoCircle',
+		geoMidpoint: {
+			'@type': 'GeoCoordinates',
+			latitude: businessInfo.geo.lat,
+			longitude: businessInfo.geo.lng,
+		},
+		geoRadius: '48280',
 	},
-	geo: {
-		'@type': 'GeoCoordinates',
-		latitude: lat,
-		longitude: lon,
-	},
-}));
+];
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify({
@@ -89,6 +100,7 @@ const areaServedPlaces = cities.map(({ city, state, lat, lon }) => ({
 			image: businessInfo.mainImage,
 			primaryImageOfPage: { '@id': businessInfo.mainImage.url },
 			isPartOf: { '@id': `${websiteUrl}#website` },
+			mainEntity: { '@id': `${websiteUrl}#localbusiness` },
 		},
 		...(publishDate ? [
 			{
@@ -141,6 +153,21 @@ const areaServedPlaces = cities.map(({ city, state, lat, lon }) => ({
 				worstRating: '1',
 			},
 			priceRange: '$$',
+			knowsAbout: [
+				'Water Heater Replacement',
+				'Water Heater Repair',
+				'Tankless Water Heaters',
+				'Tank Water Heaters',
+				'Gas Water Heaters',
+				'Electric Water Heaters',
+				'Power Vent Water Heaters',
+				'Natural Draft Water Heaters',
+				'Heat Pump Water Heaters',
+				'Energy Efficient Water Heaters',
+				'Rheem Water Heaters',
+				'A.O. Smith Water Heaters',
+				'Bradford White Water Heaters',
+			],
 			areaServed: areaServedPlaces,
 			"potentialAction": {
 				'@type': 'TradeAction',
@@ -154,15 +181,6 @@ const areaServedPlaces = cities.map(({ city, state, lat, lon }) => ({
 						'http://schema.org/MobileWebPlatform'
 					]
 				}
-			},
-			serviceArea: {
-				'@type': 'GeoCircle',
-				geoMidpoint: {
-					'@type': 'GeoCoordinates',
-					latitude: businessInfo.geo.lat,
-					longitude: businessInfo.geo.lng,
-				},
-				geoRadius: '48280',
 			},
 			hasOfferCatalog: { '@id': `${websiteUrl}#services` },
 			sameAs: sameAsUrls,
@@ -178,13 +196,23 @@ const areaServedPlaces = cities.map(({ city, state, lat, lon }) => ({
 					name: service.name,
 					description: service.description,
 					url: sanitizeUrl(`${websiteUrl}/${service.url}`),
-					areaServed: areaServedPlaces,
+					areaServed: 'Grand Rapids Metropolitan Area and West Michigan',
 					provider: { '@id': `${websiteUrl}#localbusiness` },
 					serviceType: service.serviceType,
-					brand: {
-						'@type': 'Brand',
-						name: 'Rheem',
-					},
+					brand: [
+						{
+							'@type': 'Brand',
+							name: 'Rheem',
+						},
+						{
+							'@type': 'Brand',
+							name: 'AO Smith',
+						},
+						{
+							'@type': 'Brand',
+							name: 'Bradford White',
+						}
+					],
 					offers: {
 						'@type': 'Offer',
 						url: `${websiteUrl}/instant-quote/?step=1`,
