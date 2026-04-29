@@ -1,0 +1,368 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Cta from "../components/Cta.astro";
+import TrustStrip from "../components/TrustStrip.astro";
+import Faq from "../components/Faq.astro";
+import PriceReceipt from "../components/icons/PriceReceipt.astro";
+import Phone from "../components/icons/Phone.astro";
+import techImg from "../assets/images/wh-techByVan.png";
+
+const faqs = [
+    {
+        q: "What does 'zero-commission' actually mean?",
+        a: "It means our technicians are never paid a bonus for recommending a more expensive unit, adding services, or convincing you that a repairable water heater needs to be replaced. Their pay is not tied to the dollar value of the job. This removes the single biggest conflict of interest in the home services industry.",
+    },
+    {
+        q: "How do you make money if you don't upsell?",
+        a: "We make money by doing the job well and charging a fair, transparent price for it — the price you see before we ever arrive. We don't need to pad jobs or push unnecessary work because our business model is built on volume and reputation, not profit extraction from a captive, stressed-out homeowner.",
+    },
+    {
+        q: "Can a water heater really be 'wrongfully condemned'?",
+        a: "Yes. A commission-incentivized tech may tell you a water heater needs full replacement when it actually only needs an inexpensive thermocouple or heating element. The diagnosis isn't necessarily dishonest — it's just shaped by the fact that a replacement pays them a lot more than a repair. We diagnose your system based on what it actually needs, take into account its age, and propose solutions accordingly.",
+    },
+    {
+        q: "Does zero-commission mean lower quality?",
+        a: "The opposite. Because we're not making up margin through upsells or unnecessary parts, we can focus on doing the job right with quality materials. We install professional-grade units from Rheem or Bradford White — not the consumer-grade models in big-box stores — backed by our 2-year labor warranty and industry-leading manufacturer warranties and support.",
+    },
+    {
+        q: "How do I know the price I see online is the real price?",
+        a: `Use our <a href="/instant-quote/?step=1" class="text-primary underline font-semibold">Exact Quote tool</a> to get your full installed price in 30 seconds — no email, no phone number, no salesman required. We then verify your setup with a photo, video call, or quick site visit to be sure it matches what you entered online. Once verified, the price you see is the price you pay. Permits, labor, materials, and haul-away are all included. There are no unnecessary line items added at the door. Of course, there is the rare instance where we discover an unexpected issue on-site that requires additional work. In those cases, we pause the job and walk you through the issue and the honest price to fix it before we do anything. We want you to feel 100% comfortable with the price and the work before we proceed.`,
+    },
+    {
+        q: "What if my situation is unusual or complex?",
+        a: "Complex installs — venting changes, unit relocations, gas line upgrades — are priced like any other job: upfront and transparent, with optional add-ons that are explained clearly before you commit. If your situation falls outside our standard pricing, we'll walk you through it with you on site or over the phone at no charge.",
+    },
+];
+---
+
+<BaseLayout
+    title="Why Choose a Zero-Commission Water Heater Company | Grand Rapids"
+    description="We don't pay our technicians commissions. No upselling, no wrongful condemnations, no pressure — just honest water heater replacement and repair with transparent upfront pricing."
+    canonical="https://waterheaterreplacementcompany.com/why-us/"
+    faqs={faqs}
+>
+
+    <!-- ─── HERO ─────────────────────────────────────────────────────────────── -->
+    <section class="bg-base-100 text-base-content">
+        <div class="max-w-6xl mx-auto px-6 py-12 sm:py-20 grid md:grid-cols-2 gap-10 items-center">
+
+            <!-- Left: copy -->
+            <div class="flex flex-col gap-6">
+                <div class="flex flex-wrap">
+                    <h1 class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4">
+                        Zero-Commission · Grand Rapids & West Michigan
+                    </h1>
+                    <span class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight mb-4">
+                        We Don't Pay Commissions. Here's Why That Matters to You.
+                    </span>
+                    <p class="text-lg sm:text-xl text-gray-600 max-w-lg mt-4">
+                        Most plumbing companies pay their techs bonuses based on job value. Ours don't. No upsells, no wrongful condemnations, no pressure — just an honest diagnosis and a fair price.
+                    </p>
+                </div>
+                <div class="bg-primary/5 border border-primary/50 rounded-2xl shadow-md p-2 flex flex-wrap items-center max-w-fit px-4">
+                    <span class="text-sm font-semibold text-primary">“Took the time to educate us so we could be empowered, not overpowered. I want you to know how impressed I was by his integrity.” </span>
+                    <span class="text-sm text-gray-700 leading-snug">~Laura B., Hudsonville</span>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <a href="/instant-quote/?step=1" class="btn btn-primary btn-lg text-white shadow-md">
+                        <PriceReceipt />
+                        Get My Exact Quote
+                    </a>
+                    <a href="tel:616-315-0999" class="btn btn-outline btn-lg border-primary text-primary">
+                        <Phone />
+                        616-315-0999
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right: image -->
+            <div class="relative">
+                <img
+                    src={techImg.src}
+                    alt="Water Heater Replacement Company technician in Grand Rapids"
+                    loading="eager"
+                    class="w-full rounded-3xl object-cover shadow-xl"
+                />
+                <!-- floating stat card -->
+                <div class="absolute -bottom-5 -left-4 sm:left-4 bg-white border border-base-300 rounded-2xl shadow-lg px-5 py-4 flex items-center gap-3">
+                    <span class="text-3xl font-black text-primary">$0</span>
+                    <span class="text-sm font-semibold text-gray-700 leading-snug">Tech<br/>Commissions</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <TrustStrip />
+
+    <!-- ─── THE COMMISSION PROBLEM ────────────────────────────────────────────── -->
+    <section class="py-20 px-6 bg-base-200 text-base-content border-t border-base-300">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-14">
+                <span class="inline-block bg-error/10 text-error text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">The Problem With Most Companies</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-3">How Commission-Based Incentives Hurt You</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    In most home service businesses, the technician who shows up at your door is paid based on what they sell. That creates a conflict of interest that works against you at every step.
+                </p>
+            </div>
+
+            <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {[
+                    {
+                        title: "Wrongful Condemnations",
+                        desc: "A tech paid on commission earns far more from a $1,800 replacement than a $120 repair. When a repairable unit is declared 'not worth fixing,' ask yourself: who benefits from that diagnosis?",
+                        icon: "M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z",
+                        color: "error",
+                    },
+                    {
+                        title: "Unnecessary Part Upsells",
+                        desc: "Commission incentives lead to \"while I'm in here\" add-ons — expansion tanks, thermal cutoffs, or sediment filters you may not need. Each add-on increases the tech's payout regardless of whether it benefits your home.",
+                        icon: "M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z",
+                        color: "error",
+                    },
+                    {
+                        title: "Brand Steering",
+                        desc: "Some techs are incentivized to push specific equipment models where the company makes a higher margin. You may be quoted a premium unit when a mid-tier model would serve you just as well at a lower cost.",
+                        icon: "M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z",
+                        color: "error",
+                    },
+                    {
+                        title: "Pressure to Decide Now",
+                        desc: "Commission-driven techs often use urgency tactics — 'I can't guarantee this price tomorrow' or 'this is a safety hazard you need to address today.' The pressure is designed to prevent you from getting a second opinion.",
+                        icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
+                        color: "error",
+                    },
+                    {
+                        title: "Hidden Diagnostic Fees",
+                        desc: "A \"free estimate\" from a commission-based company is rarely free in practice. The tech's time on your job is a sunk cost they recover by upselling. Our quotes are genuinely free — and so is saying no.",
+                        icon: "M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z",
+                        color: "error",
+                    },
+                    {
+                        title: "Service Plans as a Capture Tactic",
+                        desc: "Monthly 'maintenance clubs' and service agreements can be legitimate — but in a commission-based model they're often a way to lock you in so the same tech gets first access to future upsell opportunities in your home.",
+                        icon: "M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z",
+                        color: "error",
+                    },
+                ].map(({ title, desc, icon, color }) => (
+                    <div class="flex gap-4 p-6 bg-base-100 rounded-2xl border border-base-300 shadow-sm hover:shadow-md transition-shadow">
+                        <div class={`shrink-0 w-10 h-10 rounded-xl bg-${color}/10 flex items-center justify-center mt-0.5`}>
+                            <svg class={`w-5 h-5 text-${color}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                                <path stroke-linecap="round" stroke-linejoin="round" d={icon} />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-base-content mb-1">{title}</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">{desc}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── OUR MODEL ─────────────────────────────────────────────────────────── -->
+    <section class="py-20 px-6 bg-base-100 text-base-content border-t border-base-300">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-14">
+                <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">How We're Different</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-3">The Zero-Commission Model, Explained</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    We built our business from the ground up to eliminate the conflict of interest that plagues the home services industry.
+                </p>
+            </div>
+
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+                {[
+                    {
+                        number: "01",
+                        title: "Fixed, Published Pricing",
+                        desc: "Our prices are calculated and posted online before you ever speak to us. There is no salesman involved in setting your price — it's determined by your home's setup, not by who shows up.",
+                    },
+                    {
+                        number: "02",
+                        title: "Salaried, Not Commissioned Techs",
+                        desc: "Our technicians are paid a fair, flat rate for their time and work. They have zero financial incentive to recommend anything beyond what your home actually needs.",
+                    },
+                    {
+                        number: "03",
+                        title: "Honest Repair vs. Replace Advice",
+                        desc: "If your unit needs a $100 part, we'll tell you. If it's genuinely at end of life, we'll explain why clearly. We'd rather earn a $100 repair job and your trust than push a replacement you don't need.",
+                    },
+                    {
+                        number: "04",
+                        title: "No Add-On Pressure",
+                        desc: "Optional upgrades like expansion tanks or recirculation pumps are offered as genuine options with clear explanations — never pushed, never padded into your quote without your knowledge.",
+                    },
+                ].map(({ number, title, desc }) => (
+                    <div class="flex flex-col gap-4 p-7 bg-base-100 rounded-3xl border border-base-300 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="w-12 h-12 rounded-full bg-primary text-white text-lg font-black flex items-center justify-center shadow-md shrink-0">
+                            {number}
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-base-content mb-2">{title}</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">{desc}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── WHAT YOU GET ───────────────────────────────────────────────────────── -->
+    <section class="py-20 px-6 bg-base-200 text-base-content border-t border-base-300">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-14">
+                <span class="inline-block bg-secondary/10 text-secondary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">What You Get</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-3">The Difference You'll Actually Feel</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Our model doesn't just benefit you in theory — here's what it looks like on a real job.
+                </p>
+            </div>
+
+            <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {[
+                    {
+                        title: "You Know the Price Before We Arrive",
+                        desc: "Get your exact installed price — including labor, materials, permit, and haul-away — in 30 seconds online. No appointment required, no 'we'll have to see when we get there.'",
+                        icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4",
+                    },
+                    {
+                        title: "You Get the Diagnosis You Actually Need",
+                        desc: "Whether your water heater needs an inexpensive thermocouple or a full replacement, you'll hear the truth — not the recommendation that earns our tech the highest payout.",
+                        icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                    },
+                    {
+                        title: "No High-Pressure Close",
+                        desc: "Take the quote home, sleep on it, compare us — we're not going anywhere. There are no 'today only' prices, fabricated coupons, or manufactured urgency designed to prevent you from thinking it over.",
+                        icon: "M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
+                    },
+                    {
+                        title: "Permitted, Inspected Work",
+                        desc: "Every replacement includes a Michigan mechanical permit and a required inspection. No shortcuts, no 'off the books' discounts. Your home's safety and your warranty depend on it.",
+                        icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
+                    },
+                    {
+                        title: "2-Year Labor Warranty, Included",
+                        desc: "We back our work with a 2-year labor warranty on every installation — not because we're required to, but because we're confident in how we do the job and want you to be too.",
+                        icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-2 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
+                    },
+                    {
+                        title: "Licensed, Local, and Accountable",
+                        desc: "We hold a Michigan Mechanical License and are fully insured. We're not a franchise or an out-of-state call center dispatching subcontractors. When you call, you reach us directly.",
+                        icon: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z",
+                    },
+                ].map(({ title, desc, icon }) => (
+                    <div class="flex gap-4 p-6 bg-base-100 rounded-2xl border border-base-300 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="shrink-0 w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mt-0.5">
+                            <svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                                <path stroke-linecap="round" stroke-linejoin="round" d={icon} />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-base-content mb-1">{title}</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">{desc}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SOCIAL PROOF ──────────────────────────────────────────────────────── -->
+    <section class="py-20 px-6 text-base-content bg-base-200 border-t border-base-300">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-secondary/10 text-secondary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">Real Customers</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-3">Don't Take Our Word for It</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Homeowners across West Michigan share what working with us is actually like.</p>
+            </div>
+
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+                <!-- Nick's long review — collapsible -->
+                <div class="md:col-span-2 lg:col-span-3 bg-base-100 rounded-2xl border border-base-300 shadow-sm overflow-hidden">
+                    <div class="p-6 pb-0">
+                        <div class="flex gap-1 mb-3 text-orange-400">★★★★★</div>
+                        <p class="italic opacity-90 leading-relaxed">
+                            "I cannot recommend Jeff and Water Heater Replacement Company enough! After getting 6 quotes from different companies, Jeff came in as the <span class="font-semibold text-primary">most affordable</span> — and somehow also provided the <span class="font-semibold text-primary">absolute best service</span>. He was even able to install a tankless unit for less than what other companies were quoting me just for a standard tank unit. The value is truly unmatched. What really set Jeff apart..."
+                        </p>
+                    </div>
+                    <div class="collapse bg-base-100 rounded-none border-0">
+                        <input type="checkbox" id="nick-review-toggle" class="peer" />
+                        <div class="collapse-content px-6 pt-0 pb-4 peer-checked:block hidden">
+                            <p class="italic opacity-90 leading-relaxed mt-0">
+                                "...was how easy and stress-free the entire process was. He did a <span class="font-semibold text-primary">FaceTime walkthrough</span> of my setup and was able to give me a <span class="font-semibold text-primary">firm, accurate quote on the spot</span> — no surprises, no runaround. He answered every single question I had with patience and zero sales pressure, which I genuinely appreciated."
+                            </p>
+                            <p class="italic opacity-90 leading-relaxed mt-3">
+                                "When it came time for the installation, he was fast, thorough, and did excellent work. But what really blew me away was the cleanup — he <span class="font-semibold text-primary">left the area cleaner than it was when he started</span>. That kind of attention to detail and professionalism is rare."
+                            </p>
+                            <p class="italic opacity-90 leading-relaxed mt-3">
+                                "If you're looking for someone who is communicative, honest, affordable, and does outstanding work, look no further. Jeff is the real deal. <span class="font-semibold text-primary">10/10, would recommend to anyone without hesitation!</span>"
+                            </p>
+                        </div>
+                        <label for="nick-review-toggle" class="flex items-center gap-1 px-6 pb-3 text-sm font-semibold text-primary cursor-pointer select-none peer-checked:[&_.expand-label]:hidden peer-checked:[&_.collapse-label]:inline">
+                            <span class="expand-label">Read full review ↓</span>
+                            <span class="collapse-label hidden">Show less ↑</span>
+                        </label>
+                    </div>
+                    <div class="px-6 pb-5 border-t border-base-200 pt-4">
+                        <p class="font-bold">— Nick, Grand Rapids</p>
+                    </div>
+                </div>
+
+                <!-- Short reviews -->
+                {[
+                    {
+                        quote: "Loved how easy it was. Got an instant quote online with a really quick response time and was able to schedule next day service. Jeff was super knowledgeable and great to work with, highly recommend!",
+                        author: "Kailyn E. of Grand Rapids",
+                        highlight: "instant quote online",
+                    },
+                    {
+                        quote: "Professional, friendly, fast, and very knowledgeable. Would highly recommend Jeff in Jenison. Thanks for the prompt help!",
+                        author: "Pat O. of Jenison",
+                        highlight: "Professional, friendly, fast",
+                    },
+                    {
+                        quote: "I had a great experience getting my water heater installed. The technician arrived on time, explained the installation process, and completed the job quickly and professionally. Everything was left clean, and the new heater works perfectly. I really appreciate the quality service and would definitely recommend them.",
+                        author: "Maria F. of Holland",
+                        highlight: "Everything was left clean",
+                    },
+                    {
+                        quote: "I'd highly recommend Jeff, nice guy, explained to us the problems with heater and gave a reasonable quote and replaced it right away.",
+                        author: "Doug D. of Jenison",
+                        highlight: "gave a reasonable quote",
+                    },
+                    {
+                        quote: "Called at 11am on a Saturday, he was there by 1 and done by 4. Excellent and professional, would highly recommend him.",
+                        author: "Mark P. of Hudsonville",
+                        highlight: "done by 4",
+                    },
+                ].map(({ quote, author, highlight }) => {
+                    const parts = quote.split(highlight);
+                    return (
+                        <div class="bg-base-100 p-6 rounded-2xl border border-base-300 shadow-sm flex flex-col justify-between">
+                            <div>
+                                <div class="flex gap-1 mb-3 text-orange-400">★★★★★</div>
+                                <p class="italic opacity-90 leading-relaxed">
+                                    "{parts[0]}<span class="font-semibold text-primary not-italic">{highlight}</span>{parts[1]}"
+                                </p>
+                            </div>
+                            <p class="mt-5 font-bold border-t border-base-200 pt-4">~ {author}</p>
+                        </div>
+                    );
+                })}
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── FAQ ───────────────────────────────────────────────────────────────── -->
+    <Faq faqs={faqs} name="faq-why-us" title="Questions About Our Model" />
+
+    <!-- ─── CTA ───────────────────────────────────────────────────────────────── -->
+    <Cta
+        title="Ready to Work With a Company That Has Nothing to Hide?"
+        subtitle="See your exact installed price in 30 seconds. No hidden fees, no pressure, and no personal info required."
+    />
+
+</BaseLayout>
