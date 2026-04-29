@@ -7,4 +7,14 @@ export default defineConfig({
     vite: {
         plugins: [tailwindcss()],
     },
+    redirects: {
+        '/tank-vs-tankless-water-heaters/': '/resources/tank-vs-tankless-water-heaters/',
+        '/products/tank-water-heaters/': '/resources/tank-water-heaters/',
+        '/products/tankless-water-heaters/': '/resources/tankless-water-heaters/',
+        '/products/power-vent-water-heaters/': '/resources/power-vent-water-heaters/',
+        '/products/heat-pump-water-heaters/': '/resources/heat-pump-water-heaters/',
+        '/products/mobile-home-water-heaters/': '/resources/mobile-home-water-heaters/',
+        '/products/gas-tank-water-heaters/': '/resources/gas-tank-water-heaters/',
+        '/products/electric-tank-water-heaters/': '/resources/electric-tank-water-heaters/',
+    },
 });

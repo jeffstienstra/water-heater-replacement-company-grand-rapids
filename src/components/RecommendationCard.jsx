@@ -118,7 +118,7 @@ export default function RecommendationCard({params}) {
     const getNoMatchContent = () => {
         if (answers?.fuel === 'oil') {
             return {
-                title: 'Heads up.',
+                title: 'Yuh-oh.',
                 body: (
                     <>
                         We don’t install fuel oil water heaters at this time. Please review your answers or call{' '}
@@ -220,13 +220,13 @@ export default function RecommendationCard({params}) {
                             {limitedModels.map((model, index) => {
                                 let productLink;
                                 if (model.type === 'tankless') {
-                                    productLink = `/products/tankless-water-heaters/`;
+                                    productLink = `/resources/tankless-water-heaters/`;
                                 } else if (model.type === 'tank' && model.ventType === 'pvc') {
-                                    productLink = `/products/power-vent-water-heaters/`;
+                                    productLink = `/resources/power-vent-water-heaters/`;
                                 } else if (model.type === 'tank' && model.ventType === 'metal') {
-                                    productLink = `/products/gas-tank-water-heaters/`;
+                                    productLink = `/resources/gas-tank-water-heaters/`;
                                 } else if (model.type === 'tank' && model.ventType === 'none') {
-                                    productLink = `/products/electric-tank-water-heaters/`;
+                                    productLink = `/resources/electric-tank-water-heaters/`;
                                 }
                                 // add hybrid tank link if needed
 

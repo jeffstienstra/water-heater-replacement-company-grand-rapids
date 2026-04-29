@@ -6,7 +6,7 @@ import PvcVent from './PvcVent.jsx';
 import QuestionMark from './icons/QuestionMark.jsx';
 import urlHelper from '../lib/urlHelper.js';
 
-export default function QuestionCard({classes, question, options, step, paramKey, params, subQuestion, onSelect, onBack}) {
+export default function QuestionCard({classes, question, options, step, paramKey, params, subQuestion, disclaimer, onSelect, onBack}) {
 	const [hintToShow, setHintToShow] = useState(null);
 	const [selectedValue, setSelectedValue] = useState(null);
 	const answers = Object.fromEntries(params);
@@ -114,6 +114,7 @@ export default function QuestionCard({classes, question, options, step, paramKey
                         onBack={onBack}
                         params={params}
                         subQuestion={subQuestion.subQuestion}
+						disclaimer={subQuestion.disclaimer}
                     />
                 )}
                 {!showThis && showNested}
@@ -145,10 +146,11 @@ export default function QuestionCard({classes, question, options, step, paramKey
 											setHintToShow({hintImages, text: hintText, title: hintTitle});
 											setCurrentImageIndex(0);
 										}}
-										className="text-gray-400 hover:text-primary transition"
+										className="text-primary/50 hover:text-primary transition mr-3 border-2 rounded-lg p-2 hover:cursor-pointer z-10"
 										aria-label="View hint"
 									>
-										<QuestionMark className='text-primary' invert={true}/>
+										<QuestionMark className='text-primary mx-auto' invert={true}/>
+										<span className="block text-xs leading-tight text-gray-700">Click for Example</span>
 									</button>
 								)}
 								<div className="">
@@ -169,15 +171,19 @@ export default function QuestionCard({classes, question, options, step, paramKey
 								/>
 							</div>
 							{isSelected && renderSubQuestion(subQuestion, updatedAnswers)}
-						</div>
-					);
+					</div>
+				);
 				})}
 			</div>
 
+			{disclaimer && (
+				<p className="text-sm max-w-112 text-gray-600 mt-4 text-center px-2">{disclaimer}</p>
+			)}
+
 			{hintToShow && (
-				<div className="fixed inset-0 bg-black/60 z-30 flex justify-center px-4 overflow-scroll" onClick={() => setHintToShow(null)}>
+				<div className="fixed pt-16 sm:pt-24 inset-0 bg-black/60 z-30 flex justify-center px-4 overflow-scroll" onClick={() => setHintToShow(null)}>
 					<div className="bg-white h-fit my-4 rounded-sm shadow-xl max-w-md w-full relative p-4" onClick={(e) => e.stopPropagation()}>
-						<button onClick={() => setHintToShow(null)} className="px-3 py-2 absolute top-0 right-0 rounded-sm text-gray-400 hover:bg-gray-200">
+						<button onClick={() => setHintToShow(null)} className="px-3 py-2 absolute top-0 right-0 rounded-sm text-primary text-lg font-bold hover:bg-gray-200">
 							X
 						</button>
 						{hintToShow.title && (

@@ -1,0 +1,625 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Cta from "../../components/Cta.astro";
+import SocialProof from "../../components/SocialProof.astro";
+import PriceReceipt from "../../components/icons/PriceReceipt.astro";
+import Phone from "../../components/icons/Phone.astro";
+import heroImg from "../../assets/images/wh-tank-product-family.webp";
+import natDraftImg from "../../assets/images/wh-natDraftGroup.png";
+import powerVentImg from "../../assets/images/wh-powerVentGroup.png";
+import natDraftSingleImg from "../../assets/images/wh-natDraft.webp";
+import powerVentSingleImg from "../../assets/images/wh-pv.webp";
+import electricImg from "../../assets/images/wh-elec.webp";
+import TrustStrip from "../../components/TrustStrip.astro";
+---
+
+<BaseLayout
+    title="Tank Water Heaters | Natural Draft, Power Vent, Gas, Electric | Grand Rapids"
+    description="Everything you need to know about tank water heaters — natural draft vs power vent, gas vs electric vs propane, lifespan, pros and cons, and how to choose the right one for your West Michigan home."
+    canonical="https://waterheaterreplacementcompany.com/resources/tank-water-heaters/"
+>
+
+    <!-- ─── HERO ─────────────────────────────────────────────────────────────── -->
+    <section class="bg-base-100 text-base-content border-b border-base-300">
+        <div class="max-w-6xl mx-auto px-6 py-12 sm:py-20 grid md:grid-cols-2 gap-10 items-center">
+
+            <!-- Left: copy -->
+            <div class="flex flex-col gap-6">
+                <div>
+                    <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4">
+                        Grand Rapids & West Michigan
+                    </span>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight mb-4">
+                        Tank Water Heaters: Everything You Need to Know
+                    </h1>
+                    <p class="text-lg sm:text-xl text-gray-600 max-w-lg">
+                        Natural draft or power vent? Gas, propane, or electric? We break down every type so you can make a confident decision — then get your exact installed price in 30 seconds.
+                    </p>
+                </div>
+
+            <div class="flex flex-col sm:flex-row gap-3 mt-2">
+                <a href="/instant-quote/?step=1" class="btn btn-primary btn-lg text-white shadow-md">
+                    <PriceReceipt />
+                    Get My Exact Quote
+                </a>
+                <a href="tel:616-315-0999" class="btn btn-outline btn-lg border-primary text-primary">
+                    <Phone />
+                    616-315-0999
+                </a>
+            </div>
+            <p class="text-sm text-gray-500">We'll recommend the right tank for your home — no upsell, no pressure.</p>
+            </div>
+
+            <!-- Right: image -->
+            <div class="rounded-3xl overflow-hidden shadow-xl border border-base-300 bg-base-200 flex items-center justify-center p-10">
+                <img
+                    src={heroImg.src}
+                    alt="Rheem tank water heater product lineup — natural draft, power vent, gas, electric"
+                    loading="eager"
+                    class="w-full max-w-xs object-contain mx-auto"
+                />
+            </div>
+        </div>
+    </section>
+
+    <TrustStrip />
+
+    <!-- ─── OVERVIEW ──────────────────────────────────────────────────────────── -->
+    <section class="py-20 px-6 bg-base-100 text-base-content border-b border-base-300">
+        <div class="max-w-4xl mx-auto text-center flex flex-col items-center gap-5">
+            <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full">How They Work</span>
+            <h2 class="text-3xl sm:text-4xl font-bold">What Is a Tank Water Heater?</h2>
+            <p class="text-gray-600 text-lg leading-relaxed max-w-3xl">
+                A storage tank water heater keeps 30–80 gallons of water heated and ready at all times. A gas burner, electric heating elements, or a propane burner maintains your set temperature continuously. When you turn on a hot tap, pre-heated water flows out immediately — no wait, no ramp-up.
+            </p>
+            <p class="text-gray-600 text-lg leading-relaxed max-w-3xl">
+                They're the most common type of water heater in West Michigan homes by a wide margin. Simple, proven technology with a track record measured in decades. The main decisions are which <strong>vent type</strong> your home supports and which <strong>fuel source</strong> you're working with.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 mt-2">
+                <a href="#vent-types" class="btn btn-outline border-primary text-primary btn-lg">
+                    Natural Draft vs Power Vent →
+                </a>
+                <a href="#fuel-types" class="btn btn-outline border-primary text-primary btn-lg">
+                    Gas vs Electric vs Propane →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── VENT TYPES ────────────────────────────────────────────────────────── -->
+    <section id="vent-types" class="py-20 px-6 bg-base-200 text-base-content border-b border-base-300">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-14">
+                <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">Gas & Propane Units</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-3">Vent Types: Natural Draft vs. Power Vent</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+                    Gas and propane tank water heaters come in two venting styles. Your home's existing setup usually determines which one you need.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-8">
+
+                <!-- Natural Draft -->
+                <div class="bg-base-100 rounded-3xl border-2 border-base-300 overflow-hidden shadow-sm flex flex-col">
+                    <div class="bg-primary/5 px-8 py-6 flex flex-wrap items-center gap-4 border-b border-base-300">
+                        <img src={natDraftImg.src} alt="Natural draft tank water heater" class="h-24 w-auto object-contain" />
+                        <div>
+                            <p class="text-xs font-bold tracking-widest uppercase text-primary mb-1">Standard</p>
+                            <h3 class="text-2xl font-black">Natural Draft</h3>
+                            <p class="text-sm text-gray-500 mt-0.5">Gas · Propane</p>
+                        </div>
+                    </div>
+                    <div class="px-8 py-6 flex flex-col gap-5 flex-1">
+                        <p class="text-sm text-gray-700 leading-relaxed">
+                            Natural draft units vent combustion gases using natural buoyancy — hot exhaust rises up through a metal flue pipe that runs vertically through the roof or chimney. No electricity required for venting. This is the most common setup in West Michigan homes and the simplest, most affordable option when your home already has the vertical flue in place.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <p class="text-xs font-bold tracking-widest uppercase text-primary mb-2">Advantages</p>
+                                <ul class="space-y-1.5">
+                                    {[
+                                        "No electricity for venting",
+                                        "Lower unit cost",
+                                        "Simple, reliable operation",
+                                        "Same-day replacement in most homes",
+                                        "Wide range of sizes available",
+                                    ].map(item => (
+                                        <li class="text-sm text-gray-700 flex items-start gap-2">
+                                            <span class="text-primary font-bold mt-0.5 shrink-0">·</span>{item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold tracking-widest uppercase text-secondary mb-2">Limitations</p>
+                                <ul class="space-y-1.5">
+                                    {[
+                                        "Requires a metal flue to roof or chimney access",
+                                        "Limited placement flexibility",
+                                        "Must be in or near original location",
+                                    ].map(item => (
+                                        <li class="text-sm text-gray-700 flex items-start gap-2">
+                                            <span class="text-secondary font-bold mt-0.5 shrink-0">·</span>{item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-auto p-4 bg-primary/5 rounded-2xl border border-primary/10">
+                            <p class="text-xs font-semibold text-primary mb-1">Best for:</p>
+                            <p class="text-sm text-gray-600">Homes replacing an existing natural draft unit in the same location. The most common and most straightforward same-day replacement.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Power Vent -->
+                <div class="bg-base-100 rounded-3xl border-2 border-base-300 overflow-hidden shadow-sm flex flex-col">
+                    <div class="bg-secondary/5 px-8 py-6 flex flex-wrap items-center gap-4 border-b border-base-300">
+                        <img src={powerVentImg.src} alt="Power vent tank water heater" class="h-24 w-auto object-contain" />
+                        <div>
+                            <p class="text-xs font-bold tracking-widest uppercase text-secondary mb-1">Flexible Venting</p>
+                            <h3 class="text-2xl font-black">Power Vent</h3>
+                            <p class="text-sm text-gray-500 mt-0.5">Gas · Propane</p>
+                        </div>
+                    </div>
+                    <div class="px-8 py-6 flex flex-col gap-5 flex-1">
+                        <p class="text-sm text-gray-700 leading-relaxed">
+                            Power vent units use an electric blower fan to push exhaust gases through PVC pipes that can run horizontally and up to 60–100 feet. This makes them ideal when there's no existing vertical flue, when you're moving the water heater to a new location, or when the home has a sealed or conditioned space where an atmospheric vent isn't practical.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <p class="text-xs font-bold tracking-widest uppercase text-primary mb-2">Advantages</p>
+                                <ul class="space-y-1.5">
+                                    {[
+                                        "Flexible: vents horizontally or long runs",
+                                        "No vertical flue or chimney required",
+                                        "Can install in more locations",
+                                        "PVC pipe is less expensive than metal flue",
+                                        "Works in newer, tighter construction",
+                                    ].map(item => (
+                                        <li class="text-sm text-gray-700 flex items-start gap-2">
+                                            <span class="text-primary font-bold mt-0.5 shrink-0">·</span>{item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold tracking-widest uppercase text-secondary mb-2">Limitations</p>
+                                <ul class="space-y-1.5">
+                                    {[
+                                        "Requires electricity to operate",
+                                        "Slightly higher unit cost",
+                                        "Blower adds minor noise",
+                                        "More components than natural draft",
+                                    ].map(item => (
+                                        <li class="text-sm text-gray-700 flex items-start gap-2">
+                                            <span class="text-secondary font-bold mt-0.5 shrink-0">·</span>{item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-auto p-4 bg-secondary/5 rounded-2xl border border-secondary/10">
+                            <p class="text-xs font-semibold text-secondary mb-1">Best for:</p>
+                            <p class="text-sm text-gray-600">Homes without an existing vertical flue/chimney, newer construction, or anyone moving their water heater to a different part of the house.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-center text-sm text-gray-500 mt-8">
+                Not sure which vent type your home has? <a href="tel:616-315-0999" class="text-primary underline font-medium">Call us</a> — we can usually tell from a quick description or a photo.
+            </p>
+        </div>
+    </section>
+
+    <!-- ─── FUEL TYPES ────────────────────────────────────────────────────────── -->
+    <section id="fuel-types" class="py-20 px-6 bg-base-100 text-base-content border-b border-base-300">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-14">
+                <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">Fuel Options</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-3">Gas, Propane, or Electric?</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+                    Your home's fuel source is typically already decided for you. Here's how each type performs.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-3 gap-6">
+
+                <!-- Natural Gas -->
+                <div class="bg-base-100 rounded-3xl border-2 border-primary/20 overflow-hidden shadow-sm flex flex-col">
+                    <div class="bg-base-200 px-6 py-5 border-b border-base-300 flex items-center justify-center min-h-40">
+                        <img src={natDraftSingleImg.src} alt="Natural gas tank water heater" class="h-32 w-auto object-contain" />
+                    </div>
+                    <div class="px-6 py-5 flex flex-col gap-4 flex-1">
+                        <div>
+                            <p class="text-xs font-bold tracking-widest uppercase text-primary mb-1">Most Common</p>
+                            <h3 class="text-xl font-black">Natural Gas</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 leading-relaxed">Connected directly to your home's gas line. The most common fuel type in Grand Rapids. Heats water quickly, costs less to operate than electric, and doesn't require any fuel storage.</p>
+                        <ul class="space-y-1.5 mt-auto">
+                            {[
+                                { label: "Recovery rate", value: "Fast — 40–60 GPH" },
+                                { label: "Operating cost", value: "Low" },
+                                { label: "Vent required", value: "Yes" },
+                                { label: "Typical sizes", value: "30, 40, 50, 75 gal" },
+                                { label: "Avg lifespan", value: "10–14 years" },
+                            ].map(({ label, value }) => (
+                                <li class="flex items-start justify-between gap-2 text-xs">
+                                    <span class="text-gray-500 font-medium">{label}</span>
+                                    <span class="text-gray-800 font-semibold text-right">{value}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Propane -->
+                <div class="bg-base-100 rounded-3xl border-2 border-base-300 overflow-hidden shadow-sm flex flex-col">
+                    <div class="bg-base-200 px-6 py-5 border-b border-base-300 flex items-center justify-center min-h-40">
+                        <img src={powerVentSingleImg.src} alt="Propane tank water heater" class="h-32 w-auto object-contain" />
+                    </div>
+                    <div class="px-6 py-5 flex flex-col gap-4 flex-1">
+                        <div>
+                            <p class="text-xs font-bold tracking-widest uppercase text-gray-400 mb-1">Rural & Off-Grid</p>
+                            <h3 class="text-xl font-black">Propane</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 leading-relaxed">Propane units perform nearly identically to natural gas but draw from a propane tank on your property. Common in rural West Michigan homes that don't have access to natural gas lines.</p>
+                        <ul class="space-y-1.5 mt-auto">
+                            {[
+                                { label: "Recovery rate", value: "Fast — similar to gas" },
+                                { label: "Operating cost", value: "Moderate (fuel price varies)" },
+                                { label: "Vent required", value: "Yes" },
+                                { label: "Typical sizes", value: "30, 40, 50 gal" },
+                                { label: "Avg lifespan", value: "10–14 years" },
+                            ].map(({ label, value }) => (
+                                <li class="flex items-start justify-between gap-2 text-xs">
+                                    <span class="text-gray-500 font-medium">{label}</span>
+                                    <span class="text-gray-800 font-semibold text-right">{value}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Electric -->
+                <div class="bg-base-100 rounded-3xl border-2 border-base-300 overflow-hidden shadow-sm flex flex-col">
+                    <div class="bg-base-200 px-6 py-5 border-b border-base-300 flex items-center justify-center min-h-40">
+                        <img src={electricImg.src} alt="Electric tank water heater" class="h-32 w-auto object-contain" />
+                    </div>
+                    <div class="px-6 py-5 flex flex-col gap-4 flex-1">
+                        <div>
+                            <p class="text-xs font-bold tracking-widest uppercase text-gray-400 mb-1">No Venting Required</p>
+                            <h3 class="text-xl font-black">Electric</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 leading-relaxed">Electric units use internal heating elements and require no venting — they can go anywhere with a 240V outlet. Simpler installation, slightly higher operating cost, and a slower recovery rate than gas. Often the only option in all-electric homes.</p>
+                        <ul class="space-y-1.5 mt-auto">
+                            {[
+                                { label: "Recovery rate", value: "Slower — 18–25 GPH" },
+                                { label: "Operating cost", value: "Higher than gas" },
+                                { label: "Vent required", value: "None" },
+                                { label: "Typical sizes", value: "30, 40, 50, 80 gal" },
+                                { label: "Avg lifespan", value: "10–15 years" },
+                            ].map(({ label, value }) => (
+                                <li class="flex items-start justify-between gap-2 text-xs">
+                                    <span class="text-gray-500 font-medium">{label}</span>
+                                    <span class="text-gray-800 font-semibold text-right">{value}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── KEY FEATURES ──────────────────────────────────────────────────────── -->
+    <section class="py-20 px-6 bg-base-200 text-base-content border-b border-base-300">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">What to Look For</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-3">Key Features of a Quality Tank Water Heater</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">These are the specs and features that actually matter when comparing models.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[
+                    {
+                        icon: "M13 10V3L4 14h7v7l9-11h-7z",
+                        title: "First Hour Rating (FHR)",
+                        desc: "How many gallons the unit can deliver in the first hour of use — the most practical performance measure for households. A 50-gallon gas unit typically delivers 80–100 gallons in the first hour.",
+                    },
+                    {
+                        icon: "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15",
+                        title: "Recovery Rate",
+                        desc: "Gallons of cold water heated per hour after the initial supply is used. Gas units recover much faster than electric — important for large households with back-to-back demand.",
+                    },
+                    {
+                        icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z",
+                        title: "Uniform Energy Factor (UEF)",
+                        desc: "The efficiency rating for water heaters. Higher is better. Most standard tank units fall between 0.58–0.70 UEF. Look for models rated 0.64 or higher for better long-term efficiency.",
+                    },
+                    {
+                        icon: "M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
+                        title: "Glass-Lined Tank",
+                        desc: "A protective enamel coating on the inside of the steel tank resists corrosion. Combined with the sacrificial anode rod, it's what gives a quality tank its lifespan.",
+                    },
+                    {
+                        icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
+                        title: "Anode Rod",
+                        desc: "A sacrificial magnesium or aluminum rod inside the tank that corrodes slowly to protect the steel lining. Replacing it every 3–5 years significantly extends tank life. Often the single best maintenance investment.",
+                    },
+                    {
+                        icon: "M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z",
+                        title: "Temperature & Pressure Relief Valve",
+                        desc: "A critical safety device required on every tank water heater. It releases pressure if the tank overheats or over-pressurizes, preventing rupture.",
+                    },
+                ].map(({ icon, title, desc }) => (
+                    <div class="bg-base-100 rounded-2xl p-6 border border-base-300 shadow-sm flex flex-col gap-3">
+                        <div class="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                            <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                                <path stroke-linecap="round" stroke-linejoin="round" d={icon} />
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-base-content">{title}</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">{desc}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── PROS & CONS ───────────────────────────────────────────────────────── -->
+    <section class="py-20 px-6 bg-base-100 text-base-content border-b border-base-300">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">The Full Picture</span>
+                <h2 class="text-3xl sm:text-4xl font-bold">Pros & Cons of Tank Water Heaters</h2>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-8">
+                <div class="bg-base-100 rounded-2xl p-7 border-2 border-primary/20 shadow-sm">
+                    <p class="text-sm font-bold text-primary mb-4 flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                        What Tank Water Heaters Do Well
+                    </p>
+                    <ul class="space-y-3">
+                        {[
+                            { item: "Lower upfront cost", detail: "Tank units cost significantly less to purchase and install than tankless." },
+                            { item: "Immediate hot water delivery", detail: "Pre-stored water means hot water reaches your tap as fast as the pipes allow." },
+                            { item: "Works with any fuel type", detail: "Gas, propane, and electric — you don't need gas to have a reliable tank unit." },
+                            { item: "Simple, proven technology", detail: "Fewer components means less to go wrong, and any plumber can service one." },
+                            { item: "High first-hour capacity", detail: "A properly sized gas tank can deliver 80–100+ gallons in the first hour." },
+                            { item: "Same-day replacement", detail: "Most standard tank replacements are done in a few hours from a single visit." },
+                        ].map(({ item, detail }) => (
+                            <li class="flex items-start gap-3 text-sm">
+                                <svg class="w-4 h-4 text-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <div>
+                                    <span class="font-semibold text-base-content">{item}</span>
+                                    <span class="text-gray-800"> — {detail}</span>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div class="bg-base-100 rounded-2xl p-7 border-2 border-base-300 shadow-sm">
+                    <p class="text-sm font-bold text-secondary mb-4 flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4"/></svg>
+                        Tank Water Heater Limitations
+                    </p>
+                    <ul class="space-y-3">
+                        {[
+                            { item: "Finite hot water supply", detail: "Once the tank is depleted, you wait for recovery before getting more hot water." },
+                            { item: "Standby heat loss", detail: "The unit maintains temperature around the clock, using energy even when no hot water is needed." },
+                            { item: "Shorter lifespan than tankless", detail: "10–14 years vs. 20+ for a tankless unit — you'll replace it sooner." },
+                            { item: "Floor space required", detail: "A standard tank takes a roughly 24\" × 24\" footprint plus 60\"+ of vertical clearance." },
+                            { item: "Sediment buildup over time", detail: "Hard water minerals settle at the bottom of the tank and reduce efficiency if the tank isn't flushed annually." },
+                        ].map(({ item, detail }) => (
+                            <li class="flex items-start gap-3 text-sm">
+                                <span class="text-gray-400 font-black text-base mt-0 shrink-0">–</span>
+                                <div>
+                                    <span class="font-semibold text-base-content">{item}</span>
+                                    <span class="text-gray-800"> — {detail}</span>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── LIFESPAN & MAINTENANCE ────────────────────────────────────────────── -->
+    <section class="py-20 px-6 bg-base-200 text-base-content border-b border-base-300">
+        <div class="max-w-5xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
+            <div>
+                <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4">Long-Term Value</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Lifespan & How to Extend It</h2>
+                <p class="text-gray-600 text-base leading-relaxed mb-4">
+                    A quality tank water heater installed by a licensed plumber will typically last <strong>10–14 years</strong>. Electric units often reach the higher end of that range since there's no combustion cycle wear. Units in homes with hard water (very common in West Michigan) can age faster without maintenance.
+                </p>
+                <p class="text-gray-600 text-base leading-relaxed mb-6">
+                    The single biggest factor in lifespan is the anode rod. Most homeowners don't know it exists — it's a magnesium or aluminum rod inside the tank that corrodes slowly to protect the steel lining. When it's depleted, the tank itself starts to corrode. Replacing it every 3–5 years can add years to your unit's life.
+                </p>
+
+                <div class="flex flex-col gap-3">
+                    {[
+                        { year: "Every year", task: "Flush several gallons through the drain valve to remove sediment buildup from the bottom of the tank." },
+                        { year: "Every year", task: "Test the temperature/pressure relief (TPR) valve by lifting the lever briefly to confirm it releases and reseals properly." },
+                        { year: "Every 3–5 yrs", task: "Inspect and replace the anode rod. This is the most impactful maintenance task for extending tank life." },
+                        { year: "Every 3–5 yrs", task: "Replace the TPR valve if it shows signs of corrosion, mineral buildup, or doesn't reseat cleanly." },
+                        { year: "At ~10 yrs", task: "Start budgeting for replacement. Even a healthy unit at 10+ years is past its most reliable window." },
+                    ].map(({ year, task }) => (
+                        <div class="flex gap-4 p-4 bg-base-100 rounded-xl border border-base-300">
+                            <span class="text-xs font-bold text-primary whitespace-nowrap mt-0.5 w-20 shrink-0">{year}</span>
+                            <p class="text-sm text-gray-700 leading-relaxed">{task}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-5 lg:pt-14">
+                <div class="bg-base-100 rounded-2xl p-6 border border-base-300 shadow-sm">
+                    <p class="text-sm font-bold text-primary mb-2">When should you replace instead of repair?</p>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        If your unit is over 10 years old, any repair worth more than a minor part (anode rod, thermostats, elements) is usually a poor investment. The tank itself degrades over time regardless of how well you maintain it. A leaking tank is never repairable — that's always a replacement.
+                    </p>
+                </div>
+                <div class="bg-base-100 rounded-2xl p-6 border border-base-300 shadow-sm">
+                    <p class="text-sm font-bold text-primary mb-2">Signs it's time to replace your tank water heater:</p>
+                    <ul class="space-y-1.5">
+                        {[
+                            "Age 10+ years",
+                            "Rusty or discolored hot water",
+                            "Rumbling or popping sounds",
+                            "Visible corrosion or leaking at the base",
+                            "Inconsistent water temperature",
+                            "Noticeably higher energy bills",
+                        ].map(item => (
+                            <li class="flex items-start gap-2 text-sm text-gray-700">
+                                <svg class="w-4 h-4 text-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                {item}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+                <a href="/instant-quote/?step=1" class="btn btn-primary text-white w-full">
+                    <PriceReceipt />
+                    Get My Exact Replacement Quote
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── WHAT'S INCLUDED ──────────────────────────────────────────────────── -->
+    <section class="py-20 px-6 bg-base-200 text-base-content border-b border-base-300">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">No Surprises</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-3">What's Included with Every Installation</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">One price covers everything below — no line-item surprises, no return trips to finish the job.</p>
+            </div>
+
+            <!-- 4 highlight cards -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+                {[
+                    { icon: "M2 7h20v4H2V7z M4 11h16v11H4V11z M12 7v15 M12 7C9 3 6 4 8 7C9 9 11 8 12 7 M12 7C15 3 18 4 16 7C15 9 13 8 12 7",
+                        item: "Professional Grade Water Heater",
+                        detail: "Rheem professional grade water heater - not a generic box store unit - sized for your home. Often installed the same day." },
+                    { icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
+                        item: "2-Year Craftsmanship Guarantee",
+                        detail: "We’re professionals in our field, but we’re also human. If we make a mistake on your installation, we take full responsibility and will come back to fix it at no charge." },
+                    { icon: "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z",
+                        item: "One Price, Zero Surprises",
+                        detail: "No additional fees, addons, or upsells. All parts & labor included: removal of old unit, installation, connections, testing — one tech, one visit, one price." },
+                    { icon: "M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z",
+                        item: "100% Satisfaction Guarantee",
+                        detail: "We stay until the job is finished, your questions are answered and you feel confident using your new system."
+                    },
+                ].map(({ icon, item, detail }) => (
+                    <div class="bg-base-100 rounded-2xl p-6 border-2 border-primary/15 shadow-sm flex flex-col gap-3">
+                        <div class="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                            <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                                <path stroke-linecap="round" stroke-linejoin="round" d={icon} />
+                            </svg>
+                        </div>
+                        <p class="font-bold text-base-content">{item}</p>
+                        <p class="text-sm text-gray-500 leading-relaxed">{detail}</p>
+                    </div>
+                ))}
+            </div>
+
+            <!-- Remaining items as a bullet list -->
+            <div class="bg-base-100 rounded-2xl border border-base-300 shadow-sm px-8 py-7">
+                <p class="text-xs font-bold tracking-widest uppercase text-gray-400 mb-5">Also included — every time</p>
+                <ul class="grid sm:grid-cols-2 gap-x-10 gap-y-2.5">
+                    {[
+                        "Rheem Manufacturer's warranty (typically 6–12 years for tanks)",
+                        "Code-compliant venting",
+                        "New cold water shutoff valve (if needed)",
+                        "New gas shutoff valve (if needed)",
+                        "Drain pan & drain line (if needed)",
+                        "Water leak alarm",
+                        "Haul away of old unit",
+                        "Floor protection during install",
+                        "Complete cleanup when we're done",
+                        "Full operational test before we leave",
+                        "Homeowner walkthrough of new equipment",
+                        "Mechanical permit with local township",
+                        "Inspection scheduling & final approval",
+                    ].map(item => (
+                        <li class="flex items-start gap-2 text-sm text-gray-700">
+                            <svg class="w-4 h-4 text-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            {item}
+                        </li>
+                    ))}
+                </ul>
+            </div>
+
+            <div class="mt-10 text-center">
+                <a href="/instant-quote/?step=1" class="btn btn-primary btn-lg text-white shadow-md">
+                    <PriceReceipt />
+                    Get My Exact Quote
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SOCIAL PROOF ──────────────────────────────────────────────────────── -->
+    <SocialProof />
+
+    <!-- ─── FAQ ───────────────────────────────────────────────────────────────── -->
+    <section class="py-20 px-6 bg-base-100 text-base-content border-t border-base-300">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-10">
+                <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">FAQ</span>
+                <h2 class="text-3xl sm:text-4xl font-bold">Common Questions</h2>
+            </div>
+
+            <div class="flex flex-col gap-3">
+                {[
+                    {
+                        q: "How do I know if I have a natural draft or power vent water heater?",
+                        a: "Look at the top of your water heater. If there's a large metal flue pipe (3\"–4\" diameter) that connects to your chimney or runs up through the ceiling, it's natural draft. If there's plastic PVC pipe running horizontally out through a wall, that's a power vent. You'll also notice a small blower fan and electrical cord on top of a power vent water heater.",
+                    },
+                    {
+                        q: "What size tank do I need?",
+                        a: "For most West Michigan households: 40 gallons handles 1–3 people, 50 gallons handles 3–4 people, and 75+ gallons is appropriate for 5 or more. But first-hour rating matters more than tank size alone — a 50-gallon gas unit can deliver far more hot water in the first hour than a 50-gallon electric unit. We'll help you right-size based on your household's actual usage pattern.",
+                    },
+                    {
+                        q: "Can I switch from natural draft to power vent?",
+                        a: "Yes, and it's a common upgrade. If your vertical flue is deteriorating, you want to remove your chimney, or you want to move the unit, switching to power vent avoids the expense of rebuilding a metal flue. The PVC venting for a power vent unit is less expensive and more flexible. We'll let you know if a switch makes sense for your situation.",
+                    },
+                    {
+                        q: "Can I switch from gas to electric, or electric to gas?",
+                        a: "You can, but it comes with tradeoffs. Switching from electric to gas requires a gas line to be run to the location, which adds cost but results in a faster-recovering, lower-operating-cost unit. Switching from gas to electric is simpler if you have a 240V circuit nearby, but you'll give up some recovery speed. If you're already replacing a failed unit, we can walk you through whether a fuel switch makes sense.",
+                    },
+                    {
+                        q: "How long does a tank water heater installation take?",
+                        a: "Most standard replacements — same vent type, same location — take 2–3 hours from arrival. If you're switching vent types, moving the unit, or upgrading a gas line, plan for a half-day to full day. We'll give you an accurate time estimate before we start.",
+                    },
+                    {
+                        q: "Do I need a permit for a water heater replacement in West Michigan?",
+                        a: "Yes. A permit is required for all water heater replacements in Grand Rapids and most West Michigan municipalities. We pull the permit and schedule the inspection as part of every installation — it's included in your price. Some contractors skip this to save time and hassle; we won't. It is required by the state for your protection and ensures the work is inspected for safety and code compliance. If you see a quote that doesn't include a permit, or a contractor that offers a discount to bypass an inspection, that's a red flag.",
+                    },
+                ].map(({ q, a }, i) => (
+                    <div class="collapse collapse-arrow border border-base-300 rounded-2xl bg-base-100">
+                        <input type="radio" name="faq-tank" checked={i === 0} />
+                        <div class="collapse-title text-base font-semibold py-5 pr-10">{q}</div>
+                        <div class="collapse-content text-gray-600 text-sm leading-relaxed">
+                            <p>{a}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── FINAL CTA ─────────────────────────────────────────────────────────── -->
+    <Cta
+        title="Ready to Replace Your Tank Water Heater?"
+        subtitle="Get your exact installed price in 30 seconds — or call us and we'll walk you through the right option for your home."
+    />
+
+</BaseLayout>

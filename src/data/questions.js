@@ -15,6 +15,7 @@ const questions = [
 			{label: 'Large: 60-75 Gallons', value: 'large'},
 			// {label: 'Extra Large: 80+ Gallons', value: 'XL'},
 		],
+		disclaimer: 'Looking for something else? Just ask! We can install a wide range of water heater sizes and types.',
 		shouldShow: (answers) => answers.interestedIn === 'tank',
 	},
 	{
@@ -68,13 +69,30 @@ const questions = [
 			paramKey: 'ventType',
 			question: 'How is your current water heater vented?',
 			options: [
-				{label: 'Plastic (white PVC pipe)', value: 'pvc'},
-				{label: 'Metal (silver or gray pipe)', value: 'metal'},
+				{
+					label: 'Plastic (white PVC pipe)',
+					value: 'pvc',
+					hintImages: [
+						{src: '/images/wh-example-pv.webp', alt: 'A water heater with a PVC vent pipe.'},
+					],
+					hintTitle: 'PVC/Plastic Venting',
+					hintText: `If your water heater plugs into an electrical outlet and has a fan/blower on top it is a power vent water heater, vented with white plastic PVC pipe directly to the outside.`
+				},
+				{
+					label: 'Metal (silver or gray pipe)',
+					value: 'metal',
+					hintImages: [
+							{src: '/images/wh-example-natDraft.webp', alt: 'Water heater with a metal vent pipe.'},
+						],
+						hintTitle: 'Metal Venting',
+						hintText: `If your water heater has a metal vent pipe (usually silver or gray) that runs from the top of the water heater to the ceiling, wall, or chimney, it is vented with metal. This is common for natural draft gas water heaters and some propane models.`
+				},
 				// {label: "I don't know", value: 'unsure'}
 			],
+			disclaimer: 'The exhaust vent pipe is typically the largest pipe connected to the top of your water heater. It may run horizontally or vertically and is usually made of metal or plastic.',
 			shouldShow: (answers) => {
 				const fuel = answers.fuel;
-				return fuel && fuel === 'gas' || fuel === 'propane';
+				return fuel && (fuel === 'gas' || fuel === 'propane');
 			},
 			// subQuestion: {
 			// 	paramKey: 'ventingTermination',

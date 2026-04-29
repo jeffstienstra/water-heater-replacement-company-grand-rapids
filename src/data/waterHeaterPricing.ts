@@ -1,6 +1,6 @@
 export const pricingOptions = [
 	{
-		title: "40-Gallon Standard Tank Water Heater (Gas or Electric)",
+		title: "Standard Tank Water Heater (Gas or Electric)",
 		price: "$1,595",
 		image: "natDraftGroup",
 		features: [
@@ -21,10 +21,10 @@ export const pricingOptions = [
 			"All required utility connections (water, gas, electric)",
 			"Work performed to code, with permit"
 		],
-        slug: "40-gallon-standard-tank-water-heater-gas-or-electric"
+        slug: "50-gallon-standard-tank-water-heater-gas-or-electric"
 	},
 	{
-		title: "40-Gallon Gas Power Vent Tank Water Heater",
+		title: "Gas Power Vent Tank Water Heater",
 		price: "$2,695",
 		image: "powerVentGroup",
 		features: [
@@ -32,7 +32,8 @@ export const pricingOptions = [
 			"Removal & disposal of old tank",
 			"All required utility connections",
 			"Work performed to code, with permit"
-		]
+		],
+		slug: "40-gallon-standard-tank-water-heater-gas-power-vent"
 	},
 	{
 		title: "50-Gallon Gas Power Vent Tank Water Heater",
@@ -43,7 +44,20 @@ export const pricingOptions = [
 			"Removal & disposal of old tank",
 			"All required utility connections",
 			"Work performed to code, with permit"
-		]
+		],
+		slug: "50-gallon-standard-tank-water-heater-gas-power-vent"
+	},
+	{
+		title: "Electric Tank Water Heater",
+		price: "$1,695",
+		image: "hybridGroup",
+		features: [
+			"Standard replacement in same location",
+			"Removal & disposal of old tank",
+			"All required utility connections",
+			"Work performed to code, with permit"
+		],
+		slug: "40-gallon-standard-tank-water-heater-electric"
 	},
 	{
 		title: "Tankless Water Heater",

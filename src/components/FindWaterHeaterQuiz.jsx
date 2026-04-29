@@ -134,6 +134,7 @@ export default function FindWaterHeaterQuiz() {
 							paramKey={current.paramKey}
 							step={step}
 							subQuestion={current.subQuestion}
+							disclaimer={current.disclaimer}
 							params={params}
 							onSelect={handleAnswer}
 							onBack={handleBack}

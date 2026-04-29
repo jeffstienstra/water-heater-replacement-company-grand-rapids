@@ -1,0 +1,224 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PriceReceipt from '../components/icons/PriceReceipt.astro';
+import Phone from '../components/icons/Phone.astro';
+
+import hubHeroImg from '../assets/images/wh-elec.webp';
+import svcReplacementImg from '../assets/images/wh-elec.webp';
+import svcTankImg from '../assets/images/wh-elec.webp';
+import svcTanklessImg from '../assets/images/wh-elec.webp';
+import svcUpgradeImg from '../assets/images/wh-elec.webp';
+import svcRepairImg from '../assets/images/wh-elec.webp';
+import svcLeakingImg from '../assets/images/wh-elec.webp';
+
+const services = [
+	{
+		title: 'Water Heater Replacement',
+		description: 'When your current unit is failing or dead. Fast, clean, code-compliant replacement.',
+		href: '/services/water-heater-replacement/',
+		badge: 'Most common',
+		image: svcReplacementImg,
+		imageAlt: 'New tank water heater installed in a clean utility area.'
+	},
+	{
+		title: 'Tank Water Heater Installation',
+		description: 'Standard tank installs (gas or electric) with upfront installed pricing and prepared techs.',
+		href: '/services/tank-water-heater-installation/',
+		badge: 'Tank',
+		image: svcTankImg,
+		imageAlt: 'Standard tank water heater installation with tidy piping and shutoff.'
+	},
+	{
+		title: 'Tankless Water Heater Installation',
+		description: 'New tankless installs with the right sizing, venting, and gas/electrical requirements.',
+		href: '/services/tankless-water-heater-installation/',
+		badge: 'Tankless',
+		image: svcTanklessImg,
+		imageAlt: 'Wall-mounted tankless water heater installation.'
+	},
+	{
+		title: 'Upgrade to a Tankless Water Heater',
+		description: 'Switch from tank to tankless. We confirm your setup so there are no install-day surprises.',
+		href: '/services/upgrade-to-tankless/',
+		badge: 'Upgrade',
+		image: svcUpgradeImg,
+		imageAlt: 'Tank-to-tankless upgrade with venting and gas line visible.'
+	},
+	{
+		title: 'Water Heater Repair',
+		description: 'If it’s worth fixing, we’ll fix it. If not, we’ll tell you that too.',
+		href: '/services/water-heater-repair/',
+		badge: 'Repair',
+		image: svcRepairImg,
+		imageAlt: 'Technician checking a water heater control panel.'
+	},
+	{
+		title: 'Water Heater Leaking',
+		description: 'Leaks move fast. We’ll help you determine next steps and, when needed, replace quickly.',
+		href: '/services/water-heater-leaking/',
+		badge: 'Urgent',
+		image: svcLeakingImg,
+		imageAlt: 'Water heater with visible leak mitigation setup.'
+	}
+];
+
+const quickLinks = [
+	{label: 'Get My Exact Quote', href: '/instant-quote/?step=1', icon: 'price'},
+	{label: 'Call a Technician', href: 'tel:616-315-0999', icon: 'phone'}
+];
+---
+
+<BaseLayout title="Services | Water Heater Replacement Company">
+	<section class="px-6 pt-10 sm:pt-16 pb-10 text-base-content">
+		<div class="max-w-6xl mx-auto">
+			<!-- Page header band -->
+			<div class="bg-primary/10 border border-primary/20 rounded-2xl p-6 sm:p-10 text-center">
+				<h1 class="text-primary font-bold tracking-widest uppercase text-xs sm:text-sm">
+					Water Heater Services in West Michigan
+                </h1>
+				<p class="text-3xl sm:text-5xl font-black mt-2 mb-4">
+					Clear pricing. No wasted time.
+                </p>
+				<p class="text-lg sm:text-xl max-w-3xl mx-auto text-gray-700">
+					We focus on water heater repair and replacements with upfront pricing and quick confirmation — so you can get back to literally anything else.
+				</p>
+
+				<div class="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+					<a href={quickLinks[0].href} class="btn btn-primary btn-lg text-white w-full sm:w-auto">
+						<PriceReceipt />
+						{quickLinks[0].label}
+					</a>
+					<a href={quickLinks[1].href} class="btn btn-outline btn-lg bg-white/50 text-black shadow-sm w-full sm:w-auto">
+						<Phone />
+						{quickLinks[1].label}
+					</a>
+				</div>
+
+				<p class="mt-4 text-sm text-gray-600">
+					Grand Rapids & West Michigan • No commission techs • No sales visits
+				</p>
+			</div>
+            <!-- Hero image slot -->
+            <div class="mt-8">
+                <img
+                    src={hubHeroImg.src}
+                    alt="Service van or clean install photo supporting Water Heater Replacement Company services."
+                    loading="lazy"
+                    class="w-full rounded-2xl border border-base-300 shadow-sm object-cover aspect-[16/9] sm:aspect-[21/9]"
+                />
+            </div>
+
+			<!-- Services grid -->
+			<div class="mt-10 sm:mt-14">
+				<div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6">
+					<div>
+						<h2 class="text-2xl sm:text-3xl font-bold">How can we help?</h2>
+						<!-- <p class="text-gray-700 mt-1">
+							If you’re not sure which one applies, pick the closest match or just use instant pricing.
+						</p> -->
+					</div>
+
+					<a href="/instant-quote/?step=1" class="text-primary font-semibold underline w-fit">
+						Not sure? Start with our  Exact Price Tool for Water Heater Replacements
+					</a>
+				</div>
+
+				<div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+					{services.map((s) => (
+						<a
+							href={s.href}
+							class="
+								group
+								bg-base-100
+								border
+								border-base-300
+								rounded-2xl
+								shadow-sm
+								p-6
+								text-left
+								hover:shadow-lg
+								transition-shadow
+								flex
+								flex-col
+							"
+						>
+                            <div class="rounded-xl overflow-hidden border border-base-300 bg-base-200">
+                                <img
+                                    src={s.image.src}
+                                    alt={s.imageAlt}
+                                    loading="lazy"
+                                    class="w-full object-cover aspect-[16/9]"
+                                />
+                            </div>
+							<div class="flex items-start justify-between gap-4">
+								<h3 class="text-xl font-semibold leading-snug">
+									{s.title}
+								</h3>
+								<span
+									class={`text-xs font-semibold px-2 py-1 my-auto rounded ${
+										s.badge === 'Urgent'
+											? 'bg-secondary/15 text-secondary'
+											: 'bg-primary/10 text-primary'
+									}`}
+								>
+									{s.badge}
+								</span>
+							</div>
+
+							<p class="text-gray-700 mt-3 leading-relaxed">
+								{s.description}
+							</p>
+
+							<div class="mt-5 flex items-center gap-2 text-primary font-semibold">
+								View details
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="18"
+									height="18"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="3"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									class="group-hover:translate-x-0.5 transition-transform"
+								>
+									<path d="M5 12h14"></path>
+									<path d="M13 5l7 7-7 7"></path>
+								</svg>
+							</div>
+						</a>
+					))}
+				</div>
+			</div>
+
+			<!-- Not sure strip -->
+			<div class="mt-12 sm:mt-16 bg-base-100 border border-base-300 rounded-2xl shadow-sm p-6 sm:p-8">
+				<div class="grid md:grid-cols-3 gap-6 items-center">
+					<div class="md:col-span-2 text-center md:text-left">
+						<h3 class="text-2xl font-bold mb-2">Not sure what you need?</h3>
+						<p class="text-gray-700">
+							Start with instant pricing, then we’ll confirm your setup by quick video call or brief site visit at no cost.
+							If you’d rather talk first, call — you’ll reach a technician.
+						</p>
+						<p class="text-sm text-gray-500 mt-3">
+							*Final requirements are confirmed before any work begins.
+						</p>
+					</div>
+
+					<div class="flex flex-col gap-3">
+						<a href="/instant-quote/?step=1" class="btn btn-primary text-white w-full">
+							<PriceReceipt />
+							Get Instant Pricing
+						</a>
+						<a href="tel:616-315-0999" class="btn btn-outline bg-white/50 text-black shadow-sm w-full">
+							<Phone />
+							Call a Technician
+						</a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+</BaseLayout>

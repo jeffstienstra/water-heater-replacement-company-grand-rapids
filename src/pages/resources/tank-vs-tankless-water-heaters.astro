@@ -1,0 +1,435 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Cta from "../../components/Cta.astro";
+import SocialProof from "../../components/SocialProof.astro";
+import PriceReceipt from "../../components/icons/PriceReceipt.astro";
+import Phone from "../../components/icons/Phone.astro";
+import tankGroupImg from "../../assets/images/wh-natDraftGroup.png";
+import tanklessGroupImg from "../../assets/images/wh-tanklessGroup.png";
+import tankFamilyImg from "../../assets/images/wh-tank-product-family.webp";
+import tanklessFamilyImg from "../../assets/images/wh-tankless-product-family.webp";
+import TrustStrip from "../../components/TrustStrip.astro";
+---
+
+<BaseLayout
+    title="Tank vs. Tankless Water Heaters | Grand Rapids Comparison Guide"
+    description="Not sure whether to go with a tank or tankless water heater? We break down the real differences in cost, hot water supply, installation, and lifespan to help you decide."
+    canonical="https://waterheaterreplacementcompany.com/resources/tank-vs-tankless-water-heaters/"
+>
+
+    <!-- ─── HERO ─────────────────────────────────────────────────────────────── -->
+    <section class="bg-base-100 text-base-content border-b border-base-300">
+        <div class="max-w-5xl mx-auto px-6 py-16 sm:py-24 text-center flex flex-col items-center gap-6">
+            <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full">
+                Grand Rapids & West Michigan
+            </span>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight max-w-4xl">
+                Tank or Tankless? A Straightforward Comparison.
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-600 max-w-3xl">
+                Both types work great. The right choice depends on your home, household size, budget, and how you use hot water. We install both and have no stake in which one you pick. Here's everything you need to know.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-3 mt-2">
+                <a href="/instant-quote/?step=1" class="btn btn-primary btn-lg text-white shadow-md">
+                    <PriceReceipt />
+                    Get My Exact Quote
+                </a>
+                <a href="tel:616-315-0999" class="btn btn-outline btn-lg border-primary text-primary">
+                    <Phone />
+                    616-315-0999
+                </a>
+            </div>
+            <p class="text-sm text-gray-500">We'll recommend the right option for your home — no upsell.</p>
+        </div>
+    </section>
+
+    <TrustStrip />
+
+    <!-- ─── QUICK COMPARISON CARDS ────────────────────────────────────────────── -->
+    <section class="py-20 px-6 bg-base-200 text-base-content border-b border-base-300">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-14">
+                <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">At a Glance</span>
+                <h2 class="text-3xl sm:text-4xl font-bold">Side-by-Side: Tank vs. Tankless</h2>
+                <p class="text-gray-600 text-lg mt-3 max-w-2xl mx-auto">A quick overview before we go deeper on each.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-8">
+
+                <!-- Tank card -->
+                <div class="bg-base-100 rounded-3xl border-2 border-base-300 overflow-hidden shadow-sm flex flex-col">
+                    <div class="bg-primary/5 px-8 py-6 flex flex-wrap items-center gap-4 border-b border-base-300">
+                        <img src={tankGroupImg.src} alt="Tank water heater" class="h-20 w-auto object-contain" />
+                        <div>
+                            <p class="text-xs font-bold tracking-widest uppercase text-primary mb-1">Storage Tank</p>
+                            <h3 class="text-2xl font-black">Tank Water Heater</h3>
+                            <p class="text-sm text-gray-500 mt-0.5">Gas · Electric · Propane</p>
+                        </div>
+                    </div>
+                    <div class="px-8 py-6 flex flex-col gap-5 flex-1">
+                        <div>
+                            <p class="text-xs font-bold tracking-widest uppercase text-gray-400 mb-2">Best For</p>
+                            <p class="text-sm text-gray-700 leading-relaxed">Most West Michigan homes. Affordable, reliable, and simple to maintain. The right choice when upfront cost matters or your home already has a tank setup.</p>
+                        </div>
+                        <ul class="space-y-2">
+                            {[
+                                "Lower upfront cost",
+                                "Simple, proven technology",
+                                "Works with gas, electric, or propane",
+                                "Easy to replace — most installs same day",
+                                "Widely available in 40–75 gallon sizes",
+                                "10–14 year typical lifespan",
+                            ].map(item => (
+                                <li class="flex items-start gap-2 text-sm text-gray-700">
+                                    <svg class="w-4 h-4 text-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                    {item}
+                                </li>
+                            ))}
+                        </ul>
+                        <div class="mt-auto pt-4">
+                            <a href="/resources/tank-water-heaters/" class="btn btn-primary w-full text-white">Learn More About Tank Water Heaters</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tankless card -->
+                <div class="bg-base-100 rounded-3xl border-2 border-base-300 overflow-hidden shadow-sm flex flex-col">
+                    <div class="bg-secondary/5 px-8 py-6 flex flex-wrap items-center gap-4 border-b border-base-300">
+                        <img src={tanklessGroupImg.src} alt="Tankless water heater" class="h-20 w-auto object-contain" />
+                        <div>
+                            <p class="text-xs font-bold tracking-widest uppercase text-secondary mb-1">On-Demand</p>
+                            <h3 class="text-2xl font-black">Tankless Water Heater</h3>
+                            <p class="text-sm text-gray-500 mt-0.5">Gas · Propane</p>
+                        </div>
+                    </div>
+                    <div class="px-8 py-6 flex flex-col gap-5 flex-1">
+                        <div>
+                            <p class="text-xs font-bold tracking-widest uppercase text-gray-400 mb-2">Best For</p>
+                            <p class="text-sm text-gray-700 leading-relaxed">Larger households, long-term homeowners, or anyone who's frustrated by running out of hot water. Higher upfront cost but can last 20+ years.</p>
+                        </div>
+                        <ul class="space-y-2">
+                            {[
+                                "Endless hot water — never runs out",
+                                "Wall-mounted, frees up floor space",
+                                "Longer lifespan: 20+ years",
+                                "Only heats water when you need it",
+                                "Natural gas or propane only",
+                                "Higher upfront installation cost",
+                            ].map(item => (
+                                <li class="flex items-start gap-2 text-sm text-gray-700">
+                                    <svg class="w-4 h-4 text-secondary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                    {item}
+                                </li>
+                            ))}
+                        </ul>
+                        <div class="mt-auto pt-4">
+                            <a href="/resources/tankless-water-heaters/" class="btn btn-secondary w-full text-white">Learn More About Tankless Water Heaters</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── TANK DEEP DIVE ────────────────────────────────────────────────────── -->
+    <section class="py-20 px-6 bg-base-100 text-base-content border-b border-base-300">
+        <div class="max-w-5xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
+            <div class="rounded-3xl overflow-hidden shadow-lg border border-base-300 bg-base-200 flex items-center justify-center p-10">
+                <img
+                    src={tankFamilyImg.src}
+                    alt="Rheem tank water heater lineup — gas, electric, and propane models"
+                    loading="lazy"
+                    class="w-full max-w-xs object-contain mx-auto"
+                />
+            </div>
+            <div>
+                <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4">Storage Tank</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">How a Tank Water Heater Works</h2>
+                <p class="text-gray-600 text-base leading-relaxed mb-4">
+                    A storage tank water heater keeps 40–75 gallons of water heated and ready at all times. A gas burner at the base (or electric elements inside the tank) maintains your set temperature around the clock. When you turn on a hot water tap, pre-heated water flows out immediately.
+                </p>
+                <p class="text-gray-600 text-base leading-relaxed mb-6">
+                    It's the most common type in West Michigan homes by a wide margin — and for good reason. They're simple, affordable, and easy to service or replace.
+                </p>
+
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div>
+                        <p class="text-sm font-bold text-primary mb-2 flex items-center gap-1.5">
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                            Advantages
+                        </p>
+                        <ul class="space-y-1.5">
+                            {[
+                                "Lower upfront purchase + install cost",
+                                "Hot water available instantly at the tap",
+                                "Works with any fuel type",
+                                "Simple technology — easy to service",
+                                "Large capacity for simultaneous use",
+                                "Most installs completed same day",
+                            ].map(item => (
+                                <li class="text-sm text-gray-700 flex items-start gap-2">
+                                    <span class="text-primary font-bold mt-0.5 shrink-0">·</span>{item}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="text-sm font-bold text-gray-400 mb-2 flex items-center gap-1.5">
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4"/></svg>
+                            Limitations
+                        </p>
+                        <ul class="space-y-1.5">
+                            {[
+                                "Finite hot water — can run out",
+                                "Heats water even when not in use",
+                                "Takes up floor space in utility area",
+                                "Shorter lifespan vs. tankless (10–14 yrs)",
+                                "Standby heat loss over time",
+                            ].map(item => (
+                                <li class="text-sm text-gray-700 flex items-start gap-2">
+                                    <span class="text-gray-400 font-bold mt-0.5 shrink-0">·</span>{item}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-8 p-5 bg-primary/5 rounded-2xl border border-primary/10">
+                    <p class="text-sm font-semibold text-primary mb-1">Who should choose a tank?</p>
+                    <p class="text-sm text-gray-600">Most homeowners — especially if you're replacing an existing tank setup, want a straightforward same-day install, or prefer a lower upfront cost. A properly sized tank handles the hot water needs of the vast majority of West Michigan households without any issues.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── TANKLESS DEEP DIVE ────────────────────────────────────────────────── -->
+    <section class="py-20 px-6 bg-base-200 text-base-content border-b border-base-300">
+        <div class="max-w-5xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
+            <div class="order-2 lg:order-1">
+                <span class="inline-block bg-secondary/10 text-secondary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4">On-Demand</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">How a Tankless Water Heater Works</h2>
+                <p class="text-gray-600 text-base leading-relaxed mb-4">
+                    A tankless unit heats water on demand as it flows through the unit — there's no storage tank to fill or maintain. When you turn on a hot tap, cold water travels through a heat exchanger and comes out hot within seconds. The supply is continuous: as long as you're running the tap, you have hot water.
+                </p>
+                <p class="text-gray-600 text-base leading-relaxed mb-6">
+                    Tankless units in the Grand Rapids area are almost exclusively natural gas or propane. They mount to the wall and take up a fraction of the space of a tank. The tradeoff is a higher installation cost and more complex venting requirements.
+                </p>
+
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div>
+                        <p class="text-sm font-bold text-primary mb-2 flex items-center gap-1.5">
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                            Advantages
+                        </p>
+                        <ul class="space-y-1.5">
+                            {[
+                                "Endless hot water — no tank to deplete",
+                                "No standby heat loss",
+                                "Wall-mounted — saves floor space",
+                                "Longer lifespan: 20+ years",
+                                "Compact, modern footprint",
+                                "Only heats when you actually need it",
+                            ].map(item => (
+                                <li class="text-sm text-gray-700 flex items-start gap-2">
+                                    <span class="text-primary font-bold mt-0.5 shrink-0">·</span>{item}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="text-sm font-bold text-secondary mb-2 flex items-center gap-1.5">
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4"/></svg>
+                            Limitations
+                        </p>
+                        <ul class="space-y-1.5">
+                            {[
+                                "Higher upfront cost than a tank",
+                                "Gas or propane only — not electric",
+                                "Installation is more complex",
+                                "May need gas line or venting upgrades",
+                                "Cold water sandwich effect on short draws",
+                                "Higher service/repair cost when needed",
+                            ].map(item => (
+                                <li class="text-sm text-gray-700 flex items-start gap-2">
+                                    <span class="text-secondary font-bold mt-0.5 shrink-0">·</span>{item}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-8 p-5 bg-secondary/5 rounded-2xl border border-secondary/10">
+                    <p class="text-sm font-semibold text-secondary mb-1">Who should choose tankless?</p>
+                    <p class="text-sm text-gray-600">Homeowners who regularly run out of hot water, have a large household, plan to stay in their home long-term, or want to free up utility space. The economics make the most sense when the unit gets heavy daily use and you can recoup the installation cost over a longer lifespan.</p>
+                </div>
+            </div>
+            <div class="order-1 lg:order-2 rounded-3xl overflow-hidden shadow-lg border border-base-300 bg-base-100 flex items-center justify-center p-10">
+                <img
+                    src={tanklessFamilyImg.src}
+                    alt="Rheem tankless water heater lineup"
+                    loading="lazy"
+                    class="w-full max-w-xs object-contain mx-auto"
+                />
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── FEATURE COMPARISON TABLE ─────────────────────────────────────────── -->
+    <section class="py-20 px-6 bg-base-100 text-base-content border-b border-base-300">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">Feature Comparison</span>
+                <h2 class="text-3xl sm:text-4xl font-bold">How They Stack Up</h2>
+            </div>
+
+            <div class="overflow-x-auto rounded-2xl border border-base-300 shadow-sm">
+                <table class="w-full text-sm">
+                    <thead>
+                        <tr class="bg-base-200 border-b border-base-300">
+                            <th class="text-left px-3 py-4 font-bold text-base-content w-1/3">Feature</th>
+                            <th class="text-center px-3 py-4 font-bold text-primary w-1/3">Tank</th>
+                            <th class="text-center px-3 py-4 font-bold text-secondary w-1/3">Tankless</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {[
+                            { feature: "Hot water supply", tank: "Finite (40–75 gal)", tankless: "Endless on demand" },
+                            { feature: "Upfront cost", tank: "Lower", tankless: "Higher" },
+                            { feature: "Installation complexity", tank: "Standard", tankless: "More complex" },
+                            { feature: "Fuel types available", tank: "Gas, electric, propane", tankless: "Gas & propane only" },
+                            { feature: "Typical lifespan", tank: "10–14 years", tankless: "20+ years" },
+                            { feature: "Space required", tank: "24\" x 24\" footprint & 60\"+ tall", tankless: "Wall-mounted, compact" },
+                            { feature: "Standby energy use", tank: "Yes — always heating", tankless: "None — heats on demand" },
+                            { feature: "First-hour hot water", tank: "Immediate from stored supply", tankless: "Seconds after flow starts" },
+                            { feature: "Same-day installation", tank: "Yes — most cases", tankless: "Depends on venting/gas" },
+                            { feature: "Best value", tank: "Smaller households or short-term homeowners", tankless: "Larger households or long-term owners" },
+                        ].map(({ feature, tank, tankless }, i) => (
+                            <tr class={i % 2 === 0 ? "bg-base-100 border-b border-base-300" : "bg-base-50 border-b border-base-300"}>
+                                <td class="px-3 py-4 font-medium text-base-content">{feature}</td>
+                                <td class="px-3 py-4 text-center text-gray-700">{tank}</td>
+                                <td class="px-3 py-4 text-center text-gray-700">{tankless}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── WHICH IS RIGHT FOR YOU ────────────────────────────────────────────── -->
+    <section class="py-20 px-6 bg-base-200 text-base-content border-b border-base-300">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">Decision Guide</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-3">Which One Is Right for Your Home?</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">Here's a simple way to think about it. If you're still not sure, just call us — we'll give you a straight recommendation based on your specific situation.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-3 gap-6">
+                <div class="bg-base-100 rounded-2xl p-7 border-2 border-primary/20 shadow-sm flex flex-col gap-4">
+                    <div class="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary">Go with a Tank if...</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-start gap-2"><span class="text-primary font-bold mt-0.5 shrink-0">·</span> You need a fast, same-day replacement</li>
+                        <li class="flex items-start gap-2"><span class="text-primary font-bold mt-0.5 shrink-0">·</span> Your home is on electric — tankless won't work</li>
+                        <li class="flex items-start gap-2"><span class="text-primary font-bold mt-0.5 shrink-0">·</span> Upfront cost is the priority</li>
+                        <li class="flex items-start gap-2"><span class="text-primary font-bold mt-0.5 shrink-0">·</span> You rarely run out of hot water as-is</li>
+                        <li class="flex items-start gap-2"><span class="text-primary font-bold mt-0.5 shrink-0">·</span> You may be selling the home in the next few years</li>
+                    </ul>
+                </div>
+
+                <div class="bg-base-100 rounded-2xl p-7 border-2 border-secondary/20 shadow-sm flex flex-col gap-4">
+                    <div class="w-11 h-11 rounded-xl bg-secondary/10 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary">Go Tankless if...</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-start gap-2"><span class="text-secondary font-bold mt-0.5 shrink-0">·</span> You regularly run out of hot water</li>
+                        <li class="flex items-start gap-2"><span class="text-secondary font-bold mt-0.5 shrink-0">·</span> You have natural gas or propane</li>
+                        <li class="flex items-start gap-2"><span class="text-secondary font-bold mt-0.5 shrink-0">·</span> You're planning to stay in your home 5+ years</li>
+                        <li class="flex items-start gap-2"><span class="text-secondary font-bold mt-0.5 shrink-0">·</span> Floor or utility space is limited</li>
+                        <li class="flex items-start gap-2"><span class="text-secondary font-bold mt-0.5 shrink-0">·</span> You want a longer-lasting system</li>
+                        <li class="flex items-start gap-2"><span class="text-secondary font-bold mt-0.5 shrink-0">·</span> You want to remove your chimney</li>
+                    </ul>
+                </div>
+
+                <div class="bg-base-100 rounded-2xl p-7 border-2 border-base-300 shadow-sm flex flex-col gap-4">
+                    <div class="w-11 h-11 rounded-xl bg-base-200 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-700">Still Not Sure?</h3>
+                    <p class="text-sm text-gray-600">Our technicians work with both types every day and have no preference either way. Call us, tell us about your home, and we'll give you a straight answer on which makes more sense for your situation — with pricing for both if helpful.</p>
+                    <a href="tel:616-315-0999" class="btn btn-outline border-primary text-primary btn-sm mt-auto">
+                        <Phone />
+                        Call 616-315-0999
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SOCIAL PROOF ──────────────────────────────────────────────────────── -->
+    <SocialProof />
+
+    <!-- ─── FAQ ───────────────────────────────────────────────────────────────── -->
+    <section class="py-20 px-6 bg-base-100 text-base-content border-t border-base-300">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-10">
+                <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">FAQ</span>
+                <h2 class="text-3xl sm:text-4xl font-bold">Common Questions</h2>
+            </div>
+
+            <div class="flex flex-col gap-3">
+                {[
+                    {
+                        q: "Can I switch from a tank to tankless in one visit?",
+                        a: "It depends on your home's existing gas line size and venting setup. Tankless units often require a dedicated larger-diameter gas line and a new PVC venting run, which adds time and cost. In some homes it's straightforward; in others it requires more prep work. We'll assess your setup and give you an honest timeline before committing.",
+                    },
+                    {
+                        q: "Is a tankless water heater available in electric?",
+                        a: "Whole-home electric tankless units require extremely high amperage (often 150–200A dedicated) that most West Michigan homes aren't wired for. We install gas and propane tankless units only. If your home is electric and you want on-demand performance, we can talk through your options — including right-sizing a high-efficiency electric tank.",
+                    },
+                    {
+                        q: "How long does a tankless water heater actually last?",
+                        a: "With regular annual maintenance (mainly descaling the heat exchanger), tankless units routinely last 20–25 years. The main serviceable components — the heat exchanger, igniter, and flow sensor — can all be replaced individually, which is why the lifespan is so much longer than a storage tank.",
+                    },
+                    {
+                        q: "What's a 'cold water sandwich' and does it matter?",
+                        a: "A cold water sandwich is a brief burst of cold (or lukewarm) water that can occur when you turn a hot tap on and off quickly in succession. It happens because the tankless unit briefly re-fires and the residual warm water in the pipes is followed by a slug of cold before the unit heats up again. It's a minor quirk most people adapt to quickly, and it's less noticeable in larger households with more continuous hot water use.",
+                    },
+                    {
+                        q: "Do tank water heaters really run out of hot water?",
+                        a: "Yes — if back-to-back showers, laundry, and a dishwasher all run at once, a tank can be depleted. A properly sized tank for your household (which we help you select) minimizes this significantly. If you're frequently running out, it often means you need a larger tank rather than an immediate switch to tankless.",
+                    },
+                    {
+                        q: "Which type is more expensive to repair?",
+                        a: "Tankless repairs are generally more expensive — the parts (heat exchangers, control boards, flow sensors) cost more, and the diagnosis is more involved. That said, tankless units need repair less often and last longer. Tank repairs are cheaper per visit, but tanks are more likely to reach a point where repair isn't worth it.",
+                    },
+                ].map(({ q, a }, i) => (
+                    <div class="collapse collapse-arrow border border-base-300 rounded-2xl bg-base-100">
+                        <input type="radio" name="faq-comparison" checked={i === 0} />
+                        <div class="collapse-title text-base font-semibold py-5 pr-10">{q}</div>
+                        <div class="collapse-content text-gray-600 text-sm leading-relaxed">
+                            <p>{a}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── FINAL CTA ─────────────────────────────────────────────────────────── -->
+    <Cta
+        title="Ready to Get a Quote on Either Type?"
+        subtitle="We install both tank and tankless water heaters throughout Grand Rapids and West Michigan. Get your exact installed price in 30 seconds."
+    />
+
+</BaseLayout>

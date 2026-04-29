@@ -1,0 +1,325 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Cta from "../../components/Cta.astro";
+import SocialProof from "../../components/SocialProof.astro";
+import PriceReceipt from "../../components/icons/PriceReceipt.astro";
+import Phone from "../../components/icons/Phone.astro";
+import heroImg from "../../assets/images/whrc-van-image.webp";
+import tankLeakImg from "../../assets/images/wh-leak.webp";
+import UnitTypes from "../../components/UnitTypes.astro";
+import TrustStrip from "../../components/TrustStrip.astro";
+
+---
+
+<BaseLayout
+    title="Leaking Water Heater Emergency | Grand Rapids Same-Day Response"
+    description="Leaking water heater in Grand Rapids? We respond fast. Stop the leak, protect your home, and get a same-day replacement. Call 616-315-0999 now."
+    canonical="https://waterheaterreplacementcompany.com/services/leaking-water-heater-emergency/"
+>
+
+    <!-- ─── HERO ─────────────────────────────────────────────────────────────── -->
+    <section class="bg-base-100 text-base-content">
+        <div class="max-w-6xl mx-auto px-6 py-12 sm:py-20 grid md:grid-cols-2 gap-10 items-center">
+
+            <!-- Left: copy -->
+            <div class="flex flex-col gap-6">
+                <div>
+                    <h1 class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4">
+                        Emergency Water Heater Service · Grand Rapids & West Michigan
+                    </h1>
+                    <span class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight mb-4">
+                        Water Heater Leaking? We’ll Take Care of It. Fast.
+                    </span>
+                    <p class="text-lg sm:text-xl text-gray-600 max-w-lg">
+                        A leaking water heater can cause serious water damage in minutes. We offer same-day emergency replacements throughout Grand Rapids and West Michigan — call now.
+                    </p>
+                </div>
+                <div class="bg-primary/5 border border-primary/50 rounded-2xl shadow-md p-2 flex flex-wrap items-center max-w-fit px-4">
+                    <span class="text-sm font-semibold text-primary">"Called at 11am on a Saturday, he was there by 1 and done by 4. Excellent and professional, would highly recommend him." </span>
+                    <span class="text-sm text-gray-700 leading-snug">~Mark, Hudsonville</span>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-3 flex-wrap items-center sm:items-start">
+                    <a href="tel:616-315-0999" class="btn btn-primary btn-lg text-white shadow-md w-60">
+                        <Phone />
+                        Call 616-315-0999
+                    </a>
+                    <a href="/instant-quote/?step=1" class="btn btn-outline btn-lg border-primary text-primary w-60">
+                        <PriceReceipt class="text-primary" />
+                        Get My Exact Quote
+                    </a>
+                </div>
+
+                <p class="text-sm text-gray-500">Same-day & next-day service &nbsp;·&nbsp; Stocked vans ready to roll</p>
+            </div>
+
+            <!-- Right: image -->
+            <div class="relative">
+                <img
+                    src={tankLeakImg.src}
+                    alt="Water Heater Replacement Company service van arriving for an emergency in Grand Rapids"
+                    loading="eager"
+                    class="w-full rounded-3xl object-fit shadow-xl"
+                />
+                <!-- floating urgency card -->
+                <div class="absolute -bottom-5 -left-4 sm:left-4 bg-white border border-base-300 rounded-2xl shadow-lg px-5 py-4 flex items-center gap-3">
+                    <span class="text-1xl font-black text-secondary">Emergency Service Available</span>
+                    <span class="text-sm font-semibold text-gray-700 leading-snug"><br/> </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <TrustStrip />
+
+    <!-- ─── STOP THE LEAK — 6 STEPS ──────────────────────────────────────────── -->
+    <section class="py-20 px-6 bg-base-100 text-base-content border-t border-base-300">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-14">
+                <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">Do This First</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-3">Stop the Leak, Then Call Us</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Before we arrive, take these steps to minimize water damage to your home. We'll take it from there.
+                </p>
+            </div>
+
+            <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {[
+                    {
+                        n: "01",
+                        title: "Shut Off the Cold Water Supply",
+                        desc: "Turn the valve on the cold water pipe entering the top of your water heater clockwise until it stops. This cuts off the water source feeding the tank immediately.",
+                        icon: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z",
+                    },
+                    {
+                        n: "02",
+                        title: "Cut the Power or Gas",
+                        desc: "For electric units, flip the dedicated breaker. For gas units, turn the dial on the unit to \"Pilot\" or \"Off.\" Never run a gas burner without water in the tank.",
+                        icon: "M13 10V3L4 14h7v7l9-11h-7z",
+                    },
+                    {
+                        n: "03",
+                        title: "Open a Hot Water Faucet",
+                        desc: "Open a hot water tap at any fixture in the house. This relieves pressure inside the tank and helps it drain down faster so the leak slows.",
+                        icon: "M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z",
+                    },
+                    {
+                        n: "04",
+                        title: "Contain the Water",
+                        desc: "Use towels, buckets, or a wet vac to remove standing water and keep it from spreading to walls, flooring, or adjacent rooms. Speed matters here.",
+                        icon: "M3 21l1.9-5.7a8.5 8.5 0 113.8 3.8z",
+                    },
+                    {
+                        n: "05",
+                        title: "Document the Damage",
+                        desc: "Take photos and video of the leak and any water damage before cleanup. This is critical if you need to file a homeowner's insurance claim.",
+                        icon: "M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z M15 13a3 3 0 11-6 0 3 3 0 016 0z",
+                    },
+                    {
+                        n: "06",
+                        title: "Call Us for Same-Day or Next-Day Replacement",
+                        desc: "Most leaking water heaters cannot be repaired — the tank needs to be replaced. Call us now and we'll get a tech out to you as fast as possible.",
+                        icon: "M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z",
+                    },
+                ].map(({ n, title, desc, icon }) => (
+                    <div class="flex gap-4 p-6 bg-base-100 rounded-2xl border border-base-300 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="shrink-0 w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mt-0.5">
+                            <svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                                <path stroke-linecap="round" stroke-linejoin="round" d={icon} />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-xs font-black text-primary/90 tracking-widest mb-0.5">STEP {n}</p>
+                            <h3 class="font-bold text-base-content mb-1">{title}</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">{desc}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+            <p class="text-sm text-gray-500 mt-6 text-center">
+                Need more detail? See our full guide: <a href="/how-to-stop-a-water-leak/" class="text-primary underline font-medium">How to Stop a Water Heater Leak</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- ─── HOW IT WORKS ──────────────────────────────────────────────────────── -->
+    <section class="py-20 px-6 bg-base-200 text-base-content border-t border-base-300">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-14">
+                <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">What Happens Next</span>
+                <h2 class="text-3xl sm:text-4xl font-bold">From Phone Call to Hot Water Restored</h2>
+            </div>
+
+            <div class="relative grid sm:grid-cols-3 gap-8">
+                <div class="hidden sm:block absolute top-8 left-[calc(16.66%+1rem)] right-[calc(16.66%+1rem)] h-px bg-primary/20"></div>
+
+                {[
+                    {
+                        n: "01",
+                        title: "Call Us Now",
+                        desc: "Tell us what's happening. We'll ask a few quick questions, confirm availability, and get a tech on the schedule — often same day.",
+                        href: "tel:616-315-0999",
+                        cta: "Call 616-315-0999 →",
+                    },
+                    {
+                        n: "02",
+                        title: "We Assess & Lock In Your Price",
+                        desc: "Our tech evaluates the situation via video or on arrival, confirms what's needed, and gives you a locked price before any work starts. No surprises.",
+                        href: null,
+                        cta: null,
+                    },
+                    {
+                        n: "03",
+                        title: "New Unit In, Hot Water On",
+                        desc: "We install your new water heater, haul away the old one, and clean up. Most emergency replacements are complete in 2-4 hours.",
+                        href: null,
+                        cta: null,
+                    },
+                ].map(({ n, title, desc, href, cta }) => (
+                    <div class="flex flex-col items-center text-center gap-3">
+                        <div class="w-16 h-16 rounded-full bg-primary text-white text-xl font-black flex items-center justify-center shadow-md z-10">
+                            {n}
+                        </div>
+                        <h3 class="text-xl font-bold">{title}</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">{desc}</p>
+                        {href && cta && (
+                            <a href={href} class="text-primary font-semibold text-sm underline-offset-2 hover:underline">{cta}</a>
+                        )}
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── WHY A LEAK MEANS REPLACEMENT ─────────────────────────────────────── -->
+    <section class="py-20 px-6 bg-base-100 text-base-content border-t border-base-300">
+        <div class="max-w-5xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4">The Facts</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Why a Leaking Water Heater Usually Can't Be Repaired</h2>
+                <p class="text-gray-600 text-lg mb-5">
+                    If your water heater is leaking from the bottom of the tank, the inner steel lining has corroded through. That type of failure cannot be patched, welded, or sealed — the tank must be replaced.
+                </p>
+                <p class="text-gray-600 text-lg mb-5">
+                    Leaks from connections, fittings, or the pressure relief valve can sometimes be repaired. But if the tank threads are rusted out or your unit is already 8–10 years old, that repair is often just delaying the inevitable — and the next leak may cause far more damage.
+                </p>
+                <p class="text-gray-600 text-lg mb-5">
+                    We'll give you an honest assessment on arrival. If a repair is the right call, we'll tell you. If replacement makes more sense, we'll have a locked price ready and can often start the same day.
+                </p>
+                <p class="text-gray-600 text-lg">
+                    Our techs do not receive any financial incentives to upsell repairs or replacements. Our only goal is to get your hot water back as quickly and affordably as possible.
+                </p>
+            </div>
+            <div class="rounded-3xl overflow-hidden shadow-xl border border-base-300">
+                <img
+                    src={heroImg.src}
+                    alt="Old leaking tank water heater showing corrosion at the base"
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                />
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── WHY CHOOSE US ─────────────────────────────────────────────────────── -->
+    <section class="py-20 px-6 bg-base-200 text-base-content border-t border-base-300">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">Why Us</span>
+                <h2 class="text-3xl sm:text-4xl font-bold">Why Homeowners Call Us First in an Emergency</h2>
+                <p class="text-gray-600 text-lg mt-3 max-w-2xl mx-auto">When water is on the floor, you don't have time for voicemails and vague estimates. Here's what makes us different.</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {[
+                    {
+                        icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
+                        title: "Same-Day Response",
+                        desc: "We prioritize emergency calls. Call in the morning and we can often have a technician at your door the same day.",
+                    },
+                    {
+                        icon: "M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z",
+                        title: "Straight Answers",
+                        desc: "We'll tell you exactly what's wrong and whether repair or replacement is the right move — no pressure, no upselling, no commissions.",
+                    },
+                    {
+                        icon: "M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4",
+                        title: "Stocked Vans",
+                        desc: "Our techs carry the most common tank sizes. In most cases, we can install your new unit on the very first visit — no second trip needed.",
+                    },
+                    {
+                        icon: "M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z",
+                        title: "No Surprise Bills",
+                        desc: "Emergency doesn't mean overpriced. Your price is locked before we start any work — it's the same process we use for every job.",
+                    },
+                ].map(({ icon, title, desc }) => (
+                    <div class="bg-base-100 rounded-2xl p-6 border border-base-300 shadow-sm flex flex-col gap-4 hover:shadow-md transition-shadow">
+                        <div class="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                                <path stroke-linecap="round" stroke-linejoin="round" d={icon} />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">{title}</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">{desc}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SOCIAL PROOF ──────────────────────────────────────────────────────── -->
+    <SocialProof />
+
+    <UnitTypes />
+
+    <!-- ─── FAQ ───────────────────────────────────────────────────────────────── -->
+    <section class="py-20 px-6 bg-base-100 text-base-content border-t border-base-300">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-10">
+                <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">FAQ</span>
+                <h2 class="text-3xl sm:text-4xl font-bold">Common Questions</h2>
+            </div>
+
+            <div class="flex flex-col gap-3">
+                {[
+                    {
+                        q: "My water heater is leaking from the bottom — can it be repaired?",
+                        a: "A leak from the bottom of the tank usually indicates the inner steel lining has corroded through, which cannot be patched or sealed. Replacement is the only safe, permanent solution to prevent a basement flood.",
+                    },
+                    {
+                        q: "How quickly can you replace a leaking water heater?",
+                        a: "We prioritize leaks and often provide same-day service throughout Grand Rapids. If you call early in the day, our technicians can often arrive and complete the installation in a single visit because our vans stay fully stocked with common unit sizes.",
+                    },
+                    {
+                        q: "What if the leak is from a fitting or the pressure relief valve, not the tank itself?",
+                        a: "Leaks at connections or valves can often be repaired without replacing the entire unit. Because our technicians don't work on commission, we will give you an honest assessment of whether a simple repair is safe or if the age of the unit makes a replacement more economical.",
+                    },
+                    {
+                        q: "Will my homeowner's insurance cover a leaking water heater?",
+                        a: "Most policies cover the resulting water damage to your floors or drywall, but not the water heater unit itself. We recommend taking photos of the damage immediately for your claim; we can provide a detailed invoice to assist with your insurance filing.",
+                    },
+                    {
+                        q: "Is it safe to stay in my home with a leaking water heater?",
+                        a: "As long as you have shut off the water supply and the power or gas, your home is generally safe. However, if you smell gas at any point, leave the house immediately without touching any electrical switches and call your utility company from outside.",
+                    },
+                ].map(({ q, a }, i) => (
+                    <div class="collapse collapse-arrow border border-base-300 rounded-2xl bg-base-100">
+                        <input type="radio" name="faq-leak" checked={i === 0} />
+                        <div class="collapse-title text-base font-semibold py-5 pr-10">{q}</div>
+                        <div class="collapse-content text-gray-600 text-sm leading-relaxed">
+                            <p>{a}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── FINAL CTA ─────────────────────────────────────────────────────────── -->
+    <Cta
+        title="Water Heater Leaking? We Can Help Today."
+        subtitle="Call now for same-day or next-day service and get an exact replacement price in 30 seconds."
+    />
+
+</BaseLayout>

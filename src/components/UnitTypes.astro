@@ -1,0 +1,42 @@
+---
+import tankImg from "../assets/images/wh-tank-product-family.webp";
+import tanklessImg from "../assets/images/wh-tankless-product-family.webp";
+---
+
+<!-- ─── UNIT TYPES ────────────────────────────────────────────────────────── -->
+<section class="py-20 px-6 bg-base-200 text-base-content border-t border-base-300">
+    <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+            <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">What We Install</span>
+            <h2 class="text-3xl sm:text-4xl font-bold">Tank or Tankless — We Do Both</h2>
+            <p class="text-gray-600 text-lg mt-3 max-w-xl mx-auto">Not sure which is right for your home? We can help: <br> 1) Read our <a href="/resources/tank-vs-tankless-water-heaters/" class="text-primary underline">Tank vs Tankless Comparison Guide</a> to learn more. <br> 2) Use our <a href="/instant-quote/?step=1" class="text-primary underline">Exact Quote Tool</a> to compare prices. <br> 3) <a href="/contact" class="text-primary underline">Call us</a> for personalized advice.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-8">
+
+            <div class="bg-base-100 rounded-3xl overflow-hidden border border-base-300 shadow-sm flex flex-col">
+                <img src={tankImg.src} alt="Traditional tank water heater" loading="lazy" class="mt-4 w-full h-52 object-contain" />
+                <div class="p-7 flex flex-col flex-1 gap-3">
+                    <div class="flex items-center gap-2">
+                        <span class="badge badge-primary text-white text-xs font-bold">Most Common</span>
+                    </div>
+                    <h3 class="text-2xl font-bold">Tank Water Heaters</h3>
+                    <p class="text-gray-600 text-sm flex-1">Gas or electric tank units are the most common replacement. Fast to install, reliable, and usually available the same-day from our inventory.</p>
+                    <a href="/resources/tank-water-heaters/" class="btn btn-outline border-primary text-primary mt-2 w-full">Learn About Tank Water Heaters →</a>
+                </div>
+            </div>
+
+            <div class="bg-base-100 rounded-3xl overflow-hidden border border-base-300 shadow-sm flex flex-col">
+                <img src={tanklessImg.src} alt="Tankless water heater mounted on wall" loading="lazy" class="mt-4 w-full h-52 object-contain" />
+                <div class="p-7 flex flex-col flex-1 gap-3">
+                    <div class="flex items-center gap-2">
+                        <span class="badge badge-secondary text-white text-xs font-bold">High Efficiency</span>
+                    </div>
+                    <h3 class="text-2xl font-bold">Tankless Water Heaters</h3>
+                    <p class="text-gray-600 text-sm flex-1">Endless hot water on demand. We handle everything needed to upgrade your home — the venting, gas line, and electrical requirements — to ensure a proper installation.</p>
+                    <a href="/resources/tankless-water-heaters/" class="btn btn-outline border-primary text-primary mt-2 w-full">Learn About Tankless Water Heaters →</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

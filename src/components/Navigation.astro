@@ -27,15 +27,23 @@ const { showNavigation = true } = Astro.props;
                         <li>
                             <a aria-label="How It Works" href="/#how-it-works">How It Works</a>
                         </li>
-                            {/* <li>
-                                <a aria-label="pricing" href="/services/">Services</a>
-                            </li> */}
                         <li>
-                            <details id="desktop-products-menu">
-                                <summary>Products</summary>
+                            <details class="details-menu">
+                                <summary>Services</summary>
                                 <ul class="p-2 w-64 top-6 right-0 z-50">
-                                    <li><a aria-label="Tank Water Heaters" href="/products/tank-water-heaters/">Tank Water Heaters</a></li>
-                                    <li><a aria-label="Tankless Water Heaters" href="/products/tankless-water-heaters/">Tankless Water Heaters</a></li>
+                                    <li><a aria-label="Water Heater Replacement" href="/services/water-heater-replacement/">Water Heater Replacement</a></li>
+                                    <li><a aria-label="Water Heater Repair" href="/services/water-heater-repair/">Water Heater Repair</a></li>
+                                    <li><a aria-label="Leaking Water Heater Emergency" href="/services/leaking-water-heater-emergency/">Leaking Water Heater</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li>
+                            <details class="details-menu">
+                                <summary>Resources</summary>
+                                <ul class="p-2 w-64 top-6 right-0 z-50">
+                                    <li><a aria-label="Tank vs. Tankless — Compare" href="/resources/tank-vs-tankless-water-heaters/">Tank vs Tankless Comparison</a></li>
+                                    <li><a aria-label="Tank Water Heaters" href="/resources/tank-water-heaters/">Tank Water Heaters</a></li>
+                                    <li><a aria-label="Tankless Water Heaters" href="/resources/tankless-water-heaters/">Tankless Water Heaters</a></li>
                                 </ul>
                             </details>
                         </li>
@@ -72,23 +80,31 @@ const { showNavigation = true } = Astro.props;
                     <li>
                             <a aria-label="How It Works" href="/#how-it-works" class="text-lg font-bold">How It Works</a>
                     </li>
-                        {/* <li>
-                            <a aria-label="about" aria-disabled="true" href="/services/" class="text-lg font-bold">Services</a>
-                        </li> */}
+                        <li>
+                            <a aria-label="Services" href="/services/" class="text-lg font-bold">Services</a>
+                            <ul class="p-2">
+                                <li><a aria-label="Water Heater Replacement" href="/services/water-heater-replacement/" class="text-base font-semibold">Water Heater Replacement</a></li>
+                                <li><a aria-label="Water Heater Repair" href="/services/water-heater-repair/" class="text-base font-semibold">Water Heater Repair</a></li>
+                                <li><a aria-label="Leaking Water Heater Emergency" href="/services/leaking-water-heater-emergency/" class="text-base font-semibold">Leaking Water Heater</a></li>
+                            </ul>
+                        </li>
                     <li>
-                        <p class="pointer-events-none text-lg" aria-label="parent" class="">Products</p>
+                        <p class="pointer-events-none text-lg font-bold" aria-label="parent">Resources</p>
                         <ul class="p-2">
                             <li>
-                                <a aria-label="Tank Water Heaters" href="/products/tank-water-heaters/" class="text-lg font-bold">Tank Water Heaters</a>
+                                <a aria-label="Tank vs Tankless Comparison" href="/resources/tank-vs-tankless-water-heaters/" class="text-base font-semibold">Tank vs Tankless Comparison Guide</a>
+                            </li>
+                            <li>
+                                <a aria-label="Tank Water Heaters" href="/resources/tank-water-heaters/" class="text-base font-semibold">Tank Water Heaters</a>
                             </li>
                             {/* <li>
-                                <a aria-label="Power Vent Water Heaters" href="/products/power-vent-water-heaters/">Power Vent Water Heaters</a>
+                                <a aria-label="Power Vent Water Heaters" href="/resources/power-vent-water-heaters/">Power Vent Water Heaters</a>
                             </li> */}
                             <li>
-                                <a aria-label="Tankless Water Heaters" href="/products/tankless-water-heaters/" class="text-lg font-bold">Tankless Water Heaters</a>
+                                <a aria-label="Tankless Water Heaters" href="/resources/tankless-water-heaters/" class="text-base font-semibold">Tankless Water Heaters</a>
                             </li>
                             {/* <li>
-                                <a aria-label="Heat Pump Water Heaters" href="/products/heat-pump-water-heaters/">Heat Pump Water Heaters</a>
+                                <a aria-label="Heat Pump Water Heaters" href="/resources/heat-pump-water-heaters/">Heat Pump Water Heaters</a>
                             </li> */}
                         </ul>
                     </li>
@@ -109,11 +125,29 @@ const { showNavigation = true } = Astro.props;
 
 
 <script>
-    document.addEventListener('click', function(event) {
-        const details = document.getElementById('desktop-products-menu') as HTMLDetailsElement;
-        if (!details) return;
-        if (details.open && !details.contains(event.target as Node)) {
-            details.open = false;
-        }
-    });
+    (function setupGlobalDetailsClose() {
+        const closeOpenDetails = (event) => {
+            const path = (event.composedPath && event.composedPath()) || (event.path) || (function(){
+                const p = [];
+                let el = event.target;
+                while (el) { p.push(el); el = el.parentNode; }
+                return p;
+            })();
+
+            document.querySelectorAll('details.details-menu[open]').forEach((el) => {
+                if (!(el instanceof HTMLDetailsElement)) return;
+                const clickedInside = path.includes(el) || el.contains(event.target);
+                if (!clickedInside) el.open = false;
+            });
+        };
+
+        document.addEventListener('pointerdown', closeOpenDetails, { passive: true });
+        document.addEventListener('click', closeOpenDetails);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('details.details-menu[open]').forEach((el) => { el.open = false; });
+            }
+        });
+    })();
 </script>

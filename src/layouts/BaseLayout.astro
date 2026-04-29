@@ -3,25 +3,32 @@ import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
-const description = 'Get an instant online quote for water heater replacement in Grand Rapids. No emails, no appointments, just real prices from us — a locally-owned contractor.';
+const {
+	title: pageTitle,
+	description: pageDescription,
+	canonical: pageCanonical,
+} = Astro.props;
+
+const defaultDescription = 'Get an instant online quote for water heater replacement in Grand Rapids. No emails, no appointments, just real prices from us — a locally-owned contractor.';
+const description = pageDescription || defaultDescription;
 
 const metadata = {
-	title: 'Water Heater Replacement Company of Grand Rapids',
+	title: pageTitle || 'Water Heater Replacement Company of Grand Rapids',
 	description: description,
 	robots: {
 		index: true,
 		follow: true
 	},
-	canonical: 'https://waterheaterreplacementcompany.com',
+	canonical: pageCanonical || 'https://waterheaterreplacementcompany.com',
 	openGraph: {
-		title: 'Water Heater Replacement Company of Grand Rapids',
+		title: pageTitle || 'Water Heater Replacement Company of Grand Rapids',
 		description: description,
 		url: 'https://waterheaterreplacementcompany.com',
 		siteName: 'Water Heater Replacement Company of Grand Rapids',
 		type: 'website',
 		images: [
 			{
-				url: 'https://waterheaterreplacementcompany.com/images/default.webp',
+				url: 'https://waterheaterreplacementcompany.com/images/mainPhoto.webp',
 				width: 1200,
 				height: 630,
 				alt: 'Water Heater Replacement Company of Grand Rapids'
@@ -32,7 +39,7 @@ const metadata = {
 		card: 'summary_large_image',
 		title: 'Water Heater Replacement Company of Grand Rapids',
 		description: description,
-		images: ['https://waterheaterreplacementcompany.com/images/default.webp']
+		images: ['https://waterheaterreplacementcompany.com/images/mainPhoto.webp']
 	}
 };
 
