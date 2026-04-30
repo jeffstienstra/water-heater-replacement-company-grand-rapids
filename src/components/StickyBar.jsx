@@ -33,7 +33,7 @@ export default function StickyBar({selectedModel, onConfirmClick}) {
 						Lock In My Exact Quote
 					</button>
 					<p className="text-xs md:text-lg text-white/80 mt-4">
-						A technician will verify your water heater connections — usually by photos or a brief video call — to lock in your price.
+						A technician will verify your water heater connections — by photos, video call, or brief in-person visit — to lock in your price.
 						<br />
 						<span className='italic'>This is not a sales call.</span>
 					</p>
