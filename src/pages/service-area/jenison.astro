@@ -1,0 +1,352 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Cta from "../../components/Cta.astro";
+import TrustStrip from "../../components/TrustStrip.astro";
+import Faq from "../../components/Faq.astro";
+import PriceReceipt from "../../components/icons/PriceReceipt.astro";
+import Phone from "../../components/icons/Phone.astro";
+
+const faqs = [
+	{
+		q: "How fast can you respond to a water heater emergency in Jenison?",
+		a: "Because our office and dispatch are based right here in Jenison, we're often the fastest to respond in the area. For urgent leaks or a completely failed unit, call us directly at <a href='tel:616-315-0999' class='text-primary underline'>616-315-0999</a> — same-day & next-day service is our standard, not a premium."
+	},
+	{
+		q: "Do you pull permits for water heater replacements in Jenison, MI?",
+		a: "Yes — every time, no exceptions. Local permits are required by the State of Michigan for water heater replacements. We handle the permit application, scheduling, and inspection coordination as part of every job. If a contractor tells you a permit isn't needed in Jenison, walk away — it's required by law, and skipping it voids your manufacturer warranty and creates liability for you as the homeowner."
+	},
+	{
+		q: "My Jenison home has hard well water. Will that affect my new water heater?",
+		a: "Hard water is one of the most common causes of premature water heater failure in the Jenison area. The mineral deposits it leaves behind — calcium and magnesium scale — clog tank interiors, coat heating elements, and degrade anode rods faster than city water would. We factor your water source into our recommendations and can advise on sediment-flushing maintenance to extend the life of your new unit."
+	},
+	{
+		q: "What type of water heater works best in Jenison homes?",
+		a: "It depends on your home's age, fuel type, and household size. Most Jenison homes — especially the ranch-style builds from the 1970s and 80s — are set up for natural draft gas tanks and a like-for-like replacement is the simplest and most cost-effective option. Newer homes or those with a good gas supply and venting flexibility are strong candidates for tankless upgrades. We'll tell you which makes sense for your specific home — no upsell."
+	},
+	{
+		q: "How long does water heater replacement take in Jenison?",
+		a: "Most straightforward tank replacements in Jenison take 2–3 hours from arrival to hot water running. Tankless installations or situations requiring gas line or venting work can take 4–6 hours. We give you a realistic timeline when you book so you're not left waiting."
+	},
+	{
+		q: "Is Water Heater Replacement Company actually local to Jenison?",
+		a: "Yes — we're based in Jenison. Our office, trucks, and team are all here in the community. That's why we're often the fastest to arrive and why we have the highest concentration of completed jobs in the area. We know Jenison neighborhoods, permit offices, and inspection schedules better than any out-of-area company."
+	},
+];
+---
+
+<BaseLayout
+	title="Water Heater Replacement in Jenison, MI | Same-Day | Our Home Base"
+	description="Water Heater Replacement Company is based in Jenison, MI. Same-day water heater replacement and repair throughout Ottawa County. Upfront pricing, permit included, no commissions."
+	canonical="https://waterheaterreplacementcompany.com/service-area/jenison/"
+	faqs={faqs}
+>
+
+	<!-- ─── HERO ─────────────────────────────────────────────────────────────── -->
+	<section class="bg-base-100 text-base-content">
+		<div class="max-w-6xl mx-auto px-6 py-12 sm:py-20">
+			<div class="max-w-3xl flex flex-col gap-6">
+				<div>
+					<span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4">
+						Our Home Base · Jenison, MI
+					</span>
+					<h1 class="text-4xl sm:text-5xl font-black leading-tight tracking-tight mb-4">
+						Water Heater Replacement in Jenison, MI
+					</h1>
+					<p class="text-lg sm:text-xl text-gray-600 max-w-2xl mt-2">
+						We're not just serving Jenison — we're based here. Our dispatch, office, and team are all local, which means faster response, deeper familiarity with local permits, and a track record built one Jenison neighborhood at a time.
+					</p>
+				</div>
+				<div class="flex flex-col sm:flex-row gap-3">
+					<a href="/instant-quote/?step=1" class="btn btn-primary btn-lg text-white shadow-md">
+						<PriceReceipt />
+						Get My Exact Quote
+					</a>
+					<a href="tel:616-315-0999" class="btn btn-outline btn-lg border-primary text-primary">
+						<Phone />
+						616-315-0999
+					</a>
+				</div>
+				<p class="text-sm text-gray-500">Upfront price before we arrive. No commissions. No pressure.</p>
+			</div>
+		</div>
+	</section>
+
+	<TrustStrip />
+
+	<!-- ─── LOCAL INTRO ───────────────────────────────────────────────────────── -->
+	<section class="py-20 px-6 bg-base-200 text-base-content border-t border-base-300">
+		<div class="max-w-4xl mx-auto">
+			<span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4">Local Roots</span>
+			<h2 class="text-3xl sm:text-4xl font-bold mb-6">Jenison Is Where We Work — and Where We Live</h2>
+			<div class="space-y-4 text-gray-700 text-base leading-relaxed">
+				<p>
+					Water Heater Replacement Company operates out of Jenison, MI. Our technicians know the area — the neighborhoods off Bauer Road, the ranch homes along Baldwin Street, the newer subdivisions growing near Georgetown Township. When you call us for a water heater replacement in Jenison, you're not getting routed to a dispatch center three counties away. You're getting a local team that's already close by.
+				</p>
+				<p>
+					Jenison is our highest-volume service market, which means we've replaced water heaters in more Jenison homes than anywhere else in our service area. That experience matters. We understand the typical plumbing configurations here, the water quality challenges specific to Ottawa County, and what the local permit office expects on inspection day.
+				</p>
+				<p>
+					Whether you're in the neighborhoods near Jenison High School, backing up to Hager Park, or in a newer development near 48th Avenue — we're familiar with the homes in your part of Jenison, and we typically have same-day availability throughout the area.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── CTA STRIP ────────────────────────────────────────────────────────── -->
+	<section class="py-8 px-6 bg-primary text-white text-center">
+		<div class="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-4">
+			<p class="font-semibold text-lg">Need a water heater replaced in Jenison today?</p>
+			<a href="/instant-quote/?step=1" class="btn btn-white bg-white text-primary font-bold hover:bg-white/90 border-0 shrink-0">Get An Instant Quote</a>
+		</div>
+	</section>
+
+	<!-- ─── COMMON LOCAL PROBLEMS ─────────────────────────────────────────────── -->
+	<section class="py-20 px-6 bg-base-100 text-base-content border-t border-base-300">
+		<div class="max-w-5xl mx-auto">
+			<div class="text-center mb-12">
+				<span class="inline-block bg-error/10 text-error text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">What We See Here</span>
+				<h2 class="text-3xl sm:text-4xl font-bold mb-3">Common Water Heater Problems in Jenison Homes</h2>
+				<p class="text-lg text-gray-600 max-w-2xl mx-auto">
+					Jenison's housing stock spans several decades, and each era brings its own set of water heater challenges. Here's what we encounter most often.
+				</p>
+			</div>
+			<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+				{[
+					{
+						title: "Aging Tank Failure",
+						desc: "Jenison has a significant concentration of homes built in the 1970s and 80s. The original water heaters in many of these homes are long overdue for replacement — or have already failed once and been replaced with a low-cost unit that's now also aging out.",
+						icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
+						color: "error",
+					},
+					{
+						title: "Sediment & Hard Water Buildup",
+						desc: "Ottawa County has some of the hardest water in West Michigan, and many Jenison homes are on private wells. Mineral scale accumulates on heating elements and at the bottom of tank units, reducing efficiency and dramatically shortening the lifespan of your water heater.",
+						icon: "M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z",
+						color: "warning",
+					},
+					{
+						title: "Undersized Tanks for Growing Households",
+						desc: "As Jenison's newer subdivisions fill in with families, we regularly see 40-gallon tanks that simply can't keep up with morning demand. The fix is often a right-sized replacement — sometimes a 50 or 75-gallon unit, or a tankless upgrade for the right home.",
+						icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6",
+						color: "primary",
+					},
+					{
+						title: "Failed Anode Rods",
+						desc: "Hard water aggressively attacks anode rods — the sacrificial component that prevents tank corrosion. In Jenison homes on well water, rods can fail in half the expected time, leading to internal rust and tank failure years ahead of schedule.",
+						icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
+						color: "error",
+					},
+					{
+						title: "Natural Draft Venting Issues",
+						desc: "Most older Jenison homes use natural draft (atmospheric vent) water heaters. As these units age, backdrafting becomes a risk — especially in tightly weatherized homes. We assess venting on every job and flag safety concerns before we leave.",
+						icon: "M13 10V3L4 14h7v7l9-11h-7z",
+						color: "warning",
+					},
+					{
+						title: "Tankless Upgrade Readiness",
+						desc: "Jenison homeowners who are remodeling or are in newer builds often ask about switching to tankless. Whether your home is ready depends on your current gas line size and venting configuration. We assess both and give you an honest answer — not a sales pitch.",
+						icon: "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15",
+						color: "primary",
+					},
+				].map(({ title, desc, icon, color }) => (
+					<div class={`p-6 bg-base-100 rounded-2xl border border-base-300 shadow-sm`}>
+						<div class={`w-10 h-10 rounded-xl bg-${color}/10 flex items-center justify-center mb-4`}>
+							<svg class={`w-5 h-5 text-${color}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+								<path stroke-linecap="round" stroke-linejoin="round" d={icon} />
+							</svg>
+						</div>
+						<h3 class="font-bold text-base mb-2">{title}</h3>
+						<p class="text-sm text-gray-600 leading-relaxed">{desc}</p>
+					</div>
+				))}
+			</div>
+			<div class="mt-10 text-center">
+				<a href="/resources/common-water-heater-problems-west-michigan/" class="text-sm font-semibold text-primary hover:underline">
+					See the full guide: Common Water Heater Problems in West Michigan →
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── SERVICE DETAILS ───────────────────────────────────────────────────── -->
+	<section class="py-20 px-6 bg-base-200 text-base-content border-t border-base-300">
+		<div class="max-w-5xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
+			<div>
+				<span class="inline-block bg-secondary/10 text-secondary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4">How It Works</span>
+				<h2 class="text-3xl sm:text-4xl font-bold mb-5">What to Expect: Water Heater Replacement in Jenison</h2>
+				<div class="space-y-4 text-gray-700 text-base leading-relaxed">
+					<p>
+						For most Jenison tank replacements, the process is straightforward: you get an exact price online or by phone before we arrive, we come out same day or next day, remove the old unit, install the new one, and you have hot water within a few hours.
+					</p>
+					<p>
+						Every job includes the local mechanical permit. We pull it, schedule the inspection, and handle the paperwork — it's included in your price. Permits aren't optional in Michigan, and the inspection protects both the quality of the work and your homeowner warranty.
+					</p>
+					<p>
+						We install both tank and tankless water heaters in Jenison. If you're considering a tankless upgrade, we'll verify your gas line size and venting configuration before confirming compatibility — no guessing, no surprises. Not sure which type is right for your home? See our <a href="/resources/tank-vs-tankless-water-heaters/" class="text-primary underline">tank vs. tankless comparison guide</a>.
+					</p>
+				</div>
+			</div>
+			<div class="space-y-4">
+				{[
+					{ step: "01", title: "Get Your Exact Quote", desc: "Use the instant quote tool online or call us. You'll have a firm installed price — parts, labor, permit — before we schedule anything." },
+					{ step: "02", title: "Book Same-Day or Next-Day", desc: "Jenison is our home market. We have more availability here than anywhere else in our service area, including same-day slots for urgent situations." },
+					{ step: "03", title: "Removal & Installation", desc: "We remove and properly dispose of the old unit, install the new one per code, and test everything before we leave. Most installs: 2–3 hours." },
+					{ step: "04", title: "Permit & Inspection", desc: "Your local mechanical permit is pulled on every job. We handle the inspection scheduling and meet the inspector — you don't need to be home." },
+				].map(({ step, title, desc }) => (
+					<div class="flex gap-4 p-5 bg-base-100 rounded-2xl border border-base-300">
+						<span class="text-2xl font-black text-primary/30 shrink-0 w-8">{step}</span>
+						<div>
+							<h3 class="font-bold mb-1">{title}</h3>
+							<p class="text-sm text-gray-600 leading-relaxed">{desc}</p>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── CTA STRIP ────────────────────────────────────────────────────────── -->
+	<section class="py-8 px-6 bg-primary text-white text-center">
+		<div class="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-4">
+			<p class="font-semibold text-lg">Ready to get your Jenison water heater replaced today?</p>
+			<a href="tel:616-315-0999" class="btn btn-white bg-white text-primary font-bold hover:bg-white/90 border-0 shrink-0">Call 616-315-0999</a>
+		</div>
+	</section>
+
+	<!-- ─── SERVICES GRID ────────────────────────────────────────────────────── -->
+	<section class="py-20 px-6 bg-base-100 text-base-content border-t border-base-300">
+		<div class="max-w-6xl mx-auto">
+			<div class="text-center mb-14">
+				<span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">What We Do</span>
+				<h2 class="text-3xl sm:text-4xl font-bold mb-3">Water Heater Services in Jenison</h2>
+				<p class="text-lg text-gray-600 max-w-2xl mx-auto">
+					Replacement, repair, or emergency response — we handle every water heater situation in Jenison with the same upfront pricing and commission-free honesty.
+				</p>
+			</div>
+			<div class="grid gap-6 sm:grid-cols-3">
+				{[
+					{
+						name: "Water Heater Replacement",
+						url: "/services/water-heater-replacement/",
+						desc: "Full tank or tankless replacement with same-day availability. Exact price before we arrive — no surprises at the door.",
+						icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6",
+					},
+					{
+						name: "Water Heater Repair",
+						url: "/services/water-heater-repair/",
+						desc: "Commission-free technicians give you an honest repair-vs-replace recommendation. If repair makes sense for your Jenison home, we'll tell you.",
+						icon: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z",
+					},
+					{
+						name: "Leaking Water Heater",
+						url: "/services/leaking-water-heater-emergency/",
+						desc: "Tank leak in Jenison? We respond fast. Same-day emergency service to stop the leak, prevent damage, and restore hot water.",
+						icon: "M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z",
+					},
+				].map(({ name, url, desc, icon }) => (
+					<a href={url} class="flex flex-col gap-4 p-7 bg-base-200 rounded-2xl border border-base-300 shadow-sm hover:shadow-md transition-shadow group">
+						<div class="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+							<svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+								<path stroke-linecap="round" stroke-linejoin="round" d={icon} />
+							</svg>
+						</div>
+						<div>
+							<h3 class="font-bold text-lg mb-2 group-hover:text-primary transition-colors">{name}</h3>
+							<p class="text-sm text-gray-600 leading-relaxed">{desc}</p>
+						</div>
+						<span class="text-sm font-semibold text-primary mt-auto">Learn more →</span>
+					</a>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── WHY US ────────────────────────────────────────────────────────────── -->
+	<section class="py-20 px-6 bg-base-200 text-base-content border-t border-base-300">
+		<div class="max-w-5xl mx-auto">
+			<div class="text-center mb-12">
+				<span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">Why Jenison Homeowners Choose Us</span>
+				<h2 class="text-3xl sm:text-4xl font-bold mb-3">The Difference a Local, Commission-Free Company Makes</h2>
+			</div>
+			<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+				{[
+					{
+						title: "We're Based in Jenison",
+						desc: "Our office is here. Our technicians live here. We're not driving in from Grand Rapids or dispatching from a call center. That means faster response times and a genuine local reputation to protect.",
+						icon: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z",
+					},
+					{
+						title: "More Jenison Jobs Than Anyone",
+						desc: "We've completed more water heater replacements in Jenison than any other market we serve. That volume means we know local permitting, common home configurations, and what works in Ottawa County homes.",
+						icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z",
+					},
+					{
+						title: "No Commissions — Ever",
+						desc: "Our technicians don't earn commissions, which means they have no financial reason to upsell you on a bigger unit or recommend replacement when repair makes sense. What they recommend is what your home actually needs.",
+						icon: "M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636",
+					},
+					{
+						title: "Upfront Pricing — Before We Arrive",
+						desc: "You get your exact installed price before we schedule anything. No estimates that balloon into surprises. No 'we'll know more when we get there.' A fixed price, confirmed in writing.",
+						icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2",
+					},
+					{
+						title: "Permits Every Time",
+						desc: "Every Jenison water heater replacement we do includes the local mechanical permit. We pull it, handle the inspection, and leave you with compliant, warranted work.",
+						icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
+					},
+					{
+						title: "2-Year Labor Warranty",
+						desc: "Every installation comes with our 2-year labor warranty, backed by our Michigan mechanical license. Plus the manufacturer's warranty on the unit itself — Rheem, A.O. Smith, and Bradford White all cover their equipment.",
+						icon: "M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z",
+					},
+				].map(({ title, desc, icon }) => (
+					<div class="p-6 bg-base-100 rounded-2xl border border-base-300 shadow-sm">
+						<div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+							<svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+								<path stroke-linecap="round" stroke-linejoin="round" d={icon} />
+							</svg>
+						</div>
+						<h3 class="font-bold text-base mb-2">{title}</h3>
+						<p class="text-sm text-gray-600 leading-relaxed">{desc}</p>
+					</div>
+				))}
+			</div>
+			<div class="mt-10 text-center">
+				<a href="/why-us/" class="text-sm font-semibold text-primary hover:underline">Learn more about our zero-commission model →</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── INTERNAL LINKS ────────────────────────────────────────────────────── -->
+	<section class="py-10 px-6 bg-base-100 border-t border-base-300">
+		<div class="max-w-4xl mx-auto">
+			<p class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">Also Serving Nearby</p>
+			<div class="flex flex-wrap gap-3">
+				<a href="/service-area/grandville/" class="btn btn-sm btn-outline border-base-300 text-base-content hover:border-primary hover:text-primary">
+					Water heater replacement in Grandville →
+				</a>
+				<a href="/service-area/hudsonville/" class="btn btn-sm btn-outline border-base-300 text-base-content hover:border-primary hover:text-primary">
+					Serving homeowners in Hudsonville →
+				</a>
+				<a href="/service-area/" class="btn btn-sm btn-outline border-base-300 text-base-content hover:border-primary hover:text-primary">
+					All West Michigan service areas →
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── FAQ ───────────────────────────────────────────────────────────────── -->
+	<Faq
+		faqs={faqs}
+		name="faq-jenison"
+		title="Water Heater Questions for Jenison, MI Homeowners"
+	/>
+
+	<!-- ─── CTA ───────────────────────────────────────────────────────────────── -->
+	<Cta
+		title="Ready for Hot Water in Jenison?"
+		subtitle="Get your exact installed price in 30 seconds. No hidden fees, no pressure, no personal info required — just a firm quote from your local Jenison water heater team."
+	/>
+
+</BaseLayout>

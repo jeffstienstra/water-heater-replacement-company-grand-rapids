@@ -1,0 +1,260 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Cta from "../../components/Cta.astro";
+import TrustStrip from "../../components/TrustStrip.astro";
+import Faq from "../../components/Faq.astro";
+import PriceReceipt from "../../components/icons/PriceReceipt.astro";
+import Phone from "../../components/icons/Phone.astro";
+import businessInfo from "../../data/businessInfo";
+
+const faqs = [
+	{
+		q: "Why does my quote show a different price than what's listed here?",
+		a: `The price ranges on this page reflect a typical water heater installations in Jenison, MI with no complications. Our quote tool guides you to the best suited option for your specific situation. The verification process via <a href="sms:${businessInfo.primaryPhone}" class="text-primary underline">text message</a>, video call (call us to schedule within minutes), or brief site visit ensures that your quote is accurate for your specific setup.`
+	},
+	{
+		q: "What's included in the price — is it really all-in?",
+		a: "Yes. Every quoted price includes: the new water heater unit, installation labor, removal and disposal of your old unit, all water/gas/electric connections, venting connection, replacement or upgrade, the local mechanical permit, and our 2-year labor warranty. There is no service call fee, trip charge, or permit add-on. The price you see after verification is what you pay."
+	},
+	{
+		q: "Is a tankless water heater worth the extra cost in Jenison?",
+		a: "It depends on your household usage and how long you plan to stay in the home. Tankless units run $1,800–$2,000 more upfront than a standard tank, but last roughly twice as long (20+ years vs. 10–12) and use 15–25% less energy. Over a 15-year window, many families break even or come out ahead. On Ottawa County well water, tankless units with proper inlet filtration can actually outlast tank units by an even wider margin because there's no tank interior to corrode."
+	},
+	{
+		q: "Why is the power vent unit so much more expensive than a standard tank?",
+		a: "Power vent water heaters use an electric blower motor to exhaust combustion gases through flexible PVC ductwork, rather than relying on natural draft through a metal flue. This requires a more complex unit and more involved installation — the vent run is longer and often requires routing to an exterior wall rather than a chimney. The unit itself costs more, and the installation can take longer."
+	},
+	{
+		q: "Do prices differ for Jenison vs. other cities in West Michigan?",
+		a: "No. Our pricing is flat across all cities we serve — Grand Rapids, Hudsonville, Grandville, Kentwood, and everywhere else. You won't be quoted more because of where you live. The price is based on the installation type and each home's specific setup, not your zip code."
+	},
+	{
+		q: "What if my installation needs something unexpected — like a corroded vent replacement?",
+		a: "It's rare that we encounter something completely unexpected on-site because our verification process is designed to uncover those issues before we even schedule the job.<br/><br/> If the price from our quote tool accurately represents your system, the price is locked in. If something is discovered during verification that wasn't reflected in your answers (e.g., you actually have a metal vent, not a PVC vent), we'll discuss it with you right then and provide the corrected price, even if its lower. If we run into a hidden problem during installation - like a corroded vent hidden behind ductwork- we'll stop, consider safety implications and what options are available, and discuss the solution and any additional cost with you. You're never billed for work you didn't approve."
+	},
+];
+---
+
+<BaseLayout
+	title="Water Heater Replacement Cost in Jenison, MI | 2026 Price Guide"
+	description="What does water heater replacement cost in Jenison, MI? Real installed price ranges for tank and tankless units, plus what's included — permit, removal, labor, and connections."
+	canonical="https://waterheaterreplacementcompany.com/resources/water-heater-replacement-cost-jenison-mi/"
+	faqs={faqs}
+>
+
+	<!-- ─── HERO ─────────────────────────────────────────────────────────────── -->
+	<section class="bg-base-100 text-base-content">
+		<div class="max-w-6xl mx-auto px-6 py-12 sm:py-20">
+			<div class="max-w-3xl flex flex-col gap-5">
+				<span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full w-fit">Pricing Guide · Jenison, MI · 2026</span>
+				<h1 class="text-4xl sm:text-5xl font-black leading-tight tracking-tight">
+					Water Heater Replacement Cost in Jenison, MI
+				</h1>
+				<p class="text-lg sm:text-xl text-gray-600">
+					Real installed price ranges for every type of water heater we install in the Jenison area — including what's covered and what drives the price up or down. Get a guaranteed price for your specific system in under a minute.
+				</p>
+				<div class="flex flex-col sm:flex-row gap-3 pt-2">
+					<a href="/instant-quote/?step=1" class="btn btn-primary btn-lg text-white shadow-md">
+						<PriceReceipt />
+						Get My Guaranteed Price
+					</a>
+					<a href="tel:616-315-0999" class="btn btn-outline btn-lg border-primary text-primary">
+						<Phone />
+						616-315-0999
+					</a>
+				</div>
+				<p class="text-sm text-gray-400">Guaranteed installed price — permit, removal, and labor included. No trip charge.</p>
+			</div>
+		</div>
+	</section>
+
+	<TrustStrip />
+
+	<!-- ─── INTRO ────────────────────────────────────────────────────────────── -->
+	<section class="py-14 px-6 bg-base-200 text-base-content border-t border-base-300">
+		<div class="max-w-3xl mx-auto space-y-4 text-gray-700 leading-relaxed">
+			<p>
+				Water heater replacement pricing in West Michigan can vary widely depending on the type of unit, your current venting setup, and whether you're doing a like-for-like swap or upgrading to a different system type. We publish our real prices — not a range you'll only learn after a sales call — so you can compare fairly and plan confidently.
+			</p>
+			<p>
+				The prices below reflect a standard replacement in the Jenison area with no unusual access, gas line, or venting complications. For a guaranteed installed price on your specific home, use the quote tool — it asks the right questions to account for your setup. If your system requires anything beyond a standard swap, you'll see it reflected in your quote before you book.
+			</p>
+		</div>
+	</section>
+
+	<!-- ─── PRICE TABLE ───────────────────────────────────────────────────────── -->
+	<section class="py-20 px-6 bg-base-100 text-base-content border-t border-base-300">
+		<div class="max-w-5xl mx-auto">
+			<div class="text-center mb-12">
+				<span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">2026 Installed Pricing</span>
+				<h2 class="text-3xl sm:text-4xl font-bold mb-3">Water Heater Replacement Prices — Jenison, MI</h2>
+				<p class="text-gray-600 max-w-xl mx-auto">All-in installed cost. Local permit, installation labor, old unit removal, and connections included.</p>
+			</div>
+
+			<div class="space-y-4">
+				{[
+					{
+						name: "40-Gallon Standard Gas Tank Water Heater",
+						price: "$1,795",
+						bestFor: "1–4 person households, smaller homes, direct replacement of existing tank",
+						notes: "Most common replacement in Jenison. Natural draft gas. Same-location install. All code connections and permit included.",
+						badge: "Most Common",
+						badgeColor: "primary",
+					},
+					{
+						name: "50-Gallon Standard Gas Tank Water Heater",
+						price: "$1,895",
+						bestFor: "Larger households, homes with higher hot water demand",
+						notes: "Same natural draft setup as 40-gal but with larger tank. Upsizing from a 40-gal to a 50-gal is common when households have grown.",
+						badge: "Most Common Upgrade",
+						badgeColor: "secondary",
+					},
+					{
+						name: "40-Gallon Gas Power Vent Tank Water Heater",
+						price: "$2,695",
+						bestFor: "Homes where the existing unit is a power vent or where natural draft venting is not feasible",
+						notes: "Power vent units use an electric blower motor to exhaust through PVC pipe rather than a metal flue. Typically required in homes without a proper chimney or flue connection.",
+						badge: null,
+                        badgeColor: null,
+					},
+					{
+						name: "50-Gallon Gas Power Vent Tank Water Heater",
+						price: "$2,795",
+						bestFor: "Larger households in homes requiring power vent units",
+						notes: "Same power vent configuration, larger capacity. If your existing unit is a power vent 50-gal, this is your like-for-like replacement.",
+						badge: null,
+						badgeColor: null,
+					},
+					{
+						name: "40-Gallon Electric Tank Water Heater",
+						price: "$1,595",
+						bestFor: "Homes without a gas supply, all-electric builds",
+						notes: "Electric element heating. No venting required. Typically longer recovery time than gas but lower upfront cost and installation complexity. Permit and all electrical connections included.",
+						badge: null,
+						badgeColor: null,
+					},
+					{
+						name: "50-Gallon Electric Tank Water Heater",
+						price: "$1,695",
+						bestFor: "Homes without a gas supply, all-electric builds",
+						notes: "Electric element heating. No venting required. Typically longer recovery time than gas but lower upfront cost and installation complexity. Permit and all electrical connections included.",
+						badge: null,
+						badgeColor: null,
+					},
+					{
+						name: "Tankless Gas Water Heater",
+						price: "Starting at $3,495",
+						bestFor: "Larger households, long-term efficiency, homes with suitable gas line and venting",
+						notes: "On-demand heating — no standby energy loss, no tank to fail or corrode. Most Jenison homes require venting and/or gas line upgrades for tankless conversion, which are assessed and quoted upfront. A free on-site verification is generally recommended when upgrading from a tank unit to confirm compatibility.",
+						badge: "Most Common Upgrade",
+						badgeColor: "secondary",
+					},
+				].map(({ name, price, bestFor, notes, badge, badgeColor }) => (
+					<div class="p-6 sm:p-8 bg-base-200 rounded-2xl border border-base-300">
+						<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-4">
+							<div class="flex items-start gap-3">
+								<div>
+									<div class="flex items-center gap-2 flex-wrap">
+										<h3 class="font-bold text-lg">{name}</h3>
+										{badge && (
+											<span class={`text-xs font-bold px-2 py-0.5 rounded-full bg-${badgeColor}/10 text-${badgeColor}`}>{badge}</span>
+										)}
+									</div>
+									<p class="text-sm text-gray-500 mt-0.5">Best for: {bestFor}</p>
+								</div>
+							</div>
+							<span class="text-2xl font-black text-primary shrink-0">{price}</span>
+						</div>
+						<p class="text-sm text-gray-600 leading-relaxed">{notes}</p>
+					</div>
+				))}
+			</div>
+
+			<div class="mt-8 p-5 bg-primary/5 border border-primary/20 rounded-2xl text-sm text-gray-600 leading-relaxed">
+				<strong class="text-base-content">Prices above are for standard, same-for-same water heater replacements where no additional code upgrades are required.</strong> Your guaranteed installed price is based on your specific home's system and requires verification via photos, a video call, or a brief site visit. Once verified, the price you receive is locked in and includes everything listed below.
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── WHAT'S INCLUDED ───────────────────────────────────────────────────── -->
+	<section class="py-16 px-6 bg-base-200 text-base-content border-t border-base-300">
+		<div class="max-w-4xl mx-auto">
+			<div class="text-center mb-10">
+				<h2 class="text-2xl sm:text-3xl font-bold">What Every Price Includes</h2>
+				<p class="text-gray-600 mt-2 max-w-xl mx-auto">No service fees, no permit add-ons, no surprise charges on the day of installation.</p>
+			</div>
+			<div class="grid sm:grid-cols-2 gap-4 mb-8">
+				{[
+					{ label: "New water heater unit", desc: "The exact model confirmed in your quote" },
+					{ label: "Full installation labor", desc: "From arrival to cleanup" },
+					{ label: "Old unit removal & disposal", desc: "Haul-off included — no curbside pickup needed" },
+					{ label: "Water supply connections", desc: "New shutoff valves as needed" },
+					{ label: "Gas or electrical connections", desc: "New fittings and code-compliant connections" },
+					{ label: "Venting connection", desc: "Existing vent reconnected, up to 10' - additional venting needs assessed and quoted upfront" },
+					{ label: "Local mechanical permit", desc: "Applied for, inspected, and approved by the local jurisdiction" },
+					{ label: "2-Year labor warranty", desc: "On all installation work" },
+                    { label: "Manufacturer's warranty", desc: "Coverage varies by model, typically 6–12 years on tank units and 10–15 years on tankless" },
+                    { label: "Customer support", desc: "We're here to help after the sale with any questions or issues that arise - all covered by our 2-Year labor warranty" },
+				].map(({ label, desc }) => (
+					<div class="flex items-start gap-3 p-4 bg-base-100 rounded-xl border border-base-300">
+						<svg class="w-5 h-5 text-success shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+						</svg>
+						<div>
+							<p class="text-sm font-semibold">{label}</p>
+							<p class="text-xs text-gray-500">{desc}</p>
+						</div>
+					</div>
+				))}
+			</div>
+
+			<div class="p-5 bg-base-100 rounded-2xl border border-base-300 text-sm text-gray-600 leading-relaxed">
+				<strong class="text-base-content">What can increase the upfront price:</strong> Gas line upgrades required for tankless (larger-diameter pipe is usually required), new long venting runs on tankless conversions (an additional air intake pipe is usually needed), non-standard access (tight crawl space, multiple flights of stairs). Any of these are discussed and approved via photo/video/site visit before work begins.
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── NO COMMISSION CALLOUT ─────────────────────────────────────────────── -->
+	<section class="py-14 px-6 bg-base-100 text-base-content border-t border-base-300">
+		<div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-start gap-6 bg-primary/5 border border-primary/20 rounded-3xl p-8">
+			<div class="shrink-0 w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+				<svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+				</svg>
+			</div>
+			<div>
+				<h2 class="text-xl font-bold mb-2">Why Our Prices Reflect What You Actually Need</h2>
+				<p class="text-gray-600 leading-relaxed">
+					Our technicians don't earn commissions on upgrades or add-ons. That means when we recommend a 50-gallon over a 40-gallon, or suggest staying with a tank rather than converting to tankless, it's because that's what makes sense for your home — not because someone earns more if you spend more. We recommend the right unit for your household, your water quality, and your budget.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── INTERNAL LINKS ────────────────────────────────────────────────────── -->
+	<section class="py-10 px-6 bg-base-200 border-t border-base-300">
+		<div class="max-w-4xl mx-auto">
+			<p class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">Related</p>
+			<div class="flex flex-wrap gap-3">
+				<a href="/service-area/jenison/" class="btn btn-sm btn-outline border-base-300 text-base-content hover:border-primary hover:text-primary">Full Jenison area service page →</a>
+				<a href="/resources/water-heater-installation-process-jenison-mi/" class="btn btn-sm btn-outline border-base-300 text-base-content hover:border-primary hover:text-primary">What does installation look like? →</a>
+				<a href="/resources/tank-vs-tankless-water-heaters/" class="btn btn-sm btn-outline border-base-300 text-base-content hover:border-primary hover:text-primary">Tank vs. tankless comparison →</a>
+				<a href="/water-heater-pricing/" class="btn btn-sm btn-outline border-base-300 text-base-content hover:border-primary hover:text-primary">Full pricing page →</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── FAQ ───────────────────────────────────────────────────────────────── -->
+	<Faq
+		faqs={faqs}
+		name="faq-replacement-cost"
+		title="Water Heater Cost Questions Answered"
+	/>
+
+	<!-- ─── CTA ───────────────────────────────────────────────────────────────── -->
+	<Cta
+		title="Get Your Guaranteed Installed Price"
+		subtitle="No estimates. No salesmen. Your exact price for your Jenison home in 30 seconds — permit, labor, and removal included."
+	/>
+
+</BaseLayout>

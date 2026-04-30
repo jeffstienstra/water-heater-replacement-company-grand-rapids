@@ -1,8 +1,38 @@
 ---
+import { getImage } from 'astro:assets';
 import InstantQuoteLayout from '../layouts/InstantQuoteLayout.astro';
 import FindWaterHeaterQuiz from '../components/FindWaterHeaterQuiz';
+import waterHeaterModels from '../data/waterHeaterModels.js';
+
+const rawImages = import.meta.glob(
+  '/src/assets/images/catalog/**/*.{webp,png,jpg,jpeg}',
+  { eager: true }
+);
+
+const imageMap: Record<string, string> = {};
+for (const [path, mod] of Object.entries(rawImages)) {
+  // Strip '/src/assets' so the key matches imagePath values in waterHeaterModels.js
+  const key = path.replace('/src/assets', '');
+  const optimized = await getImage({ src: (mod as any).default, width: 400, format: 'webp' });
+  imageMap[key] = optimized.src;
+}
+
+// Build-time validation
+const usedPaths = [...new Set(waterHeaterModels.map((m: any) => m.imagePath).filter(Boolean))];
+const missing = usedPaths.filter((p: string) => !imageMap[p]);
+if (missing.length) {
+  throw new Error(
+    `[instant-quote] imagePath values in waterHeaterModels.js have no matching file in src/assets/images/catalog:\n${missing.join('\n')}`
+  );
+}
+const unused = Object.keys(imageMap).filter(k => !(usedPaths as string[]).includes(k));
+if (unused.length) {
+  console.warn(
+    `[instant-quote] Unused catalog images (consider removing):\n${unused.join('\n')}`
+  );
+}
 ---
 
 <InstantQuoteLayout>
-    <FindWaterHeaterQuiz client:only />
+    <FindWaterHeaterQuiz client:only imageMap={imageMap} />
 </InstantQuoteLayout>

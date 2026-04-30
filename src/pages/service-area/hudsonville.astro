@@ -1,0 +1,313 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Cta from "../../components/Cta.astro";
+import TrustStrip from "../../components/TrustStrip.astro";
+import Faq from "../../components/Faq.astro";
+import PriceReceipt from "../../components/icons/PriceReceipt.astro";
+import Phone from "../../components/icons/Phone.astro";
+
+const faqs = [
+	{
+		q: "Do you replace water heaters in Hudsonville, MI?",
+		a: "Yes — Hudsonville is a regular part of our service area. We typically have same-day or next-day availability throughout Hudsonville and the surrounding Ottawa County area. Call <a href='tel:616-315-0999' class='text-primary underline'>616-315-0999</a> or use the instant quote tool to get started."
+	},
+	{
+		q: "Our Hudsonville home has well water. Does that affect which water heater we should get?",
+		a: "It does — and it's one of the most important factors we ask about. Hard well water contains high mineral concentrations that accelerate scale buildup inside tank units, clog heating elements, and corrode anode rods faster than municipal water would. In homes with well water, we often recommend a slightly larger or higher-efficiency unit to compensate, and we advise on a regular annual flushing schedule to extend the life of your new water heater. For tankless units, proper inlet filtration is essential on a well."
+	},
+	{
+		q: "Do you pull permits for water heater replacements in Hudsonville?",
+		a: "Yes — every time. The State of Michigan requires a mechanical permit from the local jurisdiction for every water heater installation. We handle the application, inspection scheduling, and coordination as part of every job. It's included in your quoted price. Skipping the permit isn't legal, and it voids your manufacturer warranty. Any contractor suggesting otherwise should raise a red flag."
+	},
+	{
+		q: "We just bought a newer Hudsonville home. How do I know if the water heater needs to be replaced?",
+		a: "Check the label on the tank — the serial number encodes the manufacturing date on most brands. If it's over 10 years old, budgeting for replacement in the next 1–2 years is smart. Signs of an impending failure include: rust-colored hot water, popping or rumbling sounds (sediment), moisture around the base, or inconsistent temperatures. Our instant quote tool will show you what a replacement would cost so you can plan ahead."
+	},
+	{
+		q: "Can you upgrade a Hudsonville home from tank to tankless?",
+		a: "In many newer Hudsonville homes, yes — the gas supply and venting infrastructure is often better suited to tankless conversion than older builds. We verify your gas line size and existing venting configuration before confirming compatibility. If well water is a factor, we'll also discuss inlet filter requirements. If your home is ready, we include all conversion costs in your upfront quote — no hidden charges for gas line or venting work discovered after arrival."
+	},
+	{
+		q: "How long does water heater replacement take in a Hudsonville home?",
+		a: "Most standard tank replacements take 2–3 hours. Tankless conversions or jobs requiring gas line or venting upgrades typically run 4–5 hours. We give you a realistic timeline when you book so you can plan your day. Same-day and next-day appointments are regularly available in Hudsonville."
+	},
+];
+---
+
+<BaseLayout
+	title="Water Heater Replacement in Hudsonville, MI | Efficiency Upgrades | Licensed"
+	description="Water heater replacement and efficiency upgrades in Hudsonville, MI. Local permits included, well water expertise, same-day service. Commission-free, upfront pricing."
+	canonical="https://waterheaterreplacementcompany.com/service-area/hudsonville/"
+	faqs={faqs}
+>
+
+	<!-- ─── HERO ─────────────────────────────────────────────────────────────── -->
+	<section class="bg-base-100 text-base-content">
+		<div class="max-w-6xl mx-auto px-6 py-12 sm:py-20">
+			<div class="max-w-3xl flex flex-col gap-6">
+				<div>
+					<span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4">
+						Growing Community · Hudsonville, MI
+					</span>
+					<h1 class="text-4xl sm:text-5xl font-black leading-tight tracking-tight mb-4">
+						Water Heater Replacement in Hudsonville, MI
+					</h1>
+					<p class="text-lg sm:text-xl text-gray-600 max-w-2xl mt-2">
+						Hudsonville families deserve honest, efficient service — not a sales pitch. We specialize in right-sized water heater replacements for growing households, with well water expertise, same-day availability, and every local permit handled for you.
+					</p>
+				</div>
+				<div class="flex flex-col sm:flex-row gap-3">
+					<a href="/instant-quote/?step=1" class="btn btn-primary btn-lg text-white shadow-md">
+						<PriceReceipt />
+						Get My Exact Quote
+					</a>
+					<a href="tel:616-315-0999" class="btn btn-outline btn-lg border-primary text-primary">
+						<Phone />
+						616-315-0999
+					</a>
+				</div>
+				<p class="text-sm text-gray-500">Upfront price before we arrive. Local permit included. No upsells.</p>
+			</div>
+		</div>
+	</section>
+
+	<TrustStrip />
+
+	<!-- ─── LOCAL INTRO ───────────────────────────────────────────────────────── -->
+	<section class="py-20 px-6 bg-base-200 text-base-content border-t border-base-300">
+		<div class="max-w-4xl mx-auto">
+			<span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4">Serving Hudsonville</span>
+			<h2 class="text-3xl sm:text-4xl font-bold mb-6">Serving Hudsonville's Growing Families — From New Builds to Established Neighborhoods</h2>
+			<div class="space-y-4 text-gray-700 text-base leading-relaxed">
+				<p>
+					Hudsonville has been one of the fastest-growing communities in Ottawa County, and that growth shows up in our work here. We regularly serve homeowners in the newer subdivisions off Chicago Drive and Baldwin Street, as well as the more established neighborhoods closer to downtown Hudsonville. Whether you're in a home that was built five years ago or twenty-five, we know what to expect.
+				</p>
+				<p>
+					One of the most consistent challenges we encounter in Hudsonville is well water. A significant portion of homes in this part of Ottawa County are on private wells, and hard well water is one of the leading causes of premature water heater failure. Mineral deposits accumulate inside the tank, coat heating elements, and eat through anode rods faster than city water would. We factor your water source into every recommendation we make.
+				</p>
+				<p>
+					We've replaced water heaters throughout Hudsonville — in new construction that needed a first replacement after the builder's unit gave out early, in homes being upgraded ahead of a sale, and in family homes where a 40-gallon tank simply couldn't keep up with two bathrooms and a household of five. Every situation is different, and we take the time to recommend what actually fits your home.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── CTA STRIP ────────────────────────────────────────────────────────── -->
+	<section class="py-8 px-6 bg-primary text-white text-center">
+		<div class="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-4">
+			<p class="font-semibold text-lg">Need a water heater replaced in Hudsonville?</p>
+			<a href="/instant-quote/?step=1" class="btn btn-white bg-white text-primary font-bold hover:bg-white/90 border-0 shrink-0">Get Instant Quote</a>
+		</div>
+	</section>
+
+	<!-- ─── COMMON LOCAL PROBLEMS ─────────────────────────────────────────────── -->
+	<section class="py-20 px-6 bg-base-100 text-base-content border-t border-base-300">
+		<div class="max-w-5xl mx-auto">
+			<div class="text-center mb-12">
+				<span class="inline-block bg-error/10 text-error text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">What We See Here</span>
+				<h2 class="text-3xl sm:text-4xl font-bold mb-3">Water Heater Problems Common in Hudsonville Homes</h2>
+				<p class="text-lg text-gray-600 max-w-2xl mx-auto">
+					Hudsonville's rapid residential growth and Ottawa County well water create a distinct set of challenges. Here's what we encounter most often when serving homeowners in this area.
+				</p>
+			</div>
+			<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+				{[
+					{
+						title: "Hard Well Water Damage",
+						desc: "This is Hudsonville's most common water heater issue. Private well water in Ottawa County is frequently high in calcium and magnesium. That mineral content coats heating elements, accumulates as sediment at the tank bottom, and attacks the anode rod — shortening the life of the water heater by years if not addressed.",
+						icon: "M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z",
+						color: "error",
+					},
+					{
+						title: "Undersized Tanks in Growing Households",
+						desc: "Many Hudsonville homes were built for smaller households. As families grow — more kids, more bathrooms in use at once — a 40-gallon tank runs out during the morning routine. The right fix is usually a properly sized replacement, not a repair.",
+						icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6",
+						color: "warning",
+					},
+					{
+						title: "Builder-Grade Unit Failures",
+						desc: "Newer Hudsonville subdivisions often have water heaters installed by the builder — frequently the most economical unit that met code at the time. These builder-grade units tend to fail earlier than premium replacements, especially under Ottawa County well water conditions.",
+						icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
+						color: "error",
+					},
+					{
+						title: "Tankless Upgrade Compatibility",
+						desc: "Many newer Hudsonville homes have gas supply and venting infrastructure that makes tankless conversion feasible. On a well, an inlet filter is essential. We assess everything upfront and include compatibility verification in our quote process.",
+						icon: "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15",
+						color: "primary",
+					},
+					{
+						title: "Premature Anode Rod Failure",
+						desc: "Anode rods in well water homes don't last nearly as long as in city water homes. When the rod fails, the tank body begins to rust from the inside. Many Hudsonville homeowners don't know to check this until they see rust-colored hot water — by which point replacement is usually the only option.",
+						icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
+						color: "warning",
+					},
+					{
+						title: "Energy Efficiency Upgrades",
+						desc: "Hudsonville homeowners frequently ask about efficiency improvements. Higher-efficiency tank models and tankless systems can reduce monthly gas bills meaningfully — especially in larger households with high hot water demand. We'll give you the honest payback math before you decide.",
+						icon: "M13 10V3L4 14h7v7l9-11h-7z",
+						color: "primary",
+					},
+				].map(({ title, desc, icon, color }) => (
+					<div class="p-6 bg-base-100 rounded-2xl border border-base-300 shadow-sm">
+						<div class={`w-10 h-10 rounded-xl bg-${color}/10 flex items-center justify-center mb-4`}>
+							<svg class={`w-5 h-5 text-${color}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+								<path stroke-linecap="round" stroke-linejoin="round" d={icon} />
+							</svg>
+						</div>
+						<h3 class="font-bold text-base mb-2">{title}</h3>
+						<p class="text-sm text-gray-600 leading-relaxed">{desc}</p>
+					</div>
+				))}
+			</div>
+			<div class="mt-10 text-center">
+				<a href="/resources/common-water-heater-problems-west-michigan/" class="text-sm font-semibold text-primary hover:underline">
+					See the full guide: Common Water Heater Problems in West Michigan →
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── SERVICE DETAILS ───────────────────────────────────────────────────── -->
+	<section class="py-20 px-6 bg-base-200 text-base-content border-t border-base-300">
+		<div class="max-w-5xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
+			<div>
+				<span class="inline-block bg-secondary/10 text-secondary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4">The Process</span>
+				<h2 class="text-3xl sm:text-4xl font-bold mb-5">What to Expect: Water Heater Replacement in Hudsonville</h2>
+				<div class="space-y-4 text-gray-700 text-base leading-relaxed">
+					<p>
+						Start with the instant quote tool — answer a few questions about your home and current unit, and you'll have a firm installed price within 60 seconds. No email required, no callback, no in-home estimate. The price you see online is the price you pay.
+					</p>
+					<p>
+						Every Hudsonville installation includes the local mechanical permit. We pull it, schedule the inspection, and coordinate with the county — you don't need to handle any of that. The permit ensures the work is inspected, your manufacturer warranty stays intact, and the replacement is recorded properly with the county.
+					</p>
+					<p>
+						If your home is on a well, we'll discuss your water quality and how it factors into the right system for your home. For tankless installs, we verify gas line size and venting compatibility before locking in a price. No surprises on the day of installation. Not sure which type is right? Our <a href="/resources/tank-vs-tankless-water-heaters/" class="text-primary underline">tank vs. tankless comparison guide</a> covers how Hudsonville's water conditions affect each.
+					</p>
+				</div>
+			</div>
+			<div class="space-y-4">
+				{[
+					{ step: "01", title: "Get an Instant Quote Online", desc: "Use our quote tool — no personal info required. You'll have a firm installed price for your Hudsonville home before you call us or schedule anything." },
+					{ step: "02", title: "Same-Day or Next-Day Booking", desc: "We have regular availability in Hudsonville. Same-day appointments are often possible; next-day is almost always available for non-emergency situations." },
+					{ step: "03", title: "Installation & Testing", desc: "We remove the old unit, install and fully test the new one, and clean up before we leave. Most Hudsonville tank installs are complete within 2–3 hours." },
+					{ step: "04", title: "Local Permit Included", desc: "Your mechanical permit is pulled on every job. We handle the paperwork and inspection scheduling — no time off work required on your end." },
+				].map(({ step, title, desc }) => (
+					<div class="flex gap-4 p-5 bg-base-100 rounded-2xl border border-base-300">
+						<span class="text-2xl font-black text-primary/30 shrink-0 w-8">{step}</span>
+						<div>
+							<h3 class="font-bold mb-1">{title}</h3>
+							<p class="text-sm text-gray-600 leading-relaxed">{desc}</p>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── CTA STRIP ────────────────────────────────────────────────────────── -->
+	<section class="py-8 px-6 bg-primary text-white text-center">
+		<div class="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-4">
+			<p class="font-semibold text-lg">Hudsonville families count on us for fast, honest service.</p>
+			<a href="tel:616-315-0999" class="btn btn-white bg-white text-primary font-bold hover:bg-white/90 border-0 shrink-0">Call 616-315-0999</a>
+		</div>
+	</section>
+
+	<!-- ─── SERVICES GRID ────────────────────────────────────────────────────── -->
+	<section class="py-20 px-6 bg-base-100 text-base-content border-t border-base-300">
+		<div class="max-w-6xl mx-auto">
+			<div class="text-center mb-14">
+				<span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">What We Do</span>
+				<h2 class="text-3xl sm:text-4xl font-bold mb-3">Water Heater Services in Hudsonville</h2>
+				<p class="text-lg text-gray-600 max-w-2xl mx-auto">
+					From efficiency upgrades to emergency replacements, we handle every water heater need in Hudsonville with the same upfront pricing and commission-free honesty.
+				</p>
+			</div>
+			<div class="grid gap-6 sm:grid-cols-3">
+				{[
+					{
+						name: "Water Heater Replacement",
+						url: "/services/water-heater-replacement/",
+						desc: "Right-sized tank or tankless replacement for your Hudsonville home. Exact price before we arrive — well water expertise included at no extra charge.",
+						icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6",
+					},
+					{
+						name: "Water Heater Repair",
+						url: "/services/water-heater-repair/",
+						desc: "Honest repair assessment — no commissions, no pressure toward replacement. If repair makes sense for your Hudsonville water heater, we'll tell you.",
+						icon: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z",
+					},
+					{
+						name: "Leaking Water Heater",
+						url: "/services/leaking-water-heater-emergency/",
+						desc: "Active leak in your Hudsonville home? We respond fast. Same-day emergency service to stop damage and restore hot water the same day.",
+						icon: "M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z",
+					},
+				].map(({ name, url, desc, icon }) => (
+					<a href={url} class="flex flex-col gap-4 p-7 bg-base-200 rounded-2xl border border-base-300 shadow-sm hover:shadow-md transition-shadow group">
+						<div class="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+							<svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+								<path stroke-linecap="round" stroke-linejoin="round" d={icon} />
+							</svg>
+						</div>
+						<div>
+							<h3 class="font-bold text-lg mb-2 group-hover:text-primary transition-colors">{name}</h3>
+							<p class="text-sm text-gray-600 leading-relaxed">{desc}</p>
+						</div>
+						<span class="text-sm font-semibold text-primary mt-auto">Learn more →</span>
+					</a>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── WHY US ────────────────────────────────────────────────────────────── -->
+	<section class="py-14 px-6 bg-base-200 text-base-content border-t border-base-300">
+		<div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center gap-8 bg-primary/5 border border-primary/20 rounded-3xl p-8 sm:p-10">
+			<div class="shrink-0 w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
+				<svg class="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+				</svg>
+			</div>
+			<div>
+				<h2 class="text-xl font-bold mb-2">Why Hudsonville Families Choose Us</h2>
+				<p class="text-gray-600 leading-relaxed mb-4">
+					Families in fast-growing communities like Hudsonville don't need to be upsold — they need the right unit for their household size, water quality, and budget. Our commission-free technicians have one job: recommend what's actually best for your home. Not the most expensive option. The right one.
+				</p>
+				<a href="/why-us/" class="text-sm font-semibold text-primary hover:underline">Learn about our zero-commission model →</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── INTERNAL LINKS ────────────────────────────────────────────────────── -->
+	<section class="py-10 px-6 bg-base-100 border-t border-base-300">
+		<div class="max-w-4xl mx-auto">
+			<p class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">Also Serving Nearby</p>
+			<div class="flex flex-wrap gap-3">
+				<a href="/service-area/jenison/" class="btn btn-sm btn-outline border-base-300 text-base-content hover:border-primary hover:text-primary">
+					Water heater replacement in Jenison →
+				</a>
+				<a href="/service-area/grandville/" class="btn btn-sm btn-outline border-base-300 text-base-content hover:border-primary hover:text-primary">
+					Trusted in Grandville homes →
+				</a>
+				<a href="/service-area/" class="btn btn-sm btn-outline border-base-300 text-base-content hover:border-primary hover:text-primary">
+					All West Michigan service areas →
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── FAQ ───────────────────────────────────────────────────────────────── -->
+	<Faq
+		faqs={faqs}
+		name="faq-hudsonville"
+		title="Water Heater Questions for Hudsonville, MI Homeowners"
+	/>
+
+	<!-- ─── CTA ───────────────────────────────────────────────────────────────── -->
+	<Cta
+		title="Ready for a New Water Heater in Hudsonville?"
+		subtitle="Get your exact installed price in 30 seconds. Local permit included, well water expertise on every job — no commissions, no pressure."
+	/>
+
+</BaseLayout>

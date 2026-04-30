@@ -32,9 +32,10 @@ const sameAsUrls = Object.values(businessInfo.social).filter(
 );
 
 const areaServedPlaces = [
-	...cities.map(({ city, state, lat, lon }) => ({
+	...cities.map(({ city, state, lat, lon, googleMapsUrl }) => ({
 		'@type': 'City',
 		name: city,
+		...(googleMapsUrl ? { sameAs: googleMapsUrl } : {}),
 		address: {
 			'@type': 'PostalAddress',
 			addressLocality: city,
@@ -77,6 +78,7 @@ const areaServedPlaces = [
 			},
 			image: { '@id': logoUrl },
 			sameAs: sameAsUrls,
+			foundingDate: businessInfo.foundingDate,
 			hasCredential: {
                 '@type': 'EducationalOccupationalCredential',
                 name: 'Mechanical Contractor License',
@@ -194,7 +196,7 @@ const areaServedPlaces = [
 				}
 			},
 			hasOfferCatalog: { '@id': `${websiteUrl}#services` },
-			hasMap: 'https://maps.app.goo.gl/9ZYPCJaeFZjsYtNT9',
+			hasMap: 'https://www.google.com/maps/place/Water+Heater+Replacement+Company/@42.9035951,-85.9174956,13.15z/data=!4m7!3m6!1s0x8819bbd7244ab427:0x6a6ad017d6cbd993!8m2!3d42.9001628!4d-85.8422622!15sCiBXYXRlciBIZWF0ZXIgUmVwbGFjZW1lbnQgQ29tcGFueVoiIiB3YXRlciBoZWF0ZXIgcmVwbGFjZW1lbnQgY29tcGFueZIBB3BsdW1iZXKaAURDaTlEUVVsUlFVTnZaRU5vZEhsalJqbHZUMnBqTWxvelRrWlJWR3MwVWtoRk5GcEdTbkJoTUdoT1pGZDNOVTVGUlJBQuABAPoBBQiwARA-!16s%2Fg%2F11yycvvfzy',
 			sameAs: sameAsUrls,
 		},
 		{

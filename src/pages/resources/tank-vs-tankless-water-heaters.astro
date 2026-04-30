@@ -44,7 +44,7 @@ const faqs = [
 ---
 
 <BaseLayout
-    title="Tank vs. Tankless Water Heaters | Grand Rapids Comparison Guide"
+    title="Tank vs. Tankless Water Heaters (Cost, Pros & What's Best for Your Home)"
     description="Not sure whether to go with a tank or tankless water heater? We break down the real differences in cost, hot water supply, installation, and lifespan to help you decide."
     canonical="https://waterheaterreplacementcompany.com/resources/tank-vs-tankless-water-heaters/"
     faqs={faqs}
@@ -61,6 +61,9 @@ const faqs = [
             </h1>
             <p class="text-lg sm:text-xl text-gray-600 max-w-3xl">
                 Both types work great. The right choice depends on your home, household size, budget, and how you use hot water. We install both and have no stake in which one you pick. Here's everything you need to know.
+            </p>
+            <p class="text-sm text-gray-500 max-w-2xl -mt-2">
+                We serve homeowners in Jenison, Grandville, Hudsonville, and throughout West Michigan — and in this area, local water conditions play a bigger role in that decision than most guides acknowledge.
             </p>
             <div class="flex flex-col sm:flex-row gap-3 mt-2">
                 <a href="/instant-quote/?step=1" class="btn btn-primary btn-lg text-white shadow-md">
@@ -406,6 +409,111 @@ const faqs = [
                     </a>
                 </div>
             </div>
+            <p class="text-sm text-center text-gray-500 mt-8">Ready to get a local quote? See what a full installation looks like in your area: <a href="/service-area/jenison/" class="text-primary underline">Jenison</a>, <a href="/service-area/grandville/" class="text-primary underline">Grandville</a>, or <a href="/service-area/hudsonville/" class="text-primary underline">Hudsonville</a>.</p>
+        </div>
+    </section>
+
+    <!-- ─── LOCAL SECTION: WEST MICHIGAN ────────────────────────────────────── -->
+    <section class="py-16 px-6 bg-base-200 text-base-content border-t border-base-300">
+        <div class="max-w-4xl mx-auto">
+            <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4">For West Michigan Homeowners</span>
+            <h2 class="text-2xl sm:text-3xl font-bold mb-3">How Water Conditions in the Hard Water Corridor - Jenison, Hudsonville, Grandville - Affect Your Water Heater</h2>
+            <p class="text-gray-600 text-base leading-relaxed mb-8">West Michigan — including Hudsonville, Jenison, and Grandville — has some of the hardest water in the United States. That one fact changes how long your water heater will last, how often it needs maintenance, and which type makes more sense for your home.</p>
+
+            <!-- Water hardness stat strip -->
+            <div class="bg-base-100 rounded-2xl border border-base-300 p-6 mb-8 grid sm:grid-cols-3 gap-6 text-center shadow-sm">
+                <div class="flex flex-col items-center gap-1">
+                    <span class="text-3xl font-black text-primary">~170 ppm</span>
+                    <span class="text-xs font-bold text-gray-500 uppercase tracking-wide">Average Hardness</span>
+                    <span class="text-xs text-gray-400">Hudsonville area municipal average</span>
+                </div>
+                <div class="flex flex-col items-center gap-1">
+                    <span class="text-3xl font-black text-primary">10+ GPG</span>
+                    <span class="text-xs font-bold text-gray-500 uppercase tracking-wide">Classified "Very Hard"</span>
+                    <span class="text-xs text-gray-400">Anything over 7 GPG is considered hard</span>
+                </div>
+                <div class="flex flex-col items-center gap-1">
+                    <span class="text-3xl font-black text-primary">Top 10%</span>
+                    <span class="text-xs font-bold text-gray-500 uppercase tracking-wide">Hardest Water in the U.S.</span>
+                    <span class="text-xs text-gray-400">Driven by natural limestone & dolomite</span>
+                </div>
+            </div>
+
+            <!-- Plain English explanation -->
+            <div class="bg-base-100 rounded-2xl border border-amber-200 p-6 mb-8 flex gap-4 shadow-sm">
+                <div class="shrink-0 w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center">
+                    <svg class="w-5 h-5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <div>
+                    <p class="font-semibold text-base-content mb-2">What does "hard water" actually mean?</p>
+                    <p class="text-sm text-gray-600 leading-relaxed">Hard water carries a high concentration of dissolved minerals — mainly calcium and magnesium — picked up as groundwater travels through the limestone and dolomite bedrock common in Ottawa and Kent counties. You've probably seen the effects already: the white crusty buildup around faucets and showerheads is mineral scale. The same process happens inside your water heater, just where you can't see it. In this area it's also common to find elevated iron (leaves rust-colored staining) and hydrogen sulfide — the source of a rotten egg smell from hot water taps.</p>
+                </div>
+            </div>
+
+            <!-- How hard water affects each type -->
+            <h3 class="text-xl font-bold mb-4">How Hard Well Water Affects Each Type</h3>
+            <div class="grid sm:grid-cols-2 gap-6 mb-8">
+
+                <!-- Tank on well water -->
+                <div class="bg-base-100 rounded-2xl border border-base-300 p-6 shadow-sm flex flex-col gap-4">
+                    <p class="text-xs font-bold tracking-widest uppercase text-primary">Storage Tank on Well Water</p>
+                    <p class="text-sm text-gray-700 leading-relaxed">Scale builds up at the bottom of the tank where it's heated. It acts like an insulating blanket — the heater has to work harder to push heat through, wasting energy and eventually overheating the elements. The sacrificial anode rod (an internal metal rod that protects the tank lining from rust) gets consumed much faster by mineral-rich water. Tank units that last 10–12 years on city water can fail in 7–8 years on untreated well water.</p>
+                    <div class="space-y-3">
+                        <p class="text-xs font-bold text-gray-500 uppercase tracking-wide">What protects it</p>
+                        {[
+                            ["Water softener", "Removes calcium and magnesium before they reach the heater. The single most effective defense."],
+                            ["Annual tank flush", "Drains the sediment that settles at the tank bottom each year."],
+                            ["Anode rod inspection", "Check annually. On iron-heavy or sulfur water, a powered (electric) anode rod prevents the rotten egg smell and outlasts standard magnesium rods."],
+                        ].map(([label, desc]) => (
+                            <div class="flex items-start gap-2 text-sm text-gray-700">
+                                <svg class="w-4 h-4 text-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>{label}</strong> — {desc}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                <!-- Tankless on well water -->
+                <div class="bg-base-100 rounded-2xl border border-base-300 p-6 shadow-sm flex flex-col gap-4">
+                    <p class="text-xs font-bold tracking-widest uppercase text-secondary">Tankless on Well Water</p>
+                    <p class="text-sm text-gray-700 leading-relaxed">Tankless units have no tank interior to corrode — but they do have a tightly coiled heat exchanger: narrow passages that flash-heat water on demand. Those passages are especially vulnerable to scale buildup. Sediment and iron from a well can also clog the inlet filter screen and confuse the flow sensor. And because well pumps cycle on and off, they create pressure swings that can make a tankless heater fire and cut out erratically.</p>
+                    <div class="space-y-3">
+                        <p class="text-xs font-bold text-gray-500 uppercase tracking-wide">What protects it</p>
+                        {[
+                            ["Sediment pre-filter", "A whole-house filter upstream catches sand, silt, and iron particles before they reach the unit."],
+                            ["Scale prevention filter", "A polyphosphate or TAC (template-assisted crystallization) filter keeps minerals from sticking inside the heat exchanger passages."],
+                            ["Pressure regulator", "Well pumps create pressure spikes. A regulator set to 45–65 PSI prevents erratic firing and burner shutdowns."],
+                            ["Annual descale", "Flush the heat exchanger with a descaling solution every 6–12 months to clear accumulated scale."],
+                        ].map(([label, desc]) => (
+                            <div class="flex items-start gap-2 text-sm text-gray-700">
+                                <svg class="w-4 h-4 text-secondary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>{label}</strong> — {desc}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            <!-- City water note -->
+            <div class="bg-base-100 rounded-2xl border border-base-300 p-6 mb-6 shadow-sm">
+                <p class="font-semibold text-base-content mb-1">On city water in Grandville or Jenison?</p>
+                <p class="text-sm text-gray-600 leading-relaxed">City water in the Kent County corridor — Grandville, Wyoming, Grand Rapids — is still moderately hard (around 100–130 ppm) but treated and consistent. Tank units here typically reach their full 10–12 year lifespan with standard maintenance. The well water precautions above are still a good idea but less urgent. Tankless on city water is a simpler, lower-maintenance install.</p>
+            </div>
+
+            <!-- Private well testing callout -->
+            <div class="bg-amber-50 rounded-2xl border border-amber-200 p-5 mb-8 flex gap-4">
+                <div class="shrink-0 mt-0.5">
+                    <svg class="w-5 h-5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                </div>
+                <p class="text-sm text-gray-700 leading-relaxed"><strong>Have a private well?</strong> Municipal water quality reports are a useful starting point, but private well water varies significantly by lot, depth, and season. Before choosing a water heater type, we recommend testing your water for hardness, iron, and sulfur through a certified lab or your local health department. Knowing your actual numbers lets us size the right pre-treatment for your install and avoid surprises.</p>
+            </div>
+
+            <p class="text-sm text-gray-600 leading-relaxed mb-4">The right choice can depend on where you live — a Jenison home on well water often has different considerations than a Grandville home on city water. See what's typical in your area:</p>
+            <div class="flex flex-wrap gap-3">
+                <a href="/service-area/jenison/" class="btn btn-sm btn-outline border-primary/25 text-base-content hover:border-primary hover:text-primary">Water heater service in Jenison →</a>
+                <a href="/service-area/grandville/" class="btn btn-sm btn-outline border-primary/25 text-base-content hover:border-primary hover:text-primary">Water heater service in Grandville →</a>
+                <a href="/service-area/hudsonville/" class="btn btn-sm btn-outline border-primary/25 text-base-content hover:border-primary hover:text-primary">Water heater service in Hudsonville →</a>
+            </div>
         </div>
     </section>
 
@@ -418,7 +526,7 @@ const faqs = [
     <!-- ─── FINAL CTA ─────────────────────────────────────────────────────────── -->
     <Cta
         title="Ready to Get a Quote on Either Type?"
-        subtitle="We install both tank and tankless water heaters throughout Grand Rapids and West Michigan. Get your exact installed price in 30 seconds."
+        subtitle="Serving Jenison, Grandville, Hudsonville, and all of West Michigan — tank and tankless installs. Get your exact installed price in 30 seconds."
     />
 
 </BaseLayout>

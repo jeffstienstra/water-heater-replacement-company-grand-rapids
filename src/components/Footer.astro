@@ -1,6 +1,5 @@
-
 <footer class="bg-base-200 text-base-content border-t border-base-300 py-12">
-	<div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 text-sm">
+	<div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-sm">
 		<div>
 			<h3 class="font-semibold mb-4">Water Heater Replacement Company of Grand Rapids</h3>
 			<p class="mb-2 max-w-xs">
@@ -12,7 +11,6 @@
 			<h4 class="font-semibold mb-4">Pages</h4>
 			<ul class="space-y-2">
 				<li><a class="link link-hover" href="/">Home</a></li>
-				<li><a class="link link-hover" href="/why-us/">Why Us</a></li>
 				<li><a class="link link-hover" href="/water-heater-pricing/">Water Heater Pricing</a></li>
 				<li>
 					<p class="pointer-events-none font-semibold mt-2" aria-label="parent">Services</p>
@@ -23,14 +21,41 @@
 					</ul>
 				</li>
 				<li>
-					<p class="pointer-events-none font-semibold mt-2" aria-label="parent">Products</p>
+					<p class="pointer-events-none font-semibold mt-2" aria-label="parent">Resources</p>
 					<ul class="p-2 space-y-1">
+						<li><a class="link link-hover" href="/why-us/">Why Choose Us</a></li>
 						<li><a class="link link-hover" href="/resources/tank-vs-tankless-water-heaters/">Tank vs. Tankless Comparison</a></li>
 						<li><a class="link link-hover" href="/resources/tank-water-heaters/">Tank Water Heaters</a></li>
 						<li><a class="link link-hover" href="/resources/tankless-water-heaters/">Tankless Water Heaters</a></li>
 						<li><a class="link link-hover" href="/resources/how-to-stop-a-water-leak/">How to Stop a Water Leak</a></li>
+						<li><a class="link link-hover" href="/resources/water-heater-installation-process-jenison-mi/">Water Heater Installation Process</a></li>
 					</ul>
 				</li>
+			</ul>
+		</div>
+
+		<div>
+			<h4 class="font-semibold mb-4"><a class="link link-hover" href="/service-area/">Service Area</a></h4>
+			<ul class="grid grid-cols-2 gap-x-4 gap-y-1.5">
+				{[
+					{ city: 'Grand Rapids', slug: 'grand-rapids' },
+					{ city: 'Jenison', slug: 'jenison' },
+					{ city: 'Hudsonville', slug: 'hudsonville' },
+					{ city: 'Allendale', slug: 'allendale' },
+					{ city: 'Wyoming', slug: 'wyoming' },
+					{ city: 'Kentwood', slug: 'kentwood' },
+					{ city: 'Walker', slug: 'walker' },
+					{ city: 'Comstock Park', slug: 'comstock-park' },
+					{ city: 'Byron Center', slug: 'byron-center' },
+					{ city: 'East Grand Rapids', slug: 'east-grand-rapids' },
+					{ city: 'Ada', slug: 'ada' },
+					{ city: 'Caledonia', slug: 'caledonia' },
+					{ city: 'Zeeland', slug: 'zeeland' },
+					{ city: 'Holland', slug: 'holland' },
+					{ city: 'Grandville', slug: 'grandville' },
+				].map(({ city, slug }) => (
+					<li><a class="link link-hover" href={`/service-area/${slug}/`}>{city}</a></li>
+				))}
 			</ul>
 		</div>
 
@@ -40,11 +65,11 @@
 				<li><a class="link link-hover break-words whitespace-normal" href="mailto:service@waterheaterreplacementcompany.com">service@WaterHeaterReplacementCompany.com</a></li>
 				<li><a class="link link-hover" href="tel:+1-616-315-0999">(616) 315-0999</a></li>
 				<li>Michigan Mechanical License #7117187</li>
-
 			</ul>
 		</div>
-			<p class="text-xs text-base-content/70">© {new Date().getFullYear()} <a target="_blank" href="https://launchwebdesignandmarketing.com" class="underline">Launch Web Design & Marketing</a>
-				<br>All rights reserved.
-			</p>
+
+		<p class="text-xs text-base-content/70 md:col-span-2 lg:col-span-4">© {new Date().getFullYear()} <a target="_blank" href="https://launchwebdesignandmarketing.com" class="underline">Launch Web Design & Marketing</a>
+			<br>All rights reserved.
+		</p>
 	</div>
 </footer>

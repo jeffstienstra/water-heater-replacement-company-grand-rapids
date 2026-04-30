@@ -4,7 +4,7 @@ import RecommendationCard from './RecommendationCard.jsx';
 import urlHelper from '../lib/urlHelper.js';
 import questions from '../data/questions.js';
 
-export default function FindWaterHeaterQuiz() {
+export default function FindWaterHeaterQuiz({ imageMap = {} }) {
 	const [params, setParams] = useState(() => new URLSearchParams(window.location.search));
 	const [step, setStep] = useState(() => parseInt(params.get('step') || '1', 10));
 	const [loadingResults, setLoadingResults] = useState(true);
@@ -97,7 +97,7 @@ export default function FindWaterHeaterQuiz() {
 						<p className="text-sm text-gray-500">Calculating your best options...</p>
 					</div>
 				) : (
-					<RecommendationCard params={params} />
+					<RecommendationCard params={params} imageMap={imageMap} />
 				)
 			) : (
 				<>

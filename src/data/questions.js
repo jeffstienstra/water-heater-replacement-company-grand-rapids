@@ -92,7 +92,8 @@ const questions = [
 			disclaimer: 'The exhaust vent pipe is typically the largest pipe connected to the top of your water heater. It may run horizontally or vertically and is usually made of metal or plastic.',
 			shouldShow: (answers) => {
 				const fuel = answers.fuel;
-				return fuel && (fuel === 'gas' || fuel === 'propane');
+				// also is not a mobile home, since those only vent in metal. hide this subquestion for mobile homes.
+				return fuel && fuel !== 'electric' && answers.homeType !== 'mobileHome';
 			},
 			// subQuestion: {
 			// 	paramKey: 'ventingTermination',

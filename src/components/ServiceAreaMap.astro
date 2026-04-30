@@ -1,0 +1,53 @@
+---
+interface Props {
+	class?: string;
+	radiusMiles?: number;
+}
+
+const { class: className = '', radiusMiles = 30 } = Astro.props;
+
+const lat = 42.90016670068645;
+const lng = -85.84484248725073;
+const radiusMeters = radiusMiles * 1609.344;
+---
+
+<div class:list={['w-full overflow-hidden rounded-2xl', className]}>
+	<div id="service-area-map" style="height: 450px; width: 100%;"></div>
+</div>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/WLEg=" crossorigin=""></script>
+
+<script define:vars={{ lat, lng, radiusMeters, radiusMiles }}>
+	document.addEventListener('DOMContentLoaded', () => {
+		const map = L.map('service-area-map', { scrollWheelZoom: false }).setView([lat, lng], 9);
+
+		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+			maxZoom: 19,
+		}).addTo(map);
+
+		// Service radius circle
+		L.circle([lat, lng], {
+			radius: radiusMeters,
+			color: '#1d7afc',
+			fillColor: '#1d7afc',
+			fillOpacity: 0.08,
+			weight: 2,
+			dashArray: '6 4',
+		}).addTo(map);
+
+		// Business marker
+		const icon = L.divIcon({
+			className: '',
+			html: `<div style="background:#1d7afc;width:14px;height:14px;border-radius:50%;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.35);"></div>`,
+			iconSize: [14, 14],
+			iconAnchor: [7, 7],
+		});
+
+		L.marker([lat, lng], { icon })
+			.addTo(map)
+			.bindPopup(`<strong>Water Heater Replacement Company</strong><br>Serving West Michigan`)
+			.openPopup();
+	});
+</script>

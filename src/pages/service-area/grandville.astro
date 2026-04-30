@@ -1,0 +1,308 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Cta from "../../components/Cta.astro";
+import TrustStrip from "../../components/TrustStrip.astro";
+import Faq from "../../components/Faq.astro";
+import PriceReceipt from "../../components/icons/PriceReceipt.astro";
+import Phone from "../../components/icons/Phone.astro";
+
+const faqs = [
+	{
+		q: "Do you do same-day water heater replacement in Grandville, MI?",
+		a: "Yes — same-day and next-day appointments are regularly available in Grandville. Our proximity via highway access means we can typically be on-site in Grandville within a few hours of your call. Call <a href='tel:616-315-0999' class='text-primary underline'>616-315-0999</a> to check current availability."
+	},
+	{
+		q: "Do you pull permits for water heater replacements in Grandville?",
+		a: "Yes, always. Grandville falls under Kent County jurisdiction, and a Michigan mechanical permit is required for every water heater replacement. We pull the permit, schedule the inspection, and coordinate everything — it's included in the price you're quoted. There's no legal way to skip this step, and any contractor who tells you otherwise is putting your home and warranty at risk."
+	},
+	{
+		q: "How do I know if I should repair or replace my Grandville water heater?",
+		a: "Because our technicians don't earn commissions, they have no financial reason to push you toward replacement when repair is the better call. The general rule: if your unit is under 8 years old and the repair is a simple component fix (thermostat, element, pilot assembly), repair often makes sense. If it's over 10 years old, leaking from the tank body, or the repair quote approaches half the replacement cost, it's usually smarter to replace. We'll give you both options and let you decide."
+	},
+	{
+		q: "What water heater brands do you install in Grandville?",
+		a: "We install Rheem, A.O. Smith, and Bradford White — three of the most reliable and widely distributed brands in the industry. All three are backed by strong manufacturer warranties. We stock common configurations so we're not waiting on special orders for most Grandville homes."
+	},
+	{
+		q: "My Grandville home has an older natural draft water heater. Can I switch to power vent?",
+		a: "In many Grandville homes — particularly those that have been air-sealed or finished since the original build — power vent or direct vent (tankless-style PVC) is actually the safer and better long-term option. We assess your existing venting setup and utility room configuration and recommend what will work best. The upgrade cost is factored into your quote upfront."
+	},
+	{
+		q: "How long does a typical water heater replacement take in a Grandville home?",
+		a: "Most standard tank replacements in Grandville take 2–3 hours from arrival to hot water running. If your job involves a tankless conversion or any gas line work, expect 4–5 hours. We give you a realistic time estimate when you book so you can plan accordingly."
+	},
+];
+---
+
+<BaseLayout
+	title="Water Heater Replacement in Grandville, MI | Fast Response | Commission-Free"
+	description="Same-day water heater replacement in Grandville, MI. Commission-free technicians, upfront pricing, Kent County permits included. Tank and tankless installs."
+	canonical="https://waterheaterreplacementcompany.com/service-area/grandville/"
+	faqs={faqs}
+>
+
+	<!-- ─── HERO ─────────────────────────────────────────────────────────────── -->
+	<section class="bg-base-100 text-base-content">
+		<div class="max-w-6xl mx-auto px-6 py-12 sm:py-20">
+			<div class="max-w-3xl flex flex-col gap-6">
+				<div>
+					<span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4">
+						Fast Response · Grandville, MI
+					</span>
+					<h1 class="text-4xl sm:text-5xl font-black leading-tight tracking-tight mb-4">
+						Water Heater Replacement in Grandville, MI
+					</h1>
+					<p class="text-lg sm:text-xl text-gray-600 max-w-2xl mt-2">
+						Quick highway access means fast arrivals. Commission-free technicians mean honest recommendations. Grandville homeowners get the same transparent, pressure-free service we're known for across West Michigan — usually same day.
+					</p>
+				</div>
+				<div class="flex flex-col sm:flex-row gap-3">
+					<a href="/instant-quote/?step=1" class="btn btn-primary btn-lg text-white shadow-md">
+						<PriceReceipt />
+						Find My Replacement in 60 Seconds
+					</a>
+					<a href="tel:616-315-0999" class="btn btn-outline btn-lg border-primary text-primary">
+						<Phone />
+						616-315-0999
+					</a>
+				</div>
+				<p class="text-sm text-gray-500">Exact installed price before we schedule. Kent County permit included.</p>
+			</div>
+		</div>
+	</section>
+
+	<TrustStrip />
+
+	<!-- ─── LOCAL INTRO ───────────────────────────────────────────────────────── -->
+	<section class="py-20 px-6 bg-base-200 text-base-content border-t border-base-300">
+		<div class="max-w-4xl mx-auto">
+			<span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4">Serving Grandville</span>
+			<h2 class="text-3xl sm:text-4xl font-bold mb-6">Trusted in Grandville Homes — From the 28th Street Corridor to New Subdivisions</h2>
+			<div class="space-y-4 text-gray-700 text-base leading-relaxed">
+				<p>
+					Grandville sits just minutes off US-131 and I-196, which makes it one of the fastest markets for us to reach in West Michigan. When a Grandville homeowner calls us at 7am with a failed water heater, we're typically on-site before noon. That kind of response time isn't luck — it's location.
+				</p>
+				<p>
+					The Grandville housing market covers a range of home types. Along the established neighborhoods near the 28th Street corridor and Byron Center Avenue, we see a mix of 1980s and 1990s ranch and colonial builds where original water heaters have aged out or are approaching the end of their service life. In newer developments toward the east and south, homeowners are more often looking at first-time replacements or upgrades to tankless systems.
+				</p>
+				<p>
+					We've completed water heater replacements throughout Grandville — in homes near the Grandville school campus, along Ivanrest Avenue, and in the subdivisions off Canal Avenue. Our commission-free model means Grandville homeowners consistently tell us they felt like they got a straight answer rather than a sales pitch. That reputation is what keeps us coming back.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── CTA STRIP ────────────────────────────────────────────────────────── -->
+	<section class="py-8 px-6 bg-primary text-white text-center">
+		<div class="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-4">
+			<p class="font-semibold text-lg">Water heater issue in Grandville? We're close by.</p>
+			<a href="/instant-quote/?step=1" class="btn btn-white bg-white text-primary font-bold hover:bg-white/90 border-0 shrink-0">Get Instant Quote</a>
+		</div>
+	</section>
+
+	<!-- ─── COMMON LOCAL PROBLEMS ─────────────────────────────────────────────── -->
+	<section class="py-20 px-6 bg-base-100 text-base-content border-t border-base-300">
+		<div class="max-w-5xl mx-auto">
+			<div class="text-center mb-12">
+				<span class="inline-block bg-error/10 text-error text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">What We See Here</span>
+				<h2 class="text-3xl sm:text-4xl font-bold mb-3">Water Heater Problems Common in Grandville Homes</h2>
+				<p class="text-lg text-gray-600 max-w-2xl mx-auto">
+					Grandville's mix of established and newer residential construction creates a distinct set of water heater issues. Here's what we encounter most often in this market.
+				</p>
+			</div>
+			<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+				{[
+					{
+						title: "End-of-Life Tank Failures",
+						desc: "Many of Grandville's established neighborhoods have homes where the water heater hasn't been touched since the original build. A unit that's 12–15 years old and showing signs of rust, discolored water, or inconsistent temperature is often more cost-effective to replace than repair.",
+						icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
+						color: "error",
+					},
+					{
+						title: "Mineral Scale from Hard Water",
+						desc: "Grand Rapids metro area water — including Grandville — tends to be moderately hard. Scale accumulates on heating elements and at the bottom of tank units over time. Annual flushing helps, but in neglected units it can permanently reduce efficiency and trigger premature failure.",
+						icon: "M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z",
+						color: "warning",
+					},
+					{
+						title: "Venting Problems in Tight Homes",
+						desc: "As Grandville homes have been air-sealed and insulated over the years, older natural draft water heaters can begin to backdraft — pulling combustion gases back into the living space. We inspect venting on every job and flag any safety concerns before we leave.",
+						icon: "M13 10V3L4 14h7v7l9-11h-7z",
+						color: "error",
+					},
+					{
+						title: "Incorrect Tank Sizing",
+						desc: "A 40-gallon tank that was fine for a couple in 1995 may be struggling to keep up with a household that's grown since. We right-size every recommendation — sometimes the answer is a larger tank, sometimes tankless makes more sense.",
+						icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6",
+						color: "primary",
+					},
+					{
+						title: "Pre-Sale Inspection Failures",
+						desc: "We see a consistent uptick in Grandville water heater calls around home sales. A failing or non-permitted unit can delay or kill a closing. We prioritize urgent scheduling for homeowners in this situation.",
+						icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2",
+						color: "warning",
+					},
+					{
+						title: "Tankless Upgrade Requests",
+						desc: "Grandville homeowners — especially in newer builds with better gas supply infrastructure — frequently ask about tankless upgrades. We assess compatibility honestly and include all conversion costs in your upfront quote.",
+						icon: "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15",
+						color: "primary",
+					},
+				].map(({ title, desc, icon, color }) => (
+					<div class="p-6 bg-base-100 rounded-2xl border border-base-300 shadow-sm">
+						<div class={`w-10 h-10 rounded-xl bg-${color}/10 flex items-center justify-center mb-4`}>
+							<svg class={`w-5 h-5 text-${color}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+								<path stroke-linecap="round" stroke-linejoin="round" d={icon} />
+							</svg>
+						</div>
+						<h3 class="font-bold text-base mb-2">{title}</h3>
+						<p class="text-sm text-gray-600 leading-relaxed">{desc}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── SERVICE DETAILS ───────────────────────────────────────────────────── -->
+	<section class="py-20 px-6 bg-base-200 text-base-content border-t border-base-300">
+		<div class="max-w-5xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
+			<div>
+				<span class="inline-block bg-secondary/10 text-secondary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4">The Process</span>
+				<h2 class="text-3xl sm:text-4xl font-bold mb-5">How Water Heater Replacement Works in Grandville</h2>
+				<div class="space-y-4 text-gray-700 text-base leading-relaxed">
+					<p>
+						You get a fixed price before we schedule. That price covers parts, labor, disposal of the old unit, and the Kent County mechanical permit. There's nothing to negotiate at the door and nothing that appears on a revised invoice after the fact.
+					</p>
+					<p>
+						A Kent County mechanical permit is required on every Grandville water heater replacement. We pull it before we start, schedule the inspection, and meet the inspector — you don't need to take time off work for that part. The permit protects the work quality, keeps your manufacturer warranty intact, and ensures the installation is recorded with the county.
+					</p>
+					<p>
+						We service both tank and tankless water heaters in Grandville. For tankless installs or conversions, we verify your gas line size and venting compatibility before locking in a price. No surprises once we're on-site. Not sure which type fits your home? Read our <a href="/resources/tank-vs-tankless-water-heaters/" class="text-primary underline">tank vs. tankless comparison guide</a>.
+					</p>
+				</div>
+			</div>
+			<div class="space-y-4">
+				{[
+					{ step: "01", title: "Instant Online Quote", desc: "Answer a few questions about your existing setup and household size. Get a firm installed price — no callback required, no personal info needed." },
+					{ step: "02", title: "Schedule Same-Day or Next-Day", desc: "Grandville's highway access gives us flexible scheduling. We often have same-day slots available, and next-day is almost always an option." },
+					{ step: "03", title: "Installation & Inspection", desc: "We remove the old unit, install and test the new one, and ensure it's up to code before we leave. Most tank installs take 2–3 hours." },
+					{ step: "04", title: "Kent County Permit Handled", desc: "Your mechanical permit is pulled on every job. We handle the entire process — application, scheduling, and inspection coordination." },
+				].map(({ step, title, desc }) => (
+					<div class="flex gap-4 p-5 bg-base-100 rounded-2xl border border-base-300">
+						<span class="text-2xl font-black text-primary/30 shrink-0 w-8">{step}</span>
+						<div>
+							<h3 class="font-bold mb-1">{title}</h3>
+							<p class="text-sm text-gray-600 leading-relaxed">{desc}</p>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── CTA STRIP ────────────────────────────────────────────────────────── -->
+	<section class="py-8 px-6 bg-primary text-white text-center">
+		<div class="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-4">
+			<p class="font-semibold text-lg">Get your exact Grandville water heater quote now.</p>
+			<a href="tel:616-315-0999" class="btn btn-white bg-white text-primary font-bold hover:bg-white/90 border-0 shrink-0">Call 616-315-0999</a>
+		</div>
+	</section>
+
+	<!-- ─── SERVICES GRID ────────────────────────────────────────────────────── -->
+	<section class="py-20 px-6 bg-base-100 text-base-content border-t border-base-300">
+		<div class="max-w-6xl mx-auto">
+			<div class="text-center mb-14">
+				<span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">What We Do</span>
+				<h2 class="text-3xl sm:text-4xl font-bold mb-3">Water Heater Services in Grandville</h2>
+				<p class="text-lg text-gray-600 max-w-2xl mx-auto">
+					From routine tank replacements to emergency leaks, we handle every water heater situation in Grandville with the same upfront pricing and honest guidance.
+				</p>
+			</div>
+			<div class="grid gap-6 sm:grid-cols-3">
+				{[
+					{
+						name: "Water Heater Replacement",
+						url: "/services/water-heater-replacement/",
+						desc: "Same-day tank or tankless replacement in Grandville. Firm price before we arrive, permit included, 2-year labor warranty on every job.",
+						icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6",
+					},
+					{
+						name: "Water Heater Repair",
+						url: "/services/water-heater-repair/",
+						desc: "Honest repair assessment from commission-free technicians. We'll tell you if repair is the right call — not just the profitable one.",
+						icon: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z",
+					},
+					{
+						name: "Leaking Water Heater",
+						url: "/services/leaking-water-heater-emergency/",
+						desc: "Active leak in Grandville? We respond fast. Same-day service to contain the damage and get your hot water restored.",
+						icon: "M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z",
+					},
+				].map(({ name, url, desc, icon }) => (
+					<a href={url} class="flex flex-col gap-4 p-7 bg-base-200 rounded-2xl border border-base-300 shadow-sm hover:shadow-md transition-shadow group">
+						<div class="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+							<svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+								<path stroke-linecap="round" stroke-linejoin="round" d={icon} />
+							</svg>
+						</div>
+						<div>
+							<h3 class="font-bold text-lg mb-2 group-hover:text-primary transition-colors">{name}</h3>
+							<p class="text-sm text-gray-600 leading-relaxed">{desc}</p>
+						</div>
+						<span class="text-sm font-semibold text-primary mt-auto">Learn more →</span>
+					</a>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── WHY US ────────────────────────────────────────────────────────────── -->
+	<section class="py-14 px-6 bg-base-200 text-base-content border-t border-base-300">
+		<div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center gap-8 bg-primary/5 border border-primary/20 rounded-3xl p-8 sm:p-10">
+			<div class="shrink-0 w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
+				<svg class="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+				</svg>
+			</div>
+			<div>
+				<h2 class="text-xl font-bold mb-2">Why Grandville Homeowners Choose Us</h2>
+				<p class="text-gray-600 leading-relaxed mb-4">
+					No commissions means no upsells. When our technician tells you what your Grandville home needs, it's not influenced by what earns them the highest payout. You get the honest answer — whether that's a simple tank swap, a right-sized upgrade, or a confirmation that your existing unit still has life in it.
+				</p>
+				<a href="/why-us/" class="text-sm font-semibold text-primary hover:underline">See how our zero-commission model works →</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── INTERNAL LINKS ────────────────────────────────────────────────────── -->
+	<section class="py-10 px-6 bg-base-100 border-t border-base-300">
+		<div class="max-w-4xl mx-auto">
+			<p class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">Also Serving Nearby</p>
+			<div class="flex flex-wrap gap-3">
+				<a href="/service-area/jenison/" class="btn btn-sm btn-outline border-base-300 text-base-content hover:border-primary hover:text-primary">
+					Water heater replacement in Jenison →
+				</a>
+				<a href="/service-area/hudsonville/" class="btn btn-sm btn-outline border-base-300 text-base-content hover:border-primary hover:text-primary">
+					Serving homeowners in Hudsonville →
+				</a>
+				<a href="/service-area/" class="btn btn-sm btn-outline border-base-300 text-base-content hover:border-primary hover:text-primary">
+					All West Michigan service areas →
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── FAQ ───────────────────────────────────────────────────────────────── -->
+	<Faq
+		faqs={faqs}
+		name="faq-grandville"
+		title="Water Heater Questions for Grandville, MI Homeowners"
+	/>
+
+	<!-- ─── CTA ───────────────────────────────────────────────────────────────── -->
+	<Cta
+		title="Ready for a New Water Heater in Grandville?"
+		subtitle="Get your exact installed price in 60 seconds. Upfront quote, same-day availability, Kent County permit included — no pressure, no commissions."
+	/>
+
+</BaseLayout>

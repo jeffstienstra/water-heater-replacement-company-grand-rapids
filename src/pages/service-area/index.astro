@@ -1,0 +1,115 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Cta from "../../components/Cta.astro";
+import TrustStrip from "../../components/TrustStrip.astro";
+import ServiceAreaMap from "../../components/ServiceAreaMap.astro";
+import { cities } from "../../data/cities";
+import MapEmbed from "../../components/MapEmbed.astro";
+
+const FEATURED_SLUGS = ['jenison', 'grandville', 'hudsonville'];
+const featuredCities = FEATURED_SLUGS.map((s) => cities.find((c) => c.slug === s)!);
+const otherCities = cities.filter((c) => !FEATURED_SLUGS.includes(c.slug));
+---
+
+<BaseLayout
+    title="Water Heater Service Area in West Michigan | Grand Rapids & Surrounding Cities"
+    description="Water Heater Replacement Company serves 15 cities across West Michigan including Grand Rapids, Jenison, Holland, Kentwood, and more. Same-day service, upfront pricing, no hidden fees."
+    canonical="https://waterheaterreplacementcompany.com/service-area/"
+>
+
+    <!-- ─── HERO ─────────────────────────────────────────────────────────────── -->
+    <section class="bg-base-100 text-base-content">
+        <div class="max-w-6xl mx-auto px-6 py-12 sm:py-20 text-center">
+            <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4">Service Area</span>
+            <h1 class="text-4xl sm:text-5xl font-black leading-tight tracking-tight mb-4">
+                Water Heater Replacement Company Serves All of West Michigan
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
+                We serve every city throughout the Grand Rapids metro area and surrounding West Michigan communities — same upfront pricing, same-day or next-day availability, everywhere we go.
+            </p>
+        </div>
+    </section>
+
+    <TrustStrip />
+    <ServiceAreaMap class="shadow-md" />
+
+    <!-- ─── FEATURED CITIES ────────────────────────────────────────────────────── -->
+    <section class="py-20 px-6 bg-base-100 text-base-content border-t border-base-300">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-14">
+                <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">Primary Service Hubs</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-3">Our Home Territory</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    While we have deep roots in the Jenison, Grandville, and Hudsonville communities, we provide that same high level of local expertise and fast response times to our neighbors throughout the entire West Michigan area.
+                </p>
+            </div>
+            <div class="grid gap-6 sm:grid-cols-3">
+                {featuredCities.map((city) => (
+                    <a
+                        href={`/service-area/${city.slug}/`}
+                        class="flex flex-col gap-4 p-8 bg-base-200 rounded-2xl border-2 border-primary/20 shadow-sm hover:shadow-md hover:border-primary/50 transition-all group"
+                    >
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                                <svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-extrabold text-lg text-base-content group-hover:text-primary transition-colors">{city.city}</h3>
+                                <p class="text-xs text-gray-500">{city.state}</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-600 leading-relaxed flex-1">{city.description}</p>
+                        <span class="text-sm font-bold text-primary">Full local guide →</span>
+                    </a>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── ALL OTHER CITIES ───────────────────────────────────────────────────── -->
+    <section class="py-16 px-6 bg-base-200 text-base-content border-t border-base-300">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-10">
+                <span class="inline-block bg-secondary/10 text-secondary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">All Locations</span>
+                <h2 class="text-2xl sm:text-3xl font-bold mb-3">More Cities We Serve</h2>
+                <p class="text-base text-gray-600 max-w-xl mx-auto">
+                    Same upfront pricing, same-day availability, and the same zero-commission promise — in every city we serve.
+                </p>
+            </div>
+            <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {otherCities.map((city) => (
+                    <a
+                        href={`/service-area/${city.slug}/`}
+                        class="flex items-center gap-3 p-4 bg-base-100 rounded-xl border border-base-300 hover:border-primary/40 hover:shadow-sm transition-all group"
+                    >
+                        <svg class="w-4 h-4 text-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        <span class="font-semibold text-sm text-base-content group-hover:text-primary transition-colors">{city.city}</span>
+                        <span class="text-xs text-gray-400 ml-auto">{city.state}</span>
+                    </a>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── MAP ──────────────────────────────────────────────────────────────── -->
+    <section class="py-20 px-6 bg-base-100 text-base-content border-t border-base-300">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-10">
+                <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">Find Us</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-3">Our Service Area on the Map</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Based in the Grand Rapids metro area, we cover all of West Michigan — from Holland to Ada, Byron Center to Comstock Park.
+                </p>
+            </div>
+            <MapEmbed class="shadow-md" />
+        </div>
+    </section>
+
+    <!-- ─── CTA ───────────────────────────────────────────────────────────────── -->
+    <Cta />
+
+</BaseLayout>

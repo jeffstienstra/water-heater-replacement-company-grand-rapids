@@ -64,6 +64,7 @@ interface BusinessInfo {
     email: string;
     primaryPhone: string;
     address: Address;
+    foundingDate?: string;
     areaServed: string[];
     geo: GeoCoordinates;
     hours: OpeningHoursSpecification[];
@@ -136,6 +137,7 @@ export const businessInfo: BusinessInfo = {
         zip: '49428',
         country: 'US',
     },
+    foundingDate: '2025-11-03', // NOTE: update founding date when launching website <=======================IMPORTANT========================
     areaServed: ['Grand Rapids', 'Jenison', 'Hudsonville', 'Allendale', 'Wyoming', 'Kentwood', 'Walker', 'Comstock Park', 'Byron Center', 'East Grand Rapids', 'Ada', 'Caledonia', 'Zeeland', 'Holland', 'Grandville'],
     primaryPhone: primaryPhone,
     email: 'service@waterheaterreplacementcompany.com',

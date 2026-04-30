@@ -1,0 +1,212 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Cta from "../../components/Cta.astro";
+import TrustStrip from "../../components/TrustStrip.astro";
+import Faq from "../../components/Faq.astro";
+import PriceReceipt from "../../components/icons/PriceReceipt.astro";
+import Phone from "../../components/icons/Phone.astro";
+
+const faqs = [
+	{
+		q: "How long does water heater installation take in Jenison?",
+		a: "Most standard tank replacements in Jenison are complete within 2–3 hours from arrival. This includes shutting off the old unit, draining and removing the existing tank, installing and connecting the new unit, testing for leaks and proper temperature, and cleanup. Tankless conversions or installs that require gas line or venting upgrades can take 4-8 hours. We'll let you know before we start the job."
+	},
+	{
+		q: "Do I need to be home for the installation?",
+		a: "Yes — an adult 18+ needs to be present for the duration of the installation. We need access to the water heater location and the main water shutoff, and you'll need to confirm the finished installation before we leave. We'll give you a firm arrival window so you don't have to wait around all day."
+	},
+	{
+		q: "Does the local permit get pulled before or after installation?",
+		a: "The mechanical permit is applied for before or on the day of installation, depending on the local township's current processing times. The inspection itself typically happens within a few days of the installation — we schedule it and coordinate directly with the township. The inspection does not take long though an adult 18 years or older needs to be present."
+	},
+	{
+		q: "What happens to my old water heater?",
+		a: "We remove and dispose of the old unit as part of every installation. You don't need to arrange haul-off or leave it at the curb. The price you see in the quote tool includes full removal and disposal."
+	},
+	{
+		q: "Can you install a water heater the same day I call?",
+		a: "In most cases, yes — same-day installation is regularly available in Jenison and throughout the Jenison / Georgetown Township area. If it's an emergency (active leak, no hot water), same-day availability is our priority. For non-emergency planned replacements, next-day scheduling is almost always possible."
+	},
+	{
+		q: "What if you discover additional work is needed during installation?",
+		a: "We discuss any discovered issues with you before doing additional work and before any additional charges. We won't proceed with unquoted scope without your explicit approval. If a gas line or venting upgrade is needed that wasn't captured in your initial quote, we'll explain why, give you the additional cost upfront, and let you decide."
+	},
+];
+---
+
+<BaseLayout
+	title="Water Heater Installation Process in Jenison, MI | What to Expect"
+	description="A step-by-step guide to what happens during a water heater replacement in Jenison, MI — from getting your price to final permit inspection. Local permit included."
+	canonical="https://waterheaterreplacementcompany.com/resources/water-heater-installation-process-jenison-mi/"
+	faqs={faqs}
+>
+
+	<!-- ─── HERO ─────────────────────────────────────────────────────────────── -->
+	<section class="bg-base-100 text-base-content">
+		<div class="max-w-6xl mx-auto px-6 py-12 sm:py-20">
+			<div class="max-w-3xl flex flex-col gap-5">
+				<span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full w-fit">Water Heater Installation Guide</span>
+				<h1 class="text-4xl sm:text-5xl font-black leading-tight tracking-tight">
+					Water Heater Installation in Jenison and West Michigan: What to Expect
+				</h1>
+				<p class="text-lg sm:text-xl text-gray-600">
+					From getting your price online to the final permit inspection — here's exactly how a water heater replacement works when you hire us in Jenison, MI.
+				</p>
+				<div class="flex flex-col sm:flex-row gap-3 pt-2">
+					<a href="/instant-quote/?step=1" class="btn btn-primary btn-lg text-white shadow-md">
+						<PriceReceipt />
+						Get My Exact Quote
+					</a>
+					<a href="tel:616-315-0999" class="btn btn-outline btn-lg border-primary text-primary">
+						<Phone />
+						616-315-0999
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<TrustStrip />
+
+	<!-- ─── OVERVIEW ─────────────────────────────────────────────────────────── -->
+	<section class="py-16 px-6 bg-base-200 text-base-content border-t border-base-300">
+		<div class="max-w-3xl mx-auto">
+			<p class="text-lg text-gray-700 leading-relaxed mb-6">
+				Most homeowners have never had a water heater replaced before — or it's been so long that they don't remember the process. We hear a lot of the same concerns: Will there be unexpected charges on the day? How long will I be without hot water? Do I need to do anything about the permit myself? This guide walks through every step, so you know exactly what's coming.
+			</p>
+			<p class="text-gray-700 leading-relaxed">
+				The short version: most Jenison tank replacements are complete in 2–3 hours, your price is locked in before we arrive, and the local permit is handled entirely by us. Here's the longer version.
+			</p>
+		</div>
+	</section>
+
+	<!-- ─── STEP-BY-STEP PROCESS ─────────────────────────────────────────────── -->
+	<section class="py-20 px-6 bg-base-100 text-base-content border-t border-base-300">
+		<div class="max-w-4xl mx-auto">
+			<div class="text-center mb-14">
+				<span class="inline-block bg-secondary/10 text-secondary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">The Full Process</span>
+				<h2 class="text-3xl sm:text-4xl font-bold">From Quote to Permit — Step by Step</h2>
+			</div>
+			<div class="space-y-6">
+				{[
+					{
+						step: "01",
+						title: "Get Your Price Online — Before You Call",
+						time: "5 minutes",
+						content: "Use our instant quote tool to answer a few questions about your current water heater (size, fuel type, venting) and where you want to go (tank or tankless, similar size or upgrade). You'll get a firm installed price at the end — not a range, not a callback request. This is the actual price, including installation labor, parts, old unit removal, and the local permit. You're not committing to anything by getting a quote."
+					},
+					{
+						step: "02",
+						title: "Schedule Your Installation",
+						time: "2 minutes",
+						content: "Once you have your price, you can book online or call us directly at 616-315-0999. We have regular same-day availability in Jenison and next-day almost always. For emergency situations — active leak or no hot water — same-day service is our priority. You'll get a confirmed arrival window, not a 4-hour half-day block."
+					},
+					{
+						step: "03",
+						title: "Permit Is Filed",
+						time: "Before installation or ASAP if an emergency call",
+						content: "We pull the local mechanical permit as part of the installation process. Michigan law requires a permit for every water heater replacement, and every local jurisdiction enforces this. Some contractors skip the permit to move faster or reduce cost — this can void your manufacturer warranty, create liability issues if you sell the home, and is simply illegal. We never skip the permit, and it's already included in your quoted price."
+					},
+					{
+						step: "04",
+						title: "Old Unit Shutdown and Prep",
+						time: "15–20 minutes",
+						content: "On arrival, we shut off the gas (or electrical breaker) and cold water supply to the existing unit, then connect a hose to the drain valve to empty the tank. We also inspect the area around the water heater for any existing issues — gas connections, venting condition, floor condition — before starting removal. If we find anything unexpected, we discuss it with you before proceeding."
+					},
+					{
+						step: "05",
+						title: "Old Unit Removal",
+						time: "20–30 minutes",
+						content: "Once drained, we disconnect the gas and water connections, remove the venting (which goes to the new unit), and haul the old tank out. Full removal and disposal is included — the old unit leaves with us. If your home has a challenging access point (basement stairs, tight closet), we've seen it before and come prepared."
+					},
+					{
+						step: "06",
+						title: "New Unit Installation",
+						time: "45–75 minutes",
+						content: "The new unit is positioned, leveled, and connected to the cold water inlet and hot water outlet. Gas connections are made with new fittings and leak-tested with soap or electronic detection. Venting is connected and inspected per code — for natural draft units, we verify proper draft. For power vent or tankless units, new PVC venting is run as needed. Electrical connections for pilot ignition or electric elements are completed and verified."
+					},
+					{
+						step: "07",
+						title: "Fill, Test, and Temperature Verification",
+						time: "20–30 minutes",
+						content: "We fill the tank and flush air from the lines before lighting the unit. Once firing, we monitor the first heating cycle to verify the burner is operating correctly and confirm the thermostat and temperature limit functions work properly. We check all connections for leaks and run a final hot water test at a nearby tap to confirm delivery. For tankless, we verify full flow rate and inlet/outlet temperatures."
+					},
+					{
+						step: "08",
+						title: "Final Permit Inspection",
+						time: "A few days or weeks after install",
+						content: "After installation, we schedule the permit inspection with the local township. An inspector from the township will verify the installation meets Michigan mechanical code. You don't need to be present — we coordinate directly with the township and can provide you with the final inspection record for your files. This record is valuable when selling the home."
+					},
+				].map(({ step, title, time, content }) => (
+					<div class="flex gap-5 sm:gap-8 p-6 sm:p-8 bg-base-200 rounded-2xl border border-base-300">
+						<div class="shrink-0">
+							<span class="text-3xl font-black text-primary/20">{step}</span>
+						</div>
+						<div class="flex-1">
+							<div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 mb-3">
+								<h3 class="font-bold text-lg">{title}</h3>
+								<span class="text-xs font-semibold text-gray-400 bg-base-300 px-2 py-0.5 rounded-full w-fit">{time}</span>
+							</div>
+							<p class="text-sm text-gray-600 leading-relaxed">{content}</p>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── WHAT'S INCLUDED CALLOUT ───────────────────────────────────────────── -->
+	<section class="py-14 px-6 bg-base-200 text-base-content border-t border-base-300">
+		<div class="max-w-4xl mx-auto">
+			<div class="text-center mb-10">
+				<h2 class="text-2xl sm:text-3xl font-bold">Everything Included in Your Quote</h2>
+				<p class="text-gray-600 mt-2">One price, no line items added on arrival.</p>
+			</div>
+			<div class="grid sm:grid-cols-2 gap-4">
+				{[
+					"New water heater (model quoted)",
+					"Full installation labor",
+					"Removal and disposal of old unit",
+					"All supply and gas connections",
+					"Venting connection or replacement",
+					"Local mechanical permit",
+					"Leak and performance testing",
+					"2-year labor warranty",
+				].map((item) => (
+					<div class="flex items-center gap-3 p-4 bg-base-100 rounded-xl border border-base-300">
+						<svg class="w-5 h-5 text-success shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+						</svg>
+						<span class="text-sm font-medium">{item}</span>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── INTERNAL LINKS ────────────────────────────────────────────────────── -->
+	<section class="py-10 px-6 bg-base-100 border-t border-base-300">
+		<div class="max-w-4xl mx-auto">
+			<p class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">Related</p>
+			<div class="flex flex-wrap gap-3">
+				<a href="/service-area/jenison/" class="btn btn-sm btn-outline border-base-300 text-base-content hover:border-primary hover:text-primary">Full Jenison area service page →</a>
+				<a href="/resources/water-heater-replacement-cost-jenison-mi/" class="btn btn-sm btn-outline border-base-300 text-base-content hover:border-primary hover:text-primary">What does it cost? →</a>
+				<a href="/resources/common-water-heater-problems-west-michigan/" class="btn btn-sm btn-outline border-base-300 text-base-content hover:border-primary hover:text-primary">Common water heater problems →</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── FAQ ───────────────────────────────────────────────────────────────── -->
+	<Faq
+		faqs={faqs}
+		name="faq-installation-process"
+		title="Installation Questions Answered"
+	/>
+
+	<!-- ─── CTA ───────────────────────────────────────────────────────────────── -->
+	<Cta
+		title="Ready to Schedule Your Jenison Installation?"
+		subtitle="Get your exact price online in 30 seconds. Local permit included, old unit removed — no surprises."
+	/>
+
+</BaseLayout>

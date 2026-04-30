@@ -10,7 +10,7 @@ import PriceReceipt from './icons/PriceReceipt.jsx';
 import SubmissionModal from './SubmissionModal.jsx';
 import PhoneReact from './icons/PhoneReact.jsx';
 
-export default function RecommendationCard({params}) {
+export default function RecommendationCard({params, imageMap = {}}) {
     const [showAnswers, setShowAnswers] = useState(false);
     const [warrantySelections, setWarrantySelections] = useState({});
     const [selectedModel, setSelectedModel] = useState(null);
@@ -269,7 +269,7 @@ export default function RecommendationCard({params}) {
                                         <div key={model.id} className='flex flex-col w-full max-w-86 bg-base-100 border border-base-300 shadow-lg p-4 pb-0'>{/* flex-grow?? */}
                                             {/* <div className='flex-grow'> */}
                                             <h3 className='text-xl mb-0 font-semibold min-h-20'>{`${model.brand} ${model.label}`}</h3>
-                                            <img className='max-h-48 mx-auto m-6' src={`${model.imagePath}`} alt={`${model.brand} ${model.label}`} />
+                                            <img className='max-h-48 mx-auto m-6' src={imageMap[model.imagePath] ?? model.imagePath} alt={`${model.brand} ${model.label}`} />
 
                                             <div className='w-fit mx-auto flex flex-col items-left'>
                                                 <p className='mx-auto text-3xl text-left sm:text-4xl font-bold text-primary'>{priceRange}</p>

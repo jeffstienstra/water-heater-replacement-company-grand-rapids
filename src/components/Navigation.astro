@@ -25,7 +25,7 @@ const { showNavigation = true } = Astro.props;
                 <div class="navbar-center hidden lg:flex justify-between">
                     <ul class="menu menu-horizontal px-1 mr-4">
                         <li>
-                            <a aria-label="Why Choose Us" href="/why-us/">Why Us</a>
+                            <a aria-label="Service Area" href="/service-area/">Service Area</a>
                         </li>
                         <li>
                             <details class="details-menu">
@@ -41,10 +41,12 @@ const { showNavigation = true } = Astro.props;
                             <details class="details-menu">
                                 <summary>Resources</summary>
                                 <ul class="p-2 w-64 top-6 right-0 z-50">
+                                    <li><a aria-label="Why Choose Us" href="/why-us/">Why Choose Us</a></li>
                                     <li><a aria-label="Tank vs. Tankless — Compare" href="/resources/tank-vs-tankless-water-heaters/">Tank vs Tankless Comparison</a></li>
                                     <li><a aria-label="Tank Water Heaters" href="/resources/tank-water-heaters/">Tank Water Heaters</a></li>
                                     <li><a aria-label="Tankless Water Heaters" href="/resources/tankless-water-heaters/">Tankless Water Heaters</a></li>
                                     <li><a aria-label="How to Stop a Water Leak" href="/resources/how-to-stop-a-water-leak/">How to Stop a Water Leak</a></li>
+                                    <li><a aria-label="Water Heater Installation Process" href="/resources/water-heater-installation-process-jenison-mi/">Water Heater Installation Process</a></li>
                                 </ul>
                             </details>
                         </li>
@@ -79,7 +81,7 @@ const { showNavigation = true } = Astro.props;
                     class="menu menu-sm right-1 dropdown-content bg-base-100 rounded-box z-1 mt-3 w-72 p-2 shadow gap-1"
                     >
                     <li>
-                            <a aria-label="Why Choose Us" href="/why-us/" class="text-lg font-bold">Why Us</a>
+                            <a aria-label="Service Area" href="/service-area/" class="text-lg font-bold">Service Area</a>
                     </li>
                         <li>
                             <a aria-label="Services" href="/services/" class="text-lg font-bold">Services</a>
@@ -92,6 +94,9 @@ const { showNavigation = true } = Astro.props;
                     <li>
                         <p class="pointer-events-none text-lg font-bold" aria-label="parent">Resources</p>
                         <ul class="p-2">
+                            <li>
+                                <a aria-label="Why Choose Us" href="/why-us/" class="text-base font-semibold">Why Choose Us</a>
+                            </li>
                             <li>
                                 <a aria-label="Tank vs Tankless Comparison" href="/resources/tank-vs-tankless-water-heaters/" class="text-base font-semibold">Tank vs Tankless Comparison Guide</a>
                             </li>
@@ -106,6 +111,9 @@ const { showNavigation = true } = Astro.props;
                             </li>
                             <li>
                                 <a aria-label="How to Stop a Water Leak" href="/resources/how-to-stop-a-water-leak/" class="text-base font-semibold">How to Stop a Water Leak</a>
+                            </li>
+                            <li>
+                                <a aria-label="Water Heater Installation Process" href="/resources/water-heater-installation-process-jenison-mi/" class="text-base font-semibold">Water Heater Installation Process</a>
                             </li>
                         </ul>
                     </li>
