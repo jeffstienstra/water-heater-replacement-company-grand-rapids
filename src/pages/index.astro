@@ -76,5 +76,184 @@ const faqs = [
 	<SocialProof />
 	<Cta />
 	<Faq faqs={faqs} />
+	<!-- ─── SEO: TOPICAL AUTHORITY ───────────────────────────────────────────── -->
+	<section class="py-20 px-6 bg-base-200 text-base-content border-t border-base-300">
+		<div class="max-w-5xl mx-auto space-y-16">
+
+			<!-- ── Intro ── -->
+			<div>
+				<h2 class="text-2xl sm:text-3xl font-bold mb-4">Water Heater Services in West Michigan</h2>
+				<p class="text-gray-600 leading-relaxed max-w-3xl">
+					We specialize exclusively in water heater replacement, installation, and repair — tank and tankless — for homeowners across West Michigan. Unlike general plumbers who handle everything, our entire operation is built around one thing: getting you a new water heater quickly, cleanly, and at a price you know before we arrive. We serve Grand Rapids, Jenison, Hudsonville, Holland, Zeeland, and surrounding communities throughout Kent and Ottawa counties.
+				</p>
+			</div>
+
+			<!-- ── Services Grid ── -->
+			<div>
+				<h3 class="text-xl font-bold mb-6">Water Heater Services We Offer</h3>
+				<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+					{[
+						{
+							title: "Water Heater Replacement",
+							desc: "Same-day and next-day replacement of failed or aging tank and tankless water heaters throughout West Michigan.",
+							href: "/services/water-heater-replacement/",
+							anchor: "Water Heater Replacement Services →",
+						},
+						{
+							title: "Tank Water Heater Installation",
+							desc: "Gas, electric, and propane tank water heaters in 30, 40, 50, and 75-gallon configurations. Includes permit and haul-away.",
+							href: "/resources/tank-water-heaters/",
+							anchor: "About Tank Water Heaters →",
+						},
+						{
+							title: "Tankless Water Heater Installation",
+							desc: "Whole-home tankless water heater installation in West Michigan. Gas and propane only. Includes venting, gas line assessment, and permit.",
+							href: "/resources/tankless-water-heaters/",
+							anchor: "About Tankless Water Heaters →",
+						},
+						{
+							title: "Water Heater Repair Services",
+							desc: "Diagnosis and repair for water heaters that aren't heating, are making noise, or have pressure and thermostat issues.",
+							href: "/services/water-heater-repair/",
+							anchor: "Water Heater Repair →",
+						},
+						{
+							title: "Leaking Water Heater Emergency",
+							desc: "Leaking tank bodies require immediate replacement. We prioritize emergency calls with same-day availability throughout our service area.",
+							href: "/services/leaking-water-heater-emergency/",
+							anchor: "Leaking Water Heater Help →",
+						},
+						{
+							title: "Tank vs. Tankless Comparison",
+							desc: "Not sure which system is right for your home? We install both and have no stake in what you choose — just an honest comparison.",
+							href: "/resources/tank-vs-tankless-water-heaters/",
+							anchor: "Compare Tank vs. Tankless →",
+						},
+					].map(({ title, desc, href, anchor }) => (
+						<div class="bg-base-100 rounded-2xl border border-base-300 p-6 shadow-sm flex flex-col gap-3">
+							<h4 class="font-bold text-base-content">{title}</h4>
+							<p class="text-sm text-gray-600 leading-relaxed flex-1">{desc}</p>
+							<a href={href} class="text-sm font-semibold text-primary hover:underline">{anchor}</a>
+						</div>
+					))}
+				</div>
+			</div>
+
+			<!-- ── Local Service Areas ── -->
+			<div>
+				<h3 class="text-xl font-bold mb-4">Local Water Heater Replacement Service Areas</h3>
+				<p class="text-gray-600 text-sm leading-relaxed mb-6 max-w-3xl">We serve homeowners throughout Kent and Ottawa counties. Same-day and next-day availability in all areas listed below.</p>
+				<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+					{[
+						{ label: "Water Heater Replacement in Jenison", href: "/service-area/jenison/" },
+						{ label: "Grand Rapids Water Heater Installation", href: "/service-area/grand-rapids/" },
+						{ label: "Hudsonville Water Heater Replacement", href: "/service-area/hudsonville/" },
+						{ label: "Grandville Water Heater Services", href: "/service-area/grandville/" },
+						{ label: "Holland MI Tankless Water Heaters", href: "/service-area/holland/" },
+						{ label: "Zeeland Water Heater Replacement", href: "/service-area/zeeland/" },
+						{ label: "Wyoming MI Water Heater Installation", href: "/service-area/wyoming/" },
+						{ label: "Kentwood Water Heater Replacement", href: "/service-area/kentwood/" },
+						{ label: "Walker Water Heater Services", href: "/service-area/walker/" },
+					].map(({ label, href }) => (
+						<a href={href} class="flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-primary transition-colors p-3 bg-base-100 rounded-xl border border-base-300">
+							<svg class="w-4 h-4 text-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+							{label}
+						</a>
+					))}
+				</div>
+				<p class="text-sm text-gray-500 mt-4">Also serving Comstock Park, Byron Center, East Grand Rapids, Ada, Caledonia, and more. <a href="/service-area/" class="text-primary hover:underline font-medium">View our full service area →</a></p>
+			</div>
+
+			<!-- ── Common Problems ── -->
+			<div>
+				<h3 class="text-xl font-bold mb-4">Common Water Heater Problems That Lead to Replacement</h3>
+				<p class="text-gray-600 text-sm leading-relaxed mb-5 max-w-3xl">Most water heater failures follow a predictable pattern. Recognizing these signs early gives you time to plan a replacement rather than scramble during an emergency.</p>
+				<ul class="grid sm:grid-cols-2 gap-3">
+					{[
+						["No hot water or inconsistent temperature", "A failed heating element, gas valve, or thermostat — or a tank simply past its prime."],
+						["Leaking water heater tank", "A leak from the tank body (not a fitting) almost always signals internal corrosion. The unit needs replacing, not patching."],
+						["Rusty or discolored hot water", "Brown or reddish water from your hot taps means the tank interior is corroding — a sign the unit is near end of life."],
+						["Popping or rumbling noises", "Mineral sediment hardened at the base of the tank. It reduces efficiency and accelerates wear."],
+						["Rising energy bills without explanation", "Aging tanks work harder to maintain temperature, especially as sediment builds up on heating surfaces."],
+						["Tank is 10–15 years old", "Most tank water heaters last 8–12 years. If yours is in this range, proactive replacement avoids an emergency."],
+					].map(([problem, detail]) => (
+						<li class="flex items-start gap-3 p-4 bg-base-100 rounded-xl border border-base-300 text-sm text-gray-700">
+							<svg class="w-4 h-4 text-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+							<span><strong>{problem}</strong> — {detail}</span>
+						</li>
+					))}
+				</ul>
+				<p class="text-sm text-gray-500 mt-4">See the full guide: <a href="/resources/common-water-heater-problems-west-michigan/" class="text-primary hover:underline font-medium">Common Water Heater Problems in West Michigan →</a></p>
+			</div>
+
+			<!-- ── Tank vs Tankless + Pricing ── -->
+			<div class="grid sm:grid-cols-2 gap-8 items-start">
+				<div>
+					<h3 class="text-xl font-bold mb-4">Tank vs. Tankless Water Heaters</h3>
+					<p class="text-gray-600 text-sm leading-relaxed mb-3">Tank water heaters store 40–75 gallons of heated water, cost less upfront, and work with any fuel type. Tankless units heat water on demand — no tank, no standby energy loss — but require natural gas or propane and cost more to install. Both are excellent choices; the right one depends on your household size, fuel type, and budget.</p>
+					<p class="text-gray-600 text-sm leading-relaxed mb-4">In West Michigan, water hardness is also a factor. Hard well water in Ottawa County communities like Hudsonville accelerates scale buildup differently in each system type.</p>
+					<a href="/resources/tank-vs-tankless-water-heaters/" class="text-sm font-semibold text-primary hover:underline">Full tank vs. tankless water heater comparison →</a>
+				</div>
+				<div>
+					<h3 class="text-xl font-bold mb-4">Water Heater Replacement Cost in Michigan</h3>
+					<p class="text-gray-600 text-sm leading-relaxed mb-3">Water heater installation prices vary based on the unit type, fuel source, tank size, venting configuration, and whether any upgrades (gas line, expansion tank, drain pan) are required. Tank replacements in West Michigan typically fall in the $1,500–$2,995 range; tankless installations start around $3,995 installed.</p>
+					<p class="text-gray-600 text-sm leading-relaxed mb-4">Every quote from us includes parts, labor, permit, haul-away, and a 2-year labor warranty — no line items added at the door. Skip the guesswork and get your exact installed price in 30 seconds.</p>
+					<a href="/instant-quote/?step=1" class="text-sm font-semibold text-primary hover:underline">Get your exact installed price →</a>
+				</div>
+			</div>
+
+			<!-- ── Educational Resources ── -->
+			<div>
+				<h3 class="text-xl font-bold mb-5">Water Heater Guides & Resources</h3>
+				<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+					{[
+						{
+							title: "Water Heater Installation Process",
+							desc: "A step-by-step walkthrough of what happens on installation day — from arrival to hot water restored.",
+							href: "/resources/water-heater-installation-process-jenison-mi/",
+							anchor: "How installation works →",
+						},
+						{
+							title: "Common Water Heater Problems",
+							desc: "Signs your water heater is failing, what causes them, and when repair vs. replacement makes more sense.",
+							href: "/resources/common-water-heater-problems-west-michigan/",
+							anchor: "Water heater troubleshooting guide →",
+						},
+						{
+							title: "Tank vs. Tankless Comparison Guide",
+							desc: "An honest side-by-side breakdown of cost, lifespan, efficiency, and which type suits West Michigan homes.",
+							href: "/resources/tank-vs-tankless-water-heaters/",
+							anchor: "Compare tank vs. tankless →",
+						},
+						{
+							title: "Get Your Exact Installed Price",
+							desc: "Answer a few quick questions about your home and get a real installed price in 30 seconds — no email, no salesman.",
+							href: "/instant-quote/?step=1",
+							anchor: "Get my exact quote →",
+						},
+						{
+							title: "Tank Water Heaters",
+							desc: "Gas, electric, and propane tank options, sizing guidance, and which models we install.",
+							href: "/resources/tank-water-heaters/",
+							anchor: "Tank water heater overview →",
+						},
+						{
+							title: "Tankless Water Heaters",
+							desc: "How tankless systems work, who they're best for, and what installation looks like in a West Michigan home.",
+							href: "/resources/tankless-water-heaters/",
+							anchor: "Tankless water heater overview →",
+						},
+					].map(({ title, desc, href, anchor }) => (
+						<div class="bg-base-100 rounded-2xl border border-base-300 p-6 shadow-sm flex flex-col gap-3">
+							<h4 class="font-bold text-base-content">{title}</h4>
+							<p class="text-sm text-gray-600 leading-relaxed flex-1">{desc}</p>
+							<a href={href} class="text-sm font-semibold text-primary hover:underline">{anchor}</a>
+						</div>
+					))}
+				</div>
+			</div>
+
+		</div>
+	</section>
 	<Cta title="Not Sure Yet? Let’s Walk Through It Together." subtitle="We’ll guide you through your options and give you straight answers, not sales pitches." />
 </BaseLayout>
