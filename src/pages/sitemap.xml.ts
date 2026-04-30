@@ -13,7 +13,6 @@ export const GET: APIRoute = () => {
         { loc: `${baseUrl}/services/water-heater-replacement/`,              priority: '0.90' },
         { loc: `${baseUrl}/services/water-heater-repair/`,                   priority: '0.85' },
         { loc: `${baseUrl}/services/leaking-water-heater-emergency/`,        priority: '0.85' },
-        { loc: `${baseUrl}/water-heater-pricing/`,                           priority: '0.80' },
         { loc: `${baseUrl}/why-us/`,                                         priority: '0.80' },
         { loc: `${baseUrl}/service-area/`,                                   priority: '0.85' },
         { loc: `${baseUrl}/resources/tank-vs-tankless-water-heaters/`,       priority: '0.80' },

@@ -18,7 +18,6 @@ curl -v -X POST "https://api.indexnow.org/IndexNow" \
 			"https://waterheaterreplacementcompany.com/services/water-heater-replacement/",
 			"https://waterheaterreplacementcompany.com/services/water-heater-repair/",
 			"https://waterheaterreplacementcompany.com/services/leaking-water-heater-emergency/",
-			"https://waterheaterreplacementcompany.com/water-heater-pricing/",
 			"https://waterheaterreplacementcompany.com/why-us/",
 			"https://waterheaterreplacementcompany.com/service-area/",
 			"https://waterheaterreplacementcompany.com/service-area/grand-rapids/",

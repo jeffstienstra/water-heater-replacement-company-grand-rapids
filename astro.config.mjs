@@ -17,5 +17,6 @@ export default defineConfig({
         '/products/mobile-home-water-heaters/': '/resources/mobile-home-water-heaters/',
         '/products/gas-tank-water-heaters/': '/resources/gas-tank-water-heaters/',
         '/products/electric-tank-water-heaters/': '/resources/electric-tank-water-heaters/',
+        '/water-heater-pricing/': '/instant-quote/?step=1',
     },
 });
