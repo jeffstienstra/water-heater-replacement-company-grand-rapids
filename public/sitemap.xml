@@ -2,64 +2,174 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
+  <!-- NOTE: The canonical sitemap is generated at build time by src/pages/sitemap.xml.ts -->
+  <!-- This static file is kept in sync for reference only — the .ts version is what gets served -->
+
   <!-- ─── HOME ──────────────────────────────────────────────────────────────── -->
   <url>
     <loc>https://waterheaterreplacementcompany.com/</loc>
-    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
     <priority>1.00</priority>
   </url>
 
   <!-- ─── CONVERSION ────────────────────────────────────────────────────────── -->
   <url>
     <loc>https://waterheaterreplacementcompany.com/instant-quote/</loc>
-    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
     <priority>0.90</priority>
   </url>
 
   <!-- ─── SERVICES ──────────────────────────────────────────────────────────── -->
   <url>
     <loc>https://waterheaterreplacementcompany.com/services/</loc>
-    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://waterheaterreplacementcompany.com/services/water-heater-replacement/</loc>
-    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
     <priority>0.90</priority>
   </url>
   <url>
     <loc>https://waterheaterreplacementcompany.com/services/water-heater-repair/</loc>
-    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://waterheaterreplacementcompany.com/services/leaking-water-heater-emergency/</loc>
-    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
     <priority>0.85</priority>
+  </url>
+
+  <!-- ─── SITE PAGES ────────────────────────────────────────────────────────── -->
+  <url>
+    <loc>https://waterheaterreplacementcompany.com/water-heater-pricing/</loc>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://waterheaterreplacementcompany.com/why-us/</loc>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- ─── SERVICE AREA ──────────────────────────────────────────────────────── -->
+  <url>
+    <loc>https://waterheaterreplacementcompany.com/service-area/</loc>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://waterheaterreplacementcompany.com/service-area/jenison/</loc>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://waterheaterreplacementcompany.com/service-area/grandville/</loc>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://waterheaterreplacementcompany.com/service-area/hudsonville/</loc>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://waterheaterreplacementcompany.com/service-area/grand-rapids/</loc>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://waterheaterreplacementcompany.com/service-area/allendale/</loc>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://waterheaterreplacementcompany.com/service-area/wyoming/</loc>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://waterheaterreplacementcompany.com/service-area/kentwood/</loc>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://waterheaterreplacementcompany.com/service-area/walker/</loc>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://waterheaterreplacementcompany.com/service-area/comstock-park/</loc>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://waterheaterreplacementcompany.com/service-area/byron-center/</loc>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://waterheaterreplacementcompany.com/service-area/east-grand-rapids/</loc>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://waterheaterreplacementcompany.com/service-area/ada/</loc>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://waterheaterreplacementcompany.com/service-area/caledonia/</loc>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://waterheaterreplacementcompany.com/service-area/zeeland/</loc>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://waterheaterreplacementcompany.com/service-area/holland/</loc>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
+    <priority>0.75</priority>
   </url>
 
   <!-- ─── RESOURCES ─────────────────────────────────────────────────────────── -->
   <url>
     <loc>https://waterheaterreplacementcompany.com/resources/tank-vs-tankless-water-heaters/</loc>
-    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://waterheaterreplacementcompany.com/resources/tank-water-heaters/</loc>
-    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://waterheaterreplacementcompany.com/resources/tankless-water-heaters/</loc>
-    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
     <priority>0.80</priority>
   </url>
-
-  <!-- ─── TOOLS / CONTENT ───────────────────────────────────────────────────── -->
   <url>
     <loc>https://waterheaterreplacementcompany.com/resources/how-to-stop-a-water-leak/</loc>
-    <lastmod>2026-04-28T00:00:00+00:00</lastmod>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
     <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://waterheaterreplacementcompany.com/resources/common-water-heater-problems-west-michigan/</loc>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://waterheaterreplacementcompany.com/resources/water-heater-installation-process-jenison-mi/</loc>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://waterheaterreplacementcompany.com/resources/water-heater-replacement-cost-jenison-mi/</loc>
+    <lastmod>2026-04-30T00:00:00+00:00</lastmod>
+    <priority>0.75</priority>
   </url>
 
 </urlset>

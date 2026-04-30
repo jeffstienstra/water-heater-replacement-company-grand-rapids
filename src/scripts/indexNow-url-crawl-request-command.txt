@@ -1,0 +1,47 @@
+Run this command in the terminal to index new urls when pages are created or updated.
+Use the generated sitemap for complete list of urls, then paste them in the urlList array.
+The key is used to verify the request is coming from the website owner.
+The keyLocation is the url to the key file
+
+***** Key in this file MUST match key in the /public/9b143c67a55a33bce47d65885ebb51ba.txt file. *****
+
+curl -v -X POST "https://api.indexnow.org/IndexNow" \
+	-H "Content-Type: application/json; charset=utf-8" \
+	-d '{
+		"host": "waterheaterreplacementcompany.com",
+		"key": "9b143c67a55a33bce47d65885ebb51ba",
+		"keyLocation": "https://waterheaterreplacementcompany.com/9b143c67a55a33bce47d65885ebb51ba.txt",
+		"urlList": [
+			"https://waterheaterreplacementcompany.com/",
+			"https://waterheaterreplacementcompany.com/instant-quote/",
+			"https://waterheaterreplacementcompany.com/services/",
+			"https://waterheaterreplacementcompany.com/services/water-heater-replacement/",
+			"https://waterheaterreplacementcompany.com/services/water-heater-repair/",
+			"https://waterheaterreplacementcompany.com/services/leaking-water-heater-emergency/",
+			"https://waterheaterreplacementcompany.com/water-heater-pricing/",
+			"https://waterheaterreplacementcompany.com/why-us/",
+			"https://waterheaterreplacementcompany.com/service-area/",
+			"https://waterheaterreplacementcompany.com/service-area/grand-rapids/",
+			"https://waterheaterreplacementcompany.com/service-area/jenison/",
+			"https://waterheaterreplacementcompany.com/service-area/hudsonville/",
+			"https://waterheaterreplacementcompany.com/service-area/grandville/",
+			"https://waterheaterreplacementcompany.com/service-area/allendale/",
+			"https://waterheaterreplacementcompany.com/service-area/wyoming/",
+			"https://waterheaterreplacementcompany.com/service-area/kentwood/",
+			"https://waterheaterreplacementcompany.com/service-area/walker/",
+			"https://waterheaterreplacementcompany.com/service-area/comstock-park/",
+			"https://waterheaterreplacementcompany.com/service-area/byron-center/",
+			"https://waterheaterreplacementcompany.com/service-area/east-grand-rapids/",
+			"https://waterheaterreplacementcompany.com/service-area/ada/",
+			"https://waterheaterreplacementcompany.com/service-area/caledonia/",
+			"https://waterheaterreplacementcompany.com/service-area/zeeland/",
+			"https://waterheaterreplacementcompany.com/service-area/holland/",
+			"https://waterheaterreplacementcompany.com/resources/tank-vs-tankless-water-heaters/",
+			"https://waterheaterreplacementcompany.com/resources/tank-water-heaters/",
+			"https://waterheaterreplacementcompany.com/resources/tankless-water-heaters/",
+			"https://waterheaterreplacementcompany.com/resources/how-to-stop-a-water-leak/",
+			"https://waterheaterreplacementcompany.com/resources/common-water-heater-problems-west-michigan/",
+			"https://waterheaterreplacementcompany.com/resources/water-heater-installation-process-jenison-mi/",
+			"https://waterheaterreplacementcompany.com/resources/water-heater-replacement-cost-jenison-mi/"
+		]
+	}'
