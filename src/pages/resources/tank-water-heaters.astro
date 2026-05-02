@@ -20,11 +20,11 @@ const faqs = [
     },
     {
         q: "What size tank do I need?",
-        a: "For most West Michigan households: 40 gallons handles 1–3 people, 50 gallons handles 3–4 people, and 75+ gallons is appropriate for 5 or more. But first-hour rating matters more than tank size alone — a 50-gallon gas unit can deliver far more hot water in the first hour than a 50-gallon electric unit. We'll help you right-size based on your household's actual usage pattern.",
+        a: "For most West Michigan households: 40 gallons handles 1–4 people, 50 gallons handles 4-5 people, and 75+ gallons is appropriate for 5 or more. Tankless units can send hot water to all your showers simultaneously indefinitely. But first-hour rating matters more than tank size alone — a 50-gallon gas unit can deliver far more hot water in the first hour than a 50-gallon electric unit. We'll help you find the right size based on your household's actual usage.",
     },
     {
         q: "Can I switch from natural draft to power vent?",
-        a: "Yes, and it's a common upgrade. If your vertical flue is deteriorating, you want to remove your chimney, or you want to move the unit, switching to power vent avoids the expense of rebuilding a metal flue. The PVC venting for a power vent unit is less expensive and more flexible. We'll let you know if a switch makes sense for your situation.",
+        a: "Yes, and it's a common upgrade. If your vertical flue is deteriorating, you want to remove your chimney, or you want to move the water heater to a new location, switching to power vent avoids the expense of rebuilding a metal flue. The PVC venting for a power vent unit is less expensive and more flexible. We'll let you know if a switch makes sense for your situation.",
     },
     {
         q: "Can I switch from gas to electric, or electric to gas?",
@@ -36,7 +36,7 @@ const faqs = [
     },
     {
         q: "Do I need a permit for a water heater replacement in West Michigan?",
-        a: "Yes. A permit is required for all water heater replacements in Grand Rapids and most West Michigan municipalities. We pull the permit and schedule the inspection as part of every installation — it's included in your price. Some contractors skip this to save time and hassle; we won't. It is required by the state for your protection and ensures the work is inspected for safety and code compliance. If you see a quote that doesn't include a permit, or a contractor that offers a discount to bypass an inspection, that's a red flag.",
+        a: "Yes. A permit is required for all water heater replacements in Grand Rapids and all West Michigan municipalities. We pull the permit and schedule the inspection as part of every installation — it's included in your price. Some contractors skip this to save time and hassle; we won't. It is required by the state for your protection and ensures the work is inspected for safety and code compliance. If you see a quote that doesn't include a permit, or a contractor that offers a discount to bypass an inspection, that's a red flag.",
     },
 ];
 ---
@@ -321,7 +321,7 @@ const faqs = [
                             <p class="text-xs font-bold tracking-widest uppercase text-gray-400 mb-1">No Venting Required</p>
                             <h3 class="text-xl font-black">Electric</h3>
                         </div>
-                        <p class="text-sm text-gray-600 leading-relaxed">Electric units use internal heating elements and require no venting — they can go anywhere with a 240V outlet. Simpler installation, slightly higher operating cost, and a slower recovery rate than gas. Often the only option in all-electric homes.</p>
+                        <p class="text-sm text-gray-600 leading-relaxed">Electric units use internal heating elements and require no venting — they can go anywhere a 240V electrical circuit can be installed. Simpler installation, slightly higher operating cost, and a slower recovery rate than gas. Often the only option in all-electric homes.</p>
                         <ul class="space-y-1.5 mt-auto">
                             {[
                                 { label: "Recovery rate", value: "Slower — 18–25 GPH" },
@@ -356,7 +356,7 @@ const faqs = [
                     {
                         icon: "M13 10V3L4 14h7v7l9-11h-7z",
                         title: "First Hour Rating (FHR)",
-                        desc: "How many gallons the unit can deliver in the first hour of use — the most practical performance measure for households. A 50-gallon gas unit typically delivers 80–100 gallons in the first hour.",
+                        desc: "How many gallons the unit can deliver in the first hour of use — the most practical performance measure for households. A 50-gallon gas unit typically delivers 60-90 gallons of hot water in the first hour.",
                     },
                     {
                         icon: "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15",
@@ -366,7 +366,7 @@ const faqs = [
                     {
                         icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z",
                         title: "Uniform Energy Factor (UEF)",
-                        desc: "The efficiency rating for water heaters. Higher is better. Most standard tank units fall between 0.58–0.70 UEF. Look for models rated 0.64 or higher for better long-term efficiency.",
+                        desc: "The efficiency rating for water heaters. Higher is better. Most standard tank units fall between 0.60–0.70 UEF. High Efficiency tankless units can reach 0.95 UEF.",
                     },
                     {
                         icon: "M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
@@ -417,8 +417,8 @@ const faqs = [
                             { item: "Lower upfront cost", detail: "Tank units cost significantly less to purchase and install than tankless." },
                             { item: "Immediate hot water delivery", detail: "Pre-stored water means hot water reaches your tap as fast as the pipes allow." },
                             { item: "Works with any fuel type", detail: "Gas, propane, and electric — you don't need gas to have a reliable tank unit." },
-                            { item: "Simple, proven technology", detail: "Fewer components means less to go wrong, and any plumber can service one." },
-                            { item: "High first-hour capacity", detail: "A properly sized gas tank can deliver 80–100+ gallons in the first hour." },
+                            { item: "Simple, proven technology", detail: "Fewer components means less to go wrong, and they are less complicated to service." },
+                            { item: "High first-hour capacity", detail: "A properly sized gas tank can deliver 70-80+ gallons in the first hour." },
                             { item: "Same-day replacement", detail: "Most standard tank replacements are done in a few hours from a single visit." },
                         ].map(({ item, detail }) => (
                             <li class="flex items-start gap-3 text-sm">
@@ -475,9 +475,9 @@ const faqs = [
                 <div class="flex flex-col gap-3">
                     {[
                         { year: "Every year", task: "Flush several gallons through the drain valve to remove sediment buildup from the bottom of the tank." },
+                        { year: "Every year", task: "Check all water heater connections and fittings for leaks or signs of corrosion." },
                         { year: "Every year", task: "Test the temperature/pressure relief (TPR) valve by lifting the lever briefly to confirm it releases and reseals properly." },
                         { year: "Every 3–5 yrs", task: "Inspect and replace the anode rod. This is the most impactful maintenance task for extending tank life." },
-                        { year: "Every 3–5 yrs", task: "Replace the TPR valve if it shows signs of corrosion, mineral buildup, or doesn't reseat cleanly." },
                         { year: "At ~10 yrs", task: "Start budgeting for replacement. Even a healthy unit at 10+ years is past its most reliable window." },
                     ].map(({ year, task }) => (
                         <div class="flex gap-4 p-4 bg-base-100 rounded-xl border border-base-300">
