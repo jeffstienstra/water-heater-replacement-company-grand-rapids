@@ -30,10 +30,10 @@ export default function StickyBar({selectedModel, onConfirmClick}) {
 						className="btn btn-outline bg-white checked:bg-white text-primary font-bold w-full max-w-96 text-lg py-6 animate-pulse"
 						onClick={onConfirmClick}
 					>
-						Lock In My Exact Quote
+						Finalize My Quote
 					</button>
-					<p className="text-xs md:text-lg text-white/80 mt-4">
-						A technician will verify your water heater connections — by photos, video call, or brief in-person visit — to lock in your price.
+					<p className="max-w-124 text-xs md:text-lg text-white/80 mt-4">
+						We'll just confirm a few details to ensure the quote is accurate for your specific situation. If it looks accurate and you'd like to proceed, then we can schedule your installation right away.
 						<br />
 						<span className='italic'>This is not a sales call.</span>
 					</p>

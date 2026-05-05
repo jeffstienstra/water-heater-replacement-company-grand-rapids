@@ -1,0 +1,678 @@
+﻿Water  
+Rheem® ThermaForce™ Super High-Efficiency  Condensing Tankless Gas Water Heaters 
+Residential Gas 
+ThermaForce Super High Efficiency Condensing Tankless Water Heaters 
+Flexible Installation 
+• Moveable combustion air intake (left/ right) and ability to flex vent in existing  B-vent 
+• Extra long pipe fittings with notched  sides for easy gripping with wrench • Only 4 moving parts – Fan, Mixing  Valve, Gas Valve, and Damper 
+• Universal shared platform parts – Easily  diagnose and service with common  parts for all ThermaForce™ units 
+Specifications 
+Key Features   
+• Innovative single pass Labyrinth Heat  Exchanger with Integrated copper  waterway ensures maximum heat  transfer with minimal heat loss  
+• Wireless cascading using RF balances  workload of each unit for longer life  
+• Built-in Illuminated Touchscreen  Control Panel 
+• Stands up to extreme hard water  applications
+
+
+MODEL NO. 
+	RTGH-L199i
+	Input Rate
+	MAX 
+	199,000 BTU/h
+	MIN 
+	28,500 BTU/h
+	Uniform Energy Factor (UEF) 
+	0.90
+	Gallons per Minute (GPM)
+	MAX (35°F) 
+	10.1
+	45°F Rise 
+	7.9
+	67°F Rise 
+	5.4
+	Set Point Temperature Range 
+	105°F - 149°F
+	Installation Type 
+	Indoor only wall-hung
+	Fuel Type 
+	Compatible with Natural Gas and LP (Ships  NG with LP Converstion kit included)
+	Heat Exchanger Material 
+	Copper tubes in AL block
+	Water Pressure 
+	40 - 150 PSI
+	Maximum Altitude 
+	10,100 ft NG / 7,800 ft LP
+	Minimum Activation Flow 
+	0.5 GPM
+	Ambient Temperature – Low (°F) 
+	32°
+	Ambient Temperature – High (°F) 
+	122°
+	Max relative humidity (non-condensing) 
+	90%
+	Height 
+	29.8"
+	Width 
+	17.7"
+	Depth 
+	10.9"
+	Weight (empty) 
+	68 lbs.
+	Power Supply 
+	120V / 60Hz
+	Venting 
+	2" or 3" PVC, CPVC, Polypropylene
+	Vent Clearances 
+	0" to combustibles
+	Safety Devices 
+	Flame Proving module, Flue Gas  
+Temperature Sensor, Protective fuse
+	Ultra Low NOx 
+	Meets 14 ng/J NOx requirements -  SCAQMD Rule 1146.2 compliant
+	Warranty1
+	15-Year Heat Exchanger, 
+5-Year Parts, 1-Year Labor - Residential; 5-Year Heat Exchanger, 5-Year Parts -  Commercial
+	
+
+
+
+1See Warranty Certificate for complete information 
+INTEGR INTEGRATATED HOME COMFOR ED HOME COMFOR T T 
+RTGH-L199i 
+Indoor Direct Vent  
+28,500-199,000 BTU/h 
+Natural Gas/LP Convertible 
+Water heater pressure drop – ThermaForce™ RTGH-L199i   Flow Rate [GPM] 
+  
+
+03/23 WP FORM NO. TK-TF-RTGH 
+ Water  
+Residential Gas 
+ThermaForce Super High Efficiency Condensing Tankless Water Heaters 
+Water Heater Flow Rate Curves 
+Dimensions 
+FRONT SIDE VIEW 
+  
+
+Temperature Rise (°F) 
+Model Number 35° 45° 50° 60° 65° 70° 80° 90° 100° RTGH-L199i Water Flow (GPM) 10.2 8.0 7.2 6.0 5.5 5.1 4.5 4.0 3.6 Above estimates are for sizing purposes only. 
+Specifications 
+VENTING 
+	MAXIMUM EQUIVALENT LENGTH
+	Schedule 40 PVC, CPVC or Polyproyplene 
+	(each side)
+	2" 
+	65' 2
+	3" 
+	120'
+	2" or 3" 90° Long Sweep Vent Elbow 
+	Allow 5 equivalent feet 
+	2" or 3" 90° Short Sweep Vent Elbow 
+	Allow 8 equivalent feet 
+	2" or 3" 45° Vent Elbow 
+	Allow 3 equivalent feet
+	Polyproyplene
+	
+
+	PPs 87-90° Elbow 
+	Allow 8 equivalent feet
+	Flex PPS
+	
+
+	3" PPs Flex 
+	35' Actual (Equivalent = Actual x 1.4)
+	
+
+
+
+3.1in 
+[79mm] 
+29.8in 
+[757mm] 
+4.3in 
+[109mm] 
+17.7in 
+[450mm] 
+
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+FRONT 
+TOP VIEW 
+4.7in4.7in 
+10.9in 
+[278mm] 
+
+
+	
+
+	
+
+	
+
+
+
+
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+SIDE 
+4.5in 
+[114mm] 
+
+
+	
+
+	[120mm]
+	[120mm]
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+B 
+2 Approximate input derate of 10 - 16% at 2" maximum vent length.
+B (ALTERNATE) B B (ALTERNATE) 
+
+
+SURFACE
+	MIN. DISTANCE FROM  
+COMBUSTIBLE  
+SURFACES
+	RECOMMENDED  
+DISTANCE FOR  
+INSTALLATION  
+AND SERVICE
+	Front 
+	2" 
+	24"
+	Rear 
+	0" 
+	0"
+	Left Side 
+	1.5" 
+	6"
+	Right Side 
+	4" 
+	6"
+	Top 
+	2" 
+	24"
+	Bottom 
+	8" 
+	24"
+	
+
+
+
+TOP 
+BOTTOM VIEW CL
+A 
+F E 
+D 
+PIPING CONNECTIONS 
+	DIMENSION
+	A 
+	Exhaust Outlet 
+	2" Schedule 40 PVC
+	B 
+	Combustion Air Inlet 
+	2" Schedule 40 PVC
+	C 
+	Cold Domestic Water Connection 
+	¾" Male NPT
+	D 
+	Hot Domestic Water Connection 
+	¾" Male NPT
+	E 
+	Gas Connection 
+	¾" Male NPT
+	F 
+	Condensate Connection 
+	¾" Hose
+	
+
+
+
+3.7in 
+
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	6.7in
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+C 
+Parts & Accessories 
+[95mm] 2.6in [65mm] 
+2in 
+[50mm] 
+[170mm]
+BOTTOM 
+
+
+Floor Stand 
+P-267C
+  
+
+	Service Parts Kit 
+P-911R
+  
+
+	2" PVC Sidewall Vent Kit 
+P-741
+  
+
+	3" PVC Sidewall Vent Kit 
+P-742
+  
+
+	
+
+
+
+ In keeping with its policy of continuous progress and product improvement, Rheem reserves the right to make changes without notice. 
+Rheem Water Heating • 1115 Northmeadow Parkway, Suite 100  Roswell, Georgia 30076 • www.rheem.com  
+Rheem Canada Ltd./Ltée • 125 Edgeware Road, Unit 1  Brampton, Ontario L6Y 0P5 • www.rheem.ca 
+2 
+INTEGR INTEGRATATED HOME COMFOR ED HOME COMFOR T T 
+03/23 WP FORM NO. TK-TF-RTGH

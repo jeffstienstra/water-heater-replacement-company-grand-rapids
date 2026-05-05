@@ -89,7 +89,7 @@ export default function FindWaterHeaterQuiz({ imageMap = {} }) {
 		: `${Math.max(3, Math.min(100, ((safeStep - 1) / (steps - 1)) * 100))}%`;
 
 		return (
-		<div className={`bg-white w-full mt-16 ${!params.get('step') && 'pt-0 px-0'} ${(params.get('step') && step <= steps) && 'pt-16 px-2 max-w-6xl mx-auto'} ${step > steps && 'pt-12'} `}>
+		<div className={`bg-white w-full ${step <= steps ? 'mt-16' : ''} ${!params.get('step') && 'pt-0 px-0'} ${(params.get('step') && step <= steps) && 'pt-16 px-2 max-w-6xl mx-auto'} ${step > steps && 'pt-12'} `}>
 			{step > steps ? (
 				loadingResults ? (
 					<div className="flex flex-col items-center justify-center py-20">
@@ -97,7 +97,9 @@ export default function FindWaterHeaterQuiz({ imageMap = {} }) {
 						<p className="text-sm text-gray-500">Calculating your best options...</p>
 					</div>
 				) : (
-					<RecommendationCard params={params} imageMap={imageMap} />
+					<>
+						<RecommendationCard params={params} imageMap={imageMap} />
+					</>
 				)
 			) : (
 				<>

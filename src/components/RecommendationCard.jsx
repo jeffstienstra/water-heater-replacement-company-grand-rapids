@@ -4,10 +4,9 @@ import questions from '../data/questions.js';
 import Star from './icons/Star.jsx';
 import waterHeaterModels from '../data/waterHeaterModels.js';
 import installAddons from '../data/installAddons.js';
-import StickyBar from './StickyBar.jsx';
-import LinkInternal from './icons/LinkInternal.jsx';
 import PriceReceipt from './icons/PriceReceipt.jsx';
 import SubmissionModal from './SubmissionModal.jsx';
+import ProductDetailsModal from './ProductDetailsModal.jsx';
 import PhoneReact from './icons/PhoneReact.jsx';
 
 export default function RecommendationCard({params, imageMap = {}}) {
@@ -15,8 +14,10 @@ export default function RecommendationCard({params, imageMap = {}}) {
     const [warrantySelections, setWarrantySelections] = useState({});
     const [selectedModel, setSelectedModel] = useState(null);
     const [showConfirmModal, setShowConfirmModal] = useState(false);
+    const [productDetailsModel, setProductDetailsModel] = useState(null);
 
     const warrantyAddon = installAddons.find((addon) => addon.id === 'add_extended_warranty');
+    const fuelLabelMap = { gas: 'Gas', electric: 'Electric', propane: 'Propane' };
 
     const toggleWarranty = (modelId) => {
         setWarrantySelections((prev) => ({
@@ -26,7 +27,7 @@ export default function RecommendationCard({params, imageMap = {}}) {
     };
 
     useEffect(() => {
-        if (showConfirmModal) {
+        if (showConfirmModal || productDetailsModel) {
             document.body.classList.add('overflow-hidden');
         } else {
             document.body.classList.remove('overflow-hidden');
@@ -36,7 +37,7 @@ export default function RecommendationCard({params, imageMap = {}}) {
         return () => {
             document.body.classList.remove('overflow-hidden');
         };
-    }, [showConfirmModal]);
+    }, [showConfirmModal, productDetailsModel]);
 
     if (!params || typeof params.get !== 'function') {
         console.error('Invalid or missing URLSearchParams in RecommendationCard');
@@ -107,13 +108,6 @@ export default function RecommendationCard({params, imageMap = {}}) {
                 return Array.isArray(validValues) ? validValues.includes(answerValue) : validValues === answerValue;
             })
     );
-
-    // let noMatchMessage = '';
-    // if (answers?.fuel === 'oil') {
-    //     noMatchMessage = 'We do not install fuel oil water heaters at this time. Please check your answers or contact us at 616-315-0999.';
-    // } else if (limitedModels.length === 0) {
-    //     noMatchMessage = `Almost there. We just need a bit more information to match you with the right water heater and price. You can restart the instant quote to answer a few additional questions, or if you’d rather talk it through, a technician can walk through the process with you by phone or in person.`;
-    // }
 
     const getNoMatchContent = () => {
         if (answers?.fuel === 'oil') {
@@ -197,7 +191,7 @@ export default function RecommendationCard({params, imageMap = {}}) {
                 )}
                 {matchedModels.length > 0 && (
                     <>
-                        <StickyBar selectedModel={selectedModel} onConfirmClick={() => setShowConfirmModal(true)} />
+						<p className="fixed top-[64px] left-0 right-0 z-30 py-1 bg-primary text-white">Pick an option to confirm final price</p>
 
                         <div className='mb-4 sm:mb-6 px-4'>
                             <button className='text-sm text-primary underline focus:outline-none' onClick={() => setShowAnswers((v) => !v)} aria-expanded={showAnswers} aria-controls='user-answers-dropdown'>
@@ -216,7 +210,7 @@ export default function RecommendationCard({params, imageMap = {}}) {
                                 </div>
                             )}
                         </div>
-                        <div className='px-4 flex flex-wrap justify-center items-stretch gap-16'>
+                        <div className='px-4 grid grid-cols-[repeat(auto-fit,minmax(0,344px))] justify-center gap-x-16 gap-y-0'>
                             {limitedModels.map((model, index) => {
                                 let productLink;
                                 if (model.type === 'tankless') {
@@ -243,20 +237,10 @@ export default function RecommendationCard({params, imageMap = {}}) {
                                 totalHigh += isWarrantySelected ? warrantyAddon?.cost[1] : 0;
                                 const priceRange = totalLow === totalHigh ? `$${totalLow.toLocaleString()}` : `$${totalLow.toLocaleString()} - $${totalHigh.toLocaleString()}`;
 
-                                const [expandedCards, setExpandedCards] = useState({});
-
-                                const toggleCardExpand = (id) => {
-                                    setExpandedCards((prev) => ({
-                                        ...prev,
-                                        [id]: !prev[id],
-                                    }));
-                                };
-
-                                const isExpanded = expandedCards[model.id];
-
                                 return (
-                                    <div key={`${model.modelNumber}`} className={`flex h-fit flex-col w-full max-w-86 ${selectedModel === model.id && 'outline-primary rounded-lg outline-4'}`}>
-                                        <div className=' bg-primary text-white items-center justify-center flex gap-2 p-4 rounded-t-lg'>
+                                    <div key={`${model.modelNumber}`} style={{gridRow: 'span 7', display: 'grid', gridTemplateRows: 'subgrid'}} className={`w-full max-w-86 mt-12 first:mt-0 md:mt-0 ${selectedModel === model.id && 'outline-primary rounded-lg outline-4'}`}>
+                                        {/* row 1: tier header */}
+                                        <div className='bg-primary text-white items-center justify-center flex gap-2 p-4 rounded-t-lg self-stretch'>
                                             {tierLabel === 'Recommended' ? (
                                                 <div className='flex justify-center items-center '>
                                                     <Star className='' />
@@ -266,118 +250,73 @@ export default function RecommendationCard({params, imageMap = {}}) {
                                                 <h2 className='font-bold text-2xl'>{tierLabel}</h2>
                                             )}
                                         </div>
-                                        <div key={model.id} className='flex flex-col w-full max-w-86 bg-base-100 border border-base-300 shadow-lg p-4 pb-0'>{/* flex-grow?? */}
-                                            {/* <div className='flex-grow'> */}
-                                            <h3 className='text-xl mb-0 font-semibold min-h-20'>{`${model.brand} ${model.label}`}</h3>
-                                            <img className='max-h-48 mx-auto m-6' src={imageMap[model.imagePath] ?? model.imagePath} alt={`${model.brand} ${model.label}`} />
-
+                                        {/* row 2: h3 title */}
+                                        <div className={`bg-base-100 border-x-2 px-4 pt-4 ${tierLabel === 'Recommended' ? 'border-primary' : 'border-base-300'}`}>
+                                            <h3 className='text-xl font-bold'>{model.brand}{model.size ? ` ${model.size} Gal` : ''} {model.typeLabel}</h3>
+                                        </div>
+                                        {/* row 3: subtitle */}
+                                        <div className={`bg-base-100 border-x-2 px-4 ${tierLabel === 'Recommended' ? 'border-primary' : 'border-base-300'}`}>
+                                            <p className='text-sm text-gray-500'>{model.seriesName} · {fuelLabelMap[model.fuel]}</p>
+                                        </div>
+                                        {/* row 4: image */}
+                                        <div className={`bg-base-100 border-x-2 px-4 ${tierLabel === 'Recommended' ? 'border-primary' : 'border-base-300'}`}>
+                                            <img className='max-h-48 mx-auto my-6' src={imageMap[model.imagePath] ?? model.imagePath} alt={`${model.brand} ${model.label}`} />
+                                        </div>
+                                        {/* row 5: price */}
+                                        <div className={`bg-base-100 border-x-2 px-4 ${tierLabel === 'Recommended' ? 'border-primary' : 'border-base-300'}`}>
                                             <div className='w-fit mx-auto flex flex-col items-left'>
                                                 <p className='mx-auto text-3xl text-left sm:text-4xl font-bold text-primary'>{priceRange}</p>
-                                                <p className='mx-auto text-sm text-left '>Complete installation</p>
+                                                <p className='mx-auto text-sm text-left'>Complete installation</p>
                                             </div>
-                                                {isWarrantySelected && (
-                                                    <p className='flex justify-center items-center text-sm'>Includes Extended Warranty
-                                                        <span className="ml-1 text-gray-500">${warrantyAddon?.cost[0]}</span>
-                                                        <button className='btn btn-primary ml-1 px-1 max-h-[20px] max-w-[20px]'
-                                                        onClick={() => toggleWarranty(model.id)}>X</button>
-                                                    </p>
-                                                )}
-                                            {/* <p className='text-sm text-gray-600 mb-4'>{model.notes}</p> */}
-
-                                            {/* hide model details */}
-                                            <button onClick={() => toggleCardExpand(model.id)} className='text-sm text-primary underline mt-2' aria-expanded={isExpanded}>
-                                                {isExpanded ? 'Hide Details ▲' : 'Show Details ▼'}
-                                            </button>
-                                            <div
-                                                className={`transition-all duration-300 ease-in-out overflow-hidden
-                                                    ${isExpanded ? 'max-h-[1000px] pt- pb-4' : 'max-h-0 pt-0 pb-0'}`}
-                                            >
-                                                <div className='flex-grow'>
-                                                    <ul className='text-left list-disc list-outside ml-4'>
-                                                        <span className='text-xl font-semibold '>Features:</span>
-                                                        {model.features?.map((feature, idx) => (
-                                                            <li className='ml-5' key={idx}>
-                                                                <span className='font-semibold'>{feature.label}</span>: {feature.value}
-                                                            </li>
-                                                        ))}
-                                                    </ul>
-                                                    {model.warranty && (
-                                                        <ul className='text-left list-disc list-outside ml-4 mt-3'>
-                                                            <span className='text-xl font-semibold '>Warranty:</span>
-                                                            <li className='ml-5 font-semibold'>Tank: {model.warranty.tank} Years</li>
-                                                            <li className='ml-5 font-semibold'>Parts: {model.warranty.parts} Years</li>
-                                                            <li className='ml-5 font-semibold'>Labor: {model.warranty.labor} Years</li>
-                                                        </ul>
-                                                    )}
-                                                    <a target='_blank' href={model.productLink} className='mt-2 mb-6 text-gray-500 text-sm font-normal btn btn-ghost h-fit'>
-                                                        <LinkInternal className='text-gray-500 font-normal' />
-                                                        Additional Product Info
-                                                    </a>
-
-                                                    {modelAddOns.length > 0 && (
-                                                        <div className='text-sm border border-base-300 rounded-lg text-left p-3 mt-auto mb-2'>
-                                                            <p className='font-semibold mb-2'>
-                                                                Most homes like yours need the following services <span className='text-sm font-normal text-gray-500'>(already included in your price): </span>
-                                                            </p>
-                                                            {/* <p className='text- text-gray-500'>(Already included in the total price range shown)</p> */}
-                                                            <ul className='list-disc list-inside text-gray-700 space-y-1 pb-2'>
-                                                                {modelAddOns.map((addOn) => {
-                                                                    if (addOn.id === 'add_extended_warranty') return null;
-                                                                    return (
-                                                                        <li key={addOn.id} className='leading-snug pl-5 -indent-5'>
-                                                                            <span className='font-medium'>{addOn.label}:</span>
-                                                                            <span className='text-gray-500 text-nowrap '>
-                                                                                {' '}
-                                                                                ${addOn.cost[0]?.toLocaleString()}
-                                                                                {addOn.cost[0] !== addOn?.cost[1] ? `-${addOn.cost[1].toLocaleString()}` : null}
-                                                                            </span>
-                                                                        </li>
-                                                                    );
-                                                                })}
-                                                            </ul>
-                                                            <p className='text- text-gray-500'>Final needs may vary. A quick home visit or video call will confirm your current setup before any work begins.</p>
-                                                        </div>
-                                                    )}
-                                                </div>
-                                                {/* <div className='bg-primary/5 border border-base-300 rounded-lg shadow-sm pr-4 flex flex-row items-center gap-2 mt-2'>
-                                                    <label htmlFor={`warranty-${model.id}`} className='text-sm text-left p-4'>
-                                                        <ul className='font-semibold'>
-                                                            Add Extended Warranty:
-                                                            <li>
-                                                                {model.type === 'tankless' ? 'Heat Exchanger: ' : 'Tank: '}
-                                                                {model.warranty.tank + 4} Years
-                                                            </li>
-                                                            <li>Labor: {model.warranty.labor + 1} Years</li>
-                                                            <li>Cost: ${warrantyAddon?.cost[0]}</li>
-                                                        </ul>
-                                                    </label>
-                                                    <input id={`warranty-${model.id}`} className='checkbox checkbox-primary rounded-sm' type='checkbox' checked={isWarrantySelected} onChange={() => toggleWarranty(model.id)} />
-                                                </div> */}
-                                            </div>
+                                            {isWarrantySelected && (
+                                                <p className='flex justify-center items-center text-sm mt-1'>Includes Extended Warranty
+                                                    <span className='ml-1 text-gray-500'>${warrantyAddon?.cost[0]}</span>
+                                                    <button className='btn btn-primary ml-1 px-1 max-h-[20px] max-w-[20px]' onClick={() => toggleWarranty(model.id)}>X</button>
+                                                </p>
+                                            )}
                                         </div>
-
-                                        <div className=' bg-primary text-white items-center justify-center flex gap-2 p-4 rounded-b-lg'>
-                                            <input
-                                                id={`select-${model.id}`}
-                                                type='checkbox'
-                                                className='h-8 w-8 checkbox checkbox-primary checked:bg-white text-primary rounded-sm bg-white'
-                                                checked={selectedModel?.id === model.id}
-                                                onChange={() => {
-                                                    const isSelected = selectedModel?.id === model.id;
-                                                    // TODO: report model selected to cloudflare KV analytics here
-                                                    setSelectedModel(isSelected ? null : {
+                                        {/* row 6: benefits + view details (fills remaining) */}
+                                        <div className={`flex flex-col bg-base-100 border-x-2 border-b-2 px-4 shadow-lg ${tierLabel === 'Recommended' ? 'border-primary' : 'border-base-300'}`}>
+                                            {model.benefits?.length > 0 && (
+                                                <ul className='text-left mt-4 mb-2 space-y-1.5 flex-grow'>
+                                                    {model.benefits.map((benefit, idx) => (
+                                                        <li key={idx} className='flex items-start gap-2 text-sm'>
+                                                            <span className='text-primary font-bold mt-0.5 shrink-0'>✓</span>
+                                                            <span>{benefit}</span>
+                                                        </li>
+                                                    ))}
+                                                    {model.warranty && (
+                                                        <li className='flex items-start gap-2 text-sm'>
+                                                            <span className='text-primary font-bold mt-0.5 shrink-0'>✓</span>
+                                                            <span>{model.warranty.tank}-Year {model.type === 'tankless' ? 'Heat Exchanger' : 'Tank'} Warranty</span>
+                                                        </li>
+                                                    )}
+                                                </ul>
+                                            )}
+                                            <button
+                                                onClick={() => setProductDetailsModel(model)}
+                                                className='mt-2 mb-2 text-gray-500 text-sm font-normal btn btn-ghost h-fit'
+                                            >
+                                                View Product Details
+                                            </button>
+                                        </div>
+                                        {/* row 7: check availability footer */}
+                                        <div className='p-4 rounded-b-lg bg-primary'>
+                                            <button
+                                                className='btn btn-secondary shadow-none w-full text-lg font-bold text-white border-none hover:bg-white/30'
+                                                onClick={() => {
+                                                    setSelectedModel({
                                                         ...model,
                                                         totalLow,
                                                         totalHigh,
                                                         isWarrantySelected,
                                                         modelAddOns
                                                     });
+                                                    setShowConfirmModal(true);
                                                 }}
-
-                                            />
-                                            <label htmlFor={`select-${model.id}`} className='text-lg font-bold text-white'>
-                                                Choose This Model
-                                            </label>
+                                            >
+                                                Confirm My Quote
+                                            </button>
                                         </div>
                                     </div>
                                 );
@@ -398,6 +337,17 @@ export default function RecommendationCard({params, imageMap = {}}) {
                                 onClose={() => setShowConfirmModal(false)}
                                 onCancel={() => setShowConfirmModal(false)}
                             />
+                    </div>
+                </div>
+            )}
+            {productDetailsModel && (
+                <div className='fixed inset-0 z-30 p-4 flex items-start justify-center bg-black/75 overflow-y-auto'>
+                    <div className='my-auto bg-white rounded-lg shadow-lg w-full max-w-lg min-w-xs mx-auto'>
+                        <ProductDetailsModal
+                            model={productDetailsModel}
+                            imageMap={imageMap}
+                            onClose={() => setProductDetailsModel(null)}
+                        />
                     </div>
                 </div>
             )}

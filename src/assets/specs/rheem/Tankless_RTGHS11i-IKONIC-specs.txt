@@ -1,0 +1,513 @@
+﻿Water 
+Rheem® IKONIC™ Super High Efficiency  
+Condensing Tankless Gas Water Heater 
+Residential Gas 
+RTGH-S/SR Tankless  Water Heaters 
+Easy Installation 
+• PVC Vent runs up to 70' (2"), 150' (3") • Easy set up with full text digital display and  no dip-switches 
+• Field gas convertible from natural gas to LP  - conversion kit included 
+Ready for Retrofits 
+• Allows flex venting through existing B-vent  up to 50' 
+• 1/2" Gas line compatibility up to 24 ft  (subject to local code) 
+• Approved for installations in Manufactured  Home (Mobile Home) environments 
+Specifications 
+Key Features   
+• Stainless steel Primary and Secondary heat  exchangers provide increased efficiency  and durability   
+• Rheem® Exclusive! Hot-start  
+programming™ ensures the unit is in a  ready state between back-to-back usage,  avoiding any cold water bursts  
+• Built-in Recirculation pump for no wait  continuous hot water at the tap (SR models) • Built-in EcoNet® Wi-Fi technology for  direct control from your device (optional for  S models) 
+
+
+Rheem Model Number 
+	RTGH-S84i
+RTGH-SR84i
+	RTGH-S10i
+RTGH-SR10i
+	RTGH-S11i
+RTGH-SR11i
+	Gas Input Rate 
+	MAX 
+	157,000 BTU/h 
+	180,000 BTU/h 
+	199,900 BTU/h
+	MIN 
+	11,000 BTU/h 
+	11,000 BTU/h 
+	11,000 BTU/h
+	Uniform Energy Factor (UEF) 
+	0.96
+	Hot Water Flow Rate Capacity –  Gallons Per  
+Minute (GPM)
+	MAX (35°F) 
+	8.4 
+	10.1 
+	11.2
+	45°F Rise 
+	6.9 
+	7.9 
+	8.8
+	67°F Rise 
+	4.6 
+	5.3 
+	5.9
+	Number of Bathrooms1
+	
+
+	
+
+	
+
+	Temp. Range 
+	85°F - 140°F
+	Temp. Setting from Factory 
+	120°F
+	Installation Type 
+	Indoor (Outdoor Conversion Kit sold separately: RTGH-SX)
+	Fuel Type 
+	Compatible with Natural Gas and LP 
+(ships NG with LP conversion kit included)
+	Heat Exchanger Material 
+	Primary: Stainless Steel – Secondary: Stainless Steel
+	Minimum Activation Flow 
+	0.4 GPM
+	Minimum Continuous Flow 
+	0.26 GPM
+	Maximum Altitude 
+	10,200 ft.
+	Ultra Low NOx 
+	Meets 14 ng/J NOx requirements – 
+SCAQMD Rule 1146.2 compliant
+	Warranty 
+	15 Year Heat Exchanger | 5-Year Parts | 1-Year Labor
+	
+
+
+
+Model Number 
+	RTGH-S 
+	RTGH-SR
+	Height 
+	28-9/16"
+	Width 
+	17-5/16"
+	Depth 
+	13-11/16"
+	Weight 
+	77.6lbs 
+	86lbs
+	Venting Diam. Allowed 
+	2" / 3"
+	Max. Single Vent Run (straight pipe) 
+	70 ft (2")/ 150 ft (3")
+	Venting Materials 
+	Sched. 40 PVC, CPVC, Polypropylene
+	Common Venting (max. units) 
+	2 units3
+	Flex Venting 
+	Allowed: 2" up to 50'
+	Manifold Controls (max. units) 
+	Up to 20 units without external control required4
+	Controls 
+	Built-in digital display with full-text menus
+	Power Supply 
+	120V 60Hz
+	Max. Power Consumption
+	85W (Normal use), 0.7Amps132W (Anti freeze only), 1.1Amps 3.5W (Standby), 0.03Amps5
+	100W (Normal use), 0.83Amps 200W (Anti freeze), 1.67Amps  3.5W (Standby), 0.03Amps5
+	Gas Connection 
+	3/4" NPT
+	Hot Water Connection 
+	3/4" NPT
+	 Cold Water Connection 
+	3/4" NPT
+	Condensate Connection 
+	1/2" NPT
+	Vent Connections Diameter 
+	2" Band Connections (Adapter required to vent 
+with 3" PVC from unit) 
+	
+
+
+
+RTGH-S/SR Models 
+Indoor Models  
+(Outdoor Conversion Kit  
+Available: RTGH-SX) 
+11,000-199,900 BTU/h 
+Natural Gas/LP Convertible 
+  
+  
+  
+
+CLEARANCES
+	Top / Bottom 
+	12"
+	Front 
+	1/2"6
+	Sides 
+	1/2"
+	Back / From Vent Pipe 
+	0"
+	
+
+
+
+RECIRCULATION LENGTH (SRI MODELS)
+	Pipe Diameter 
+	Max. Recirculation Loop
+	3/4" 
+	400 ft.
+	1/2" 
+	100 ft.
+	
+
+
+
+  
+1 Based on simultaneous showers using 2 GPM flow rate pre-mixed with cold  water line. Flow rates vary depending on temperature of incoming cold water  and water heater set temperature. Refer to capacity table by zone for accurate  sizing. 2 For indoor application, this is the temperature of outdoor intake air. 
+3 External check valve required for installation. 4 Manifolds with standard RJ25  communication cables. 5 If anti freeze is on and combustion is on, total W will  be 217W (85+132). 6 Recommended 24" clearance for service. 
+10/23 WP FORM NO. TK-RTGHS Rev. 3 
+6-11/16” 4-9/16” 
+ Water  
+Residential Gas 
+RTGH-S/SR Tankless  
+US Ground Water Temperature Zone Map
+CAN AK HI PR 
+Zone 1 Zone 2 Zone 3 Zone 4 Zone 5 Zone 6 Zone 7 Zone 8 Zone 9 
+Average Flow Rates  
+(GPM) by Application 
+Low Flow Faucet 0.5 Bathroom Faucet 1 Kitchen Faucet 1.5 Shower 2 Dishwasher 2 Washing Machine 3 Flow rates may vary. 
+17-5/16” 
+28-9/16” 
+5” 
+1-3/4” 
+Water Heaters 
+Dimensions 
+
+
+	
+
+	
+
+	
+
+
+
+3” 
+1-3/8” 1-3/8” 
+Flow Rate Capacity Table by Zone (Gallons Per Minute - GPM) 
+37°F 42°F 47°F 52°F 57°F 62°F 67°F 72°F 77°F 
+Use the U.S. Ground Water Temperature Map to locate your zone. Then use the Flow Rate Capacity Table to determine model  flow rate by zone. Flow rates calculated for tankless set temperature of 120°F with a mixed shower temperature of 105°F. 
+MODEL # 
+	Zone 1
+ 37°F
+	Zone 2
+ 42°F
+	Zone 3
+ 47°F
+	Zone 4
+ 52°F
+	Zone 5
+ 57°F
+	Zone 6
+ 62°F
+	Zone 7
+ 67°F
+	Zone 8 
+72°F
+	Zone 9
+77°F
+	RTGH-S(R)11i 
+	4.7 
+	5.1 
+	5.4 
+	5.9 
+	6.3 
+	6.8 
+	7.4 
+	8.2 
+	9.2
+	RTGH-S(R)10i 
+	4.3 
+	4.6 
+	4.9 
+	5.3 
+	5.6 
+	6.1 
+	6.7 
+	7.4 
+	8.3
+	RTGH-S(R)84i 
+	3.7 
+	4.0 
+	4.2 
+	4.6 
+	4.9 
+	5.3 
+	5.8 
+	6.4 
+	7.2
+	
+
+
+
+2” 
+7-1/8” 
+6-11/16” 
+2-7/8” 
+4-9/16” 
+17 5 
+Venting 
+
+
+	
+
+
+
+
+
+	
+
+	
+
+
+
+TOP VIEW 
+2-3/8” 
+13-3/4” 
+2-7/8” 
+13-11/16” 3” 
+/16" 
+(440 mm) 
+6 11 
+/16" 
+
+
+SINGLE UNIT: MAX. EQUIVALENT VENT 
+LENGTHS - STRAIGHT PIPE
+	Number of 90  Elbows
+	Max Length 2"  straight pipe
+	Max. length 3"  straight pipe
+	0 
+	70 ft. (21.3 m) 
+	150 ft. (45.7 m)
+	1 
+	64 ft. (19.5 m) 
+	145 ft. (44.2 m)
+	2 
+	58 ft. (17.7 m) 
+	140 ft. (42.7 m)
+	3 
+	52 ft. (15.8 m) 
+	135 ft. (41.1 m)
+	4 
+	46 ft. (14.0 m) 
+	130 ft. (39.6 m)
+	5 
+	40 ft. (12.2 m) 
+	125 ft. (38.1 m)
+	6 
+	34 ft. (10.4 m) 
+	120 ft. (36.6 m)
+	
+
+
+
+EQUIVALENT FT. OF ELBOWS 
+Air IntakeExhaust Vent
+	
+
+	2" Pipe 
+	3" Pipe
+	90° Elbow 
+	6 ft (1.83 m) 
+	5 ft (1.52 m)
+	45° Elbow 
+	3 ft. (0.9 m) 
+	2.5 ft. (0.75 m)
+	
+
+
+
+Venting Materials Allowed: Schedule 40 PVC,  
+(170 mm) 4 9 /16" 
+(116 mm) 
+3 3/8" 
+(899 mm) 
+17-5/16” 
+18 3/32" 
+(459 mm) 
+1-3/8” 
+29 15/16" 
+(760 mm) 
+CPVC, Polypropylene 
+28 9/16" 
+(726 mm) 
+BOTTOM VIEW 
+5" 11-1/4" 
+28-9/16” 
+Gas Supply Fitting 
+5” 
+2" 
+
+
+	
+
+
+
+
+
+	
+
+
+
+
+
+	
+
+
+
+
+
+	
+
+
+
+
+
+	
+
+
+
+Recirculation Fitting (Available only on 
+certain models) 
+4" 13-11/16" 
+
+
+MIN. VENT LENGTH 
+STRAIGHT PIPE
+	Number of  
+90° Elbows
+	Min. Length 2"  3" pipe
+	1 
+	1.0 ft (0.3 m)
+	
+
+
+
+COMMON VENTING
+	# of Water  
+Heaters
+	3" Common  
+Vent
+	2 
+	60 ft.
+	
+
+
+
+SINGLE UNIT: 
+MAX. FLEX VENTING 
+(45 mm) 5" 
+1 3 
+/4" 
+(128 mm)
+	1 3/
+Max Length 2" flex vent (35 mm)
+	50 ft.
+	
+
+
+
+8" 
+6-11/16" 
+Hot Outlet 
+Fitting 
+1-3/4” 
+
+
+	
+
+
+
+Condensate Drain 
+
+
+	
+
+
+
+Cold Inlet 
+1-3/8” 
+2” 
+Hanging bracket, bird screens, LP gas conversion kit are included with water heater. 7-1/8” 
+Parts & Accessories 
+2-7/8” 
+Fitting 13-1/8" 2-7/8” 
+13-11/16” 
+
+
+Condensate  Neutralizer 
+RTG20329AR 
+(optional)
+
+	Non-Return  Valve 
+SP21088 
+  
+
+	Flex Vent Kit 
+SP21091 
+  
+
+	Pipe Cover 
+RTG20322 
+  
+
+	Horizontal  
+Vent  
+Termination 2" US: SP21069G 3" US: SP21069E
+  
+
+	Concentric  
+Vent 
+Termination 
+2" - SP20897 
+3" - SP20245
+  
+
+	AllClear® Water Treatment  
+System 
+RTG20251 
+  
+
+	Isolation  
+Valve Kit 
+RTG20326 
+
+	Manifold  
+Cables 
+RCPN-AMP03- 
+0013111101-0003  (48")
+  
+
+	2-3/8”
+Outdoor  
+13-3/4” 
+Crossover  
+Conversion  
+Valve 
+Kit 
+RTGH-SX RTG20285
+  
+  
+
+	
+
+
+
+ In keeping with its policy of continuous progress and product improvement, Rheem reserves the right to make changes without notice. 
+Rheem Water Heating • 1115 Northmeadow Parkway, Suite 100  Roswell, Georgia 30076 • www.rheem.com  
+Rheem Canada Ltd./Ltée • 125 Edgeware Road, Unit 1  
+Brampton, Ontario L6Y 0P5 • www.rheem.com 
+2 
+10/23 WP FORM NO. TK-RTGHS Rev. 3

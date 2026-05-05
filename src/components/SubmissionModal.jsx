@@ -96,13 +96,13 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                     <li><strong>Installed Price:</strong> {priceRange}</li>
                 </ul>
 
-                <h3 className="text-xl font-semibold text-primary mb-2">How should we contact you?</h3>
+                <h3 className="text-xl font-semibold text-primary mb-2">Next Step: Verification</h3>
 
                 <p className="mb-2">
-                    We simply need to confirm a few details — usually by photos, sometimes a brief video call, or a short in-home check if needed.
+                    Verifying your home's water heater setup can be done by photos, a quick video call, or an in-person visit - whatever is easiest for you.
                 </p>
-                <p className="mb-2">
-                    No sales pressure. Just verification.
+                <p className="mb-4">
+                    We’ll reach out shortly to confirm your setup so you can move forward if everything looks good.
                 </p>
 
                 {error && <p className="text-red-500 mb-2">{error}</p>}
@@ -224,7 +224,7 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                         </button>
                     </div>
                     <p className='text-gray-500'>
-                        Or call <a href="tel:616-315-0999" className="underline">616-315-0999</a> — you'll reach a technician.
+                        Having trouble? Call <a href="tel:616-315-0999" className="underline">616-315-0999</a> to reach a technician.
                     </p>
                 </form>
             </div>
