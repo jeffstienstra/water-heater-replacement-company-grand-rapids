@@ -85,7 +85,7 @@ const questions = [
 							{src: '/images/wh-example-natDraft.webp', alt: 'Water heater with a metal vent pipe.'},
 						],
 						hintTitle: 'Metal Venting',
-						hintText: `If your water heater has a metal vent pipe (usually silver or gray) that runs from the top of the water heater to the ceiling, wall, or chimney, it is vented with metal. This is common for natural draft gas water heaters and some propane models.`
+						hintText: `If your water heater has a metal vent pipe (usually silver or gray) that runs from the top of the water heater to the ceiling, wall, or chimney, it is vented with metal. This is common for natural draft gas water heaters.`
 				},
 				// {label: "I don't know", value: 'unsure'}
 			],
