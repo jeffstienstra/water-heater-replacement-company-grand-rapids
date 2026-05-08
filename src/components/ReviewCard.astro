@@ -34,14 +34,16 @@ const highlightedContent = highlightPhrases(review.content, review.phrases);
 
 <div class="bg-base-100 rounded-xl shadow-sm border border-base-300 flex flex-col overflow-hidden">
 	{review.image && (
-		<img
-			src={review.image}
-			alt={`Review photo from ${review.author}`}
-			class="w-full h-48 object-cover"
-			loading="lazy"
-			width="600"
-			height="192"
-		/>
+		<div class="w-full h-48 bg-black flex items-center justify-center overflow-hidden">
+			<img
+				src={review.image}
+				alt={review.alt || `Photo related to review by ${review.author}`}
+				class="h-full w-full object-contain"
+				loading="lazy"
+				width="600"
+				height="192"
+			/>
+		</div>
 	)}
 	<div class="p-6 flex flex-col gap-3">
 

@@ -1,3 +1,7 @@
+import canzenroiImg from '../assets/images/reviews/tankless-water-heater-installation-creston-grand-rapids-mi-canzoneri.png'
+import eblyImg from '../assets/images/reviews/40-gallon-atmospheric-water-heater-installation-south-east-end-grand-rapids-mi-ebli.webp'
+import petersonImg from '../assets/images/reviews/50-gallon-atmospheric-water-heater-installation-rooling-meadows-jenison-mi-peterson.jpg'
+import fragaImg from '../assets/images/reviews/40-gallon-direct-vent-mobile-home-water-heater-installation-windmill-estates-holland-mi-fraga.jpg'
 export interface OwnerResponse {
 	response_date: string;
 	text: string;
@@ -14,6 +18,7 @@ export interface Review {
 	services_rendered: string[];
 	owner_response: OwnerResponse | null;
 	image?: string; // optional path relative to /public/, e.g. '/images/reviews/gordon.webp'
+    alt?: string; // alt text for the image, required if image is provided
 }
 
 export const overallRating = 5.0;
@@ -33,6 +38,8 @@ export const reviews: Review[] = [
 			response_date: 'April 2026',
 			text: `Thanks so much for the thoughtful review Nick! I'm glad to hear you did your homework with 6 quotes, getting at least 3 quotes is exactly what I encourage people to do. I'm really glad the video call was convenient and that the tankless system worked out well for your home. Enjoy the extra storage space with that huge tank out of the way. If any questions come up or you need a quick walkthrough on your first water heater flush don't hesitate to reach out. I appreciate you trusting me with the tankless water heater installation for your home in Grand Rapids! -Jeff`,
 		},
+        image: canzenroiImg.src,
+        alt: 'A newly installed Rheem high efficiency tankless gas water heater in a clean grand rapids basement, matching the review from Gordon Canzoneri.'
 	},
 	{
 		author: 'Mark Peterson',
@@ -47,6 +54,8 @@ export const reviews: Review[] = [
 			response_date: 'April 2026',
 			text: `Thanks Mark, I really appreciate your business! Glad we could take care of your water heater replacement in Hudsonville. I hope your upcoming move goes smoothly. Take care!`,
 		},
+        image: petersonImg.src,
+        alt: 'A newly installed Rheem 50 gallon atmospheric natural draft water heater in a Jenison basement, matching the review from Mark Peterson.'
 	},
 	{
 		author: 'Maria Fraga',
@@ -61,6 +70,8 @@ export const reviews: Review[] = [
 			response_date: 'April 2026',
 			text: `Thank you Maria, it was a pleasure working with you! Out of all the companies offering water heater replacement in Holland, I appreciate you choosing us! I'm glad you don't need to worry about your old water heater's strange noises anymore. :)`,
 		},
+        image: fragaImg.src,
+        alt: 'A newly installed Rheem 40 gallon direct vent atmospheric water heater in a Holland mobile home exterior utility closet, matching the review from Maria Fraga.'
 	},
 	{
 		author: 'Kailyn Ebli',
@@ -75,6 +86,8 @@ export const reviews: Review[] = [
 			response_date: 'March 2026',
 			text: `Thanks Kailyn! I genuinely appreciate your business and am glad the process was easy for you. :)`,
 		},
+        image: eblyImg.src,
+        alt: 'A newly installed Rheem 40 gallon atmospheric natural draft water heater in a Grand Rapids basement, matching the review from Kailyn Ebli.'
 	},
 	{
 		author: 'Doug DeKruyter',
