@@ -49,6 +49,7 @@ interface BusinessInfo {
     analytics: {
         googleAnalyticsId: string;
         googleTagManagerId: string;
+        googleAdsId: string;
         googleSiteVerificationId: string;
         partytown: boolean;
     };
@@ -121,6 +122,7 @@ export const businessInfo: BusinessInfo = {
     analytics: {
         googleAnalyticsId: 'G-BHGY4J6RHH',
         googleTagManagerId: 'GTM-T2QWW9RC',
+        googleAdsId: 'AW-17944934694',
         googleSiteVerificationId: '',
         partytown: true,
     },

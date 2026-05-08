@@ -2,6 +2,9 @@
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+import { businessInfo } from '../data/businessInfo';
+
+const { googleAnalyticsId, googleAdsId } = businessInfo.analytics;
 
 const description = 'Get an instant online quote for water heater replacement in Grand Rapids. No emails, no appointments, just real prices for your home in seconds.';
 
@@ -42,13 +45,14 @@ const metadata = {
 <html lang="en">
 	<head>
 		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-BHGY4J6RHH"></script>
-		<script>
+		<script async src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}></script>
+		<script define:vars={{ googleAnalyticsId, googleAdsId }}>
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
 		gtag('js', new Date());
 
-		gtag('config', 'G-BHGY4J6RHH');
+		gtag('config', googleAnalyticsId);
+		gtag('config', googleAdsId);
 		</script>
 
 		<meta charset="UTF-8" />
