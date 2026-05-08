@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Cta from '../components/Cta.astro';
 import ReviewCard from '../components/ReviewCard.astro';
+import ReviewsSchema from '../components/ReviewsSchema.astro';
 import { reviews, overallRating, totalReviewCount } from '../data/reviews';
 import { businessInfo } from '../data/businessInfo';
 
@@ -15,6 +16,8 @@ const filledStars = Math.round(overallRating);
 	description="Read verified customer reviews for Water Heater Replacement Company. 5-star water heater replacement service in Grand Rapids and across West Michigan."
 	canonical="https://waterheaterreplacementcompany.com/reviews/"
 >
+
+	<ReviewsSchema reviews={reviews} overallRating={overallRating} totalReviewCount={totalReviewCount} />
 
 	<!-- ─── HERO ───────────────────────────────────────────────────────────────── -->
 	<section class="bg-base-100 text-base-content border-b border-base-300">

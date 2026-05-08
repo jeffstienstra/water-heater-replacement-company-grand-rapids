@@ -1,0 +1,59 @@
+---
+import type { Review } from '../data/reviews';
+import { businessInfo } from '../data/businessInfo';
+
+interface Props {
+	reviews: Review[];
+	overallRating: number;
+	totalReviewCount: number;
+}
+
+const { reviews, overallRating, totalReviewCount } = Astro.props;
+const websiteUrl = businessInfo.url;
+
+function toIsoDate(dateStr: string): string {
+	const months: Record<string, string> = {
+		January: '01', February: '02', March: '03', April: '04',
+		May: '05', June: '06', July: '07', August: '08',
+		September: '09', October: '10', November: '11', December: '12',
+	};
+	const [month, year] = dateStr.split(' ');
+	return `${year}-${months[month] ?? '01'}`;
+}
+---
+
+<script type="application/ld+json" set:html={JSON.stringify({
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'LocalBusiness',
+			'@id': `${websiteUrl}#localbusiness`,
+			aggregateRating: {
+				'@type': 'AggregateRating',
+				ratingValue: overallRating.toFixed(1),
+				reviewCount: totalReviewCount.toString(),
+				bestRating: '5',
+				worstRating: '1',
+			},
+			review: reviews.map(review => ({
+				'@type': 'Review',
+				author: {
+					'@type': 'Person',
+					name: review.author,
+				},
+				reviewRating: {
+					'@type': 'Rating',
+					ratingValue: review.rating.toString(),
+					bestRating: '5',
+					worstRating: '1',
+				},
+				reviewBody: review.content,
+				datePublished: toIsoDate(review.date),
+				publisher: {
+					'@type': 'Organization',
+					name: 'Google',
+				},
+			})),
+		},
+	],
+})} />
