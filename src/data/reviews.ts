@@ -84,7 +84,7 @@ export const reviews: Review[] = [
 		services_rendered: ['Water heater installation'],
 		owner_response: {
 			response_date: 'March 2026',
-			text: `Thanks Kailyn! I genuinely appreciate your business and am glad the process was easy for you. :)`,
+			text: `Thanks Kailyn! I genuinely appreciate your business and am glad the online quote process was easy for you. :)`,
 		},
         image: eblyImg.src,
         alt: 'A newly installed Rheem 40 gallon atmospheric natural draft water heater in a Grand Rapids basement, matching the review from Kailyn Ebli.'

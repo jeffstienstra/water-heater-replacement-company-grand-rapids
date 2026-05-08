@@ -1,14 +1,27 @@
 ---
+import { getImage } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Cta from '../components/Cta.astro';
 import ReviewCard from '../components/ReviewCard.astro';
 import ReviewsSchema from '../components/ReviewsSchema.astro';
+import FindWaterHeaterQuiz from '../components/FindWaterHeaterQuiz';
+import waterHeaterModels from '../data/waterHeaterModels.js';
 import { reviews, overallRating, totalReviewCount } from '../data/reviews';
 import { businessInfo } from '../data/businessInfo';
 
 const googleReviewUrl = businessInfo.social.google ?? '';
-
 const filledStars = Math.round(overallRating);
+
+const rawImages = import.meta.glob(
+	'/src/assets/images/catalog/**/*.{webp,png,jpg,jpeg}',
+	{ eager: true }
+);
+
+const imageMap: Record<string, string> = {};
+for (const [path, mod] of Object.entries(rawImages)) {
+	const key = path.replace('/src/assets', '');
+	const optimized = await getImage({ src: (mod as any).default, width: 400, format: 'webp' });
+	imageMap[key] = optimized.src;
+}
 ---
 
 <BaseLayout
@@ -89,10 +102,13 @@ const filledStars = Math.round(overallRating);
 		</div>
 	</section>
 
-	<!-- ─── CTA ────────────────────────────────────────────────────────────────── -->
-	<Cta
-        title="Get Your Instant Quote -Experience Our 5-Star Service for Yourself"
-        subtitle="No emails, no appointments, just real prices for your home in seconds. See why customers love our fast, affordable service."
-    />
+	<!-- ─── QUOTE FORM ────────────────────────────────────────────────────────── -->
+	<section class="py-16 px-6 bg-base-100 border-t border-base-300">
+		<div class="max-w-3xl mx-auto text-center mb-10">
+			<h2 class="text-3xl sm:text-4xl font-bold mb-3">Ready to Experience It Yourself?</h2>
+			<p class="text-lg opacity-90">Get your exact installed price in 30 seconds — no email, no phone number, no pressure.</p>
+		</div>
+		<FindWaterHeaterQuiz client:only imageMap={imageMap} />
+	</section>
 
 </BaseLayout>
