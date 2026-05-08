@@ -1,0 +1,93 @@
+---
+import type { Review } from '../data/reviews';
+
+interface Props {
+	review: Review;
+}
+
+const { review } = Astro.props;
+const stars = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
+
+function escapeHtml(str: string): string {
+	return str
+		.replace(/&/g, '&amp;')
+		.replace(/</g, '&lt;')
+		.replace(/>/g, '&gt;')
+		.replace(/"/g, '&quot;')
+		.replace(/'/g, '&#039;');
+}
+
+function highlightPhrases(content: string, phrases: string[] = []): string {
+	if (!phrases.length) return escapeHtml(content);
+	const sorted = [...phrases].sort((a, b) => b.length - a.length);
+	let escaped = escapeHtml(content);
+	for (const phrase of sorted) {
+		const escapedPhrase = escapeHtml(phrase);
+		const regex = new RegExp(escapedPhrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+		escaped = escaped.replace(regex, '<strong class="font-semibold text-primary not-italic">$&</strong>');
+	}
+	return escaped;
+}
+
+const highlightedContent = highlightPhrases(review.content, review.phrases);
+---
+
+<div class="bg-base-100 rounded-xl shadow-sm border border-base-300 flex flex-col overflow-hidden">
+	{review.image && (
+		<img
+			src={review.image}
+			alt={`Review photo from ${review.author}`}
+			class="w-full h-48 object-cover"
+			loading="lazy"
+			width="600"
+			height="192"
+		/>
+	)}
+	<div class="p-6 flex flex-col gap-3">
+
+		<!-- Stars + date -->
+		<div class="flex items-center justify-between">
+			<span class="text-orange-400 text-lg leading-none">{stars}</span>
+			<span class="text-xs text-gray-500">{review.date}</span>
+		</div>
+
+		<!-- Author + review count -->
+		<div>
+			<p class="font-bold text-base-content leading-tight">{review.author}</p>
+			<p class="text-xs text-gray-500 mt-0.5">{review.review_count} {review.review_count === 1 ? 'review' : 'reviews'} on Google</p>
+		</div>
+
+		<!-- Highlight badge -->
+		{review.highlight && (
+			<span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full font-semibold self-start">{review.highlight}</span>
+		)}
+
+		<!-- Services rendered -->
+		{review.services_rendered.length > 0 && (
+			<div class="flex flex-wrap gap-1.5">
+				{review.services_rendered.map(service => (
+					<span class="text-xs bg-base-200 text-base-content px-2 py-1 rounded-full">{service}</span>
+				))}
+			</div>
+		)}
+
+		<!-- Review content with optional phrase highlighting -->
+		<p class="italic text-sm leading-relaxed opacity-90" set:html={'"' + highlightedContent + '"'}></p>
+
+		<!-- Owner response (collapsible) -->
+		{review.owner_response && (
+			<details class="group">
+				<summary class="text-xs text-primary font-semibold cursor-pointer list-none flex items-center gap-1 select-none">
+					<svg class="w-3 h-3 transition-transform group-open:rotate-90" fill="currentColor" viewBox="0 0 20 20">
+						<path d="M7 5l6 5-6 5V5z"/>
+					</svg>
+					Owner responded · {review.owner_response.response_date}
+				</summary>
+				<div class="mt-2 bg-base-200 rounded-lg p-3 text-xs leading-relaxed opacity-80">
+					{review.owner_response.text}
+				</div>
+			</details>
+		)}
+
+	</div>
+</div>

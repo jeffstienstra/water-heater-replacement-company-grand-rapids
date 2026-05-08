@@ -43,6 +43,7 @@ interface SocialLinks {
     youtube?: string;
     tiktok?: string;
     yelp?: string;
+    google?: string;
 }
 
 interface BusinessInfo {
@@ -165,6 +166,7 @@ export const businessInfo: BusinessInfo = {
         linkedIn: '',
         facebook: '',
         yelp: 'https://www.yelp.com/biz/water-heater-replacement-company-jenison',
+        google: 'https://g.page/r/CZPZy9YX0GpqEAE/review',
     },
     logo: mainLogo,
     mainImage: {

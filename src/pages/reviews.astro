@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Cta from '../components/Cta.astro';
+import ReviewCard from '../components/ReviewCard.astro';
+import { reviews, overallRating, totalReviewCount } from '../data/reviews';
+import { businessInfo } from '../data/businessInfo';
+
+const googleReviewUrl = businessInfo.social.google ?? '';
+
+const filledStars = Math.round(overallRating);
+---
+
+<BaseLayout
+	title="Customer Reviews | Water Heater Replacement Company Grand Rapids"
+	description="Read verified customer reviews for Water Heater Replacement Company. 5-star water heater replacement service in Grand Rapids and across West Michigan."
+	canonical="https://waterheaterreplacementcompany.com/reviews/"
+>
+
+	<!-- ─── HERO ───────────────────────────────────────────────────────────────── -->
+	<section class="bg-base-100 text-base-content border-b border-base-300">
+		<div class="max-w-4xl mx-auto px-6 py-12 sm:py-16 text-center">
+			<span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4">
+				Google Reviews · Grand Rapids & West Michigan
+			</span>
+			<h1 class="text-4xl sm:text-5xl font-black tracking-tight mb-4">
+				What Our Customers Say
+			</h1>
+			<p class="text-lg text-gray-600 max-w-2xl mx-auto">
+				Real reviews from local homeowners who trusted us in their home.
+			</p>
+		</div>
+	</section>
+
+	<!-- ─── STICKY RATING BAR ──────────────────────────────────────────────────── -->
+	<div class="sticky top-16 z-40 bg-base-100 border-b border-base-300 shadow-sm">
+		<div class="max-w-4xl mx-auto px-6 py-3 flex items-center justify-center gap-3 sm:gap-6 flex-wrap">
+
+			<!-- Google logo + Verified badge -->
+			<div class="flex items-center gap-1.5">
+				<svg class="w-5 h-5 shrink-0" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+					<path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.09 17.74 9.5 24 9.5z"/>
+					<path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+					<path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+					<path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-3.59-13.46-8.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+				</svg>
+				<span class="text-xs font-bold text-gray-500 tracking-wide">Google</span>
+				<span class="text-xs bg-green-100 text-green-700 font-semibold px-1.5 py-0.5 rounded-full">✓ Verified</span>
+			</div>
+
+			<!-- Divider -->
+			<span class="hidden sm:block text-base-300 select-none">|</span>
+
+			<!-- Score + stars + count -->
+			<div class="flex items-center gap-2">
+				<span class="text-2xl font-black text-base-content leading-none">{overallRating.toFixed(1)}</span>
+				<span class="text-orange-400 text-xl tracking-wider leading-none">{'★'.repeat(filledStars)}</span>
+				<span class="text-xs text-gray-500">({totalReviewCount})</span>
+			</div>
+
+			<!-- Divider -->
+			<span class="hidden sm:block text-base-300 select-none">|</span>
+
+			<!-- Leave a Review CTA -->
+			<a
+				href={googleReviewUrl}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="btn btn-xs btn-outline border-primary text-primary hover:bg-primary hover:text-white"
+			>
+				Leave a Review
+			</a>
+
+		</div>
+	</div>
+
+	<!-- ─── REVIEWS GRID ───────────────────────────────────────────────────────── -->
+	<section class="py-16 px-6 bg-primary/10 border-b border-base-300">
+		<div class="max-w-6xl mx-auto">
+			<div class="columns-1 md:columns-2 lg:columns-3 gap-6">
+				{reviews.map(review => (
+					<div class="break-inside-avoid mb-6">
+						<ReviewCard review={review} />
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ─── CTA ────────────────────────────────────────────────────────────────── -->
+	<Cta
+        title="Get Your Instant Quote -Experience Our 5-Star Service for Yourself"
+        subtitle="No emails, no appointments, just real prices for your home in seconds. See why customers love our fast, affordable service."
+    />
+
+</BaseLayout>
