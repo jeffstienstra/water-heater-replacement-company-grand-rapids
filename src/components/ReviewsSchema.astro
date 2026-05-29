@@ -28,13 +28,6 @@ function toIsoDate(dateStr: string): string {
 		{
 			'@type': 'LocalBusiness',
 			'@id': `${websiteUrl}#localbusiness`,
-			aggregateRating: {
-				'@type': 'AggregateRating',
-				ratingValue: overallRating.toFixed(1),
-				reviewCount: totalReviewCount.toString(),
-				bestRating: '5',
-				worstRating: '1',
-			},
 			review: reviews.map(review => ({
 				'@type': 'Review',
 				author: {
