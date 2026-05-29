@@ -167,7 +167,7 @@ const waterHeaterModels = [
 		],
 		benefits: [
 			'HUD-Certified Safety',
-			'Direct vent design — no external door or closet ventilation required',
+			'Direct vent design - no external door or closet ventilation required',
 			'Compact size fits tight utility spaces',
 			'Steady Hot Water Recovery',
 		],
@@ -212,7 +212,7 @@ const waterHeaterModels = [
 		],
 		benefits: [
 			'HUD-Approved Safety Design',
-			'Direct vent design — no external door or closet ventilation required',
+			'Direct vent design - no external door or closet ventilation required',
 			'Power-Free Pilot Ignition',
 			'High-Capacity 40-Gallon Tank',
 		],

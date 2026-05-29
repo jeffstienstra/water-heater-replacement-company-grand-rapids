@@ -1,4 +1,4 @@
-CATALOG IMAGE FOLDER — READ BEFORE ADDING OR REMOVING FILES
+CATALOG IMAGE FOLDER - READ BEFORE ADDING OR REMOVING FILES
 =============================================================
 
 Images in this folder are automatically discovered at build time via import.meta.glob

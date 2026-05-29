@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import { businessInfo } from '../data/businessInfo';
+
+const calendarUrl = 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ1qLChOdWx9-pciUh18eXBB6UGa8T8s_ROqiQWrzjdzXVjzoWqxR8vpB77oCbJPULEZHE69e17d?gv=true';
+---
+
+<BaseLayout
+	title="Book an Appointment | Water Heater Replacement Company Grand Rapids"
+	description="Schedule your water heater replacement or installation online. Choose a time that works for you - same-week appointments available in Grand Rapids and West Michigan."
+	canonical="https://waterheaterreplacementcompany.com/booking/"
+>
+
+	<!-- ─── HERO ───────────────────────────────────────────────────────────────── -->
+	<section class="bg-base-100 text-base-content border-b border-base-300">
+		<div class="max-w-4xl mx-auto px-6 pt-24 sm:pt-28 pb-12 sm:pb-16 text-center">
+			<span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4">
+				West Michigan · Water Heater Specialists
+			</span>
+			<h1 class="text-4xl sm:text-5xl font-black tracking-tight mb-4">
+				Book Your Appointment
+			</h1>
+			<p class="text-lg text-gray-600 max-w-2xl mx-auto">
+				Pick a time that works for you. We'll confirm within minutes and show up ready to work - no surprises, no pressure.
+			</p>
+		</div>
+	</section>
+
+	<!-- ─── TRUST STRIP ───────────────────────────────────────────────────────── -->
+	<TrustStrip />
+
+	<!-- ─── BOOKING SECTION ───────────────────────────────────────────────────── -->
+	<section class="py-14 px-3 md:px-6 bg-primary/10 border-b border-base-300">
+		<div class="max-w-4xl mx-auto">
+
+			<!-- temporary message - coming soon -->
+			<div class="bg-base-100 border border-primary rounded-lg p-8 text-center">
+				<h2 class="text-2xl font-bold mb-4">Online Booking Coming Soon</h2>
+				<p class="text-gray-600 mb-6">We're putting the finishing touches on our online booking system. <br/> In the meantime, please call us at <a href={`tel:${businessInfo.primaryPhone}`} class="text-primary font-semibold">{businessInfo.primaryPhone}</a> to schedule your appointment. We look forward to serving you!</p>
+				<a href={`tel:${businessInfo.primaryPhone}`} class="btn btn-primary btn-lg gap-2">
+					<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+						<path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.58a1 1 0 0 1-.24 1.01l-2.21 2.2z"/>
+					</svg>
+					Call {businessInfo.primaryPhone}
+				</a>
+			</div>
+			<!-- Google Calendar embedded iframe (all screen sizes) -->
+			<!-- <iframe
+				src={calendarUrl}
+				style="border: 0"
+				width="100%"
+				height="500"
+				class="md:!h-[600px]"
+				frameborder="0"
+				title="Schedule a water heater appointment"
+				loading="lazy"
+			></iframe> -->
+
+		</div>
+	</section>
+
+	<!-- ─── PHONE CTA ────────────────────────────────────────────────────────── -->
+	<!-- <section class="py-12 px-6 bg-base-200 border-t border-base-300 text-center">
+		<p class="text-base text-gray-600 mb-3">Prefer to speak with someone?</p>
+		<a
+			href={`tel:${businessInfo.primaryPhone}`}
+			class="btn btn-primary btn-lg gap-2"
+		>
+			<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+				<path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.58a1 1 0 0 1-.24 1.01l-2.21 2.2z"/>
+			</svg>
+			Call {businessInfo.primaryPhone}
+		</a>
+		<p class="text-sm text-gray-500 mt-3">Speak directly with a technician - no call center, no hold music.</p>
+	</section> -->
+
+</BaseLayout>

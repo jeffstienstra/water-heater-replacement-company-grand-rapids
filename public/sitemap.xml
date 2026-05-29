@@ -3,7 +3,7 @@
 xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
   <!-- NOTE: The canonical sitemap is generated at build time by src/pages/sitemap.xml.ts -->
-  <!-- This static file is kept in sync for reference only — the .ts version is what gets served -->
+  <!-- This static file is kept in sync for reference only - the .ts version is what gets served -->
 
   <!-- ─── HOME ──────────────────────────────────────────────────────────────── -->
   <url>

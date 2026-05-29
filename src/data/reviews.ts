@@ -2,6 +2,7 @@ import canzenroiImg from '../assets/images/reviews/tankless-water-heater-install
 import eblyImg from '../assets/images/reviews/40-gallon-atmospheric-water-heater-installation-south-east-end-grand-rapids-mi-ebli.webp'
 import petersonImg from '../assets/images/reviews/50-gallon-atmospheric-water-heater-installation-rooling-meadows-jenison-mi-peterson.jpg'
 import fragaImg from '../assets/images/reviews/40-gallon-direct-vent-mobile-home-water-heater-installation-windmill-estates-holland-mi-fraga.jpg'
+import burkeImg from '../assets/images/reviews/40-gallon-atmospheric-water-heater-installation-rosewood-neighborhood-jenison-mi-burke.jpg'
 export interface OwnerResponse {
 	response_date: string;
 	text: string;
@@ -116,5 +117,21 @@ export const reviews: Review[] = [
 			response_date: 'April 2026',
 			text: `Aww, thanks! We really appreciate your business, I'm glad we could repair your water heater in Jenison.`,
 		},
+	},
+	{
+		author: 'Laura Burke',
+		rating: 5,
+		review_count: 4,
+		date: 'May 2026',
+		highlight: null,
+		content: 'Water Heater Replacement Co, Jeff, is knowledgeable and a pro. We were going to go with one the advertised larger name service companies, but his cost was significantly less.  Quality service, big savings.  We really lucked out!',
+		phrases: ['knowledgeable and a pro', 'cost was significantly less', 'Quality service, big savings'],
+		services_rendered: ['Water heater installation'],
+		owner_response: {
+			response_date: 'May 2026',
+			text: `Thank you Laura, I really appreciate you trusting me with replacing your water heater in Jenison. I'm glad we were able to get you scheduled for a same-day installation. I think relocating your new Rheem water heater a few feet was a good move. I’m sure the next service tech to look at your furnace will appreciate having space to work without needing to climb over the furnace to get there! Take care! ~Jeff`,
+		},
+		image: burkeImg.src,
+		alt: 'A newly installed Rheem 40 gallon atmospheric natural draft water heater in a Jenison basement, matching the review from Laura Burke.'
 	},
 ];

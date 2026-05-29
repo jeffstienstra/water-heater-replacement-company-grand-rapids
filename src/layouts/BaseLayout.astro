@@ -24,7 +24,7 @@ const {
 	faqs?: FaqItem[];
 };
 
-const defaultDescription = 'Get an instant online quote for water heater replacement in Grand Rapids. No emails, no appointments, just real prices from us — a locally-owned contractor.';
+const defaultDescription = 'Get an instant online quote for water heater replacement in Grand Rapids. No emails, no appointments, just real prices from us - a locally-owned contractor.';
 const description = pageDescription || defaultDescription;
 
 const metadata = {
@@ -112,6 +112,7 @@ const metadata = {
 			pageUrl={metadata.canonical}
 			faqs={faqs}
 		/>
+		<slot name="head" />
 	</head>
 
 	<body>

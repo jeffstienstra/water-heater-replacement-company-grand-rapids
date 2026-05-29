@@ -15,14 +15,14 @@ export const cities: CityEntry[] = [
 		city: 'Grand Rapids',
 		state: 'MI',
 		slug: 'grand-rapids',
-		description: 'Water heater replacement and repair services in Grand Rapids, MI — same-day installs, upfront pricing, no hidden fees.',
+		description: 'Water heater replacement and repair services in Grand Rapids, MI - same-day installs, upfront pricing, no hidden fees.',
 		intro: 'Grand Rapids is our primary service market. From Heritage Hill to the Southeast Side, Creston to West Side, we serve every Grand Rapids neighborhood with the same flat, transparent pricing and same-day availability.',
 		lat: 42.9634,
 		lon: -85.6681,
 		faqs: [
 			{
 				q: 'Do you serve all Grand Rapids neighborhoods?',
-				a: 'Yes — we cover the entire Grand Rapids city limits including Heritage Hill, East Hills, Creston, Eastown, the West Side, and the Southeast Side. Pricing is consistent throughout Grand Rapids and same-day or next-day scheduling is typically available.',
+				a: 'Yes - we cover the entire Grand Rapids city limits including Heritage Hill, East Hills, Creston, Eastown, the West Side, and the Southeast Side. Pricing is consistent throughout Grand Rapids and same-day or next-day scheduling is typically available.',
 			},
 			{
 				q: 'How quickly can I get a water heater replaced in Grand Rapids?',
@@ -30,11 +30,11 @@ export const cities: CityEntry[] = [
 			},
 			{
 				q: 'Do you handle permits for Grand Rapids water heater replacements?',
-				a: 'Yes. A Michigan mechanical permit is required for every water heater replacement in Grand Rapids. We apply for it, handle scheduling, and ensure the install passes inspection — all included in your price.',
+				a: 'Yes. A Michigan mechanical permit is required for every water heater replacement in Grand Rapids. We apply for it, handle scheduling, and ensure the install passes inspection - all included in your price.',
 			},
 			{
 				q: 'Can you install a tankless water heater in Grand Rapids?',
-				a: 'Absolutely. We install both tank and tankless systems throughout Grand Rapids. Tankless installations require venting, gas line, and plumbing verification before we finalize your price — all handled during our free quote process.',
+				a: 'Absolutely. We install both tank and tankless systems throughout Grand Rapids. Tankless installations require venting, gas line, and plumbing verification before we finalize your price - all handled during our free quote process.',
 			},
 		],
 	},
@@ -43,14 +43,14 @@ export const cities: CityEntry[] = [
 		state: 'MI',
 		slug: 'jenison',
 		description: 'Fast, affordable water heater replacement in Jenison, MI. Tank and tankless installs with same-day availability.',
-		intro: 'Jenison is our home base. As a local company based here, we know the area and its homes well — and you will often see the fastest response times in Jenison.',
+		intro: 'Jenison is our home base. As a local company based here, we know the area and its homes well - and you will often see the fastest response times in Jenison.',
 		lat: 42.9069,
 		lon: -85.8219,
 		googleMapsUrl: 'https://www.google.com/maps/place/Jenison,+MI+49428/@42.9068765,-85.8397684,8438m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8819bb648844eb2d:0x43037f24b5d8ff90!8m2!3d42.907248!4d-85.7919784!16zL20vMHZuY24',
 		faqs: [
 			{
 				q: 'Are you based in Jenison, MI?',
-				a: 'Yes — our office and dispatch are based right here in Jenison. That means faster response times and a team that knows the neighborhood. We have replaced water heaters all over Jenison and understand the area well.',
+				a: 'Yes - our office and dispatch are based right here in Jenison. That means faster response times and a team that knows the neighborhood. We have replaced water heaters all over Jenison and understand the area well.',
 			},
 			{
 				q: 'How fast can you respond to a water heater emergency in Jenison?',
@@ -62,7 +62,7 @@ export const cities: CityEntry[] = [
 			},
 			{
 				q: 'Do you pull permits in Jenison, MI?',
-				a: 'Yes. Every water heater replacement in Jenison requires a Michigan mechanical permit. We handle the entire permit and inspection process as part of every job. If another company is telling you otherwise, that is a red flag. A mechanical permit is not optional — it is required by law, and it protects you as a homeowner by ensuring the work is inspected and up to code.',
+				a: 'Yes. Every water heater replacement in Jenison requires a Michigan mechanical permit. We handle the entire permit and inspection process as part of every job. If another company is telling you otherwise, that is a red flag. A mechanical permit is not optional - it is required by law, and it protects you as a homeowner by ensuring the work is inspected and up to code.',
 			},
 		],
 	},
@@ -82,7 +82,7 @@ export const cities: CityEntry[] = [
 			},
 			{
 				q: 'What types of water heaters do you install in Hudsonville?',
-				a: 'We install all types — gas and electric tank water heaters, tankless units, and heat pump/hybrid systems. Whatever your current Hudsonville home setup, we can match it or help you upgrade.',
+				a: 'We install all types - gas and electric tank water heaters, tankless units, and heat pump/hybrid systems. Whatever your current Hudsonville home setup, we can match it or help you upgrade.',
 			},
 			{
 				q: 'How much does a water heater replacement cost in Hudsonville?',
@@ -113,7 +113,7 @@ export const cities: CityEntry[] = [
 			},
 			{
 				q: 'How do I get a price for water heater replacement in Allendale without calling?',
-				a: 'Use our 30-second instant quote tool online. Answer a few quick questions about your water heater and home setup, and you will get your exact installed price — no email or phone number required to see your quote.',
+				a: 'Use our 30-second instant quote tool online. Answer a few quick questions about your water heater and home setup, and you will get your exact installed price - no email or phone number required to see your quote.',
 			},
 			{
 				q: 'What if my Allendale water heater fails on a weekend?',
@@ -132,11 +132,11 @@ export const cities: CityEntry[] = [
 		faqs: [
 			{
 				q: 'Do you replace water heaters in Wyoming, MI?',
-				a: 'Yes — Wyoming is one of our most active markets. We are in Wyoming neighborhoods regularly and can typically schedule same-day service throughout the city.',
+				a: 'Yes - Wyoming is one of our most active markets. We are in Wyoming neighborhoods regularly and can typically schedule same-day service throughout the city.',
 			},
 			{
 				q: 'How do I know if my Wyoming water heater needs replacement or just repair?',
-				a: 'We give you an honest diagnosis — our technicians are not commission-based, so there is no financial incentive to push a replacement you do not need. If your Wyoming water heater is repairable, we will tell you.',
+				a: 'We give you an honest diagnosis - our technicians are not commission-based, so there is no financial incentive to push a replacement you do not need. If your Wyoming water heater is repairable, we will tell you.',
 			},
 			{
 				q: 'Do you handle all types of water heaters in Wyoming, MI?',
@@ -152,7 +152,7 @@ export const cities: CityEntry[] = [
 		city: 'Kentwood',
 		state: 'MI',
 		slug: 'kentwood',
-		description: 'Same-day water heater replacement in Kentwood, MI. Tank and tankless, gas and electric — fully licensed and insured.',
+		description: 'Same-day water heater replacement in Kentwood, MI. Tank and tankless, gas and electric - fully licensed and insured.',
 		intro: 'Kentwood is one of our busiest service markets. We are in Kentwood regularly and provide the same fast, transparent service here as we do throughout greater Grand Rapids.',
 		lat: 42.8690,
 		lon: -85.6447,
@@ -163,7 +163,7 @@ export const cities: CityEntry[] = [
 			},
 			{
 				q: 'Can I get a quote for water heater replacement in Kentwood without an appointment?',
-				a: 'Yes — use our 30-second instant quote tool online. Get your full installed price for your Kentwood home without a sales call or in-home visit. We verify your setup via photo or quick video before scheduling.',
+				a: 'Yes - use our 30-second instant quote tool online. Get your full installed price for your Kentwood home without a sales call or in-home visit. We verify your setup via photo or quick video before scheduling.',
 			},
 			{
 				q: 'Is there a price difference between Kentwood and other cities?',
@@ -171,7 +171,7 @@ export const cities: CityEntry[] = [
 			},
 			{
 				q: 'Do you replace water heaters on weekends in Kentwood?',
-				a: 'Yes. We operate 7 days a week. Weekend appointments in Kentwood are available — call 616-315-0999 or get a quote online to schedule.',
+				a: 'Yes. We operate 7 days a week. Weekend appointments in Kentwood are available - call 616-315-0999 or get a quote online to schedule.',
 			},
 		],
 	},
@@ -190,11 +190,11 @@ export const cities: CityEntry[] = [
 			},
 			{
 				q: 'What if my Walker water heater is leaking?',
-				a: 'A leaking tank body is typically a replacement situation. Call us at 616-315-0999 for urgent water heater service in Walker — we can walk you through safely shutting off the water supply while we get you scheduled.',
+				a: 'A leaking tank body is typically a replacement situation. Call us at 616-315-0999 for urgent water heater service in Walker - we can walk you through safely shutting off the water supply while we get you scheduled.',
 			},
 			{
 				q: 'Do you install tankless water heaters in Walker?',
-				a: 'Yes. We install tankless water heaters throughout Walker. Tankless installations require additional prep — venting, gas lines, plumbing — all assessed during your no-obligation quote process.',
+				a: 'Yes. We install tankless water heaters throughout Walker. Tankless installations require additional prep - venting, gas lines, plumbing - all assessed during your no-obligation quote process.',
 			},
 			{
 				q: 'Does my Walker water heater replacement require a permit?',
@@ -217,11 +217,11 @@ export const cities: CityEntry[] = [
 			},
 			{
 				q: 'How do I get an instant quote for water heater replacement in Comstock Park?',
-				a: 'Use our online instant quote tool — answer a few quick questions about your water heater type, size, and home setup, and you will get your full installed price in 30 seconds. No salesman, no appointment required.',
+				a: 'Use our online instant quote tool - answer a few quick questions about your water heater type, size, and home setup, and you will get your full installed price in 30 seconds. No salesman, no appointment required.',
 			},
 			{
 				q: 'What brands do you install in Comstock Park?',
-				a: 'We primarily install professional-grade Rheem water heaters — the same tier used by licensed contractors, not the budget models sold at big-box stores. Other brands are available on request.',
+				a: 'We primarily install professional-grade Rheem water heaters - the same tier used by licensed contractors, not the budget models sold at big-box stores. Other brands are available on request.',
 			},
 			{
 				q: 'Is emergency water heater service available in Comstock Park?',
@@ -248,7 +248,7 @@ export const cities: CityEntry[] = [
 			},
 			{
 				q: 'Is the pricing the same in Byron Center as Grand Rapids?',
-				a: 'Yes — our pricing is consistent across the entire West Michigan area. No travel fees, no area upcharges. What you see in your instant quote is what you pay.',
+				a: 'Yes - our pricing is consistent across the entire West Michigan area. No travel fees, no area upcharges. What you see in your instant quote is what you pay.',
 			},
 			{
 				q: 'Does Byron Center require a permit for water heater replacement?',
@@ -267,11 +267,11 @@ export const cities: CityEntry[] = [
 		faqs: [
 			{
 				q: 'Do you serve East Grand Rapids for water heater replacement?',
-				a: 'Yes. East Grand Rapids is a regular part of our service area. We are familiar with the neighborhood and the standards EGR homeowners expect — same-day and next-day scheduling available.',
+				a: 'Yes. East Grand Rapids is a regular part of our service area. We are familiar with the neighborhood and the standards EGR homeowners expect - same-day and next-day scheduling available.',
 			},
 			{
 				q: 'How quickly can I get a water heater replaced in East Grand Rapids?',
-				a: 'Same-day and next-day appointments are typical in East Grand Rapids. Use our instant quote tool to get your price and schedule in minutes — no sales call required.',
+				a: 'Same-day and next-day appointments are typical in East Grand Rapids. Use our instant quote tool to get your price and schedule in minutes - no sales call required.',
 			},
 			{
 				q: 'Do you handle older homes with less common setups in East Grand Rapids?',
@@ -279,7 +279,7 @@ export const cities: CityEntry[] = [
 			},
 			{
 				q: 'Is pricing the same in East Grand Rapids as the rest of West Michigan?',
-				a: 'Yes — our pricing is flat and consistent across all service areas. You will not pay more based on your zip code.',
+				a: 'Yes - our pricing is flat and consistent across all service areas. You will not pay more based on your zip code.',
 			},
 		],
 	},
@@ -298,7 +298,7 @@ export const cities: CityEntry[] = [
 			},
 			{
 				q: 'Can you handle a high-demand water heater system in Ada?',
-				a: 'Yes. Many Ada homes benefit from larger-capacity or tankless systems. We assess your home gas capacity, venting options, and water demand to recommend the right solution — with no upsell pressure.',
+				a: 'Yes. Many Ada homes benefit from larger-capacity or tankless systems. We assess your home gas capacity, venting options, and water demand to recommend the right solution - with no upsell pressure.',
 			},
 			{
 				q: 'How do I schedule water heater service in Ada without a sales visit?',
@@ -315,13 +315,13 @@ export const cities: CityEntry[] = [
 		state: 'MI',
 		slug: 'caledonia',
 		description: 'Reliable water heater replacement in Caledonia, MI. Same-day installs, 2-year labor warranty, no surprises.',
-		intro: 'Caledonia rural and suburban character means homes often have unique configurations — older venting setups, well water, varied plumbing. We are experienced with the full range of situations in Caledonia and price everything transparently.',
+		intro: 'Caledonia rural and suburban character means homes often have unique configurations - older venting setups, well water, varied plumbing. We are experienced with the full range of situations in Caledonia and price everything transparently.',
 		lat: 42.7878,
 		lon: -85.5258,
 		faqs: [
 			{
 				q: 'Do you serve Caledonia, MI for water heater replacement?',
-				a: 'Yes. Caledonia is part of our service area, and we are familiar with the variety of home configurations there — from newer subdivisions to older rural properties with less common setups.',
+				a: 'Yes. Caledonia is part of our service area, and we are familiar with the variety of home configurations there - from newer subdivisions to older rural properties with less common setups.',
 			},
 			{
 				q: 'Do you work on water heaters in homes with well water in Caledonia?',
@@ -360,7 +360,7 @@ export const cities: CityEntry[] = [
 			},
 			{
 				q: 'Do you handle permits for Zeeland, MI water heater replacements?',
-				a: 'Yes. Michigan mechanical permit requirements apply in Zeeland. We apply for the permit, coordinate the inspection, and make sure everything is code-compliant — included in your price.',
+				a: 'Yes. Michigan mechanical permit requirements apply in Zeeland. We apply for the permit, coordinate the inspection, and make sure everything is code-compliant - included in your price.',
 			},
 		],
 	},
@@ -369,7 +369,7 @@ export const cities: CityEntry[] = [
 		state: 'MI',
 		slug: 'holland',
 		description: 'Water heater replacement in Holland, MI. Expert installation with same-day availability throughout West Michigan.',
-		intro: 'Holland is at the western edge of our service area, but one we cover regularly. The community mix of full-time residents and lakeside properties means water heater needs can be urgent — we respond accordingly with fast scheduling and upfront pricing.',
+		intro: 'Holland is at the western edge of our service area, but one we cover regularly. The community mix of full-time residents and lakeside properties means water heater needs can be urgent - we respond accordingly with fast scheduling and upfront pricing.',
 		lat: 42.7875,
 		lon: -86.1089,
 		faqs: [
@@ -379,7 +379,7 @@ export const cities: CityEntry[] = [
 			},
 			{
 				q: 'Is there a travel fee for Holland?',
-				a: 'No — our pricing is flat and consistent across all cities we serve. There are no travel fees or area surcharges for Holland.',
+				a: 'No - our pricing is flat and consistent across all cities we serve. There are no travel fees or area surcharges for Holland.',
 			},
 			{
 				q: 'Can you install a tankless water heater in Holland?',
@@ -407,7 +407,7 @@ export const cities: CityEntry[] = [
 			},
 			{
 				q: 'How do I get a water heater quote in Grandville without a salesman?',
-				a: 'Use our 30-second online instant quote tool. Enter your home water heater details and get your full installed price — no phone number, no email, no sales visit required.',
+				a: 'Use our 30-second online instant quote tool. Enter your home water heater details and get your full installed price - no phone number, no email, no sales visit required.',
 			},
 			{
 				q: 'Do you service both older and newer Grandville homes?',

@@ -1,0 +1,484 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TrustStrip from "../components/TrustStrip.astro";
+import Faq from "../components/Faq.astro";
+import { Image } from "astro:assets";
+import techByVanImg from "../assets/images/wh-techByVan2.png";
+import vanImg from "../assets/images/whrc-van-image.webp";
+import PriceReceipt from "../components/icons/PriceReceipt.astro";
+import Phone from "../components/icons/Phone.astro";
+import { businessInfo } from "../data/businessInfo";
+
+const smsPhoto  = `sms:${businessInfo.primaryPhone}?&body=${encodeURIComponent("Hi Jeff, I'm on your website and I'd like a quote. Here are photos of my water heater.")}`;
+const smsTool   = `sms:${businessInfo.primaryPhone}?&body=${encodeURIComponent("Hi Jeff, I'm using your quote tool but I'm not sure about my water heater setup.")}`;
+const smsSetup  = `sms:${businessInfo.primaryPhone}?&body=${encodeURIComponent("Hi, I'm interested in a water heater quote. Here are photos of my current setup.")}`;
+const smsVideo  = `sms:${businessInfo.primaryPhone}?&body=${encodeURIComponent("Hi Jeff, I'd like to schedule a quick video call to verify my water heater setup.")}`;
+const smsSite   = `sms:${businessInfo.primaryPhone}?&body=${encodeURIComponent("Hi Jeff, I'd like to schedule a short site visit to verify my water heater setup.")}`;
+
+const faqs = [
+    {
+        q: "Do I need to schedule installation immediately after getting a quote?",
+        a: "Not at all. The instant quote tool is completely pressure-free. Get your price, take your time comparing options, and reach out when you're ready to move forward.",
+    },
+    {
+        q: "Can I just text photos instead of using the quote tool?",
+        a: "Absolutely - texting photos is often the fastest path. Send 2–3 photos of your water heater, venting, and the surrounding mechanical area to <a href='tel:6163150999' class='text-primary underline'>616-315-0999</a> and we'll respond directly with pricing for your setup.",
+    },
+    {
+        q: "Is the verification visit free?",
+        a: "Yes. Whether you choose to text photos, do a quick video call, or have us stop by in person, there's no charge for the verification step. It's how we make sure your install goes smoothly on day one.",
+    },
+    {
+        q: "Will my final price change after verification?",
+        a: "Only if we discover something during verification that wasn't accounted for in the initial quote - like an undersized gas line or an unusual venting run. If that happens, we'll tell you before any work begins. No surprises.",
+    },
+    {
+        q: "Can installation happen the same day?",
+        a: "Often, yes. If your setup verifies cleanly and you're ready to move forward, we typically schedule installation very quickly - same-day is our standard goal when the schedule allows.",
+    },
+    {
+        q: "What's included in the installed price?",
+        a: "Your quoted price covers the water heater unit, all standard installation labor, new flex connectors and fittings, permits (where required), and haul-away of your old unit. No hidden add-ons.",
+    },
+    {
+        q: "What if I'm not sure what type of water heater I have?",
+        a: "Text us a photo - seriously. A quick photo of your unit (and the vent pipe if possible) tells us everything we need. You can also use our <a href='/instant-quote/?step=1' class='text-primary underline'>Instant Quote Tool</a>, which walks you through identification step by step.",
+    },
+    {
+        q: "Can I call instead of using the quote tool?",
+        a: "Of course. Call or text <a href='tel:6163150999' class='text-primary underline'>616-315-0999</a> anytime. The quote tool exists as a convenience for people who prefer to browse on their own - it's not required.",
+    },
+    {
+        q: "Do you serve my area?",
+        a: "We serve <a href='/service-area/grand-rapids/' class='text-primary underline'>Grand Rapids</a>, <a href='/service-area/jenison/' class='text-primary underline'>Jenison</a>, <a href='/service-area/hudsonville/' class='text-primary underline'>Hudsonville</a>, Grandville, Wyoming, Kentwood, Byron Center, Caledonia, Lowell, Rockford, Comstock Park, Walker, and the surrounding West Michigan area. Not sure? Text us your zip code and we'll confirm.",
+    },
+    {
+        q: "Why do you need to verify my setup before finalizing the quote?",
+        a: "Water heater installation has to meet local plumbing and gas codes. Venting type (B-vent vs. PVC), gas line sizing, and available space all affect which unit fits your home and what the install actually costs. Verification confirms everything lines up so there are zero surprises on install day.",
+    },
+];
+---
+
+<BaseLayout
+    title="How Water Heater Replacement Works | Grand Rapids & West Michigan"
+    description="See exactly how water heater replacement works with Water Heater Replacement Company. Get instant installed pricing, verify your setup in minutes, and get same-day installation in Grand Rapids and West Michigan."
+    canonical="https://waterheaterreplacementcompany.com/water-heater-replacement-process/"
+    faqs={faqs}
+>
+
+    <!-- ─── STICKY MOBILE CTA BAR ─────────────────────────────────────────────── -->
+    <div class="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-white border-t border-base-300 shadow-lg">
+        <div class="flex gap-2 px-3 py-2">
+            <a href="tel:6163150999" class="btn btn-primary flex-1 text-white font-bold text-sm">
+                <Phone class="text-white" />
+                Call Us Now
+            </a>
+            <a href={smsPhoto} class="btn btn-primary bg-white border-primary text-primary flex-1 font-bold text-sm">
+                Text Photos of Your Water Heater
+            </a>
+        </div>
+    </div>
+
+    <!-- ─── SECTION 0: EMERGENCY BAR ─────────────────────────────────────────── -->
+    <div class="bg-secondary text-white text-sm font-semibold text-center px-4 py-2.5 leading-snug">
+        <strong>No Hot Water?</strong> Call or Text &nbsp;<a href="tel:6163150999" class="underline font-bold whitespace-nowrap">616-315-0999</a>&nbsp;for immediately help.
+    </div>
+
+    <!-- ─── SECTION 1: HERO ───────────────────────────────────────────────────── -->
+    <section class="bg-base-100 text-base-content border-b border-base-300">
+        <div class="max-w-6xl mx-auto px-6 pt-8 pb-16 sm:py-24 grid lg:grid-cols-2 gap-12 items-center">
+
+            <!-- Left: messaging -->
+            <div class="flex flex-col gap-6">
+                <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full w-fit">
+                    Grand Rapids &amp; West Michigan
+                </span>
+                <h1 class="text-4xl sm:text-5xl font-black leading-tight tracking-tight">
+                    Get Hot Water Back Without the Usual Contractor Runaround
+                </h1>
+                <ul class="text-gray-600 text-base space-y-2">
+                    <li class="flex items-start gap-2">
+                        <span class="text-primary font-bold mt-0.5">✓</span>
+                        Upfront installed pricing - see it online before anyone visits your home
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-primary font-bold mt-0.5">✓</span>
+                        Direct communication with the technician doing the work
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-primary font-bold mt-0.5">✓</span>
+                        No commissioned salespeople, no upselling
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-primary font-bold mt-0.5">✓</span>
+                        Simple photo or video verification - no required in-home visit
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-primary font-bold mt-0.5">✓</span>
+                        Same-day water heater installations
+                    </li>
+                </ul>
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <a href="/instant-quote/?step=1" class="btn btn-primary btn-lg text-white shadow-md">
+                        <PriceReceipt class="text-white" />
+                        See Instant Pricing
+                    </a>
+                    <a href={smsPhoto} class="btn btn-outline btn-lg border-primary text-primary">
+                        Text A Photo Instead
+                    </a>
+                    <a href={`tel:${businessInfo.primaryPhone}`} class="btn btn-outline btn-lg border-primary text-primary">
+                        Call Us
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right: image -->
+            <div class="hidden lg:block">
+                <Image
+                    src={techByVanImg}
+                    alt="Water Heater Replacement Company technician standing next to service van in West Michigan"
+                    class="rounded-2xl shadow-xl w-full object-cover"
+                />
+            </div>
+
+        </div>
+    </section>
+
+    <TrustStrip />
+
+    <!-- ─── SECTION 2: TWO WAYS TO GET STARTED ───────────────────────────────── -->
+    <section class="py-16 sm:py-24 px-6 bg-base-200 border-b border-base-300">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-10">
+                <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">
+                    Get Started
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-bold">Two Ways To Get Started</h2>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-6">
+
+                <!-- Card 1: Quote Tool -->
+                <div class="bg-base-100 border-2 border-primary rounded-2xl p-6 flex flex-col gap-4 shadow-md">
+                    <div class="text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="4" width="20" height="13" rx="2"/>
+                            <path d="M8 21h8M12 17v4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold">Compare Prices Online</h3>
+                    <ul class="text-gray-600 text-sm space-y-2 flex-1">
+                        <li class="flex gap-2"><span class="text-primary font-bold">✓</span> See installed pricing instantly</li>
+                        <li class="flex gap-2"><span class="text-primary font-bold">✓</span> Compare <a href="/resources/tank-vs-tankless-water-heaters/" class="text-primary underline">tank and tankless</a> options</li>
+                        <li class="flex gap-2"><span class="text-primary font-bold">✓</span> No contact info required upfront</li>
+                        <li class="flex gap-2"><span class="text-primary font-bold">✓</span> Takes about a minute</li>
+                    </ul>
+                    <a href="/instant-quote/?step=1" class="btn btn-primary text-white w-full">
+                        <PriceReceipt class="text-white" />
+                        Start Instant Quote
+                    </a>
+                </div>
+
+                <!-- Card 2: Text Photos -->
+                <div class="bg-base-100 border border-base-300 rounded-2xl p-6 flex flex-col gap-4 shadow-sm">
+                    <div class="text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold">Text Photos For Fast Help</h3>
+                    <ul class="text-gray-600 text-sm space-y-2 flex-1">
+                        <li class="flex gap-2"><span class="text-primary font-bold">✓</span> Send photos of your current setup</li>
+                        <li class="flex gap-2"><span class="text-primary font-bold">✓</span> Technician reviews everything directly</li>
+                        <li class="flex gap-2"><span class="text-primary font-bold">✓</span> Great for emergencies or uncertainty</li>
+                        <li class="flex gap-2"><span class="text-primary font-bold">✓</span> Fastest path for many homeowners</li>
+                    </ul>
+                    <a href={smsPhoto} class="btn btn-outline border-primary text-primary w-full">
+                        Text Jeff
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SECTION 3: HOW THE PROCESS WORKS ─────────────────────────────────── -->
+    <section class="py-16 sm:py-24 px-6 bg-base-100 border-b border-base-300">
+        <div class="max-w-4xl mx-auto">
+
+            <div class="text-center mb-12">
+                <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">
+                    The Process
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-bold">Water Heater Replacement Made Simple</h2>
+            </div>
+
+            <div class="flex flex-col gap-12">
+
+                <!-- Step 1 -->
+                <div class="flex gap-5 sm:gap-6 items-start">
+                    <div class="shrink-0 w-12 h-12 rounded-full bg-primary text-white font-black text-xl flex items-center justify-center shadow">
+                        1
+                    </div>
+                    <div class="flex flex-col gap-2 pt-1">
+                        <h3 class="text-xl font-bold">Get Your Price</h3>
+                        <p class="text-gray-600">
+                            Use our online pricing tool to see real installed prices and compare <a href="/resources/tank-water-heaters/" class="text-primary underline">tank</a> vs. <a href="/resources/tankless-water-heaters/" class="text-primary underline">tankless</a> water heater options side by side. No waiting for a callback, no sales pressure - just honest, all-inclusive pricing for your specific setup.
+                        </p>
+                        <a href={smsPhoto} class="text-primary text-sm font-semibold underline underline-offset-2 hover:opacity-75 w-fit transition-opacity">
+                            Not sure what to choose? Text us photos instead →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex gap-5 sm:gap-6 items-start">
+                    <div class="shrink-0 w-12 h-12 rounded-full bg-primary text-white font-black text-xl flex items-center justify-center shadow">
+                        2
+                    </div>
+                    <div class="flex flex-col gap-5 w-full pt-1">
+                        <div>
+                            <h3 class="text-xl font-bold">Quick Verification</h3>
+                            <p class="text-gray-600 mt-2">
+                                Before we lock in your water heater installation date, we confirm your chosen unit matches your home's gas line, venting type, and available space. This prevents code issues and cost surprises on installation day.
+                            </p>
+                        </div>
+
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-widest">Your Choice: How We Verify</p>
+
+                        <!-- Verification options -->
+                        <div class="grid sm:grid-cols-3 gap-4">
+
+                            <!-- Text Photos (recommended) -->
+                            <div class="relative bg-primary/5 border-2 border-primary rounded-2xl p-5 flex flex-col gap-3">
+                                <span class="absolute -top-3 left-4 bg-primary text-white text-xs font-bold px-2.5 py-0.5 rounded-full">
+                                    Most Popular
+                                </span>
+                                <div class="text-primary mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                                        <circle cx="12" cy="13" r="4"/>
+                                    </svg>
+                                </div>
+                                <h4 class="font-bold">Text Photos</h4>
+                                <p class="text-gray-600 text-sm flex-1">
+                                    Snap 2–3 photos of your unit, vent pipe, and the surrounding mechanical area and text them to Jeff. We can usually confirm your price within minutes.
+                                </p>
+                                <p class="text-xs text-gray-400">
+                                    Suggested: water heater, vent pipe, full mechanical area
+                                </p>
+                                <a href={smsSetup} class="btn btn-primary btn-sm text-white mt-auto">
+                                    Text Photos to Jeff
+                                </a>
+                            </div>
+
+                            <!-- Video Call -->
+                            <div class="bg-base-100 border border-base-300 rounded-2xl p-5 flex flex-col gap-3">
+                                <div class="text-primary">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <polygon points="23 7 16 12 23 17 23 7"/>
+                                        <rect x="1" y="5" width="15" height="14" rx="2"/>
+                                    </svg>
+                                </div>
+                                <h4 class="font-bold">Quick Video Call</h4>
+                                <p class="text-gray-600 text-sm flex-1">
+                                    About 5 minutes via FaceTime or Google Meet. The technician walks you through exactly what we need to see. Helpful for more complex setups.
+                                </p>
+                                <a href={smsVideo} class="btn btn-outline border-primary text-primary btn-sm mt-auto">
+                                    Request Video Call
+                                </a>
+                            </div>
+
+                            <!-- Site Visit -->
+                            <div class="bg-base-100 border border-base-300 rounded-2xl p-5 flex flex-col gap-3">
+                                <div class="text-primary">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                        <polyline points="9 22 9 12 15 12 15 22"/>
+                                    </svg>
+                                </div>
+                                <h4 class="font-bold">Short Site Visit</h4>
+                                <p class="text-gray-600 text-sm flex-1">
+                                    Prefer in-person? We'll stop by - no sales pitch, just a technician verifying your setup. Great for difficult layouts or fuel type changes.
+                                </p>
+                                <a href={smsSite} class="btn btn-outline border-primary text-primary btn-sm mt-auto">
+                                    Request Site Visit
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex gap-5 sm:gap-6 items-start">
+                    <div class="shrink-0 w-12 h-12 rounded-full bg-primary text-white font-black text-xl flex items-center justify-center shadow">
+                        3
+                    </div>
+                    <div class="flex flex-col gap-2 pt-1">
+                        <h3 class="text-xl font-bold">Professional Installation</h3>
+                        <p class="text-gray-600">
+                            We arrive with your selected unit and a fully stocked van. Most water heater installations are completed the same day we verify your setup. We handle permits, removal of the old unit, all new connections, and full cleanup - nothing left for you to figure out.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SECTION 4: ARRIVE PREPARED ───────────────────────────────────────── -->
+    <section class="py-16 sm:py-24 px-6 bg-base-200 border-b border-base-300">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+
+            <div class="flex flex-col gap-5">
+                <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full w-fit">
+                    Same-Day Service
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-bold">Prepared For Fast Installation</h2>
+                <p class="text-gray-600">
+                    Our service vans are stocked with the most common tank and tankless water heater models - Bradford White, Navien, and more - along with all standard installation materials. That means fewer delays, no return trips waiting on parts, and same-day installation is our standard goal.
+                </p>
+                <ul class="text-gray-600 text-sm space-y-2">
+                    <li class="flex gap-2"><span class="text-primary font-bold">✓</span> Common tank and tankless models on the van</li>
+                    <li class="flex gap-2"><span class="text-primary font-bold">✓</span> All standard installation materials onboard</li>
+                    <li class="flex gap-2"><span class="text-primary font-bold">✓</span> No trips to the supply house mid-job</li>
+                    <li class="flex gap-2"><span class="text-primary font-bold">✓</span> Old unit hauled away, work area left clean</li>
+                </ul>
+                <p class="text-gray-500 text-sm italic border-l-2 border-primary/40 pl-4">
+                    "If everything checks out and you decide to move forward, installation can often begin the same day."
+                </p>
+            </div>
+
+            <div>
+                <Image
+                    src={vanImg}
+                    alt="Water Heater Replacement Company service van stocked for same-day water heater installation"
+                    class="rounded-2xl shadow-xl w-full object-cover"
+                />
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ─── SECTION 5: WON'T GET / WILL GET ──────────────────────────────────── -->
+    <section class="py-16 sm:py-24 px-6 bg-base-100 border-b border-base-300">
+        <div class="max-w-4xl mx-auto">
+
+            <div class="text-center mb-10">
+                <h2 class="text-3xl sm:text-4xl font-bold">The Better Way to Get a Water Heater</h2>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-6">
+
+                <!-- Won't Get -->
+                <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 flex flex-col gap-4">
+                    <h3 class="text-xl font-bold text-gray-600">What You Won't Get</h3>
+                    <ul class="text-gray-500 text-sm space-y-3">
+                        {[
+                            "Commission-based salespeople",
+                            "Hidden fees and bait-and-switch quotes",
+                            "Pushy upselling on add-ons you don't need",
+                            "Waiting days just to get a price",
+                            "Generic call centers who transfer you around",
+                            "High-pressure in-home sales presentations",
+                            "Generalists who 'also' do plumbing",
+                        ].map(item => (
+                            <li class="flex items-start gap-2">
+                                <span class="text-gray-300 font-bold mt-0.5 shrink-0">✕</span>
+                                {item}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+                <!-- Will Get -->
+                <div class="bg-primary/5 border-2 border-primary rounded-2xl p-6 flex flex-col gap-4">
+                    <h3 class="text-xl font-bold text-primary">What You Will Get</h3>
+                    <ul class="text-gray-700 text-sm space-y-3">
+                        {[
+                            "Clear installed pricing before anyone visits",
+                            "Direct line to the technician doing the work",
+                            "Fast responses - text or call anytime",
+                            "Water heater specialists (it's all we do)",
+                            "Honest recommendations with no pressure",
+                            "Verification on your terms: text, video, or in-person",
+                            "2-year labor warranty on every installation",
+                        ].map(item => (
+                            <li class="flex items-start gap-2">
+                                <span class="text-primary font-bold mt-0.5 shrink-0">✓</span>
+                                {item}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SECTION 6: WHY THE QUOTE TOOL ────────────────────────────────────── -->
+    <section class="py-16 sm:py-20 px-6 bg-base-200 border-b border-base-300">
+        <div class="max-w-3xl mx-auto text-center flex flex-col gap-5 items-center">
+            <span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full">
+                Why the Quote Tool?
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-bold">Why Start With The Instant Quote Tool?</h2>
+            <p class="text-gray-600 text-base max-w-2xl">
+                Most homeowners don't know exactly what they need before they call - and that's fine. The instant quote tool lets you compare <a href="/resources/tank-vs-tankless-water-heaters/" class="text-primary underline">tank vs. tankless water heater</a> options and see real installed pricing on your own terms, without any back-and-forth. It sets accurate expectations upfront, makes the verification step faster, and means you make a confident decision without anyone pressuring you along the way. No contact info required to see your price.
+            </p>
+            <a href="/instant-quote/?step=1" class="btn btn-primary text-white shadow-md">
+                <PriceReceipt class="text-white" />
+                See Instant Pricing
+            </a>
+        </div>
+    </section>
+
+    <!-- ─── SECTION 7: FAQ ────────────────────────────────────────────────────── -->
+    <Faq
+        faqs={faqs}
+        title="Frequently Asked Questions About Water Heater Replacement"
+        name="faq-process"
+    />
+
+    <!-- ─── SECTION 8: EMERGENCY BANNER ──────────────────────────────────────── -->
+    <section class="py-14 sm:py-20 px-6 bg-secondary text-white text-center">
+        <div class="max-w-2xl mx-auto flex flex-col gap-5 items-center">
+            <h2 class="text-3xl sm:text-4xl font-black">No Hot Water Right Now?</h2>
+            <p class="text-white/90 text-base">
+                Call or text us directly for fast help anywhere in West Michigan. We're available 24/7.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-3 mt-1">
+                <a href="tel:6163150999" class="btn btn-lg bg-white text-red-600 hover:bg-gray-100 font-bold shadow-md border-0">
+                    <Phone class="text-red-600" />
+                    Call 616-315-0999
+                </a>
+                <a href={smsSetup} class="btn btn-outline btn-lg border-white text-white hover:bg-white/10 font-bold">
+                    Text Photos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SECTION 9: FINAL CTA ──────────────────────────────────────────────── -->
+    <section class="py-20 px-6 bg-base-100 border-t border-base-300">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-4">Ready To See Your Installed Price?</h2>
+            <p class="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
+                Use the instant quote tool to compare options and pricing, or text us photos of your current setup for direct help from a water heater technician.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="/instant-quote/?step=1" class="btn btn-primary btn-lg text-white shadow-md w-full sm:w-auto">
+                    <PriceReceipt class="text-white" />
+                    See Instant Pricing
+                </a>
+                <a href={smsPhoto} class="btn btn-outline border-primary text-primary hover:bg-primary hover:text-white btn-lg w-full sm:w-auto">
+                    Text A Photo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Spacer so sticky mobile bar doesn't overlap last section -->
+    <div class="h-16 lg:hidden"></div>
+
+</BaseLayout>
