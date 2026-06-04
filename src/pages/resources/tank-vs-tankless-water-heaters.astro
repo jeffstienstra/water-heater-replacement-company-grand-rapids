@@ -2,7 +2,8 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Cta from "../../components/Cta.astro";
 import SocialProof from "../../components/SocialProof.astro";
-import PriceReceipt from "../../components/icons/PriceReceipt.astro";
+import QuoteCtaButton from "../../components/cta/QuoteCtaButton.astro";
+import PhoneCtaButton from "../../components/cta/PhoneCtaButton.astro";
 import Phone from "../../components/icons/Phone.astro";
 import tankGroupImg from "../../assets/images/wh-natDraftGroup.png";
 import tanklessGroupImg from "../../assets/images/wh-tanklessGroup.png";
@@ -65,15 +66,9 @@ const faqs = [
             <p class="text-sm text-gray-500 max-w-2xl -mt-2">
                 We serve homeowners in Jenison, Grandville, Hudsonville, and throughout West Michigan - and in this area, local water conditions play a bigger role in that decision than most guides acknowledge.
             </p>
-            <div class="flex flex-col sm:flex-row gap-3 mt-2">
-                <a href="/instant-quote/?step=1" class="btn btn-primary btn-lg text-white shadow-md">
-                    <PriceReceipt />
-                    Get My Exact Quote
-                </a>
-                <a href="tel:616-315-0999" class="btn btn-outline btn-lg border-primary text-primary">
-                    <Phone />
-                    616-315-0999
-                </a>
+            <div class="flex flex-col gap-3 mt-2">
+                <QuoteCtaButton />
+                <PhoneCtaButton />
             </div>
             <p class="text-sm text-gray-500">We'll recommend the right option for your home - no upsell.</p>
         </div>
@@ -93,7 +88,7 @@ const faqs = [
             <div class="grid sm:grid-cols-2 gap-8">
 
                 <!-- Tank card -->
-                <div class="bg-base-100 rounded-3xl border-2 border-base-300 overflow-hidden shadow-sm flex flex-col">
+                <div class="bg-base-100 rounded-lg border-2 border-base-300 overflow-hidden shadow-sm flex flex-col">
                     <div class="bg-primary/5 px-8 py-6 flex flex-wrap items-center gap-4 border-b border-base-300">
                         <img src={tankGroupImg.src} alt="Tank water heater" class="h-20 w-auto object-contain" />
                         <div>
@@ -129,7 +124,7 @@ const faqs = [
                 </div>
 
                 <!-- Tankless card -->
-                <div class="bg-base-100 rounded-3xl border-2 border-base-300 overflow-hidden shadow-sm flex flex-col">
+                <div class="bg-base-100 rounded-lg border-2 border-base-300 overflow-hidden shadow-sm flex flex-col">
                     <div class="bg-secondary/5 px-8 py-6 flex flex-wrap items-center gap-4 border-b border-base-300">
                         <img src={tanklessGroupImg.src} alt="Tankless water heater" class="h-20 w-auto object-contain" />
                         <div>
@@ -170,7 +165,7 @@ const faqs = [
     <!-- ─── TANK DEEP DIVE ────────────────────────────────────────────────────── -->
     <section class="py-20 px-6 bg-base-100 text-base-content border-b border-base-300">
         <div class="max-w-5xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
-            <div class="rounded-3xl overflow-hidden shadow-lg border border-base-300 bg-base-200 flex items-center justify-center p-10">
+            <div class="rounded-lg overflow-hidden shadow-lg border border-base-300 bg-base-200 flex items-center justify-center p-10">
                 <img
                     src={tankFamilyImg.src}
                     alt="Rheem tank water heater lineup - gas, electric, and propane models"
@@ -230,7 +225,7 @@ const faqs = [
                     </div>
                 </div>
 
-                <div class="mt-8 p-5 bg-primary/5 rounded-2xl border border-primary/10">
+                <div class="mt-8 p-5 bg-primary/5 rounded-lg border border-primary/10">
                     <p class="text-sm font-semibold text-primary mb-1">Who should choose a tank?</p>
                     <p class="text-sm text-gray-600">Most homeowners - especially if you're replacing an existing tank setup, want a straightforward same-day install, or prefer a lower upfront cost. A properly sized tank handles the hot water needs of the vast majority of West Michigan households without any issues.</p>
                 </div>
@@ -294,12 +289,12 @@ const faqs = [
                     </div>
                 </div>
 
-                <div class="mt-8 p-5 bg-secondary/5 rounded-2xl border border-secondary/10">
+                <div class="mt-8 p-5 bg-secondary/5 rounded-lg border border-secondary/10">
                     <p class="text-sm font-semibold text-secondary mb-1">Who should choose tankless?</p>
                     <p class="text-sm text-gray-600">Homeowners who regularly run out of hot water, have a large household, plan to stay in their home long-term, or want to free up utility space. The economics make the most sense when the unit gets heavy daily use and you can recoup the installation cost over a longer lifespan.</p>
                 </div>
             </div>
-            <div class="order-1 lg:order-2 rounded-3xl overflow-hidden shadow-lg border border-base-300 bg-base-100 flex items-center justify-center p-10">
+            <div class="order-1 lg:order-2 rounded-lg overflow-hidden shadow-lg border border-base-300 bg-base-100 flex items-center justify-center p-10">
                 <img
                     src={tanklessFamilyImg.src}
                     alt="Rheem tankless water heater lineup"
@@ -318,7 +313,7 @@ const faqs = [
                 <h2 class="text-3xl sm:text-4xl font-bold">How They Stack Up</h2>
             </div>
 
-            <div class="overflow-x-auto rounded-2xl border border-base-300 shadow-sm">
+            <div class="overflow-x-auto rounded-lg border border-base-300 shadow-sm">
                 <table class="w-full text-sm">
                     <thead>
                         <tr class="bg-base-200 border-b border-base-300">
@@ -362,8 +357,8 @@ const faqs = [
             </div>
 
             <div class="grid sm:grid-cols-3 gap-6">
-                <div class="bg-base-100 rounded-2xl p-7 border-2 border-primary/20 shadow-sm flex flex-col gap-4">
-                    <div class="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center">
+                <div class="bg-base-100 rounded-lg p-7 border-2 border-primary/20 shadow-sm flex flex-col gap-4">
+                    <div class="w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center">
                         <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                         </svg>
@@ -378,8 +373,8 @@ const faqs = [
                     </ul>
                 </div>
 
-                <div class="bg-base-100 rounded-2xl p-7 border-2 border-secondary/20 shadow-sm flex flex-col gap-4">
-                    <div class="w-11 h-11 rounded-xl bg-secondary/10 flex items-center justify-center">
+                <div class="bg-base-100 rounded-lg p-7 border-2 border-secondary/20 shadow-sm flex flex-col gap-4">
+                    <div class="w-11 h-11 rounded-lg bg-secondary/10 flex items-center justify-center">
                         <svg class="w-6 h-6 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                         </svg>
@@ -395,8 +390,8 @@ const faqs = [
                     </ul>
                 </div>
 
-                <div class="bg-base-100 rounded-2xl p-7 border-2 border-base-300 shadow-sm flex flex-col gap-4">
-                    <div class="w-11 h-11 rounded-xl bg-base-200 flex items-center justify-center">
+                <div class="bg-base-100 rounded-lg p-7 border-2 border-base-300 shadow-sm flex flex-col gap-4">
+                    <div class="w-11 h-11 rounded-lg bg-base-200 flex items-center justify-center">
                         <svg class="w-6 h-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                         </svg>
@@ -421,7 +416,7 @@ const faqs = [
             <p class="text-gray-600 text-base leading-relaxed mb-8">West Michigan - including Hudsonville, Jenison, and Grandville - has some of the hardest water in the United States. That one fact changes how long your water heater will last, how often it needs maintenance, and which type makes more sense for your home.</p>
 
             <!-- Water hardness stat strip -->
-            <div class="bg-base-100 rounded-2xl border border-base-300 p-6 mb-8 grid sm:grid-cols-3 gap-6 text-center shadow-sm">
+            <div class="bg-base-100 rounded-lg border border-base-300 p-6 mb-8 grid sm:grid-cols-3 gap-6 text-center shadow-sm">
                 <div class="flex flex-col items-center gap-1">
                     <span class="text-3xl font-black text-primary">~170 ppm</span>
                     <span class="text-xs font-bold text-gray-500 uppercase tracking-wide">Average Hardness</span>
@@ -440,8 +435,8 @@ const faqs = [
             </div>
 
             <!-- Plain English explanation -->
-            <div class="bg-base-100 rounded-2xl border border-amber-200 p-6 mb-8 flex gap-4 shadow-sm">
-                <div class="shrink-0 w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center">
+            <div class="bg-base-100 rounded-lg border border-amber-200 p-6 mb-8 flex gap-4 shadow-sm">
+                <div class="shrink-0 w-10 h-10 rounded-lg bg-amber-50 flex items-center justify-center">
                     <svg class="w-5 h-5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 </div>
                 <div>
@@ -455,7 +450,7 @@ const faqs = [
             <div class="grid sm:grid-cols-2 gap-6 mb-8">
 
                 <!-- Tank on well water -->
-                <div class="bg-base-100 rounded-2xl border border-base-300 p-6 shadow-sm flex flex-col gap-4">
+                <div class="bg-base-100 rounded-lg border border-base-300 p-6 shadow-sm flex flex-col gap-4">
                     <p class="text-xs font-bold tracking-widest uppercase text-primary">Storage Tank on Well Water</p>
                     <p class="text-sm text-gray-700 leading-relaxed">Scale builds up at the bottom of the tank where it's heated. It acts like an insulating blanket - the heater has to work harder to push heat through, wasting energy and eventually overheating the elements. The sacrificial anode rod (an internal metal rod that protects the tank lining from rust) gets consumed much faster by mineral-rich water. Tank units that last 10–12 years on city water can fail in 7–8 years on untreated well water.</p>
                     <div class="space-y-3">
@@ -474,7 +469,7 @@ const faqs = [
                 </div>
 
                 <!-- Tankless on well water -->
-                <div class="bg-base-100 rounded-2xl border border-base-300 p-6 shadow-sm flex flex-col gap-4">
+                <div class="bg-base-100 rounded-lg border border-base-300 p-6 shadow-sm flex flex-col gap-4">
                     <p class="text-xs font-bold tracking-widest uppercase text-secondary">Tankless on Well Water</p>
                     <p class="text-sm text-gray-700 leading-relaxed">Tankless units have no tank interior to corrode - but they do have a tightly coiled heat exchanger: narrow passages that flash-heat water on demand. Those passages are especially vulnerable to scale buildup. Sediment and iron from a well can also clog the inlet filter screen and confuse the flow sensor. And because well pumps cycle on and off, they create pressure swings that can make a tankless heater fire and cut out erratically.</p>
                     <div class="space-y-3">
@@ -495,13 +490,13 @@ const faqs = [
             </div>
 
             <!-- City water note -->
-            <div class="bg-base-100 rounded-2xl border border-base-300 p-6 mb-6 shadow-sm">
+            <div class="bg-base-100 rounded-lg border border-base-300 p-6 mb-6 shadow-sm">
                 <p class="font-semibold text-base-content mb-1">On city water in Grandville or Jenison?</p>
                 <p class="text-sm text-gray-600 leading-relaxed">City water in the Kent County corridor - Grandville, Wyoming, Grand Rapids - is still moderately hard (around 100–130 ppm) but treated and consistent. Tank units here typically reach their full 10–12 year lifespan with standard maintenance. The well water precautions above are still a good idea but less urgent. Tankless on city water is a simpler, lower-maintenance install.</p>
             </div>
 
             <!-- Private well testing callout -->
-            <div class="bg-amber-50 rounded-2xl border border-amber-200 p-5 mb-8 flex gap-4">
+            <div class="bg-amber-50 rounded-lg border border-amber-200 p-5 mb-8 flex gap-4">
                 <div class="shrink-0 mt-0.5">
                     <svg class="w-5 h-5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
                 </div>

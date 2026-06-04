@@ -2,8 +2,8 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Cta from "../../components/Cta.astro";
 import SocialProof from "../../components/SocialProof.astro";
-import PriceReceipt from "../../components/icons/PriceReceipt.astro";
-import Phone from "../../components/icons/Phone.astro";
+import QuoteCtaButton from "../../components/cta/QuoteCtaButton.astro";
+import PhoneCtaButton from "../../components/cta/PhoneCtaButton.astro";
 import heroImg from "../../assets/images/wh-tankless-product-family.webp";
 import productImg from "../../assets/images/wh-tanklessEdit3.png";
 import cutawayImg from "../../assets/images/wh-tanklessCutaway.jpg";
@@ -67,21 +67,15 @@ const faqs = [
                     </p>
                 </div>
 
-                <div class="flex flex-col sm:flex-row gap-3 mt-2">
-                    <a href="/instant-quote/?step=1" class="btn btn-primary btn-lg text-white shadow-md">
-                        <PriceReceipt />
-                        Get My Exact Quote
-                    </a>
-                    <a href="tel:616-315-0999" class="btn btn-outline btn-lg border-primary text-primary">
-                        <Phone />
-                        616-315-0999
-                    </a>
+                <div class="flex flex-col gap-3 mt-2">
+                    <QuoteCtaButton />
+                    <PhoneCtaButton />
                 </div>
                 <p class="text-sm text-gray-500">We install tankless water heaters throughout Grand Rapids and West Michigan.</p>
             </div>
 
             <!-- Right: image -->
-            <div class="rounded-3xl overflow-hidden shadow-xl border border-base-300 bg-base-200 flex items-center justify-center p-10">
+            <div class="rounded-lg overflow-hidden shadow-xl border border-base-300 bg-base-200 flex items-center justify-center p-10">
                 <img
                     src={heroImg.src}
                     alt="Rheem tankless water heater product lineup"
@@ -114,7 +108,7 @@ const faqs = [
             <div class="grid lg:grid-cols-2 gap-12 items-start">
 
                 <!-- Large image - sticky so it stays in view while scrolling steps -->
-                <div class="p-2 lg:mt-8 lg:sticky lg:top-20 rounded-3xl overflow-hidden border border-base-300 shadow-xl">
+                <div class="p-2 lg:mt-8 lg:sticky lg:top-20 rounded-lg overflow-hidden border border-base-300 shadow-xl">
                     <img
                         src={cutawayImg.src}
                         alt="Rheem condensing tankless water heater cutaway diagram showing internal components"
@@ -156,7 +150,7 @@ const faqs = [
                             detail: "Hot water travels to the open faucet. When the tap closes, the flow sensor stops and the unit goes into a ready state. Rheem's HotStart Programming™ minimizes cold-water bursts if the faucet is reopened within five minutes."
                         }
                     ].map(({ step, title, detail }) => (
-                        <div class="flex gap-4 p-5 bg-base-200 rounded-2xl border border-base-300">
+                        <div class="flex gap-4 p-5 bg-base-200 rounded-lg border border-base-300">
                             <div class="w-8 h-8 rounded-full bg-primary text-white text-sm font-black flex items-center justify-center shrink-0">{step}</div>
                             <div>
                                 <p class="font-bold text-base-content mb-1">{title}</p>
@@ -216,8 +210,8 @@ const faqs = [
                         desc: "The upfront cost is higher than a straight tank swap. But when you factor in lower operating costs, a longer lifespan, and fewer replacement cycles over 20+ years, the math usually favors tankless for homeowners who plan to stay in their home.",
                     },
                 ].map(({ icon, title, desc }) => (
-                    <div class="bg-base-100 rounded-2xl p-6 border border-base-300 shadow-sm flex flex-col gap-3">
-                        <div class="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                    <div class="bg-base-100 rounded-lg p-6 border border-base-300 shadow-sm flex flex-col gap-3">
+                        <div class="w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                             <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                                 <path stroke-linecap="round" stroke-linejoin="round" d={icon} />
                             </svg>
@@ -268,7 +262,7 @@ const faqs = [
                         },
                     ].map(({ icon, title, detail }) => (
                         <div class="flex gap-4">
-                            <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                            <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
                                 <svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                                     <path stroke-linecap="round" stroke-linejoin="round" d={icon} />
                                 </svg>
@@ -282,7 +276,7 @@ const faqs = [
                 </div>
             </div>
             <!-- Photo -->
-            <div class="rounded-3xl overflow-hidden border border-base-300 shadow-lg bg-base-200">
+            <div class="rounded-lg overflow-hidden border border-base-300 shadow-lg bg-base-200">
                 <img
                     src={productImg.src}
                     alt="Tankless water heater installed in Grand Rapids mounted on wall with drain pan beneath it."
@@ -328,7 +322,7 @@ const faqs = [
                         detail: "Electric tankless water heaters for whole-home use require enormous electrical capacity - often more than a typical home's entire panel. For homes without gas or propane, a heat pump water heater is usually the better path. We install gas and propane tankless only.",
                     },
                 ].map(({ label, detail }) => (
-                    <div class="flex gap-5 p-6 bg-base-200 rounded-2xl border border-base-300">
+                    <div class="flex gap-5 p-6 bg-base-200 rounded-lg border border-base-300">
                         <div class="shrink-0 mt-0.5">
                             <div class="w-6 h-6 rounded-full bg-primary/15 flex items-center justify-center">
                                 <svg class="w-3.5 h-3.5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/></svg>
@@ -370,7 +364,7 @@ const faqs = [
                         { year: "Every 3–5 yrs", task: "Have a technician inspect the igniter, flame sensor, and flow sensor. These components wear gradually and are inexpensive to replace proactively." },
                         { year: "As needed", task: "Pay attention to error codes on the unit display. Most codes are minor and easy to address - ignoring them leads to bigger problems." },
                     ].map(({ year, task }) => (
-                        <div class="flex gap-4 p-4 bg-base-100 rounded-xl border border-base-300">
+                        <div class="flex gap-4 p-4 bg-base-100 rounded-lg border border-base-300">
                             <span class="text-xs font-bold text-primary whitespace-nowrap mt-0.5 w-20 shrink-0">{year}</span>
                             <p class="text-sm text-gray-700 leading-relaxed">{task}</p>
                         </div>
@@ -379,13 +373,13 @@ const faqs = [
             </div>
 
             <div class="flex flex-col gap-5 lg:pt-14">
-                <div class="bg-base-100 rounded-2xl p-6 border border-base-300 shadow-sm">
+                <div class="bg-base-100 rounded-lg p-6 border border-base-300 shadow-sm">
                     <p class="text-sm font-bold text-primary mb-2">What's the real cost of ownership?</p>
                     <p class="text-sm text-gray-600 leading-relaxed">
                         Tankless units cost more upfront but less per year to operate because of their energy efficiency. They only fire when hot water is called for, which eliminates the standby heat loss you pay for around the clock with a tank. Over 20+ years, the lower operating cost often offsets the higher installation price - especially for high-use households.
                     </p>
                 </div>
-                <div class="bg-base-100 rounded-2xl p-6 border border-base-300 shadow-sm">
+                <div class="bg-base-100 rounded-lg p-6 border border-base-300 shadow-sm">
                     <p class="text-sm font-bold text-primary mb-2">Signs your tankless unit needs service:</p>
                     <ul class="space-y-1.5">
                         {[
@@ -403,10 +397,7 @@ const faqs = [
                         ))}
                     </ul>
                 </div>
-                <a href="/instant-quote/?step=2&interestedIn=tankless" class="btn btn-primary text-white w-full">
-                    <PriceReceipt />
-                    Get My Exact Tankless Quote
-                </a>
+                <QuoteCtaButton href="/instant-quote/?step=2&interestedIn=tankless" label="Get My Exact Tankless Quote" />
             </div>
         </div>
     </section>
@@ -436,8 +427,8 @@ const faqs = [
                         detail: "We stay until the job is finished, your questions are answered and you feel confident using your new system."
                     },
                 ].map(({ icon, item, detail }) => (
-                    <div class="bg-base-100 rounded-2xl p-6 border-2 border-primary/15 shadow-sm flex flex-col gap-3">
-                        <div class="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                    <div class="bg-base-100 rounded-lg p-6 border-2 border-primary/15 shadow-sm flex flex-col gap-3">
+                        <div class="w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                             <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                                 <path stroke-linecap="round" stroke-linejoin="round" d={icon} />
                             </svg>
@@ -449,7 +440,7 @@ const faqs = [
             </div>
 
             <!-- Remaining items as a bullet list -->
-            <div class="bg-base-100 rounded-2xl border border-base-300 shadow-sm px-8 py-7">
+            <div class="bg-base-100 rounded-lg border border-base-300 shadow-sm px-8 py-7">
                 <p class="text-xs font-bold tracking-widest uppercase text-gray-400 mb-5">Also included - every time</p>
                 <ul class="grid sm:grid-cols-2 gap-x-10 gap-y-2.5">
                     {[
@@ -476,10 +467,7 @@ const faqs = [
             </div>
 
             <div class="mt-10 text-center">
-                <a href="/instant-quote/?step=1" class="btn btn-primary btn-lg text-white shadow-md">
-                    <PriceReceipt />
-                    Get My Exact Quote
-                </a>
+                <QuoteCtaButton />
             </div>
         </div>
     </section>

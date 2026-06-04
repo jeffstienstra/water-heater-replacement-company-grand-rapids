@@ -3,8 +3,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Cta from "../../components/Cta.astro";
 import TrustStrip from "../../components/TrustStrip.astro";
 import Faq from "../../components/Faq.astro";
-import PriceReceipt from "../../components/icons/PriceReceipt.astro";
-import Phone from "../../components/icons/Phone.astro";
+import QuoteCtaButton from "../../components/cta/QuoteCtaButton.astro";
+import PhoneCtaButton from "../../components/cta/PhoneCtaButton.astro";
 import businessInfo from "../../data/businessInfo";
 
 const faqs = [
@@ -53,15 +53,9 @@ const faqs = [
 				<p class="text-lg sm:text-xl text-gray-600">
 					Real installed price ranges for every type of water heater we install in the Jenison area - including what's covered and what drives the price up or down. Get a guaranteed price for your specific system in under a minute.
 				</p>
-				<div class="flex flex-col sm:flex-row gap-3 pt-2">
-					<a href="/instant-quote/?step=1" class="btn btn-primary btn-lg text-white shadow-md">
-						<PriceReceipt />
-						Get My Guaranteed Price
-					</a>
-					<a href="tel:616-315-0999" class="btn btn-outline btn-lg border-primary text-primary">
-						<Phone />
-						616-315-0999
-					</a>
+				<div class="flex flex-col gap-3 pt-2">
+					<QuoteCtaButton label="Get My Guaranteed Price" />
+					<PhoneCtaButton />
 				</div>
 				<p class="text-sm text-gray-400">Guaranteed installed price - permit, removal, and labor included. No trip charge.</p>
 			</div>
@@ -150,7 +144,7 @@ const faqs = [
 						badgeColor: "secondary",
 					},
 				].map(({ name, price, bestFor, notes, badge, badgeColor }) => (
-					<div class="p-6 sm:p-8 bg-base-200 rounded-2xl border border-base-300">
+					<div class="p-6 sm:p-8 bg-base-200 rounded-lg border border-base-300">
 						<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-4">
 							<div class="flex items-start gap-3">
 								<div>
@@ -170,7 +164,7 @@ const faqs = [
 				))}
 			</div>
 
-			<div class="mt-8 p-5 bg-primary/5 border border-primary/20 rounded-2xl text-sm text-gray-600 leading-relaxed">
+			<div class="mt-8 p-5 bg-primary/5 border border-primary/20 rounded-lg text-sm text-gray-600 leading-relaxed">
 				<strong class="text-base-content">Prices above are for standard, same-for-same water heater replacements where no additional code upgrades are required.</strong> Your guaranteed installed price is based on your specific home's system and requires verification via photos, a video call, or a brief site visit. Once verified, the price you receive is locked in and includes everything listed below.
 			</div>
 		</div>
@@ -196,7 +190,7 @@ const faqs = [
                     { label: "Manufacturer's warranty", desc: "Coverage varies by model, typically 6–12 years on tank units and 10–15 years on tankless" },
                     { label: "Customer support", desc: "We're here to help after the sale with any questions or issues that arise - all covered by our 2-Year labor warranty" },
 				].map(({ label, desc }) => (
-					<div class="flex items-start gap-3 p-4 bg-base-100 rounded-xl border border-base-300">
+					<div class="flex items-start gap-3 p-4 bg-base-100 rounded-lg border border-base-300">
 						<svg class="w-5 h-5 text-success shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
 							<path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
 						</svg>
@@ -208,7 +202,7 @@ const faqs = [
 				))}
 			</div>
 
-			<div class="p-5 bg-base-100 rounded-2xl border border-base-300 text-sm text-gray-600 leading-relaxed">
+			<div class="p-5 bg-base-100 rounded-lg border border-base-300 text-sm text-gray-600 leading-relaxed">
 				<strong class="text-base-content">What can increase the upfront price:</strong> Gas line upgrades required for tankless (larger-diameter pipe is usually required), new long venting runs on tankless conversions (an additional air intake pipe is usually needed), non-standard access (tight crawl space, multiple flights of stairs). Any of these are discussed and approved via photo/video/site visit before work begins.
 			</div>
 		</div>
@@ -216,8 +210,8 @@ const faqs = [
 
 	<!-- ─── NO COMMISSION CALLOUT ─────────────────────────────────────────────── -->
 	<section class="py-14 px-6 bg-base-100 text-base-content border-t border-base-300">
-		<div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-start gap-6 bg-primary/5 border border-primary/20 rounded-3xl p-8">
-			<div class="shrink-0 w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+		<div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-start gap-6 bg-primary/5 border border-primary/20 rounded-lg p-8">
+			<div class="shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
 				<svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
 					<path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
 				</svg>

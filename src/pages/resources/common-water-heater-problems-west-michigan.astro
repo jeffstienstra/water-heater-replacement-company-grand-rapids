@@ -3,8 +3,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Cta from "../../components/Cta.astro";
 import TrustStrip from "../../components/TrustStrip.astro";
 import Faq from "../../components/Faq.astro";
-import PriceReceipt from "../../components/icons/PriceReceipt.astro";
-import Phone from "../../components/icons/Phone.astro";
+import QuoteCtaButton from "../../components/cta/QuoteCtaButton.astro";
+import PhoneCtaButton from "../../components/cta/PhoneCtaButton.astro";
 
 const faqs = [
 	{
@@ -48,15 +48,9 @@ const faqs = [
 				<p class="text-lg sm:text-xl text-gray-600">
 					Hard well water, aging tanks, undersized units - West Michigan homeowners face a distinct set of water heater challenges. Here's how to recognize each problem, what causes it, and when repair or replacement is the right call.
 				</p>
-				<div class="flex flex-col sm:flex-row gap-3 pt-2">
-					<a href="/instant-quote/?step=1" class="btn btn-primary btn-lg text-white shadow-md">
-						<PriceReceipt />
-						Get Instant Replacement Quote
-					</a>
-					<a href="tel:616-315-0999" class="btn btn-outline btn-lg border-primary text-primary">
-						<Phone />
-						616-315-0999
-					</a>
+				<div class="flex flex-col gap-3 pt-2">
+					<QuoteCtaButton label="Get Instant Replacement Quote" />
+					<PhoneCtaButton />
 				</div>
 			</div>
 		</div>
@@ -91,7 +85,7 @@ const faqs = [
 				<p>
 					Before calling, check: Is the pilot light lit (gas)? Has the breaker tripped (electric)? Has the thermostat been turned down by accident? If you've verified the basics and still have no hot water, a service call is the next step.
 				</p>
-				<div class="bg-base-200 rounded-xl p-5 border border-base-300">
+				<div class="bg-base-200 rounded-lg p-5 border border-base-300">
 					<p class="text-sm font-bold mb-1">Repair or replace?</p>
 					<p class="text-sm text-gray-600">A thermocouple or heating element replacement on a unit under 8 years old is almost always worth doing. On a unit 10+ years old, weigh the repair cost against what a new installation would be - often the difference is smaller than expected.</p>
 				</div>
@@ -117,7 +111,7 @@ const faqs = [
 				<p>
 					In West Michigan well water homes, this buildup can be significant within 2–3 years of installation. Beyond the noise, thick sediment insulates the heating element from the water, forcing the unit to work harder and longer - raising energy bills and accelerating element failure.
 				</p>
-				<div class="bg-base-100 rounded-xl p-5 border border-base-300">
+				<div class="bg-base-100 rounded-lg p-5 border border-base-300">
 					<p class="text-sm font-bold mb-1">Prevention vs. remedy</p>
 					<p class="text-sm text-gray-600">Annual tank flushing dramatically slows sediment accumulation. If you've never flushed a 5+ year-old unit on well water, the sediment layer may already be beyond what flushing can fix. At that point, a new unit is often the right answer - and we can verify this on a call.</p>
 				</div>
@@ -143,7 +137,7 @@ const faqs = [
 				<p>
 					On Ottawa County well water, anode rods can be fully consumed in 3–4 years rather than the typical 5–8 years. By the time you notice discolored water, the tank corrosion has usually been progressing for months. At this stage, the tank is not repairable - replacement is required.
 				</p>
-				<div class="bg-base-200 rounded-xl p-5 border border-base-300">
+				<div class="bg-base-200 rounded-lg p-5 border border-base-300">
 					<p class="text-sm font-bold mb-1">Note on well water homes</p>
 					<p class="text-sm text-gray-600">If you're on a well in Hudsonville, Jenison, or Allendale, ask us about anode rod inspection intervals when we install your new unit. Annual or biannual checks extend the life of your new water heater significantly.</p>
 				</div>
@@ -205,7 +199,7 @@ const faqs = [
 	<!-- ─── WELL WATER CALLOUT ────────────────────────────────────────────────── -->
 	<section class="py-14 px-6 bg-primary/5 text-base-content border-t border-primary/20">
 		<div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-start gap-6">
-			<div class="shrink-0 w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+			<div class="shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
 				<svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
 					<path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
 				</svg>

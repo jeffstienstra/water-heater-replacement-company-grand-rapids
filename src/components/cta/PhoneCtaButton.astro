@@ -1,0 +1,22 @@
+---
+import Phone from "../icons/Phone.astro";
+
+const {
+    href = "tel:616-315-0999",
+    label = "616-315-0999",
+    className = "",
+    ariaLabel,
+    variant = "outline",
+} = Astro.props;
+
+const variantClass = variant === "primary"
+    ? "btn-primary text-white"
+    : "btn-outline border-primary text-primary";
+const baseClass = `btn ${variantClass} text-lg py-2 w-full max-w-xs mx-auto`;
+const classes = className ? `${baseClass} ${className}`.trim() : baseClass;
+---
+
+<a href={href} aria-label={ariaLabel ?? `Call ${label}`} class={classes}>
+    <Phone />
+    <span class="text-center">{label}</span>
+</a>

@@ -193,7 +193,7 @@ export const businessInfo: BusinessInfo = {
     //     text: 'Call Now',
     //     href: `tel:${primaryPhone}`,
     //     icon: 'tabler:phone',
-    //     classes: 'text-white dark:text-secondary rounded-xl',
+    //     classes: 'text-white dark:text-secondary rounded-lg',
     //     id: 'call-button_cta',
     // },
     // ctaSecondary: {
@@ -202,7 +202,7 @@ export const businessInfo: BusinessInfo = {
     //     href: '/instant-quote/?step=1',
     //     target: '_blank',
     //     icon: 'tabler:mail',
-    //     classes: 'text-white dark:text-white rounded-xl',
+    //     classes: 'text-white dark:text-white rounded-lg',
     //     id: 'email-button_cta',
     // },
     metadata: {

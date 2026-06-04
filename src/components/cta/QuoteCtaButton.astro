@@ -1,0 +1,22 @@
+---
+import PriceReceipt from "../icons/PriceReceipt.astro";
+
+const {
+    href = "/instant-quote/?step=1",
+    label = "Get My Exact Quote",
+    className = "",
+    ariaLabel,
+    variant = "primary",
+} = Astro.props;
+
+const variantClass = variant === "outline"
+    ? "btn-outline border-primary text-primary bg-transparent"
+    : "btn-primary text-white";
+const baseClass = `btn ${variantClass} text-lg py-2 w-full max-w-xs mx-auto`;
+const classes = className ? `${baseClass} ${className}`.trim() : baseClass;
+---
+
+<a href={href} aria-label={ariaLabel ?? label} class={classes}>
+    <PriceReceipt />
+    <span class="text-center">{label}</span>
+</a>

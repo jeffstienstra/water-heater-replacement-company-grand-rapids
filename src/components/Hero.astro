@@ -1,6 +1,6 @@
 ---
-import PriceReceipt from './icons/PriceReceipt.astro';
-import Phone from './icons/Phone.astro';
+import QuoteCtaButton from './cta/QuoteCtaButton.astro';
+import PhoneCtaButton from './cta/PhoneCtaButton.astro';
 import heroImg from '../assets/images/whrc-van-image.webp';
 ---
 
@@ -23,37 +23,34 @@ import heroImg from '../assets/images/whrc-van-image.webp';
             </p>
 
             <!-- social proof quote -->
-            <div class="bg-primary/5 border border-primary/20 rounded-2xl px-4 py-3 flex flex-wrap items-baseline gap-x-2 max-w-fit">
+            <div class="bg-primary/5 border border-primary/20 rounded-lg px-4 py-3 flex flex-wrap items-baseline gap-x-2 max-w-fit">
                 <span class="text-sm font-semibold text-primary">"Professional, friendly, fast, and very knowledgeable. Would highly recommend!"</span>
                 <span class="text-sm text-gray-500 whitespace-nowrap">~Pat from Jenison</span>
             </div>
 
             <!-- CTAs -->
-            <div class="flex flex-col sm:flex-row gap-3">
-                <a href="/instant-quote/?step=1" class="btn btn-primary btn-lg text-white shadow-md">
-                    <PriceReceipt />
-                    Get My Exact Quote Now
-                </a>
-                <a href="tel:616-315-0999" class="btn btn-outline btn-lg border-primary text-primary">
-                    <Phone />
-                    Call 616-315-0999
-                </a>
+            <div class="flex flex-col gap-3">
+                <QuoteCtaButton label="Get My Exact Quote Now" />
+                <PhoneCtaButton label="Call 616-315-0999" />
             </div>
-			<p class="text-sm text-gray-500">Our techs do not receive sales commissions and don't benefit from upsells.</p>
+			<p class="text-sm text-gray-500">Our techs do not receive sales commissions.</p>
         </div>
 
         <!-- Right: image -->
-        <div class="relative">
-            <img
-                src={heroImg.src}
-                alt="Water Heater Replacement Company service van preparing for a water heater installation in Grand Rapids"
-                loading="eager"
-                class="w-full rounded-3xl object-cover shadow-xl"
-            />
-            <!-- floating stat card -->
-            <div class="absolute -bottom-5 -left-4 sm:left-4 bg-white border border-base-300 rounded-2xl shadow-lg px-5 py-4 flex items-center gap-3">
-                <span class="text-3xl font-black text-primary">2-Year</span>
-                <span class="text-sm font-semibold text-gray-700 leading-snug">Labor<br/>Warranties</span>
+        <div class="flex flex-col overflow-hidden rounded-lg shadow-xl bg-base-100 border border-base-300 lg:h-[520px]">
+            <div class="flex-1 min-h-0">
+                <img
+                    src={heroImg.src}
+                    alt="Water Heater Replacement Company service van preparing for a water heater installation in Grand Rapids"
+                    loading="eager"
+                    class="h-full w-full object-cover"
+                />
+            </div>
+            <div class="bg-primary text-primary-content px-5 py-4 border-t border-base-300/20">
+                <div class="flex items-center gap-4">
+                    <span class="text-3xl sm:text-4xl font-black leading-none">2-Year</span>
+                    <span class="text-sm font-semibold leading-snug opacity-95">Labor<br/>Warranties</span>
+                </div>
             </div>
         </div>
 

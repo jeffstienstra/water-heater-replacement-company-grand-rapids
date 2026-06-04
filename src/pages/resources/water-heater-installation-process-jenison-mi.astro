@@ -3,8 +3,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Cta from "../../components/Cta.astro";
 import TrustStrip from "../../components/TrustStrip.astro";
 import Faq from "../../components/Faq.astro";
-import PriceReceipt from "../../components/icons/PriceReceipt.astro";
-import Phone from "../../components/icons/Phone.astro";
+import QuoteCtaButton from "../../components/cta/QuoteCtaButton.astro";
+import PhoneCtaButton from "../../components/cta/PhoneCtaButton.astro";
 
 const faqs = [
 	{
@@ -52,15 +52,9 @@ const faqs = [
 				<p class="text-lg sm:text-xl text-gray-600">
 					From getting your price online to the final permit inspection - here's exactly how a water heater replacement works when you hire us in Jenison, MI.
 				</p>
-				<div class="flex flex-col sm:flex-row gap-3 pt-2">
-					<a href="/instant-quote/?step=1" class="btn btn-primary btn-lg text-white shadow-md">
-						<PriceReceipt />
-						Get My Exact Quote
-					</a>
-					<a href="tel:616-315-0999" class="btn btn-outline btn-lg border-primary text-primary">
-						<Phone />
-						616-315-0999
-					</a>
+				<div class="flex flex-col gap-3 pt-2">
+					<QuoteCtaButton />
+					<PhoneCtaButton />
 				</div>
 			</div>
 		</div>
@@ -138,7 +132,7 @@ const faqs = [
 						content: "After installation, we schedule the permit inspection with the local township. An inspector from the township will verify the installation meets Michigan mechanical code. We coordinate the mechanical inspection with you and ensure everything passes. This record is valuable when selling the home."
 					},
 				].map(({ step, title, time, content }) => (
-					<div class="flex gap-5 sm:gap-8 p-6 sm:p-8 bg-base-200 rounded-2xl border border-base-300">
+					<div class="flex gap-5 sm:gap-8 p-6 sm:p-8 bg-base-200 rounded-lg border border-base-300">
 						<div class="shrink-0">
 							<span class="text-3xl font-black text-primary/20">{step}</span>
 						</div>
@@ -173,7 +167,7 @@ const faqs = [
 					"Leak and performance testing",
 					"2-year labor warranty",
 				].map((item) => (
-					<div class="flex items-center gap-3 p-4 bg-base-100 rounded-xl border border-base-300">
+					<div class="flex items-center gap-3 p-4 bg-base-100 rounded-lg border border-base-300">
 						<svg class="w-5 h-5 text-success shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
 							<path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
 						</svg>

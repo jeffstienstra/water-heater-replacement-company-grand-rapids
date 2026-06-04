@@ -6,7 +6,7 @@ import natDraftGroup from '../assets/images/wh-natDraftGroup.png';
 import powerVentGroup from '../assets/images/wh-powerVentGroup.png';
 import tanklessGroup from '../assets/images/wh-tanklessGroup.png';
 import hybridGroup from '../assets/images/wh-hybridGroup.png';
-import PriceReceipt from "../components/icons/PriceReceipt.astro";
+import QuoteCtaButton from "../components/cta/QuoteCtaButton.astro";
 
 const imageMap = {
 	natDraftGroup,
@@ -60,8 +60,8 @@ const imageMap = {
 
 	<div class="grid gap-10 xl:grid-cols-3">
 		{pricingOptions.map(option => (
-			<div class="bg-base-100 border border-base-300 rounded-xl shadow-md p-4 sm:p-8 text-left flex flex-col w-full max-w-md mx-auto">
-				<img src={imageMap[option.image].src} alt={option.title} class="w-full h-48 object-contain rounded-lg mb-4" />
+			<div class="bg-base-100 border border-base-300 rounded-lg shadow-md p-4 sm:p-8 text-left flex flex-col w-full max-w-md mx-auto">
+				<img src={imageMap[option.image as keyof typeof imageMap].src} alt={option.title} class="w-full h-48 object-contain rounded-lg mb-4" />
 				<div class="flex-grow">
 					<h2 class="text-2xl font-semibold mb-2">{option.title}</h2>
 					{/* <p class="text-lg font-bold text-primary">Starting at</p> */}
@@ -73,10 +73,7 @@ const imageMap = {
 						))}
 					</ul>
 				</div>
-				<a href="/instant-quote/?step=1" class="btn btn-primary text-lg h-fit py-2 flex items-center mx-auto text-center mb-4">
-					<PriceReceipt />
-					<p class="">Get My Exact Quote</p>
-				</a>
+				<QuoteCtaButton className="mb-4" />
 				{/* <a href="#schedule-estimate/" class="btn btn-primary text-lg h-fit py-2 flex items-center mx-auto text-center">
 					<svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width={2} stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-clock mr-2">
 						<path stroke="none" d="M0 0h24v24H0z" fill="none"/>

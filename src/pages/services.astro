@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PriceReceipt from '../components/icons/PriceReceipt.astro';
-import Phone from '../components/icons/Phone.astro';
+import QuoteCtaButton from '../components/cta/QuoteCtaButton.astro';
+import PhoneCtaButton from '../components/cta/PhoneCtaButton.astro';
 
 import hubHeroImg from '../assets/images/whrc-van-image.webp';
 import svcReplacementImg from '../assets/images/wh-elec.webp';
@@ -63,8 +63,8 @@ const services = [
 ];
 
 const quickLinks = [
-	{label: 'Get My Exact Quote', href: '/instant-quote/?step=1', icon: 'price'},
-	{label: 'Call a Technician', href: 'tel:616-315-0999', icon: 'phone'}
+	{label: 'Get My Exact Quote', href: '/instant-quote/?step=1'},
+	{label: 'Call a Technician', href: 'tel:616-315-0999'}
 ];
 ---
 
@@ -72,7 +72,7 @@ const quickLinks = [
 	<section class="px-6 pt-10 sm:pt-16 pb-10 text-base-content">
 		<div class="max-w-6xl mx-auto">
 			<!-- Page header band -->
-			<div class="bg-primary/10 border border-primary/20 rounded-2xl p-6 sm:p-10 text-center">
+			<div class="bg-primary/10 border border-primary/20 rounded-lg p-6 sm:p-10 text-center">
 				<h1 class="text-primary font-bold tracking-widest uppercase text-xs sm:text-sm">
 					Water Heater Services in West Michigan
                 </h1>
@@ -84,14 +84,8 @@ const quickLinks = [
 				</p>
 
 				<div class="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-					<a href={quickLinks[0].href} class="btn btn-primary btn-lg text-white w-full sm:w-auto">
-						<PriceReceipt />
-						{quickLinks[0].label}
-					</a>
-					<a href={quickLinks[1].href} class="btn btn-outline btn-lg bg-white/50 text-black shadow-sm w-full sm:w-auto">
-						<Phone />
-						{quickLinks[1].label}
-					</a>
+					<QuoteCtaButton href={quickLinks[0].href} label={quickLinks[0].label} className="mx-0" />
+					<PhoneCtaButton href={quickLinks[1].href} label={quickLinks[1].label} className="mx-0" />
 				</div>
 
 				<p class="mt-4 text-sm text-gray-600">
@@ -104,7 +98,7 @@ const quickLinks = [
                     src={hubHeroImg.src}
                     alt="Service van or clean install photo supporting Water Heater Replacement Company services."
                     loading="lazy"
-                    class="w-full rounded-2xl border border-base-300 shadow-sm object-cover aspect-[16/9] sm:aspect-[21/9]"
+                    class="w-full rounded-lg border border-base-300 shadow-sm object-cover aspect-[16/9] sm:aspect-[21/9]"
                 />
             </div>
 
@@ -132,7 +126,7 @@ const quickLinks = [
 								bg-base-100
 								border
 								border-base-300
-								rounded-2xl
+								rounded-lg
 								shadow-sm
 								p-6
 								text-left
@@ -142,7 +136,7 @@ const quickLinks = [
 								flex-col
 							"
 						>
-                            {/* <div class="rounded-xl overflow-hidden border border-base-300 bg-base-200">
+                            {/* <div class="rounded-lg overflow-hidden border border-base-300 bg-base-200">
                                 <img
                                     src={s.image.src}
                                     alt={s.imageAlt}
@@ -193,7 +187,7 @@ const quickLinks = [
 			</div>
 
 			<!-- Not sure strip -->
-			<div class="mt-12 sm:mt-16 bg-base-100 border border-base-300 rounded-2xl shadow-sm p-6 sm:p-8">
+			<div class="mt-12 sm:mt-16 bg-base-100 border border-base-300 rounded-lg shadow-sm p-6 sm:p-8">
 				<div class="grid md:grid-cols-3 gap-6 items-center">
 					<div class="md:col-span-2 text-center md:text-left">
 						<h3 class="text-2xl font-bold mb-2">Not sure what you need?</h3>
@@ -207,14 +201,8 @@ const quickLinks = [
 					</div>
 
 					<div class="flex flex-col gap-3">
-						<a href="/instant-quote/?step=1" class="btn btn-primary text-white w-full">
-							<PriceReceipt />
-							Get Instant Pricing
-						</a>
-						<a href="tel:616-315-0999" class="btn btn-outline bg-white/50 text-black shadow-sm w-full">
-							<Phone />
-							Call a Technician
-						</a>
+						<QuoteCtaButton label="Get Instant Pricing" className="mx-0" />
+						<PhoneCtaButton label="Call a Technician" className="mx-0" />
 					</div>
 				</div>
 			</div>
