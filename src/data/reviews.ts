@@ -3,6 +3,7 @@ import eblyImg from '../assets/images/reviews/40-gallon-atmospheric-water-heater
 import petersonImg from '../assets/images/reviews/50-gallon-atmospheric-water-heater-installation-rooling-meadows-jenison-mi-peterson.jpg'
 import fragaImg from '../assets/images/reviews/40-gallon-direct-vent-mobile-home-water-heater-installation-windmill-estates-holland-mi-fraga.jpg'
 import burkeImg from '../assets/images/reviews/40-gallon-atmospheric-water-heater-installation-rosewood-neighborhood-jenison-mi-burke.jpg'
+import bondImg from '../assets/images/reviews/40-gallon-atmospheric-water-heater-installation-jamestown-mi-bond.jpg'
 export interface OwnerResponse {
 	response_date: string;
 	text: string;
@@ -23,7 +24,7 @@ export interface Review {
 }
 
 export const overallRating = 5.0;
-export const totalReviewCount = 7;
+export const totalReviewCount = 8;
 
 export const reviews: Review[] = [
 	{
@@ -133,5 +134,21 @@ export const reviews: Review[] = [
 		},
 		image: burkeImg.src,
 		alt: 'A newly installed Rheem 40 gallon atmospheric natural draft water heater in a Jenison basement, matching the review from Laura Burke.'
+	},
+	{
+		author: 'Rob Bond',
+		rating: 5,
+		review_count: 5,
+		date: 'June 2026',
+		highlight: null,
+		content: "Experience was excellent with very good communication and will recommended. Job was done within time frame given. Didn't have to worry about anything.",
+		phrases: ['Experience was excellent', "Didn't have to worry about anything"],
+		services_rendered: ['Water heater installation'],
+		owner_response: {
+			response_date: 'June 2026',
+			text: `Thanks Rob! Glad I could install a new water heater for you in Hudsonville. I really appreciate your business. Go Blue! :)`,
+		},
+		image: bondImg.src,
+		alt: 'A newly installed Rheem 40 gallon atmospheric natural draft water heater in a Hudsonville basement, matching the review from Rob Bond.'
 	},
 ];
