@@ -23,7 +23,7 @@ export interface Review {
 }
 
 export const overallRating = 5.0;
-export const totalReviewCount = 6;
+export const totalReviewCount = 7;
 
 export const reviews: Review[] = [
 	{
