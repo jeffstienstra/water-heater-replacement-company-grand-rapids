@@ -265,7 +265,7 @@ export default function RecommendationCard({params, imageMap = {}}) {
                                         {/* row 5: price */}
                                         <div className={`bg-base-100 border-x-2 px-4 ${tierLabel === 'Recommended' ? 'border-primary' : 'border-base-300'}`}>
                                             <div className='w-fit mx-auto flex flex-col items-left'>
-                                                <p className='mx-auto text-2xl text-left sm:text-4xl font-bold text-primary'>100% All-Inclusive Price</p>
+                                                <p className='mx-auto text-2xl text-left font-bold text-primary'>100% All-Inclusive Price</p>
                                                 <p className='mx-auto text-3xl text-left sm:text-4xl font-bold text-primary'>{priceRange}</p>
                                                 <p className='mx-auto text-sm text-left'>Includes unit, parts, labor, permit & tax</p>
                                             </div>
