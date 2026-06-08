@@ -252,7 +252,7 @@ export default function RecommendationCard({params, imageMap = {}}) {
                                         </div>
                                         {/* row 2: h3 title */}
                                         <div className={`bg-base-100 border-x-2 px-4 pt-4 ${tierLabel === 'Recommended' ? 'border-primary' : 'border-base-300'}`}>
-                                            <h3 className='text-xl font-bold'>{model.brand}{model.size ? ` ${model.size} Gal` : ''} {model.typeLabel}</h3>
+                                            <h3 className='text-xl font-bold'>{model.brand}{model.size ? ` ${model.size} Gal` : ''} {model.label}</h3>
                                         </div>
                                         {/* row 3: subtitle */}
                                         <div className={`bg-base-100 border-x-2 px-4 ${tierLabel === 'Recommended' ? 'border-primary' : 'border-base-300'}`}>
