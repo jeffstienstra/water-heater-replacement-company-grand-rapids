@@ -526,7 +526,7 @@ const waterHeaterModels = [
 		benefits: [
 			'Endless Stream of Hot Water',
 			'Space-Saving Compact Design',
-			'Premium 15-Year Tank Warranty',
+			'Premium 15-Year Heat Exchanger Warranty',
 			'ENERGY STAR® Certified Efficiency',
 		],
 	},
@@ -615,7 +615,7 @@ const waterHeaterModels = [
 			'Optimized for Hard Water Areas',
 			'Energy-Efficient 0.90 UEF Rating',
 			'High-Flow 10.1 GPM Capacity',
-			'Premium 15-Year Tank Warranty',
+			'Premium 15-Year Heat Exchanger Warranty',
 		],
 	}
 	// Hybrid water heaters
