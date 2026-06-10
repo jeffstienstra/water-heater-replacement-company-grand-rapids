@@ -164,18 +164,23 @@ export default function RecommendationCard({params, imageMap = {}}) {
                             <button className='text-sm text-primary underline focus:outline-none' onClick={() => setShowAnswers((v) => !v)} aria-expanded={showAnswers} aria-controls='user-answers-dropdown'>
                                 {showAnswers ? 'Hide your answers ▲' : 'Review your answers ▼'}
                             </button>
-                            {showAnswers && (
-                                <div id='user-answers-dropdown' className='bg-base-100 border border-base-300 rounded p-3 text-left max-w-sm mx-auto shadow'>
-                                    <ul className='text-sm'>
-                                        {displayAnswers.map(({key, value}) => (
-                                            <li key={key} className='flex justify-between py-1 border-b border-base-200 last:border-b-0'>
-                                                <span className='font-medium'>{key}</span>
-                                                <span className='text-gray-700 text-right pl-4'>{value}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
+                            <div
+                                className={`grid transition-all duration-300 ease-out ${showAnswers ? 'grid-rows-[1fr] opacity-100 mt-2' : 'grid-rows-[0fr] opacity-0'}`}
+                                aria-hidden={!showAnswers}
+                            >
+                                <div className='overflow-hidden'>
+                                    <div id='user-answers-dropdown' className='bg-base-100 border border-base-300 rounded p-3 text-left max-w-sm mx-auto shadow'>
+                                        <ul className='text-sm'>
+                                            {displayAnswers.map(({key, value}) => (
+                                                <li key={key} className='flex justify-between py-1 border-b border-base-200 last:border-b-0'>
+                                                    <span className='font-medium'>{key}</span>
+                                                    <span className='text-gray-700 text-right pl-4'>{value}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
                                 </div>
-                            )}
+                            </div>
                         </div>
                         <div className="flex flex-col justify-center gap-2 pb-8">
                             <a href="tel:616-315-0999" className="btn btn-primary text-lg text-white py-2 w-64 max-w-xs mx-auto mb-4">
@@ -197,18 +202,23 @@ export default function RecommendationCard({params, imageMap = {}}) {
                             <button className='text-sm text-primary underline focus:outline-none' onClick={() => setShowAnswers((v) => !v)} aria-expanded={showAnswers} aria-controls='user-answers-dropdown'>
                                 {showAnswers ? 'Hide your answers ▲' : 'Review your answers ▼'}
                             </button>
-                            {showAnswers && (
-                                <div id='user-answers-dropdown' className='bg-base-100 border border-base-300 rounded p-3 text-left max-w-sm mx-auto shadow'>
-                                    <ul className='text-sm'>
-                                        {displayAnswers.map(({key, value}) => (
-                                            <li key={key} className='flex justify-between py-1 border-b border-base-200 last:border-b-0'>
-                                                <span className='font-medium'>{key}</span>
-                                                <span className='text-gray-700 text-right pl-4'>{value}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
+                            <div
+                                className={`grid transition-all duration-300 ease-out ${showAnswers ? 'grid-rows-[1fr] opacity-100 mt-2' : 'grid-rows-[0fr] opacity-0'}`}
+                                aria-hidden={!showAnswers}
+                            >
+                                <div className='overflow-hidden'>
+                                    <div id='user-answers-dropdown' className='bg-base-100 border border-base-300 rounded p-3 text-left max-w-sm mx-auto shadow'>
+                                        <ul className='text-sm'>
+                                            {displayAnswers.map(({key, value}) => (
+                                                <li key={key} className='flex justify-between py-1 border-b border-base-200 last:border-b-0'>
+                                                    <span className='font-medium'>{key}</span>
+                                                    <span className='text-gray-700 text-right pl-4'>{value}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
                                 </div>
-                            )}
+                            </div>
                         </div>
                         <div className='px-4 grid grid-cols-[repeat(auto-fit,minmax(0,344px))] justify-center gap-x-16 gap-y-0'>
                             {limitedModels.map((model, index) => {
