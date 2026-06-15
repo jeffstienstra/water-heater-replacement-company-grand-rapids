@@ -309,7 +309,7 @@ const waterHeaterModels = [
 		],
 	},
 	{
-		baseCost: 3450,
+		baseCost: 3895,
 		brand: 'Rheem',
 		seriesName: 'Professional Classic',
 		typeLabel: 'Power Vent',
