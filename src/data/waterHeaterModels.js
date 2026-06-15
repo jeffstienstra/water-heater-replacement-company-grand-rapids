@@ -318,7 +318,7 @@ const waterHeaterModels = [
 		id: 'powervent_75_recommended',
 		imagePath: '/images/catalog/rheem/powerVent_tank.webp',
 		label: '75 Gallon Professional Classic Series Water Heater: Power Vent',
-		modelNumber: 'PROG65T-75-76P-RH-PV',
+		modelNumber: 'PRO+G75-76N RH PV',
 		notes: 'Ideal for PVC venting or newer installations',
 		productLink: '/resources/power-vent-water-heaters/',
 		size: 75,
@@ -337,7 +337,7 @@ const waterHeaterModels = [
 			showers: ['2', '3', 'unsure'],
 		},
 		features: [
-			{label: 'Model', value: 'PROG65T-65N CN62 PDV'},
+			{label: 'Model', value: 'PRO+G75-76N RH PV'},
 			{label: 'UEF', value: 0.63},
 			{label: 'Capacity', value: '75 Gallon'},
 			{label: 'BTU', value: '75,100 BTU/hr'},
