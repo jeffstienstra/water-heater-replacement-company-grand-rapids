@@ -61,7 +61,7 @@ export const pricingOptions = [
 	},
 	{
 		title: "Tankless Water Heater",
-		price: "$3,495",
+		price: "$3,995",
 		image: "tanklessGroup",
 		features: [
 			"Removal & disposal of old unit",
