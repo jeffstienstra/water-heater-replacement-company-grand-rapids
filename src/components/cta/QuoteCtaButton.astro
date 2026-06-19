@@ -7,16 +7,18 @@ const {
     className = "",
     ariaLabel,
     variant = "primary",
+    iconClassName,
 } = Astro.props;
 
 const variantClass = variant === "outline"
     ? "btn-outline border-primary text-primary bg-transparent"
     : "btn-primary text-white";
+const iconColorClass = iconClassName ?? (variant === "outline" ? "text-primary" : "text-white");
 const baseClass = `btn ${variantClass} text-lg py-2 w-full max-w-xs mx-auto`;
 const classes = className ? `${baseClass} ${className}`.trim() : baseClass;
 ---
 
 <a href={href} aria-label={ariaLabel ?? label} class={classes}>
-    <PriceReceipt />
+    <PriceReceipt class={iconColorClass} />
     <span class="text-center">{label}</span>
 </a>

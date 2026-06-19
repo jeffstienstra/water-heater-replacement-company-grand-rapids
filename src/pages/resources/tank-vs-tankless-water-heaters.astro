@@ -35,11 +35,11 @@ const faqs = [
     },
     {
         q: "Do tank water heaters really run out of hot water?",
-        a: "Yes - if back-to-back showers, laundry, and a dishwasher all run at once, a tank can be depleted. A properly sized tank for your household (which we help you select) minimizes this significantly. If you're frequently running out, it often means you need a larger tank rather than an immediate switch to tankless.",
+        a: "Yes - if back-to-back showers, laundry, and a dishwasher all run at once, a tank can be depleted. A properly sized tank for your household (which we help you select) minimizes this significantly. If you're frequently running out, it often means you need a larger tank or should consider switching to tankless.",
     },
     {
         q: "Which type is more expensive to repair?",
-        a: "Tankless repairs are generally more expensive - the parts (heat exchangers, control boards, flow sensors) cost more, and the diagnosis is more involved. That said, tankless units need repair less often and last longer. Tank repairs are cheaper per visit, but tanks are more likely to reach a point where repair isn't worth it.",
+        a: "Tankless repairs are generally more expensive - the parts (heat exchangers, control boards, flow sensors) cost more, and the diagnosis is more involved. That said, tankless units often last longer. Tank repairs are cheaper per visit, but tanks are more likely to reach a point where repair isn't worth it.",
     },
 ];
 ---
@@ -398,10 +398,7 @@ const faqs = [
                     </div>
                     <h3 class="text-xl font-bold text-gray-700">Still Not Sure?</h3>
                     <p class="text-sm text-gray-600">Our technicians work with both types every day and have no preference either way. Call us, tell us about your home, and we'll give you a straight answer on which makes more sense for your situation - with pricing for both if helpful.</p>
-                    <a href="tel:616-315-0999" class="btn btn-outline border-primary text-primary btn-sm mt-auto">
-                        <Phone />
-                        Call 616-315-0999
-                    </a>
+                    <PhoneCtaButton class="mt-auto" />
                 </div>
             </div>
             <p class="text-sm text-center text-gray-500 mt-8">Ready to get a local quote? See what a full installation looks like in your area: <a href="/service-area/jenison/" class="text-primary underline">Jenison</a>, <a href="/service-area/grandville/" class="text-primary underline">Grandville</a>, or <a href="/service-area/hudsonville/" class="text-primary underline">Hudsonville</a>.</p>
@@ -458,7 +455,7 @@ const faqs = [
                         {[
                             ["Water softener", "Removes calcium and magnesium before they reach the heater. The single most effective defense."],
                             ["Annual tank flush", "Drains the sediment that settles at the tank bottom each year."],
-                            ["Anode rod inspection", "Check annually. On iron-heavy or sulfur water, a powered (electric) anode rod prevents the rotten egg smell and outlasts standard magnesium rods."],
+                            ["Anode rod inspection", "Check every few years. On iron-heavy or sulfur water, a powered (electric) anode rod prevents the rotten egg smell and outlasts standard magnesium rods."],
                         ].map(([label, desc]) => (
                             <div class="flex items-start gap-2 text-sm text-gray-700">
                                 <svg class="w-4 h-4 text-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
@@ -478,7 +475,7 @@ const faqs = [
                             ["Sediment pre-filter", "A whole-house filter upstream catches sand, silt, and iron particles before they reach the unit."],
                             ["Scale prevention filter", "A polyphosphate or TAC (template-assisted crystallization) filter keeps minerals from sticking inside the heat exchanger passages."],
                             ["Pressure regulator", "Well pumps create pressure spikes. A regulator set to 45–65 PSI prevents erratic firing and burner shutdowns."],
-                            ["Annual descale", "Flush the heat exchanger with a descaling solution every 6–12 months to clear accumulated scale."],
+                            ["Annual descale", "Flush the heat exchanger with a descaling solution every 12 months to clear accumulated scale."],
                         ].map(([label, desc]) => (
                             <div class="flex items-start gap-2 text-sm text-gray-700">
                                 <svg class="w-4 h-4 text-secondary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>

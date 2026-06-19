@@ -3,6 +3,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Cta from "../../components/Cta.astro";
 import TrustStrip from "../../components/TrustStrip.astro";
 import Faq from "../../components/Faq.astro";
+import { Image } from "astro:assets";
+import heroImg from "../../assets/images/whrc-van-image-house2.webp";
 import QuoteCtaButton from "../../components/cta/QuoteCtaButton.astro";
 import PhoneCtaButton from "../../components/cta/PhoneCtaButton.astro";
 
@@ -42,20 +44,30 @@ const faqs = [
 >
 
 	<!-- ─── HERO ─────────────────────────────────────────────────────────────── -->
-	<section class="bg-base-100 text-base-content">
-		<div class="max-w-6xl mx-auto px-6 py-12 sm:py-20">
-			<div class="max-w-3xl flex flex-col gap-5">
+	<section class="bg-base-100 text-base-content border-b border-base-300">
+		<div class="max-w-6xl mx-auto px-6 pt-8 pb-16 sm:py-24 grid lg:grid-cols-2 gap-12 items-center">
+			<!-- Left: messaging -->
+			<div class="flex flex-col gap-6">
 				<span class="inline-block bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full w-fit">Water Heater Installation Guide</span>
 				<h1 class="text-4xl sm:text-5xl font-black leading-tight tracking-tight">
-					Water Heater Installation in Grand Rapids and West Michigan: What to Expect
+					Water Heater Installation in Jenison, MI: What to Expect
 				</h1>
 				<p class="text-lg sm:text-xl text-gray-600">
-					From getting your price online to the final permit inspection - here's exactly how a water heater replacement works when you hire us in Jenison, MI.
+					From getting your price online to the final permit inspection - here's exactly how a water heater replacement works when you hire us.
 				</p>
 				<div class="flex flex-col gap-3 pt-2">
 					<QuoteCtaButton />
 					<PhoneCtaButton />
 				</div>
+			</div>
+
+			<!-- Right: image -->
+			<div class="hidden lg:block">
+				<Image
+					src={heroImg}
+					alt="Water Heater Replacement Company technician standing next to service van in Jenison, MI"
+					class="rounded-lg shadow-xl w-full object-cover"
+				/>
 			</div>
 		</div>
 	</section>
@@ -66,10 +78,10 @@ const faqs = [
 	<section class="py-16 px-6 bg-base-200 text-base-content border-t border-base-300">
 		<div class="max-w-3xl mx-auto">
 			<p class="text-lg text-gray-700 leading-relaxed mb-6">
-				Most homeowners have never had a water heater replaced before - or it's been so long that they don't remember the process. We hear a lot of the same concerns: How long will I be without hot water? Do I need to do anything about the permit myself? Will there be unexpected charges on the day? This guide walks through every step, so you know exactly what's coming.
+				Most homeowners have never had a water heater replaced before - or it's been so long that they don't remember the process. We hear a lot of the same concerns: How long will I be without hot water? Do I need to do anything about the permit myself? Will there be unexpected charges on installation day? This guide walks through every step, so you know exactly what's coming.
 			</p>
 			<p class="text-gray-700 leading-relaxed">
-				The short version: most Jenison tank replacements are complete in 2–3 hours, your price is locked in before we arrive, and the local permit is handled entirely by us. Here's the longer version.
+				The short version: most Jenison tank replacements are complete in 2–3 hours, your price is locked in before we arrive, and the local permit is handled entirely by us. Now for the longer version...
 			</p>
 		</div>
 	</section>
@@ -99,7 +111,7 @@ const faqs = [
 						step: "03",
 						title: "Permit Is Filed",
 						time: "Before installation or ASAP if an emergency call",
-						content: "We pull the local mechanical permit as part of the installation process. Michigan law requires a permit for every water heater replacement, and every local jurisdiction enforces this. Some contractors skip the permit to move faster or reduce cost - this can void your manufacturer warranty, create liability issues if you sell the home, and is simply illegal. We never skip the permit, and it's already included in your quoted price."
+						content: "We pull the local mechanical permit as part of the installation process. Michigan law requires a permit for every water heater replacement, and every local jurisdiction enforces this. Some contractors skip the permit to cut corners and reduce cost - this can void your manufacturer warranty, create liability issues if you sell the home, and is simply illegal. We never skip the permit, and it's already included in your quoted price."
 					},
 					{
 						step: "04",
@@ -117,7 +129,7 @@ const faqs = [
 						step: "06",
 						title: "New Unit Installation",
 						time: "45–75 minutes",
-						content: "The new unit is positioned, leveled, and connected to the cold water inlet and hot water outlet. Gas connections are made with new fittings and leak-tested with soap or electronic detection. Venting is connected and inspected per code - for natural draft units, we verify proper draft. For power vent or tankless units, new PVC venting is run as needed. Electrical connections for pilot ignition or electric elements are completed and verified."
+						content: "The new unit is positioned with a drain pan and connected to the cold water inlet and hot water outlet. A water leak detecting alarm is placed in the drain pan and a drain line is run to a floor drain (if available) to ensure any future leaks don't immediately flood your home. Gas connections are made with new fittings and leak-tested with soap bubbles or electronic detection. Venting is connected and inspected per code - for natural draft units, we light the pilot and verify proper draft. For power vent or tankless units, new PVC venting is run as needed and electrical connections are completed and verified."
 					},
 					{
 						step: "07",
@@ -129,7 +141,7 @@ const faqs = [
 						step: "08",
 						title: "Final Permit Inspection",
 						time: "A few days or weeks after install",
-						content: "After installation, we schedule the permit inspection with the local township. An inspector from the township will verify the installation meets Michigan mechanical code. We coordinate the mechanical inspection with you and ensure everything passes. This record is valuable when selling the home."
+						content: "After installation, we schedule the permit inspection with the local township. An inspector from the township will verify the installation meets Michigan mechanical code an safety standards. We coordinate the mechanical inspection with you and ensure everything passes. This record is valuable when selling the home. If for any reason the installation does not pass inspection, we will correct the issue at no additional cost to you."
 					},
 				].map(({ step, title, time, content }) => (
 					<div class="flex gap-5 sm:gap-8 p-6 sm:p-8 bg-base-200 rounded-lg border border-base-300">

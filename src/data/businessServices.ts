@@ -24,7 +24,7 @@ export const businessServices: ServiceEntry[] = [
     {
         name: 'Leaking Water Heater Emergency',
         url: '/services/leaking-water-heater-emergency/',
-        description: 'Leaking water heater emergency services in Grand Rapids, MI. Quick response to stop leaks and prevent water damage. Available 24/7 for urgent repairs.',
+        description: 'Leaking water heater emergency services in Grand Rapids, MI. Quick response to stop leaks and prevent water damage. Available for urgent repairs.',
         serviceType: 'Leaking Water Heater Emergency Services in Grand Rapids, MI',
         matchKey: 'leaking water heater emergency',
     },
