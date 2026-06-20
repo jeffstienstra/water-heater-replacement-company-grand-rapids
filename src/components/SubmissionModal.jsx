@@ -99,7 +99,7 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                 <h3 className="text-xl font-semibold text-primary mb-2">Next Step: Verification</h3>
 
                 <p className="mb-2">
-                    Verifying your home's water heater setup can be done by photos, a quick video call, or an in-person visit - whatever is easiest for you.
+                    Verifying your home's water heater setup can be done by texting a few photos, a quick video call, or an in-person visit—whatever is easiest for you.
                 </p>
                 <p className="mb-4">
                     We’ll reach out shortly to confirm your setup so you can move forward if everything looks good.
@@ -198,12 +198,24 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                         />
                     </div>
 
+                    <div>
+                        <label className="block text-sm font-medium">Additional Comments</label>
+                        <textarea
+                            name="comments"
+                            placeholder="Add any additional comments or questions here..."
+                            className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+                            value={customer.comments}
+                            onChange={e => setCustomer({ ...customer, comments: e.target.value })}
+                        />
+                    </div>
+
                     {/* Hidden fields for model info and quote URL */}
                     <input type="hidden" name="model" value={selectedModel?.label || ''} />
                     <input type="hidden" name="fuel" value={answers?.fuel || ''} />
                     <input type="hidden" name="warranty" value={selectedModel?.isWarrantySelected ? 'Yes' : 'No'} />
                     <input type="hidden" name="priceRange" value={priceRange} />
                     <input type="hidden" name="quote_url" value={quoteUrl} />
+                    <input type="hidden" name="comments" value={customer.comments} />
 
                     {/* Cloudflare Turnstile widget for spam protection */}
                     <div

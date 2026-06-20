@@ -40,14 +40,20 @@ export default function MapboxAddressInput({value, onSelect, requireDropdown = t
 		}
 		if (inputValue.length < 3) return;
 		const fetchSuggestions = async () => {
-			const res = await fetch(
-				`https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
-					inputValue
-				)}.json?country=us&autocomplete=true&access_token=${MAPBOX_TOKEN}`
-			);
-			const data = await res.json();
-			setSuggestions(data.features);
-			setShowSuggestions(true);
+            try {
+                const res = await fetch(
+                    `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
+                        inputValue
+                    )}.json?country=us&autocomplete=true&access_token=${MAPBOX_TOKEN}`
+                );
+                const data = await res.json();
+                const nextSuggestions = Array.isArray(data?.features) ? data.features : [];
+                setSuggestions(nextSuggestions);
+                setShowSuggestions(nextSuggestions.length > 0);
+            } catch {
+                setSuggestions([]);
+                setShowSuggestions(false);
+            }
 		};
 		const debounce = setTimeout(fetchSuggestions, 300);
 		return () => clearTimeout(debounce);
