@@ -199,10 +199,10 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium">Additional Comments</label>
+                        <label className="block text-sm font-medium">Comments (optional)</label>
                         <textarea
                             name="comments"
-                            placeholder="Add any additional comments or questions here..."
+                            placeholder="Add any comments or questions here..."
                             className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
                             value={customer.comments}
                             onChange={e => setCustomer({ ...customer, comments: e.target.value })}
@@ -219,7 +219,7 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
 
                     {/* Cloudflare Turnstile widget for spam protection */}
                     <div
-                        className="cf-turnstile mt-12 scale-[70%] xs:scale-82 sm:scale-100 origin-top-left"
+                        className="cf-turnstile mt-6 scale-[70%] xs:scale-82 sm:scale-100 origin-top-left"
                         data-sitekey="0x4AAAAAABAVhf0YyzaFtdkJ"
                         data-callback="javascriptCallback"
                         data-auto-render="false"

@@ -46,8 +46,8 @@ export default function MapboxAddressInput({value, onSelect, requireDropdown = t
                         inputValue
                     )}.json?country=us&autocomplete=true&access_token=${MAPBOX_TOKEN}`
                 );
-                const data = await res.json();
-                const nextSuggestions = Array.isArray(data?.features) ? data.features : [];
+                const suggestionData = await res.json();
+                const nextSuggestions = Array.isArray(suggestionData?.features) ? suggestionData.features : [];
                 setSuggestions(nextSuggestions);
                 setShowSuggestions(nextSuggestions.length > 0);
             } catch {
