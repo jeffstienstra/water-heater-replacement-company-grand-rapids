@@ -77,91 +77,99 @@ const { showNavigation = true } = Astro.props;
         )}
 
         {showNavigation && (
-            <div class="dropdown">
-                <div aria-label="dropdown button" tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+            <>
+                <button
+                    id="mobile-nav-open"
+                    aria-label="Open navigation menu"
+                    type="button"
+                    class="btn btn-ghost lg:hidden"
+                    aria-controls="mobile-nav-panel"
+                    aria-expanded="false"
+                >
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
                     </svg>
-                </div>
-                <ul
-                    tabindex="0"
-                    class="menu menu-sm right-1 dropdown-content bg-base-100 rounded-box z-1 mt-3 w-72 p-2 shadow gap-1"
+                </button>
+
+                <div id="mobile-nav-drawer" class="fixed inset-0 z-[70] lg:hidden pointer-events-none" aria-hidden="true">
+                    <button
+                        id="mobile-nav-backdrop"
+                        class="absolute inset-0 bg-black/45 opacity-0 transition-opacity duration-300"
+                        type="button"
+                        aria-label="Close navigation menu"
+                    ></button>
+
+                    <aside
+                        id="mobile-nav-panel"
+                        class="absolute right-0 top-0 h-full w-[min(88vw,22rem)] max-w-full bg-base-100 shadow-2xl transform translate-x-full transition-transform duration-300 ease-out flex flex-col"
+                        role="dialog"
+                        aria-modal="true"
+                        aria-label="Mobile navigation"
                     >
-                        <li>
-                            <a aria-label="Services" href="/services/" class="text-lg font-bold">Services</a>
-                            <ul class="p-2">
-                                <li><a aria-label="Water Heater Replacement" href="/services/water-heater-replacement/" class="text-base font-semibold">Water Heater Replacement</a></li>
-                                <li><a aria-label="Water Heater Repair" href="/services/water-heater-repair/" class="text-base font-semibold">Water Heater Repair</a></li>
-                                <li><a aria-label="Leaking Water Heater Emergency" href="/services/leaking-water-heater-emergency/" class="text-base font-semibold">Leaking Water Heater Emergency</a></li>
-                            </ul>
-                        </li>
-                    <li>
-                    <p class="pointer-events-none text-lg font-bold" aria-label="parent">Resources</p>
-                    <ul class="p-2">
-                        <li>
-                            <a aria-label="Why Choose Us" href="/why-us/" class="text-base font-semibold">Why Choose Us</a>
-                        </li>
-                        <li>
-                            <a aria-label="How Water Heater Replacement Works" href="/water-heater-replacement-process/" class="text-base font-semibold">How Replacement Works</a>
-                        </li>
-                        <li>
-                            <a aria-label="Tank vs Tankless Comparison" href="/resources/tank-vs-tankless-water-heaters/" class="text-base font-semibold">Tank vs Tankless Comparison Guide</a>
-                        </li>
-                        <li>
-                            <a aria-label="Tank Water Heaters" href="/resources/tank-water-heaters/" class="text-base font-semibold">Tank Water Heaters</a>
-                        </li>
-                        {/* <li>
-                            <a aria-label="Power Vent Water Heaters" href="/resources/power-vent-water-heaters/">Power Vent Water Heaters</a>
-                        </li> */}
-                        <li>
-                            <a aria-label="Tankless Water Heaters" href="/resources/tankless-water-heaters/" class="text-base font-semibold">Tankless Water Heaters</a>
-                        </li>
-                        <li>
-                            <a aria-label="How to Stop a Water Leak" href="/resources/how-to-stop-a-water-leak/" class="text-base font-semibold">How to Stop a Water Leak</a>
-                        </li>
-                        <li>
-                            <a aria-label="Water Heater Installation Process" href="/resources/water-heater-installation-process-jenison-mi/" class="text-base font-semibold">Water Heater Installation Process</a>
-                        </li>
-                    </ul>
-                    <li>
-                        <a aria-label="Reviews" href="/reviews/" class="text-lg font-bold">Reviews</a>
-                    </li>
-                    {/* <li>
-                        <a aria-label="Book Online" href="/booking/" class="text-lg font-bold">Book Online</a>
-                    </li> */}
-                    <li>
-                            <a aria-label="Service Area" href="/service-area/" class="text-lg font-bold">Service Area</a>
-                    </li>
-                    </li>
-                        <div class="mt-2 lg:hidden w-full">
-                            <a aria-label="exact quote" href="/instant-quote/?step=1" class="btn btn-primary text-white w-full h-12 px-0 my-8">
-                                <PriceReceipt />
-                                Get My Exact Quote
-                            </a>
-                            <a href="tel:616-315-0999" class="btn btn-outline text-primary text-lg font-semibold w-full h-12 px-0">
-                                <Phone />
-                                616-315-0999
-                            </a>
+                        <div class="flex items-center justify-between px-4 py-3 border-b border-base-200">
+                            <p class="font-bold text-lg">Menu</p>
+                            <button id="mobile-nav-close" type="button" class="btn btn-ghost btn-sm" aria-label="Close navigation menu">✕</button>
                         </div>
-                </ul>
-            </div>
+
+                        <nav class="flex-1 overflow-y-auto overscroll-contain px-4 py-4">
+                            <ul class="menu menu-sm w-full gap-2">
+                                <li>
+                                    <a aria-label="Services" href="/services/" class="text-lg font-bold">Services</a>
+                                    <ul class="p-2">
+                                        <li><a aria-label="Water Heater Replacement" href="/services/water-heater-replacement/" class="text-base font-semibold">Water Heater Replacement</a></li>
+                                        <li><a aria-label="Water Heater Repair" href="/services/water-heater-repair/" class="text-base font-semibold">Water Heater Repair</a></li>
+                                        <li><a aria-label="Leaking Water Heater Emergency" href="/services/leaking-water-heater-emergency/" class="text-base font-semibold">Leaking Water Heater Emergency</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <p class="pointer-events-none text-lg font-bold" aria-label="parent">Resources</p>
+                                    <ul class="p-2">
+                                        <li><a aria-label="Why Choose Us" href="/why-us/" class="text-base font-semibold">Why Choose Us</a></li>
+                                        <li><a aria-label="How Water Heater Replacement Works" href="/water-heater-replacement-process/" class="text-base font-semibold">How Replacement Works</a></li>
+                                        <li><a aria-label="Tank vs Tankless Comparison" href="/resources/tank-vs-tankless-water-heaters/" class="text-base font-semibold">Tank vs Tankless Comparison Guide</a></li>
+                                        <li><a aria-label="Tank Water Heaters" href="/resources/tank-water-heaters/" class="text-base font-semibold">Tank Water Heaters</a></li>
+                                        <li><a aria-label="Tankless Water Heaters" href="/resources/tankless-water-heaters/" class="text-base font-semibold">Tankless Water Heaters</a></li>
+                                        <li><a aria-label="How to Stop a Water Leak" href="/resources/how-to-stop-a-water-leak/" class="text-base font-semibold">How to Stop a Water Leak</a></li>
+                                        <li><a aria-label="Water Heater Installation Process" href="/resources/water-heater-installation-process-jenison-mi/" class="text-base font-semibold">Water Heater Installation Process</a></li>
+                                    </ul>
+                                </li>
+                                <li><a aria-label="Reviews" href="/reviews/" class="text-lg font-bold">Reviews</a></li>
+                                <li><a aria-label="Service Area" href="/service-area/" class="text-lg font-bold">Service Area</a></li>
+                            </ul>
+
+                            <div class="mt-4 w-full border-t border-base-200 pt-4">
+                                <a aria-label="exact quote" href="/instant-quote/?step=1" class="btn btn-primary text-white w-full h-12 px-0 mb-4">
+                                    <PriceReceipt />
+                                    Get My Exact Quote
+                                </a>
+                                <a href="tel:616-315-0999" class="btn btn-outline text-primary text-lg font-semibold w-full h-12 px-0">
+                                    <Phone />
+                                    616-315-0999
+                                </a>
+                            </div>
+                        </nav>
+                    </aside>
+                </div>
+            </>
         )}
     </div>
 
 
 <script>
     (function setupGlobalDetailsClose() {
-        const closeOpenDetails = (event) => {
-            const path = (event.composedPath && event.composedPath()) || (event.path) || (function(){
-                const p = [];
-                let el = event.target;
+        const closeOpenDetails = (event: Event) => {
+            const target = event.target instanceof Node ? event.target : null;
+            const eventWithPath = event as Event & { path?: EventTarget[] };
+            const path = event.composedPath?.() || eventWithPath.path || (function(){
+                const p: Node[] = [];
+                let el = target;
                 while (el) { p.push(el); el = el.parentNode; }
                 return p;
             })();
 
             document.querySelectorAll('details.details-menu[open]').forEach((el) => {
                 if (!(el instanceof HTMLDetailsElement)) return;
-                const clickedInside = path.includes(el) || el.contains(event.target);
+                const clickedInside = path.includes(el) || (target ? el.contains(target) : false);
                 if (!clickedInside) el.open = false;
             });
         };
@@ -171,8 +179,70 @@ const { showNavigation = true } = Astro.props;
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
-                document.querySelectorAll('details.details-menu[open]').forEach((el) => { el.open = false; });
+                document.querySelectorAll('details.details-menu[open]').forEach((el) => {
+                    if (el instanceof HTMLDetailsElement) el.open = false;
+                });
             }
+        });
+    })();
+</script>
+
+<script>
+    (function setupMobileDrawerNav() {
+        const drawer = document.getElementById('mobile-nav-drawer');
+        const panel = document.getElementById('mobile-nav-panel');
+        const backdrop = document.getElementById('mobile-nav-backdrop');
+        const openBtn = document.getElementById('mobile-nav-open');
+        const closeBtn = document.getElementById('mobile-nav-close');
+
+        if (!drawer || !panel || !backdrop || !openBtn || !closeBtn) return;
+
+        const mobileBreakpoint = window.matchMedia('(max-width: 1023px)');
+        let isOpen = false;
+
+        const setOpenState = (open: boolean) => {
+            isOpen = open;
+            drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+            openBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+
+            if (open) {
+                drawer.classList.remove('pointer-events-none');
+                panel.classList.remove('translate-x-full');
+                backdrop.classList.remove('opacity-0');
+                document.body.classList.add('overflow-hidden');
+            } else {
+                panel.classList.add('translate-x-full');
+                backdrop.classList.add('opacity-0');
+                drawer.classList.add('pointer-events-none');
+                document.body.classList.remove('overflow-hidden');
+            }
+        };
+
+        const closeDrawer = () => setOpenState(false);
+        const openDrawer = () => setOpenState(true);
+
+        openBtn.addEventListener('click', openDrawer);
+        closeBtn.addEventListener('click', closeDrawer);
+        backdrop.addEventListener('click', closeDrawer);
+
+        panel.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', closeDrawer);
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && isOpen) {
+                closeDrawer();
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            if (!mobileBreakpoint.matches && isOpen) {
+                closeDrawer();
+            }
+        });
+
+        window.addEventListener('pagehide', () => {
+            document.body.classList.remove('overflow-hidden');
         });
     })();
 </script>
