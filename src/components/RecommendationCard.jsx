@@ -337,7 +337,7 @@ export default function RecommendationCard({params, imageMap = {}}) {
                                 const mobileHiddenBenefits = (model.benefits ?? []).slice(2);
 
                                 return (
-                                    <div key={`${model.modelNumber}`} style={{gridRow: `span ${cardRows}`, display: 'grid', gridTemplateRows: 'subgrid'}} className={`w-full max-w-86 mt-12 first:mt-0 md:mt-0 md:mb-12`}>
+                                    <div key={`${model.modelNumber}`} style={{gridRow: `span ${cardRows}`, display: 'grid', gridTemplateRows: 'subgrid'}} className={`w-full max-w-86 mt-12 first:mt-0 md:mt-0`}>
                                         {/* row 1: tier header */}
                                         <div className='bg-primary text-white items-center justify-center flex gap-2 p-4 rounded-t-lg self-stretch'>
                                             {tierLabel === 'Recommended' ? (
@@ -501,7 +501,7 @@ export default function RecommendationCard({params, imageMap = {}}) {
                                 );
                             })}
                         </div>
-                        <p className='px-4 mt-2 mb-8 text-sm text-center text-gray-600 leading-tight'>
+                        <p className='px-4 mt-2 mb-6 text-sm text-center text-gray-600 leading-tight'>
                             <span>Showing options for </span>
                             {snapshotParts.map((part) => (
                                 <span key={part} className='inline-block whitespace-nowrap mr-1'>
@@ -544,7 +544,7 @@ export default function RecommendationCard({params, imageMap = {}}) {
                     </div>
                 </div>
             )}
-                        <p className='p-4 max-w-3xl mx-auto text-sm text-gray-500 pb-2'>*Prices shown apply to standard water heater replacements and are confirmed during the verification step.</p>
+                        <p className='p-4 max-w-3xl mx-auto text-sm text-gray-500'>*Prices shown apply to standard water heater replacements and are confirmed during the verification step.</p>
 
         </div>
     );

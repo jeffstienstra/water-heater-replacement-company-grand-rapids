@@ -500,7 +500,7 @@ const waterHeaterModels = [
             { label: 'Electrical Info', value: '240 Volt AC / Single Phase' }
         ],
         benefits: [
-			'Manufactured Housing Certified–NAECA & HUD',
+			'HUD|NAECA Manufactured Housing Certified',
 			'Silent, flame-free operation',
 			'Built to resist mineral scale damage',
 			'Needs no venting, fits almost anywhere',
