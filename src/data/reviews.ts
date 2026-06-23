@@ -4,6 +4,7 @@ import petersonImg from '../assets/images/reviews/50-gallon-atmospheric-water-he
 import fragaImg from '../assets/images/reviews/40-gallon-direct-vent-mobile-home-water-heater-installation-windmill-estates-holland-mi-fraga.jpg'
 import burkeImg from '../assets/images/reviews/40-gallon-atmospheric-water-heater-installation-rosewood-neighborhood-jenison-mi-burke.jpg'
 import bondImg from '../assets/images/reviews/40-gallon-atmospheric-water-heater-installation-jamestown-mi-bond.jpg'
+import hippeyImg from '../assets/images/reviews/50-gallon-atmospheric-water-heater-installation-cedar-lake-jenison-mi-hippey.jpg'
 export interface OwnerResponse {
 	response_date: string;
 	text: string;
@@ -24,7 +25,6 @@ export interface Review {
 }
 
 export const overallRating = 5.0;
-export const totalReviewCount = 8;
 
 export const reviews: Review[] = [
 	{
@@ -58,6 +58,22 @@ export const reviews: Review[] = [
 		},
         image: petersonImg.src,
         alt: 'A newly installed Rheem 50 gallon atmospheric natural draft water heater in a Jenison basement, matching the review from Mark Peterson.'
+	},
+	{
+		author: 'Tyler Hippey',
+		rating: 5,
+		review_count: 19,
+		date: 'June 2026',
+		highlight: 'Great price · $1,800–2,000',
+		content: 'I highly recommend this service. Professional and friendly, with transparent pricing and quick responsiveness. When my water heater started leaking, I visited the website and quickly received a quote. I then sent a text message and promptly received a response to schedule the service. The water heater was replaced in just over two hours. Fantastic!',
+		phrases: ['Professional and friendly', 'transparent pricing', 'quick responsiveness', 'Fantastic!'],
+		services_rendered: ['Water heater installation'],
+		owner_response: {
+			response_date: 'June 2026',
+			text: `Thanks Tyler, I appreciate your business replacing your water heater in Jenison. Many other customers in the area have opted for the extended warranty kit as well, that’s a smart move for the price considering the hard water our tanks have to deal with in West Michigan. I’m glad the process was easy for you. I’m always trying to improve the experience. Thanks again, take care!Jeff`,
+		},
+		image: hippeyImg.src,
+		alt: 'A newly installed Rheem tankless water heater in a Jenison basement, matching the review from Tyler Hippey.'
 	},
 	{
 		author: 'Maria Fraga',
@@ -152,3 +168,6 @@ export const reviews: Review[] = [
 		alt: 'A newly installed Rheem 40 gallon atmospheric natural draft water heater in a Hudsonville basement, matching the review from Rob Bond.'
 	},
 ];
+
+export const totalReviewCount = reviews?.length || 10;
+
