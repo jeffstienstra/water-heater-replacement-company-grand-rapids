@@ -39,7 +39,7 @@ const IconClipboardCheck = () => (
 const categories = [
 	{
 		id: 'safety',
-		heading: 'Code-Compliant Safety Upgrades (as needed)',
+		heading: 'Code-Compliant Safety Upgrades',
 		icon: <IconWrench />,
 		items: [
 			{ title: 'Code-Compliant Venting', description: 'Metal or PVC venting installed per code for optimal safety and performance ensuring your home is protected' },
@@ -53,7 +53,7 @@ const categories = [
 		icon: <IconShieldDroplet />,
 		items: [
 			{ title: 'Heavy-Duty Drain Pan', description: 'Sits beneath the system to catch leaks and protect your floors' },
-			{ title: 'Drain Line Installation', description: 'Drain line piped from the pan to the nearest available floor drain to contain leaks' },
+			{ title: 'Drain Line Installation', description: 'Drain line piped from the pan to the nearest available floor drain (if available) to contain leaks' },
 			{ title: 'Battery-Powered Water Alarm', description: 'Placed in the drain pan to instantly alert you to any future leaks' },
 		],
 	},
@@ -71,22 +71,33 @@ const categories = [
 
 export default function InstallationInclusions() {
 	const [open, setOpen] = useState(false);
+	const laborWarrantyTitle = 'Our Comprehensive 2-Year Labor Warranty';
+	const laborWarrantyText = "We are so confident in the quality of our work that we stand behind it with a 2-year labor warranty on every installation–that's double the industry standard. If you have any issues related to our installation, we’ll come back and fix it at no cost to you.";
 
 	return (
-		<div className='w-full mx-auto pb-4 px-4'>
+		<div className='w-full mx-auto px-4 pb-8'>
 			{/* Mobile: standalone include button on white background */}
 			<div className='md:hidden'>
 				<button
-					className='btn btn-outline border-primary/30 text-primary bg-white hover:bg-primary/5 mx-auto mt-2'
+					className='w-full btn btn-outline border-primary/30 text-primary bg-white hover:bg-primary/5 mx-auto'
 					onClick={() => setOpen((v) => !v)}
 					aria-expanded={open}
 				>
-					<span className='font-semibold text-sm'>See What's Included With Each Installation</span>
+					<span className='font-semibold text-sm'>See What's Included With Each Install</span>
 					<span className='text-primary font-bold text-lg leading-none'>{open ? '▲' : '▼'}</span>
 				</button>
 				<div className={`grid transition-all duration-300 ease-out ${open ? 'grid-rows-[1fr] opacity-100 mt-3' : 'grid-rows-[0fr] opacity-0'}`}>
 					<div className='overflow-hidden'>
 						<div className='grid grid-cols-1 gap-6 pb-2 pt-1'>
+							<div className='bg-primary/5 border-2 border-primary/50 rounded-lg p-3 text-left shadow-lg'>
+								<div className='flex items-start gap-2'>
+									<span className='text-primary font-bold text-sm shrink-0 mt-0.5'>✓</span>
+									<div>
+										<p className='font-bold text-sm text-gray-900'>{laborWarrantyTitle}</p>
+										<p className='text-xs text-gray-600 mt-0.5'>{laborWarrantyText}</p>
+									</div>
+								</div>
+							</div>
 							{categories.map((cat) => (
 								<div key={cat.id} className='bg-white shadow-lg border border-primary/50 rounded-lg p-2 text-left'>
 									<div className='flex items-center gap-2 text-primary mb-2'>
@@ -112,7 +123,21 @@ export default function InstallationInclusions() {
 			</div>
 
 			{/* Desktop: always visible 3-column grid */}
-            <h2 className='hidden md:grid text-center text-2xl font-bold text-gray-900 mb-4'>What’s Included With Every Installation</h2>
+            <h2 className='hidden md:grid text-center text-2xl font-bold text-gray-900'>What’s Included With Every Installation</h2>
+
+			<div className='hidden md:flex my-6 mx-auto max-w-5xl items-center gap-4 px-6 py-4 bg-primary/5 border border-primary/50 rounded-lg'>
+				<div className='text-primary shrink-0'>
+					<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='36' height='36' fill='none' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'>
+						<path stroke='none' d='M0 0h24v24H0z' fill='none' />
+						<path d='M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3' />
+						<path d='M9 12l2 2l4 -4' />
+					</svg>
+				</div>
+				<div className='text-left'>
+					<p className='font-bold text-sm text-gray-900'>{laborWarrantyTitle}</p>
+					<p className='text-sm text-gray-700 mt-0.5'>{laborWarrantyText}</p>
+				</div>
+			</div>
 
 			<div className='hidden md:grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mt-6'>
 				{categories.map((cat) => (

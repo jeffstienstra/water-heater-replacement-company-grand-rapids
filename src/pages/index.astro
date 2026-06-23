@@ -1,4 +1,5 @@
 ---
+import { getImage } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import TrustStrip from '../components/TrustStrip.astro';
@@ -9,6 +10,7 @@ import Faq from '../components/Faq.astro';
 import HelpButton from '../components/HelpButton.astro';
 import HowItWorks from '../components/HowItWorks.astro';
 import ArrowDown from '../components/icons/ArrowDown.astro';
+import FindWaterHeaterQuiz from '../components/FindWaterHeaterQuiz';
 
 const faqs = [
 	{
@@ -65,12 +67,24 @@ const faqs = [
     },
 ];
 
+const rawImages = import.meta.glob(
+	'/src/assets/images/catalog/**/*.{webp,png,jpg,jpeg}',
+	{ eager: true }
+);
+
+const imageMap: Record<string, string> = {};
+for (const [path, mod] of Object.entries(rawImages)) {
+	const key = path.replace('/src/assets', '');
+	const optimized = await getImage({ src: (mod as any).default, width: 400, format: 'webp' });
+	imageMap[key] = optimized.src;
+}
 ---
 
 <BaseLayout faqs={faqs}>
 	<!-- <HelpButton /> -->
 	<Hero />
 	<TrustStrip />
+	<FindWaterHeaterQuiz client:only imageMap={imageMap} />
 	<HowItWorks />
 	<WhyChooseUs />
 	<SocialProof />

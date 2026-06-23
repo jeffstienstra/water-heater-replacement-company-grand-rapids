@@ -21,11 +21,11 @@ export default function ProductDetailsModal({ model, imageMap = {}, onClose }) {
                     alt={`${model.brand} ${model.label}`}
                 />
 
-                {model.features?.length > 0 && (
+                {model.specs?.length > 0 && (
                     <div className='mb-6'>
                         <h3 className='text-lg font-semibold text-primary mb-3'>Specifications</h3>
                         <ul className='divide-y divide-base-200 border border-base-200 rounded-lg overflow-hidden text-sm'>
-                            {model.features.map((feature, idx) => (
+                            {model.specs.map((feature, idx) => (
                                 <li key={idx} className='flex justify-between px-4 py-2 odd:bg-base-100 even:bg-white'>
                                     <span className='font-medium text-gray-700'>{feature.label}</span>
                                     <span className='text-gray-600 text-right pl-4'>{feature.value}</span>

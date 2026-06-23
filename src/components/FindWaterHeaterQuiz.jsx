@@ -4,10 +4,34 @@ import RecommendationCard from './RecommendationCard.jsx';
 import urlHelper from '../lib/urlHelper.js';
 import questions from '../data/questions.js';
 
+function migrateLegacyParams(search) {
+	const updated = new URLSearchParams(search);
+	let didChange = false;
+
+	if (updated.has('homeType')) {
+		if (!updated.has('isMobileHome')) {
+			updated.set('isMobileHome', updated.get('homeType') === 'mobileHome' ? 'true' : 'false');
+		}
+		updated.delete('homeType');
+		didChange = true;
+	}
+
+	return { updated, didChange };
+}
+
 export default function FindWaterHeaterQuiz({ imageMap = {} }) {
-	const [params, setParams] = useState(() => new URLSearchParams(window.location.search));
+	const [params, setParams] = useState(() => migrateLegacyParams(window.location.search).updated);
 	const [step, setStep] = useState(() => parseInt(params.get('step') || '1', 10));
 	const [loadingResults, setLoadingResults] = useState(true);
+
+	useEffect(() => {
+		const { updated, didChange } = migrateLegacyParams(window.location.search);
+		if (didChange) {
+			window.history.replaceState({}, '', `${window.location.pathname}?${updated.toString()}`);
+			setParams(updated);
+			setStep(parseInt(updated.get('step') || '1', 10));
+		}
+	}, []);
 
 	useEffect(() => {
         // If we arrived with a hash (e.g. #how-it-works) we want to allow client components
@@ -33,7 +57,10 @@ export default function FindWaterHeaterQuiz({ imageMap = {} }) {
 
 	useEffect(() => {
 		const handlePopState = () => {
-			const updated = new URLSearchParams(window.location.search);
+			const { updated, didChange } = migrateLegacyParams(window.location.search);
+			if (didChange) {
+				window.history.replaceState({}, '', `${window.location.pathname}?${updated.toString()}`);
+			}
 			setParams(updated);
 			setStep(parseInt(updated.get('step') || '1', 10));
 		};
@@ -133,6 +160,7 @@ export default function FindWaterHeaterQuiz({ imageMap = {} }) {
 							client:visible
 							question={current.question}
 							options={current.options}
+							optionLayout={current.optionLayout}
 							paramKey={current.paramKey}
 							step={step}
 							subQuestion={current.subQuestion}

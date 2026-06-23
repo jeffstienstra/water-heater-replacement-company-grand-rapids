@@ -19,7 +19,7 @@ const installAddons = [
         cost: [500, 1000],
         applyIf: (answers, model) => {
             return (
-                (answers.typeToRemove === 'tank' || answers.typeToRemove === undefined)
+                (answers.currentSystem === 'tank' || answers.currentSystem === undefined)
                 && answers.fuel === 'gas'
                 && model.type === 'tankless'
             );
@@ -31,7 +31,7 @@ const installAddons = [
         cost: [500, 1000],
         applyIf: (answers, model) => {
             return (
-                (answers.typeToRemove === 'tank' || answers.typeToRemove === undefined)
+                (answers.currentSystem === 'tank' || answers.currentSystem === undefined)
                 && model.type === 'tankless'
             );
         }
@@ -42,7 +42,7 @@ const installAddons = [
         cost: [250, 500],
         applyIf: (answers, model) => {
             return (
-                answers.typeToRemove === 'tankless'
+                answers.currentSystem === 'tankless'
                 && model.type === 'tankless'
             );
         }
@@ -65,7 +65,7 @@ const installAddons = [
 		cost: [250, 600],
 		applyIf: (answers, model) => {
             return (
-                (answers.typeToRemove === 'tank' || answers.typeToRemove === undefined)
+                (answers.currentSystem === 'tank' || answers.currentSystem === undefined)
                 && answers.fuel !== 'electric'
                 && answers.ventType === 'metal'
                 && model.ventType === 'pvc'
@@ -78,11 +78,24 @@ const installAddons = [
 	// 	cost: [150, 300],
 	// 	applyIf: (answers) => {
     //         return (answers.location === 'crawlspace' || answers.location === 'closet')
-    //             && answers.homeType !== 'mobileHome';
+    //             && answers.isMobileHome !== 'true';
     //     }
 	// },
 
     // User-selectable Add-Ons
+    {
+        id: 'tank_anode_rod_upgrade',
+        userSelectable: true,
+        label: 'Tank Warranty Upgrade (Anode Rod Kit)',
+        cost: [195, 195],
+        getDetails: () => [
+            'Adds a 2nd commercial-grade anode rod',
+            'Installed on installation day',
+            'Extends effective tank protection',
+            'Upgrades warranty to 10 years'
+        ],
+        applyIf: (answers, model) => model.type === 'tank' // only for tank models
+    },
     {
         id: 'add_extended_warranty',
         userSelectable: true,
