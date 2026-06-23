@@ -480,7 +480,7 @@ export default function RecommendationCard({params, imageMap = {}}) {
                                             )} */}
                                         </div>
                                         {/* row 6: check availability footer */}
-                                        <div className='p-4 rounded-b-lg bg-primary'>
+                                        <div className='p-4 md:mb-8 rounded-b-lg bg-primary'>
                                             <button
                                                 className='btn btn-secondary shadow-none w-full text-lg font-bold text-white border-none hover:bg-white/30'
                                                 onClick={() => {
@@ -501,7 +501,7 @@ export default function RecommendationCard({params, imageMap = {}}) {
                                 );
                             })}
                         </div>
-                        <p className='px-4 mt-2 mb-6 text-sm text-center text-gray-600 leading-tight'>
+                        <p className='px-4 mb-6 text-sm text-center text-gray-600 leading-tight'>
                             <span>Showing options for </span>
                             {snapshotParts.map((part) => (
                                 <span key={part} className='inline-block whitespace-nowrap mr-1'>

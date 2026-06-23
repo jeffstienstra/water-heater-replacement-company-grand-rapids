@@ -73,6 +73,8 @@ export default function InstallationInclusions() {
 	const [open, setOpen] = useState(false);
 	const laborWarrantyTitle = 'Our Comprehensive 2-Year Labor Warranty';
 	const laborWarrantyText = "We are so confident in the quality of our work that we stand behind it with a 2-year labor warranty on every installation–that's double the industry standard. If you have any issues related to our installation, we’ll come back and fix it at no cost to you.";
+	const productWarrantyTitle = '10+ Year Equipment Protection';
+	const productWarrantyText = 'Every system features premium factory backing. This includes a minimum 10-to-12 year warranty on water heater tanks and a 15-year warranty on tankless heat exchangers, alongside separate long-term coverage for all mechanical components and parts.';
 
 	return (
 		<div className='w-full mx-auto px-4 pb-8'>
@@ -95,6 +97,13 @@ export default function InstallationInclusions() {
 									<div>
 										<p className='font-bold text-sm text-gray-900'>{laborWarrantyTitle}</p>
 										<p className='text-xs text-gray-600 mt-0.5'>{laborWarrantyText}</p>
+									</div>
+								</div>
+								<div className='flex items-start gap-2 mt-2'>
+									<span className='text-primary font-bold text-sm shrink-0 mt-0.5'>✓</span>
+									<div>
+										<p className='font-bold text-sm text-gray-900'>{productWarrantyTitle}</p>
+										<p className='text-xs text-gray-600 mt-0.5'>{productWarrantyText}</p>
 									</div>
 								</div>
 							</div>
@@ -136,6 +145,10 @@ export default function InstallationInclusions() {
 				<div className='text-left'>
 					<p className='font-bold text-sm text-gray-900'>{laborWarrantyTitle}</p>
 					<p className='text-sm text-gray-700 mt-0.5'>{laborWarrantyText}</p>
+				</div>
+				<div className='text-left'>
+					<p className='font-bold text-sm text-gray-900'>{productWarrantyTitle}</p>
+					<p className='text-sm text-gray-700 mt-0.5'>{productWarrantyText}</p>
 				</div>
 			</div>
 
