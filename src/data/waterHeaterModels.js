@@ -545,9 +545,9 @@ const waterHeaterModels = [
         ],
 		benefits: [
 			'Endless hot water, never runs out',
+            'Great for most homes (1-3 showers)',
 			'Wall-mounted design frees up floor space',
 			'Heats water only when you need it',
-			'Built to last twice as long as tanks',
 			'Eliminates annoying cold water gaps',
 		],
     },
@@ -587,10 +587,10 @@ const waterHeaterModels = [
         ],
 		benefits: [
 			'Endless hot water, never run out',
+            'Great for homes with 3+ showers',
 			'Built-in pump provides hot water instantly',
 			'Wall-mounted design frees up floor space',
-			'Heats water only when you need it',
-			'Great choice for larger households',
+			'Link 2+ units together for more capacity',
 		],
     },
 	// Combi-boilers - Gas
