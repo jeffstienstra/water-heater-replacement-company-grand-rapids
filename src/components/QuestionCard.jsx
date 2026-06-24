@@ -6,7 +6,7 @@ import PvcVent from './PvcVent.jsx';
 import QuestionMark from './icons/QuestionMark.jsx';
 import urlHelper from '../lib/urlHelper.js';
 
-export default function QuestionCard({classes, question, options, step, paramKey, params, subQuestion, disclaimer, onSelect, onBack}) {
+export default function QuestionCard({classes, question, options, step, paramKey, params, subQuestion, disclaimer, optionLayout, onSelect, onBack}) {
 	const [hintToShow, setHintToShow] = useState(null);
 	const [selectedValue, setSelectedValue] = useState(null);
 	const answers = Object.fromEntries(params);
@@ -15,6 +15,7 @@ export default function QuestionCard({classes, question, options, step, paramKey
 	const [imageHeight, setImageHeight] = useState(null);
 	const [showImage, setShowImage] = useState(false);
 	const imgRef = useRef(null);
+	const isKeypadLayout = optionLayout === 'keypad-3';
 
 	const images = hintToShow?.hintImages || [];
 	const currentImage = images[currentImageIndex];
@@ -115,6 +116,7 @@ export default function QuestionCard({classes, question, options, step, paramKey
                         params={params}
                         subQuestion={subQuestion.subQuestion}
 						disclaimer={subQuestion.disclaimer}
+						optionLayout={subQuestion.optionLayout}
                     />
                 )}
                 {!showThis && showNested}
@@ -124,21 +126,27 @@ export default function QuestionCard({classes, question, options, step, paramKey
 
 	return (
 		<div className={`w-full bg-base-100 pb-6 rounded-b-lg flex flex-col items-center justify-between relative ${classes}`}>
-			<h2 className="px-1 text-xl font-semibold mb-4 text-center">{`${step ? step + '.' : ''} ${question}`}</h2>
-			<div className="flex flex-col gap-4 w-full max-w-md px-2">
+			<h2 className="px-1 text-xl font-semibold mb-4 text-center">{question}</h2>
+			<div className={`${isKeypadLayout ? 'grid grid-cols-3 gap-3 w-full max-w-sm px-2' : 'flex flex-col gap-4 w-full max-w-md px-2'}`}>
 				{options.map(({label, value, hintImages, hintText, hintTitle}) => {
 					const isSelected = selectedValue === value;
 					const updatedAnswers = {...answers, [paramKey]: value};
 
 					return (
-						<div key={value} className={`flex flex-col gap-2`}>
+						<div key={value} className={`${isKeypadLayout ? 'col-span-1' : 'flex flex-col gap-2'}`}>
 							<div
-								className="flex items-center border-2 border-primary/50 bg-base-100 rounded-lg px-4 py-3 cursor-pointer hover:bg-base-200"
+								className={isKeypadLayout
+									? `relative aspect-square flex items-center justify-center rounded-lg border-2 cursor-pointer select-none transition ${
+										isSelected
+											? 'border-primary bg-primary text-white shadow-sm'
+											: 'border-primary/50 bg-base-100 text-primary hover:bg-primary/5'
+									}`
+									: 'flex items-center border-2 border-primary/50 bg-base-100 rounded-lg px-4 py-3 cursor-pointer hover:bg-base-200'}
 								onClick={() => handleOptionSelect(value)}
 								tabIndex={0}
 								role="radio"
 							>
-								{(hintImages?.length > 0) && (
+								{!isKeypadLayout && (hintImages?.length > 0) && (
 									<button
 										type="button"
 										onClick={e => {
@@ -154,14 +162,14 @@ export default function QuestionCard({classes, question, options, step, paramKey
 									</button>
 								)}
 								<div className="">
-									{value === 'tank' && <Tank showX={paramKey === 'typeToRemove'} />}
-									{value === 'tankless' && <Tankless showX={paramKey === 'typeToRemove'} />}
+									{value === 'tank' && <Tank showX={paramKey === 'currentSystem'} />}
+									{value === 'tankless' && <Tankless showX={paramKey === 'currentSystem'} />}
 									{value === 'metal' && <MetalVent />}
 									{value === 'pvc' && <PvcVent />}
 								</div>
-								<span className="text-sm w-full px-4 font-medium">{label}</span>
+								<span className={isKeypadLayout ? 'text-2xl sm:text-3xl font-bold leading-none' : 'text-sm w-full px-4 font-medium'}>{label}</span>
 								<input
-									className="form-radio text-secondary h-5 min-w-5"
+									className={isKeypadLayout ? 'sr-only' : 'form-radio text-secondary h-5 min-w-5'}
 									type="radio"
 									name={paramKey}
 									value={value}
@@ -169,6 +177,11 @@ export default function QuestionCard({classes, question, options, step, paramKey
 									onChange={() => handleOptionSelect(value)}
 									onClick={e => e.stopPropagation()}
 								/>
+								{isKeypadLayout && isSelected && (
+									<span className="absolute right-2 top-2 text-xs font-bold bg-white/90 text-primary rounded-full px-2 py-0.5">
+										Selected
+									</span>
+								)}
 							</div>
 							{isSelected && renderSubQuestion(subQuestion, updatedAnswers)}
 					</div>

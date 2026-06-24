@@ -6,28 +6,43 @@ import waterHeaterModels from '../data/waterHeaterModels.js';
 import installAddons from '../data/installAddons.js';
 import PriceReceipt from './icons/PriceReceipt.jsx';
 import SubmissionModal from './SubmissionModal.jsx';
-import ProductDetailsModal from './ProductDetailsModal.jsx';
 import PhoneReact from './icons/PhoneReact.jsx';
+import InstallationInclusions from './InstallationInclusions.jsx';
+import { overallRating, totalReviewCount } from '../data/reviews';
 
 export default function RecommendationCard({params, imageMap = {}}) {
-    const [showAnswers, setShowAnswers] = useState(false);
-    const [warrantySelections, setWarrantySelections] = useState({});
+    const [anodeRodSelections, setAnodeRodSelections] = useState({});
+    const [expandedFeatures, setExpandedFeatures] = useState({});
+    const [expandedAnodeInfo, setExpandedAnodeInfo] = useState({});
     const [selectedModel, setSelectedModel] = useState(null);
     const [showConfirmModal, setShowConfirmModal] = useState(false);
-    const [productDetailsModel, setProductDetailsModel] = useState(null);
 
-    const warrantyAddon = installAddons.find((addon) => addon.id === 'add_extended_warranty');
+    // const anodeRodAddon = installAddons.find((addon) => addon.id === 'tank_anode_rod_upgrade');
     const fuelLabelMap = { gas: 'Gas', electric: 'Electric', propane: 'Propane' };
 
-    const toggleWarranty = (modelId) => {
-        setWarrantySelections((prev) => ({
+    const toggleAnodeRod = (modelId) => {
+        setAnodeRodSelections((prev) => ({
+            ...prev,
+            [modelId]: !prev[modelId],
+        }));
+    };
+
+    const toggleExpandedFeatures = (modelId) => {
+        setExpandedFeatures((prev) => ({
+            ...prev,
+            [modelId]: !prev[modelId],
+        }));
+    };
+
+    const toggleAnodeInfo = (modelId) => {
+        setExpandedAnodeInfo((prev) => ({
             ...prev,
             [modelId]: !prev[modelId],
         }));
     };
 
     useEffect(() => {
-        if (showConfirmModal || productDetailsModel) {
+        if (showConfirmModal) {
             document.body.classList.add('overflow-hidden');
         } else {
             document.body.classList.remove('overflow-hidden');
@@ -37,7 +52,7 @@ export default function RecommendationCard({params, imageMap = {}}) {
         return () => {
             document.body.classList.remove('overflow-hidden');
         };
-    }, [showConfirmModal, productDetailsModel]);
+    }, [showConfirmModal]);
 
     if (!params || typeof params.get !== 'function') {
         console.error('Invalid or missing URLSearchParams in RecommendationCard');
@@ -45,14 +60,6 @@ export default function RecommendationCard({params, imageMap = {}}) {
     }
 
     const answers = Object.fromEntries(params.entries());
-
-    function toTitleCase(str) {
-        return str
-            .replace(/([A-Z])/g, ' $1')
-            .replace(/^./, (s) => s.toUpperCase())
-            .replace(/\b\w/g, (c) => c.toUpperCase())
-            .trim();
-    }
 
     function findQuestionByParamKey(questions, key) {
         for (const q of questions) {
@@ -65,33 +72,107 @@ export default function RecommendationCard({params, imageMap = {}}) {
         return null;
     }
 
-    const displayAnswers = Object.entries(answers)
-        .filter(([key]) => key !== 'step')
-        .map(([key, value]) => {
-            const question = findQuestionByParamKey(questions, key);
-            let label = value;
-            if (question) {
-                const option = question.options.find((opt) => opt.value === value);
-                if (option) label = option.label;
-            }
+    const getAnswerLabel = (key) => {
+        const value = answers[key];
+        if (!value) return null;
 
-            const displayKey = key === 'neededCapacity'
-                ? 'Capacity'
-                : toTitleCase(key);
+        const question = findQuestionByParamKey(questions, key);
+        if (!question) return value;
 
-            return {
-                key: displayKey,
-                value: label,
-            };
-        });
+        const option = question.options.find((opt) => opt.value === value);
+        return option?.label ?? value;
+    };
+
+    const getCapacitySnapshot = () => {
+        if (answers.interestedIn !== 'tank') return null;
+
+        const capacityValue = answers.neededCapacity;
+        if (capacityValue === 'standard') return 'Standard Capacity';
+        if (capacityValue === 'large') return 'Large Capacity';
+
+        const capacityLabel = getAnswerLabel('neededCapacity');
+        return capacityLabel ? `Capacity: ${capacityLabel}` : null;
+    };
+
+    const getCompactCardTitle = (model) => {
+        const brand = model.brand;
+
+        if (model.type === 'tank') {
+            const capacity = model.tankCapacity ? `${model.tankCapacity}-Gallon` : null;
+
+            if (model.ventType === 'pvc') return [brand, capacity, 'Power Vent'].filter(Boolean).join(' ');
+            if (model.ventType === 'none') return [brand, capacity, 'Tank'].filter(Boolean).join(' ');
+            if (model.ventType === 'metal') return [brand, capacity, 'Tank'].filter(Boolean).join(' ');
+
+            return [brand, capacity, 'Tank'].filter(Boolean).join(' ');
+        }
+
+        if (model.type === 'tankless') {
+            const flow = model.gpm ? `${model.gpm} GPM` : null;
+            return [brand, flow, 'Tankless'].filter(Boolean).join(' ');
+        }
+
+        return model.label;
+    };
+
+    const getCardSubtitle = (model) => {
+        const parts = [];
+
+        if (model.seriesName) {
+            parts.push(`${model.seriesName}`);
+        }
+
+        if (model.type === 'tank') {
+            const fuelLabel = model.fuel === 'electric' ? 'Electric' : model.fuel === 'gas' ? 'Gas' : 'Propane';
+            const configLabel = model.ventType === 'pvc'
+                ? `Power Vent ${fuelLabel}`
+                : model.ventType === 'none'
+                    ? 'Standard Electric'
+                    : `Atmospheric ${fuelLabel}`;
+
+            parts.push(configLabel);
+        }
+
+        if (model.type === 'tankless') {
+            const fuelLabel = model.fuel === 'electric' ? 'Electric' : model.fuel === 'gas' ? 'Gas' : 'Propane';
+            parts.push(fuelLabel);
+        }
+
+        return parts.join(' • ');
+    };
+
+    const systemSnapshot = getCapacitySnapshot()
+        ?? (getAnswerLabel('ventType') ? `Venting: ${getAnswerLabel('ventType')}` : null)
+        ?? (getAnswerLabel('interestedIn') ? `System: ${getAnswerLabel('interestedIn')}` : null);
+
+    const snapshotParts = [
+        getAnswerLabel('fuel'),
+        getAnswerLabel('showers') ? `${getAnswerLabel('showers')} Shower${getAnswerLabel('showers') === '1' ? '' : 's'}` : null,
+        systemSnapshot,
+    ].filter(Boolean);
+
+    const editSetupParams = new URLSearchParams(params.toString());
+    editSetupParams.set('step', '1');
+
+    const normalizeAnswerValue = (key, rawValue) => {
+        if (key === 'isMobileHome') {
+            return rawValue === 'true';
+        }
+        return rawValue;
+    };
+
+    const doesConditionMatch = (key, validValues) => {
+        const rawAnswer = answers[key];
+
+        if (rawAnswer === undefined) return true;
+
+        const answerValue = normalizeAnswerValue(key, rawAnswer);
+        return Array.isArray(validValues) ? validValues.includes(answerValue) : validValues === answerValue;
+    };
 
     const matchedModels = waterHeaterModels.filter((model) => {
         return Object.entries(model.conditions).every(([key, validValues]) => {
-            // If the condition isn't in user answers, skip it
-            if (!(key in answers)) return true;
-
-            const answerValue = answers[key];
-            return Array.isArray(validValues) ? validValues.includes(answerValue) : validValues === answerValue;
+            return doesConditionMatch(key, validValues);
         });
     });
 
@@ -103,9 +184,7 @@ export default function RecommendationCard({params, imageMap = {}}) {
         (model) =>
             model.id === 'tankless_prestige_recommended' &&
             Object.entries(model.conditions).every(([key, validValues]) => {
-                if (!(key in answers)) return true;
-                const answerValue = answers[key];
-                return Array.isArray(validValues) ? validValues.includes(answerValue) : validValues === answerValue;
+                return doesConditionMatch(key, validValues);
             })
     );
 
@@ -149,10 +228,45 @@ export default function RecommendationCard({params, imageMap = {}}) {
         limitedModels.push(fallbackWithFlag);
     }
 
+    const filledStars = Math.round(overallRating);
+
     return (
-        <div className='w-full mx-auto mt-6'>
-            <div className='-mt-9 sm:-mt-3 bg-primary h-4' />
-            <div className='bg-primary/5 pt-4 rounded-b-sm text-center'>
+        <div className='w-full mx-auto mt-4'>
+            <div className='w-full bg-white'>
+                <div className='max-w-4xl mx-auto px-3 sm:px-6 py-2 sm:py-3 flex items-center justify-center gap-2 sm:gap-5 flex-nowrap whitespace-nowrap overflow-x-auto'>
+                    <div className='flex items-center gap-1 sm:gap-2 shrink-0'>
+                        <span className='text-lg sm:text-2xl font-black text-base-content leading-none'>{overallRating.toFixed(1)}</span>
+                        <span className='text-orange-400 text-sm sm:text-xl tracking-normal sm:tracking-wider leading-none'>{'★'.repeat(filledStars)}</span>
+                        <span className='text-[10px] sm:text-xs text-gray-500'>({totalReviewCount})</span>
+                    </div>
+
+                    <span className='hidden md:inline-flex text-base-300 select-none'>|</span>
+
+                    <div className='flex items-center gap-1 sm:gap-1.5 shrink-0'>
+                        <svg className='w-4 h-4 sm:w-5 sm:h-5 shrink-0' viewBox='0 0 48 48' xmlns='http://www.w3.org/2000/svg'>
+                            <path fill='#EA4335' d='M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.09 17.74 9.5 24 9.5z'/>
+                            <path fill='#4285F4' d='M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z'/>
+                            <path fill='#FBBC05' d='M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z'/>
+                            <path fill='#34A853' d='M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-3.59-13.46-8.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z'/>
+                        </svg>
+                        <span className='text-[11px] hidden md:inline-flex sm:text-xs font-bold text-gray-500 tracking-wide'>Google</span>
+                        <span className='inline-flex sm:hidden text-[11px] bg-green-100 text-green-700 font-semibold px-1.5 py-0.5 rounded-full'>✓</span>
+                        <span className='hidden sm:inline-flex text-xs bg-green-100 text-green-700 font-semibold px-1.5 py-0.5 rounded-full'>✓ Verified</span>
+                    </div>
+
+                    <span className='text-base-300 select-none'>|</span>
+
+                    <div className='flex items-center gap-1 sm:gap-1.5 shrink-0'>
+                        <span className='text-[11px] sm:text-xs font-bold text-[#D32323] tracking-wide'>Yelp</span>
+                        <span className='text-xs bg-green-100 text-green-700 font-semibold px-1.5 py-0.5 rounded-full'>Excellent</span>
+                    </div>
+                </div>
+            </div>
+            {/* <div className='-mt-9 sm:-mt-3 bg-primary h-4' /> */}
+            <div className='bg-white pb-16 text-center'>
+                <h1 className='px-4 pb-4 text-2xl sm:text-4xl font-black tracking-tight text-gray-900'>
+                    Your Personalized Matches
+                </h1>
                 {/* <h2 className='text-2xl font-semibold'>Matched Water Heaters</h2> */}
                 {matchedModels.length === 0 && (
                     <>
@@ -160,28 +274,7 @@ export default function RecommendationCard({params, imageMap = {}}) {
                             <p className="text-lg font-semibold mb-2">{noMatchContent.title}</p>
                             <p className="text-base">{noMatchContent.body}</p>
                         </div>
-                        <div className='mb-6'>
-                            <button className='text-sm text-primary underline focus:outline-none' onClick={() => setShowAnswers((v) => !v)} aria-expanded={showAnswers} aria-controls='user-answers-dropdown'>
-                                {showAnswers ? 'Hide your answers ▲' : 'Review your answers ▼'}
-                            </button>
-                            <div
-                                className={`grid transition-all duration-300 ease-out ${showAnswers ? 'grid-rows-[1fr] opacity-100 mt-2' : 'grid-rows-[0fr] opacity-0'}`}
-                                aria-hidden={!showAnswers}
-                            >
-                                <div className='overflow-hidden'>
-                                    <div id='user-answers-dropdown' className='bg-base-100 border border-base-300 rounded p-3 text-left max-w-sm mx-auto shadow'>
-                                        <ul className='text-sm'>
-                                            {displayAnswers.map(({key, value}) => (
-                                                <li key={key} className='flex justify-between py-1 border-b border-base-200 last:border-b-0'>
-                                                    <span className='font-medium'>{key}</span>
-                                                    <span className='text-gray-700 text-right pl-4'>{value}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <InstallationInclusions />
                         <div className="flex flex-col justify-center gap-2 pb-8">
                             <a href="tel:616-315-0999" className="btn btn-primary text-lg text-white py-2 w-64 max-w-xs mx-auto mb-4">
                                 <PhoneReact />
@@ -194,32 +287,9 @@ export default function RecommendationCard({params, imageMap = {}}) {
                         </div>
                     </>
                 )}
+
                 {matchedModels.length > 0 && (
                     <>
-						<p className="fixed top-[64px] left-0 right-0 z-30 py-1 bg-primary text-white">Pick an option to confirm final price</p>
-
-                        <div className='mb-4 sm:mb-6 px-4'>
-                            <button className='text-sm text-primary underline focus:outline-none' onClick={() => setShowAnswers((v) => !v)} aria-expanded={showAnswers} aria-controls='user-answers-dropdown'>
-                                {showAnswers ? 'Hide your answers ▲' : 'Review your answers ▼'}
-                            </button>
-                            <div
-                                className={`grid transition-all duration-300 ease-out ${showAnswers ? 'grid-rows-[1fr] opacity-100 mt-2' : 'grid-rows-[0fr] opacity-0'}`}
-                                aria-hidden={!showAnswers}
-                            >
-                                <div className='overflow-hidden'>
-                                    <div id='user-answers-dropdown' className='bg-base-100 border border-base-300 rounded p-3 text-left max-w-sm mx-auto shadow'>
-                                        <ul className='text-sm'>
-                                            {displayAnswers.map(({key, value}) => (
-                                                <li key={key} className='flex justify-between py-1 border-b border-base-200 last:border-b-0'>
-                                                    <span className='font-medium'>{key}</span>
-                                                    <span className='text-gray-700 text-right pl-4'>{value}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div className='px-4 grid grid-cols-[repeat(auto-fit,minmax(0,344px))] justify-center gap-x-16 gap-y-0'>
                             {limitedModels.map((model, index) => {
                                 let productLink;
@@ -238,17 +308,36 @@ export default function RecommendationCard({params, imageMap = {}}) {
                                     ? 'Consider an Upgrade?'
                                     : tierLabels[index];
 
-                                const isWarrantySelected = warrantySelections[model.id];
+                                const isWarrantySelected = anodeRodSelections[model.id] || false;
                                 const modelAddOns = installAddons.filter((addOn) => addOn.applyIf(answers, model));
 
                                 let totalLow = model.baseCost;
-                                let totalHigh = model.baseCost + modelAddOns.reduce((sum, a) => sum + (a.cost?.[1] ?? 0), 0);
-                                totalLow += isWarrantySelected ? warrantyAddon?.cost[0] : 0;
-                                totalHigh += isWarrantySelected ? warrantyAddon?.cost[1] : 0;
-                                const priceRange = totalLow === totalHigh ? `$${totalLow.toLocaleString()}` : `$${totalLow.toLocaleString()} - $${totalHigh.toLocaleString()}`;
+                                let totalHigh = model.baseCost;
+
+                                if (model.type === 'tankless') {
+                                    totalHigh = model.baseCost + modelAddOns.reduce((sum, a) => sum + (a.cost?.[1] ?? 0), 0);
+                                }
+
+                                // if (model.type === 'tank' && isWarrantySelected && anodeRodAddon) {
+                                //     totalLow += anodeRodAddon.cost?.[0] ?? 0;
+                                //     totalHigh += anodeRodAddon.cost?.[1] ?? anodeRodAddon.cost?.[0] ?? 0;
+                                // }
+
+                                const priceRange = model.type === 'tank'
+                                    ? `$${totalLow.toLocaleString()}`
+                                    : `$${totalLow.toLocaleString()}`
+                                    // : (totalLow === totalHigh
+                                    //     ? `$${totalLow.toLocaleString()}`
+                                    //     : `$${totalLow.toLocaleString()} - $${totalHigh.toLocaleString()}`);
+
+                                const cardRows = model.type === 'tank' ? 7 : 7;
+                                const isExpanded = !!expandedFeatures[model.id];
+                                const isAnodeInfoExpanded = !!expandedAnodeInfo[model.id];
+                                const mobileVisibleBenefits = (model.benefits ?? []).slice(0, 2);
+                                const mobileHiddenBenefits = (model.benefits ?? []).slice(2);
 
                                 return (
-                                    <div key={`${model.modelNumber}`} style={{gridRow: 'span 7', display: 'grid', gridTemplateRows: 'subgrid'}} className={`w-full max-w-86 mt-12 first:mt-0 md:mt-0 ${selectedModel === model.id && 'outline-primary rounded-lg outline-4'}`}>
+                                    <div key={`${model.modelNumber}`} style={{gridRow: `span ${cardRows}`, display: 'grid', gridTemplateRows: 'subgrid'}} className={`w-full max-w-86 mt-12 first:mt-0 md:mt-0`}>
                                         {/* row 1: tier header */}
                                         <div className='bg-primary text-white items-center justify-center flex gap-2 p-4 rounded-t-lg self-stretch'>
                                             {tierLabel === 'Recommended' ? (
@@ -261,58 +350,137 @@ export default function RecommendationCard({params, imageMap = {}}) {
                                             )}
                                         </div>
                                         {/* row 2: h3 title */}
-                                        <div className={`bg-base-100 border-x-2 px-4 pt-4 ${tierLabel === 'Recommended' ? 'border-primary' : 'border-base-300'}`}>
-                                            <h3 className='text-xl font-bold'>{model.brand}{model.size ? ` ${model.size} Gal` : ''} {model.label}</h3>
+                                        <div className={`bg-base-100 border-x-2 px-4 pt-4 ${tierLabel === 'Recommended' ? 'border-primary/50' : 'border-base-300'}`}>
+                                            <h3 className='text-xl font-black tracking-tight text-slate-900 leading-tight'>
+                                                {getCompactCardTitle(model)}
+                                            </h3>
+                                            <p className='mt-1 text-sm text-gray-500 leading-snug'>
+                                                {getCardSubtitle(model)}
+                                            </p>
                                         </div>
-                                        {/* row 3: subtitle */}
-                                        <div className={`bg-base-100 border-x-2 px-4 ${tierLabel === 'Recommended' ? 'border-primary' : 'border-base-300'}`}>
-                                            <p className='text-sm text-gray-500'>{model.seriesName} · {fuelLabelMap[model.fuel]}</p>
+                                        {/* warranty info */}
+                                        <div className={`flex items-center justify-center border-x-2 space-x-2 p-2 ${tierLabel === 'Recommended' ? 'border-primary/50' : 'border-base-300'}`}>
+                                            <span className="px-2.5 py-1 text-xs font-semibold bg-primary/20 text-primary rounded-md border border-blue-100">
+                                                {model?.type === 'tank' ? `${model?.warranty?.tank + 4 || 10}-Yr Tank` : `${model?.warranty?.heatExchanger || 12}-Yr HX`}
+                                            </span>
+                                            <span className="px-2.5 py-1 text-xs font-semibold bg-primary/20 text-primary rounded-md border border-gray-100">
+                                                {model?.warranty?.parts || 6}-Yr Parts
+                                            </span>
+                                            <span className="px-2.5 py-1 text-xs bg-primary/20 text-primary rounded-md border border-green-100 font-extrabold">
+                                                {model?.warranty?.labor || 2}-Yr Labor
+                                            </span>
                                         </div>
-                                        {/* row 4: image */}
-                                        <div className={`bg-base-100 border-x-2 px-4 ${tierLabel === 'Recommended' ? 'border-primary' : 'border-base-300'}`}>
+
+                                        {/* row 3: image */}
+                                        <div className={`bg-base-100 border-x-2 px-4 ${tierLabel === 'Recommended' ? 'border-primary/50' : 'border-base-300'}`}>
                                             <img className='max-h-48 mx-auto my-6' src={imageMap[model.imagePath] ?? model.imagePath} alt={`${model.brand} ${model.label}`} />
                                         </div>
-                                        {/* row 5: price */}
-                                        <div className={`bg-base-100 border-x-2 px-4 ${tierLabel === 'Recommended' ? 'border-primary' : 'border-base-300'}`}>
-                                            <div className='w-fit mx-auto flex flex-col items-left'>
-                                                <p className='mx-auto text-2xl text-left font-bold text-primary'>100% All-Inclusive Price</p>
-                                                <p className='mx-auto text-3xl text-left sm:text-4xl font-bold text-primary'>{priceRange}</p>
-                                                <p className='mx-auto text-sm text-left'>Includes unit, parts, labor, permit & tax</p>
-                                            </div>
-                                            {isWarrantySelected && (
-                                                <p className='flex justify-center items-center text-sm mt-1'>Includes Extended Warranty
-                                                    <span className='ml-1 text-gray-500'>${warrantyAddon?.cost[0]}</span>
-                                                    <button className='btn btn-primary ml-1 px-1 max-h-[20px] max-w-[20px]' onClick={() => toggleWarranty(model.id)}>X</button>
-                                                </p>
-                                            )}
-                                        </div>
-                                        {/* row 6: benefits + view details (fills remaining) */}
-                                        <div className={`flex flex-col bg-base-100 border-x-2 border-b-2 px-4 shadow-lg ${tierLabel === 'Recommended' ? 'border-primary' : 'border-base-300'}`}>
+                                        {/* row 5: benefits + view details (fills remaining) */}
+                                        <div className={`flex flex-col bg-base-100 border-x-2 border-b-2 shadow-lg ${tierLabel === 'Recommended' ? 'border-primary/50' : 'border-base-300'}`}>
                                             {model.benefits?.length > 0 && (
-                                                <ul className='text-left mt-4 mb-2 space-y-1.5 flex-grow'>
+                                                <div className='md:hidden px-4'>
+                                                    <ul className='text-left space-y-1.5'>
+                                                        {mobileVisibleBenefits.map((benefit, idx) => (
+                                                            <li key={`${model.id}-mobile-visible-${idx}`} className='flex items-start gap-2 text-sm'>
+                                                                <span className='text-primary font-bold mt-0.5 shrink-0'>✓</span>
+                                                                <span>{benefit}</span>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+
+                                                    <div
+                                                        className={`overflow-hidden transition-all duration-300 ease-in-out ${isExpanded ? 'max-h-96 opacity-100 mt-2' : 'max-h-0 opacity-0'}`}
+                                                    >
+                                                        <ul className='text-left space-y-1.5 pb-1'>
+                                                            {mobileHiddenBenefits.map((benefit, idx) => (
+                                                                <li key={`${model.id}-mobile-hidden-${idx}`} className='flex items-start gap-2 text-sm'>
+                                                                    <span className='text-primary font-bold mt-0.5 shrink-0'>✓</span>
+                                                                    <span>{benefit}</span>
+                                                                </li>
+                                                            ))}
+                                                        </ul>
+                                                    </div>
+
+                                                    {mobileHiddenBenefits.length > 0 && (
+                                                        <button
+                                                            type='button'
+                                                            onClick={() => toggleExpandedFeatures(model.id)}
+                                                            className='mt-2 mb-3 inline-flex items-center gap-1 text-sm font-medium text-primary underline'
+                                                        >
+                                                            <span>{isExpanded ? '- Hide Additional Benefits' : '+ View Additional Benefits'}</span>
+                                                            <span className={`text-xs transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}>▾</span>
+                                                        </button>
+                                                    )}
+                                                </div>
+                                            )}
+
+                                            {model.benefits?.length > 0 && (
+                                                <ul className='hidden md:block text-left mt-1 mb-2 space-y-1.5 flex-grow px-4'>
                                                     {model.benefits.map((benefit, idx) => (
                                                         <li key={idx} className='flex items-start gap-2 text-sm'>
                                                             <span className='text-primary font-bold mt-0.5 shrink-0'>✓</span>
                                                             <span>{benefit}</span>
                                                         </li>
                                                     ))}
-                                                    {model.warranty && (
-                                                        <li className='flex items-start gap-2 text-sm'>
-                                                            <span className='text-primary font-bold mt-0.5 shrink-0'>✓</span>
-                                                            <span>{model.warranty.tank}-Year {model.type === 'tankless' ? 'Heat Exchanger' : 'Tank'} Warranty</span>
-                                                        </li>
-                                                    )}
                                                 </ul>
                                             )}
-                                            <button
-                                                onClick={() => setProductDetailsModel(model)}
-                                                className='mt-2 mb-2 text-gray-500 text-sm font-normal btn btn-ghost h-fit'
-                                            >
-                                                View Product Details
-                                            </button>
+
+                                            {/* row 4: price */}
+                                            <div className={`bg-base-100 px-4 ${tierLabel === 'Recommended' ? 'border-primary/50' : 'border-base-300'}`}>
+                                                <div className='w-fit mx-auto flex flex-col items-left'>
+                                                    <p className='mx-auto text-3xl text-left sm:text-4xl font-bold text-primary pb-2'>{priceRange} Installed</p>
+                                                    {/* <p className='mx-auto text-sm text-gray-700 text-center leading-3 pt-2'>Includes All Required Code Upgrades</p>
+                                                    <p className='mx-auto text-sm text-gray-700 text-center pb-2'>Parts • Labor • Tax • Permit • Haul-Away</p> */}
+                                                </div>
+                                            </div>
+                                            {/* row 4.5: anode rod upgrade (tanks only) */}
+                                            {/* {model.type === 'tank' && anodeRodAddon && (
+                                                <div className={`bg-blue-50 border-base-300 px-4 py-3 ${tierLabel === 'Recommended' ? 'border-primary/50' : 'border-base-300'}`}>
+                                                    <div className='flex items-center gap-3'>
+                                                        <label htmlFor={`warranty-addon-${model.id}`} className='inline-flex p-1 -m-1 cursor-pointer'>
+                                                            <input
+                                                                id={`warranty-addon-${model.id}`}
+                                                                type='checkbox'
+                                                                className='checkbox checkbox-primary'
+                                                                checked={isWarrantySelected}
+                                                                onChange={() => toggleAnodeRod(model.id)}
+                                                            />
+                                                        </label>
+                                                        <div
+                                                            className='flex flex-col text-left cursor-pointer'
+                                                            onClick={() => toggleAnodeInfo(model.id)}
+                                                            onKeyDown={(event) => {
+                                                                if (event.key === 'Enter' || event.key === ' ') {
+                                                                    event.preventDefault();
+                                                                    toggleAnodeInfo(model.id);
+                                                                }
+                                                            }}
+                                                            role='button'
+                                                            tabIndex={0}
+                                                            aria-expanded={isAnodeInfoExpanded}
+                                                        >
+                                                            <div className='flex items-center gap-1'>
+                                                                <p className='font-bold text-sm'>Upgrade to a {model.warranty.tank + 4}-Year Tank Warranty for only ${anodeRodAddon.cost[0]}</p>
+                                                                <span className='inline-flex h-8 w-8 items-center justify-center rounded text-gray-600 leading-none'>
+                                                                    <svg
+                                                                        viewBox='0 0 20 20'
+                                                                        aria-hidden='true'
+                                                                        className={`h-6 w-6 origin-center transition-transform duration-300 ${isAnodeInfoExpanded ? 'rotate-180' : ''}`}
+                                                                    >
+                                                                        <path d='M5 7l5 6l5 -6' fill='none' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' />
+                                                                    </svg>
+                                                                </span>
+                                                            </div>
+                                                            <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isAnodeInfoExpanded ? 'max-h-20 mt-1' : 'max-h-0'}`}>
+                                                                <p className='text-xs text-gray-600'>A second anode rod is installed into your water heater for double corrosion protection.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            )} */}
                                         </div>
-                                        {/* row 7: check availability footer */}
-                                        <div className='p-4 rounded-b-lg bg-primary'>
+                                        {/* row 6: check availability footer */}
+                                        <div className='p-4 md:mb-8 rounded-b-lg bg-primary'>
                                             <button
                                                 className='btn btn-secondary shadow-none w-full text-lg font-bold text-white border-none hover:bg-white/30'
                                                 onClick={() => {
@@ -326,16 +494,41 @@ export default function RecommendationCard({params, imageMap = {}}) {
                                                     setShowConfirmModal(true);
                                                 }}
                                             >
-                                                Confirm My Quote
+                                                Secure This Price & Book
                                             </button>
                                         </div>
                                     </div>
                                 );
                             })}
                         </div>
-                        <p className='max-w-3xl mx-auto text-sm text-gray-500 mt-8 p-4 pb-12'>*Prices shown apply to standard water heater replacements and are confirmed during the verification step.</p>
+                        <p className='mt-2 md:mt-0 px-4 mb-6 text-sm text-center text-gray-600 leading-tight'>
+                            <span>Showing options for </span>
+                            {snapshotParts.map((part) => (
+                                <span key={part} className='inline-block whitespace-nowrap mr-1'>
+                                    {' '} • {part}
+                                </span>
+                            ))}{' '}
+                            <a
+                                href={`/instant-quote?${editSetupParams.toString()}`}
+                                className='inline-block whitespace-nowrap text-primary underline font-medium'
+                            >
+                                (Edit Setup)
+                            </a>
+                        </p>
+                        <InstallationInclusions />
                     </>
                 )}
+                {/* Micro-Review Trust Anchor */}
+                <div className='w-full mx-auto px-4 py-8 bg-primary/10'>
+                    <blockquote className='text-center'>
+                        <p className='mx-auto max-w-2xl text-lg italic text-gray-800 mb-4'>
+                            "I got quotes from 6 different companies... Jeff and Water Heater Replacement Company were the most affordable and provided top-notch service."
+                        </p>
+                        <footer className='text-sm text-gray-600 font-medium'>
+                            — Gordon C., Grand Rapids - Verified Google Review (April 2026)
+                        </footer>
+                    </blockquote>
+                </div>
             </div>
             {showConfirmModal && (
                 <div className='fixed inset-0 py-8 md:mt-16 pt-18 md:pt-4 z-30 p-2 flex items-center justify-center bg-black/75 overflow-scroll'>
@@ -351,17 +544,8 @@ export default function RecommendationCard({params, imageMap = {}}) {
                     </div>
                 </div>
             )}
-            {productDetailsModel && (
-                <div className='fixed inset-0 z-30 p-4 flex items-start justify-center bg-black/75 overflow-y-auto'>
-                    <div className='my-auto bg-white rounded-lg shadow-lg w-full max-w-lg min-w-xs mx-auto'>
-                        <ProductDetailsModal
-                            model={productDetailsModel}
-                            imageMap={imageMap}
-                            onClose={() => setProductDetailsModel(null)}
-                        />
-                    </div>
-                </div>
-            )}
+                        <p className='p-4 max-w-3xl mx-auto text-sm text-gray-500'>*Prices shown apply to standard water heater replacements and are confirmed during the verification step.</p>
+
         </div>
     );
 }
