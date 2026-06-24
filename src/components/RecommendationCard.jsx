@@ -501,7 +501,7 @@ export default function RecommendationCard({params, imageMap = {}}) {
                                 );
                             })}
                         </div>
-                        <p className='px-4 mb-6 text-sm text-center text-gray-600 leading-tight'>
+                        <p className='mt-2 md:mt-0 px-4 mb-6 text-sm text-center text-gray-600 leading-tight'>
                             <span>Showing options for </span>
                             {snapshotParts.map((part) => (
                                 <span key={part} className='inline-block whitespace-nowrap mr-1'>

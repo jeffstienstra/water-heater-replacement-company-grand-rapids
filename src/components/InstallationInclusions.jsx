@@ -52,9 +52,9 @@ const categories = [
 		heading: 'Dual-Layer Flood Protection',
 		icon: <IconShieldDroplet />,
 		items: [
-			{ title: 'Heavy-Duty Drain Pan', description: 'Sits beneath the system to catch leaks and protect your floors' },
+			{ title: 'Heavy-Duty Drain Pan', description: 'Sits beneath the system to catch leaks and protect floors' },
 			{ title: 'Drain Line Installation', description: 'Drain line piped from the pan to the nearest available floor drain (if available) to contain leaks' },
-			{ title: 'Battery-Powered Water Alarm', description: 'Placed in the drain pan to instantly alert you to any future leaks' },
+			{ title: 'Battery-Powered Water Alarm', description: 'Placed in the drain pan for instant audible leak alerts' },
 		],
 	},
 	{
@@ -62,7 +62,7 @@ const categories = [
 		heading: 'Performance & Legal Compliance',
 		icon: <IconClipboardCheck />,
 		items: [
-			{ title: 'Unit Startup & Testing', description: 'Full system startup, safety check, and operational optimization' },
+			{ title: 'Unit Startup & Testing', description: 'Full system startup, safety check, and operational testing and optimization' },
 			{ title: 'Local Mechanical Permit', description: 'We handle the paperwork and pay for the state-required mechanical permits' },
 			{ title: 'Municipal Inspection & Approval', description: 'We coordinate the final safety inspection and approval–if a unit fails inspection, we fix it at no additional cost' },
 		],
@@ -72,9 +72,9 @@ const categories = [
 export default function InstallationInclusions() {
 	const [open, setOpen] = useState(false);
 	const laborWarrantyTitle = 'Our Comprehensive 2-Year Labor Warranty';
-	const laborWarrantyText = "We are so confident in the quality of our work that we stand behind it with a 2-year labor warranty on every installation–that's double the industry standard. If you have any issues related to our installation, we’ll come back and fix it at no cost to you.";
-	const productWarrantyTitle = '10+ Year Equipment Protection';
-	const productWarrantyText = 'Every system features premium factory backing. This includes a minimum 10-to-12 year warranty on water heater tanks and a 15-year warranty on tankless heat exchangers, alongside separate long-term coverage for all mechanical components and parts.';
+	const laborWarrantyText = "We are so confident in our craftsmanship that we stand behind it with a 2-year labor warranty on every job–that's double the industry standard. If you have any issues related to our work, we’ll come back and fix it at no cost to you.";
+	const productWarrantyTitle = 'A Decade of Equipment Protection';
+	const productWarrantyText = 'Every system features at least 10+ years of premium factory backing for tanks and heat exchangers. This includes a minimum 10-to-12 year warranty on water heater tanks and a 15-year warranty on tankless heat exchangers, alongside separate long-term coverage for all other mechanical components.';
 
 	return (
 		<div className='w-full mx-auto px-4 pb-8'>
