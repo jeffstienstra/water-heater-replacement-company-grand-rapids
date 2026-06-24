@@ -134,7 +134,7 @@ export default function InstallationInclusions() {
 			{/* Desktop: always visible 3-column grid */}
             <h2 className='hidden md:grid text-center text-2xl font-bold text-gray-900'>What’s Included With Every Installation</h2>
 
-			<div className='hidden md:flex my-6 mx-auto max-w-5xl items-center gap-4 px-6 py-4 bg-primary/5 border border-primary/50 rounded-lg'>
+			<div className='hidden md:flex my-6 mx-auto max-w-5xl items-center gap-4 px-6 py-4 bg-primary/5 border border-primary/50 rounded-lg shadow-lg'>
 				<div className='text-primary shrink-0'>
 					<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='36' height='36' fill='none' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'>
 						<path stroke='none' d='M0 0h24v24H0z' fill='none' />
