@@ -93,6 +93,20 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                     <li><strong>Model:</strong> {selectedModel.label}</li>
                     <li><strong>Fuel Type:</strong> {fuelNameMap[answers.fuel]}</li>
                     <li><strong>Installed Price:</strong> {priceRange}</li>
+                    <li><strong>Unit Warranty:</strong>
+                        {
+                            selectedModel?.warranty?.tank
+                                ? ` ${selectedModel?.warranty?.tank + 4} Yr Tank, ${selectedModel?.warranty?.parts} Yr Parts`
+                                : ` ${selectedModel?.warranty?.heatExchanger} Yr Heat Exchanger, ${selectedModel?.warranty?.parts} Yr Parts`
+                        }
+                    </li>
+                    <li><strong>Labor Warranty:</strong>
+                        {
+                            selectedModel?.warranty?.labor
+                                ? ` ${selectedModel?.warranty?.labor} Yr Labor`
+                                : ' Ask for details'
+                        }
+                    </li>
                 </ul>
 
                 <h3 className="text-xl font-semibold text-primary mb-2">Next Step: Verification</h3>
