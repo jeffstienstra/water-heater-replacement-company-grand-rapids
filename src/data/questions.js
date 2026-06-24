@@ -21,6 +21,14 @@ const questions = [
 		],
 	},
 	{
+		paramKey: 'isMobileHome',
+		question: 'Is this for a mobile home or manufactured home?',
+		options: [
+			{label: 'Yes', value: 'true'},
+			{label: 'No', value: 'false'},
+		],
+	},
+	{
 		paramKey: 'fuel',
 		question: 'What type of fuel does your water heater use?',
 		options: [
@@ -61,14 +69,6 @@ const questions = [
 				return fuel && fuel !== 'electric' && !isMobileHome;
 			},
 		},
-	},
-	{
-		paramKey: 'isMobileHome',
-		question: 'Is this for a mobile home or manufactured home?',
-		options: [
-			{label: 'Yes', value: 'true'},
-			{label: 'No', value: 'false'},
-		],
 	},
 ];
 

@@ -43,7 +43,7 @@ const smsVisitHref = `sms:+${phoneDigits}?&body=${encodeURIComponent(smsVisitBod
             </li>
             <li class="flex items-start gap-3">
                 <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-100 text-xs font-bold text-blue-900">3</span>
-                <span><strong class="text-slate-900">Send both photos</strong> and we will follow up to confirm next steps.</span>
+                <span><strong class="text-slate-900">Attach both photos</strong> to a text message and send them to <a href={smsHref} class="text-primaryunderline font-bold">616-315-0999</a> so we can confirm next steps.</span>
             </li>
         </ol>
 
@@ -74,7 +74,7 @@ const smsVisitHref = `sms:+${phoneDigits}?&body=${encodeURIComponent(smsVisitBod
         <div class="mt-6 flex flex-col gap-3">
             <LinkCtaButton
                 href={smsHref}
-                label={`Text Photos Now (${phoneDisplay})`}
+                label={`Start A Text Message`}
                 variant="primary"
                 className="max-w-full"
                 ariaLabel="Open text message to send verification photos"
