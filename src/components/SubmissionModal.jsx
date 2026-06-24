@@ -92,7 +92,6 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                 <ul className="list-disc list-outside ml-4 mb-4 text-sm">
                     <li><strong>Model:</strong> {selectedModel.label}</li>
                     <li><strong>Fuel Type:</strong> {fuelNameMap[answers.fuel]}</li>
-                    <li><strong>Extended Warranty:</strong> {selectedModel.isWarrantySelected ? 'Yes' : 'No'}</li>
                     <li><strong>Installed Price:</strong> {priceRange}</li>
                 </ul>
 
@@ -212,7 +211,6 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                     {/* Hidden fields for model info and quote URL */}
                     <input type="hidden" name="model" value={selectedModel?.label || ''} />
                     <input type="hidden" name="fuel" value={answers?.fuel || ''} />
-                    <input type="hidden" name="warranty" value={selectedModel?.isWarrantySelected ? 'Yes' : 'No'} />
                     <input type="hidden" name="priceRange" value={priceRange} />
                     <input type="hidden" name="quote_url" value={quoteUrl} />
                     <input type="hidden" name="comments" value={customer.comments} />

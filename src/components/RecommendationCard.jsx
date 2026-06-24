@@ -308,7 +308,6 @@ export default function RecommendationCard({params, imageMap = {}}) {
                                     ? 'Consider an Upgrade?'
                                     : tierLabels[index];
 
-                                const isWarrantySelected = anodeRodSelections[model.id] || false;
                                 const modelAddOns = installAddons.filter((addOn) => addOn.applyIf(answers, model));
 
                                 let totalLow = model.baseCost;
@@ -317,11 +316,6 @@ export default function RecommendationCard({params, imageMap = {}}) {
                                 if (model.type === 'tankless') {
                                     totalHigh = model.baseCost + modelAddOns.reduce((sum, a) => sum + (a.cost?.[1] ?? 0), 0);
                                 }
-
-                                // if (model.type === 'tank' && isWarrantySelected && anodeRodAddon) {
-                                //     totalLow += anodeRodAddon.cost?.[0] ?? 0;
-                                //     totalHigh += anodeRodAddon.cost?.[1] ?? anodeRodAddon.cost?.[0] ?? 0;
-                                // }
 
                                 const priceRange = model.type === 'tank'
                                     ? `$${totalLow.toLocaleString()}`
@@ -338,7 +332,7 @@ export default function RecommendationCard({params, imageMap = {}}) {
 
                                 return (
                                     <div key={`${model.modelNumber}`} style={{gridRow: `span ${cardRows}`, display: 'grid', gridTemplateRows: 'subgrid'}} className={`w-full max-w-86 mt-12 first:mt-0 md:mt-0`}>
-                                        {/* row 1: tier header */}
+                                        {/* tier header */}
                                         <div className='bg-primary text-white items-center justify-center flex gap-2 p-4 rounded-t-lg self-stretch'>
                                             {tierLabel === 'Recommended' ? (
                                                 <div className='flex justify-center items-center '>
@@ -371,11 +365,11 @@ export default function RecommendationCard({params, imageMap = {}}) {
                                             </span>
                                         </div>
 
-                                        {/* row 3: image */}
+                                        {/* image */}
                                         <div className={`bg-base-100 border-x-2 px-4 ${tierLabel === 'Recommended' ? 'border-primary/50' : 'border-base-300'}`}>
                                             <img className='max-h-48 mx-auto my-6' src={imageMap[model.imagePath] ?? model.imagePath} alt={`${model.brand} ${model.label}`} />
                                         </div>
-                                        {/* row 5: benefits + view details (fills remaining) */}
+                                        {/* benefits + view details (fills remaining) */}
                                         <div className={`flex flex-col bg-base-100 border-x-2 border-b-2 shadow-lg ${tierLabel === 'Recommended' ? 'border-primary/50' : 'border-base-300'}`}>
                                             {model.benefits?.length > 0 && (
                                                 <div className='md:hidden px-4'>
@@ -433,53 +427,8 @@ export default function RecommendationCard({params, imageMap = {}}) {
                                                     <p className='mx-auto text-sm text-gray-700 text-center pb-2'>Parts • Labor • Tax • Permit • Haul-Away</p> */}
                                                 </div>
                                             </div>
-                                            {/* row 4.5: anode rod upgrade (tanks only) */}
-                                            {/* {model.type === 'tank' && anodeRodAddon && (
-                                                <div className={`bg-blue-50 border-base-300 px-4 py-3 ${tierLabel === 'Recommended' ? 'border-primary/50' : 'border-base-300'}`}>
-                                                    <div className='flex items-center gap-3'>
-                                                        <label htmlFor={`warranty-addon-${model.id}`} className='inline-flex p-1 -m-1 cursor-pointer'>
-                                                            <input
-                                                                id={`warranty-addon-${model.id}`}
-                                                                type='checkbox'
-                                                                className='checkbox checkbox-primary'
-                                                                checked={isWarrantySelected}
-                                                                onChange={() => toggleAnodeRod(model.id)}
-                                                            />
-                                                        </label>
-                                                        <div
-                                                            className='flex flex-col text-left cursor-pointer'
-                                                            onClick={() => toggleAnodeInfo(model.id)}
-                                                            onKeyDown={(event) => {
-                                                                if (event.key === 'Enter' || event.key === ' ') {
-                                                                    event.preventDefault();
-                                                                    toggleAnodeInfo(model.id);
-                                                                }
-                                                            }}
-                                                            role='button'
-                                                            tabIndex={0}
-                                                            aria-expanded={isAnodeInfoExpanded}
-                                                        >
-                                                            <div className='flex items-center gap-1'>
-                                                                <p className='font-bold text-sm'>Upgrade to a {model.warranty.tank + 4}-Year Tank Warranty for only ${anodeRodAddon.cost[0]}</p>
-                                                                <span className='inline-flex h-8 w-8 items-center justify-center rounded text-gray-600 leading-none'>
-                                                                    <svg
-                                                                        viewBox='0 0 20 20'
-                                                                        aria-hidden='true'
-                                                                        className={`h-6 w-6 origin-center transition-transform duration-300 ${isAnodeInfoExpanded ? 'rotate-180' : ''}`}
-                                                                    >
-                                                                        <path d='M5 7l5 6l5 -6' fill='none' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' />
-                                                                    </svg>
-                                                                </span>
-                                                            </div>
-                                                            <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isAnodeInfoExpanded ? 'max-h-20 mt-1' : 'max-h-0'}`}>
-                                                                <p className='text-xs text-gray-600'>A second anode rod is installed into your water heater for double corrosion protection.</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            )} */}
                                         </div>
-                                        {/* row 6: check availability footer */}
+                                        {/* check availability footer */}
                                         <div className='p-4 md:mb-8 rounded-b-lg bg-primary'>
                                             <button
                                                 className='btn btn-secondary shadow-none w-full text-lg font-bold text-white border-none hover:bg-white/30'
@@ -488,7 +437,6 @@ export default function RecommendationCard({params, imageMap = {}}) {
                                                         ...model,
                                                         totalLow,
                                                         totalHigh,
-                                                        isWarrantySelected,
                                                         modelAddOns
                                                     });
                                                     setShowConfirmModal(true);
