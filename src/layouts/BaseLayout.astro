@@ -17,11 +17,19 @@ const {
 	description: pageDescription,
 	canonical: pageCanonical,
 	faqs,
+	robotsIndex = true,
+	robotsFollow = true,
+	showNavigation = true,
+	showFooter = true,
 } = Astro.props as {
 	title?: string;
 	description?: string;
 	canonical?: string;
 	faqs?: FaqItem[];
+	robotsIndex?: boolean;
+	robotsFollow?: boolean;
+	showNavigation?: boolean;
+	showFooter?: boolean;
 };
 
 const defaultDescription = 'Get an instant online quote for water heater replacement in Grand Rapids. No emails, no appointments, just real prices from us - a locally-owned contractor.';
@@ -31,8 +39,8 @@ const metadata = {
 	title: pageTitle || 'Water Heater Replacement Company of Grand Rapids',
 	description: description,
 	robots: {
-		index: true,
-		follow: true
+		index: robotsIndex,
+		follow: robotsFollow
 	},
 	canonical: pageCanonical || 'https://waterheaterreplacementcompany.com',
 	openGraph: {
@@ -116,9 +124,9 @@ const metadata = {
 	</head>
 
 	<body>
-		<Navigation />
+		<Navigation showNavigation={showNavigation} />
 		<slot />
-		<Footer />
+		{showFooter && <Footer />}
 	</body>
 </html>
 

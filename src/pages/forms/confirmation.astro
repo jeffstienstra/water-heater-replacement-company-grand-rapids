@@ -1,61 +1,22 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-
-const metadata = {
-	title: `Thanks! Your quote request is confirmed.`,
-	description: `We’ll reach out soon to schedule a quick video call and confirm installation details.`,
-	robots: {
-		index: false,
-		follow: false,
-	},
-}
+import PhotoVerificationInstructions from '../../components/PhotoVerificationInstructions.astro';
 ---
 
-<BaseLayout metadata={metadata}>
-	<section class="flex items-center p-8 m16-32">
-		<div class="container max-w-3xl mx-auto text-center">
-			<h1 class="text-3xl md:text-4xl font-bold text-primary mb-6">
-				Got it.
-			</h1>
-
-			<p class="text-lg md:text-xl text-gray-700 mb-6">
-				We’ve received your water heater replacement request.
-			</p>
-
-			<p class="text-lg md:text-xl text-gray-700 mb-6">
-				A technician will be in touch soon to make sure the equipment you selected is the right fit for your home and usage. This is done by a quick <strong>video call</strong>, texting us some photos of your water heater and surrounding area, or a short home visit if needed. There’s no cost for this step.
-			</p>
-
-			<p class="text-lg md:text-xl text-gray-700 mb-6">
-				Once everything is confirmed, we can schedule the install during the call or you can get back to us with a time that works best for you.
-			</p>
-
-			<p class="text-lg md:text-xl text-gray-700 mb-6">
-				If this was submitted during business hours, expect to hear from us within about 1–2 hours. Otherwise, we’ll follow up early the next business day.
-			</p>
-
-			<div class="text-left bg-gray-100 p-6 rounded-lg mb-6 shadow-sm text-gray-800">
-				<h2 class="text-xl font-semibold mb-2 text-primary">
-					What we may look at on the video call:
-				</h2>
-				<ul class="list-disc list-inside space-y-1">
-					<li>Your current water heater and connections</li>
-					<li>Surrounding access space</li>
-					<li>Drain location, if applicable</li>
-					<li>Exterior chimney, if applicable</li>
-				</ul>
-			</div>
-
-			<p class="text-gray-700 text-lg mb-6">
-				No in-home sales visits. No commission-based techs. Just clear planning so install day goes smoothly.
-			</p>
-
-			<p class="text-lg text-gray-600">
-				Questions or want to move things along faster? Call us at
-				<a href="tel:616-315-0999" class="underline text-primary font-medium text-nowrap">
-					616-315-0999
-				</a>
-			</p>
-		</div>
-	</section>
+<BaseLayout
+    title="Thanks! We Received Your Water Heater Request"
+    description="Your information was submitted successfully. The easiest next step is texting two photos for quick verification."
+    canonical="https://waterheaterreplacementcompany.com/forms/confirmation/"
+    robotsIndex={false}
+    robotsFollow={false}
+    showNavigation={false}
+    showFooter={false}
+>
+    <main class="mx-auto max-w-5xl px-4 pb-12 pt-6">
+        <PhotoVerificationInstructions
+            heading="Submission Received. Easiest Next Step: Text 2 Photos"
+            description="Your information was submitted and we received it successfully. The fastest way to move forward is to text us these two photos now."
+            showAlternateOptions={true}
+        />
+    </main>
 </BaseLayout>

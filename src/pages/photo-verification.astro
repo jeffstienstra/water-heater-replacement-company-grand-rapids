@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PhotoVerificationInstructions from '../components/PhotoVerificationInstructions.astro';
+---
+
+<BaseLayout
+    title="Send Water Heater Photos for Verification"
+    description="Quick instructions for sending two water heater photos by text message to verify your quote."
+    canonical="https://waterheaterreplacementcompany.com/photo-verification/"
+    robotsIndex={false}
+    robotsFollow={false}
+    showNavigation={false}
+    showFooter={false}
+>
+    <main class="mx-auto max-w-5xl px-4 pb-12 pt-6">
+        <PhotoVerificationInstructions
+            heading="Send 2 Quick Photos To Verify Your Price"
+            description="Thank you for moving forward. Text us two photos so we can confirm your setup and keep your quote accurate."
+        />
+    </main>
+</BaseLayout>

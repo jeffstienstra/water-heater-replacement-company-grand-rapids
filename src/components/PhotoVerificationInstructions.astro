@@ -1,0 +1,123 @@
+---
+import exampleImgWide from '../assets/images/reviews/50-gallon-atmospheric-water-heater-installation-cedar-lake-jenison-mi-hippey.jpg';
+import exampleImgCloseUp from '../assets/images/wh-data-sticker.jpg';
+import LinkCtaButton from './cta/LinkCtaButton.astro';
+import PhoneCtaButton from './cta/PhoneCtaButton.astro';
+
+const {
+    phoneDisplay = '616-315-0999',
+    phoneDigits = '16163150999',
+    smsBody = 'Hello, here are 2 photos of my water heater for price verification.',
+    showAlternateOptions = false,
+    heading = 'Send 2 Quick Photos To Verify Your Price',
+    description = 'Text us two photos so we can confirm your setup and keep your quote accurate.',
+} = Astro.props;
+
+const smsHref = `sms:+${phoneDigits}?&body=${encodeURIComponent(smsBody)}`;
+const smsVideoBody = 'Hello, can we do a quick video call to verify my water heater setup?';
+const smsVisitBody = 'Hello, I would like to schedule a short site visit to verify my water heater setup.';
+const smsVideoHref = `sms:+${phoneDigits}?&body=${encodeURIComponent(smsVideoBody)}`;
+const smsVisitHref = `sms:+${phoneDigits}?&body=${encodeURIComponent(smsVisitBody)}`;
+---
+
+<section class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm" aria-labelledby="photo-verification-title">
+    <header class="border-b border-slate-200 bg-primary/5 p-6 md:p-8">
+        <p class="mb-2 text-xs font-bold uppercase tracking-wide text-primary">Quote Verification</p>
+        <h1 id="photo-verification-title" class="text-3xl font-black tracking-tight text-slate-900 md:text-4xl">
+            {heading}
+        </h1>
+        <p class="mt-3 max-w-3xl text-slate-700">
+            {description}
+        </p>
+    </header>
+
+    <div class="p-6 md:p-8">
+        <ol class="grid gap-3 text-sm text-slate-700 md:text-base">
+            <li class="flex items-start gap-3">
+                <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-100 text-xs font-bold text-blue-900">1</span>
+                <span><strong class="text-slate-900">Take a wide photo</strong> showing your full water heater and the piping above it.</span>
+            </li>
+            <li class="flex items-start gap-3">
+                <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-100 text-xs font-bold text-blue-900">2</span>
+                <span><strong class="text-slate-900">Take a close-up photo</strong> of the data sticker on the water heater (if available).</span>
+            </li>
+            <li class="flex items-start gap-3">
+                <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-100 text-xs font-bold text-blue-900">3</span>
+                <span><strong class="text-slate-900">Send both photos</strong> and we will follow up to confirm next steps.</span>
+            </li>
+        </ol>
+
+        <section class="mt-5 grid gap-4 md:grid-cols-2" aria-label="Photo examples">
+            <article class="rounded-xl border border-slate-200 bg-slate-50 p-4">
+                <h2 class="text-base font-bold text-slate-900">Example 1: Wide View</h2>
+                <p class="mt-1 text-sm text-slate-600">Capture the entire unit from top to bottom, including venting and connected piping.</p>
+                <img
+                    src={exampleImgWide.src}
+                    alt="Example wide photo of a water heater installation showing the full tank and connected piping"
+                    class="mt-3 w-full rounded-lg border border-slate-200 object-cover object-center"
+                    loading="lazy"
+                />
+            </article>
+
+            <article class="rounded-xl border border-slate-200 bg-slate-50 p-4">
+                <h2 class="text-base font-bold text-slate-900">Example 2: Data Sticker Close-Up</h2>
+                <p class="mt-1 text-sm text-slate-600">Move close so the model and serial details are readable if the sticker is present.</p>
+                <img
+                    src={exampleImgCloseUp.src}
+                    alt="Example close-up photo of a water heater data sticker showing model and serial information"
+                    class="mt-3 w-full rounded-lg border border-slate-200 object-cover object-center"
+                    loading="lazy"
+                />
+            </article>
+        </section>
+
+        <div class="mt-6 flex flex-col gap-3">
+            <LinkCtaButton
+                href={smsHref}
+                label={`Text Photos Now (${phoneDisplay})`}
+                variant="primary"
+                className="max-w-full"
+                ariaLabel="Open text message to send verification photos"
+            />
+            <p class="text-sm text-slate-500">
+                Prefilled text: "{smsBody}"
+            </p>
+        </div>
+
+        {showAlternateOptions && (
+            <div class="mt-8 rounded-xl border border-slate-200 bg-white p-4 md:p-5">
+                <h2 class="text-lg font-bold text-slate-900">Need Another Verification Option?</h2>
+                <p class="mt-1 text-sm text-slate-600">
+                    If photos are difficult, we can do a quick video call or schedule a short site visit.
+                </p>
+
+                <div class="mt-4 grid gap-3 md:grid-cols-2">
+                    <LinkCtaButton
+                        href={smsVideoHref}
+                        label="Request A Video Call"
+                        variant="outline"
+                        className="max-w-full"
+                        ariaLabel="Request a verification video call by text"
+                    />
+                    <LinkCtaButton
+                        href={smsVisitHref}
+                        label="Request A Site Visit"
+                        variant="outline"
+                        className="max-w-full"
+                        ariaLabel="Request a short site visit by text"
+                    />
+                </div>
+
+                <div class="mt-3">
+                    <PhoneCtaButton
+                        href={`tel:${phoneDigits}`}
+                        label={`Call ${phoneDisplay}`}
+                        variant="outline"
+                        className="max-w-full"
+                        ariaLabel={`Call ${phoneDisplay}`}
+                    />
+                </div>
+            </div>
+        )}
+    </div>
+</section>
