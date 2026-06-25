@@ -91,7 +91,14 @@ const smsVisitHref = `sms:+${phoneDigits}?&body=${encodeURIComponent(smsVisitBod
                     If photos are difficult, we can do a quick video call or schedule a short site visit.
                 </p>
 
-                <div class="mt-4 grid gap-3 md:grid-cols-2">
+                <div class="mt-4 grid gap-3">
+                    <PhoneCtaButton
+                        href={`tel:${phoneDigits}`}
+                        label={`Call ${phoneDisplay}`}
+                        variant="outline"
+                        className="max-w-full"
+                        ariaLabel={`Call ${phoneDisplay}`}
+                    />
                     <LinkCtaButton
                         href={smsVideoHref}
                         label="Request A Video Call"
@@ -108,15 +115,6 @@ const smsVisitHref = `sms:+${phoneDigits}?&body=${encodeURIComponent(smsVisitBod
                     />
                 </div>
 
-                <div class="mt-3">
-                    <PhoneCtaButton
-                        href={`tel:${phoneDigits}`}
-                        label={`Call ${phoneDisplay}`}
-                        variant="outline"
-                        className="max-w-full"
-                        ariaLabel={`Call ${phoneDisplay}`}
-                    />
-                </div>
             </div>
         )}
     </div>

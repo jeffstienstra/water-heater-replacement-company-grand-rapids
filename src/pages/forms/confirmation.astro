@@ -1,11 +1,83 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import PhotoVerificationInstructions from '../../components/PhotoVerificationInstructions.astro';
+import exampleWidePhoto from '../../assets/images/reviews/50-gallon-atmospheric-water-heater-installation-cedar-lake-jenison-mi-hippey.jpg';
+import exampleDataPlatePhoto from '../../assets/images/wh-data-sticker.jpg';
+
+export const prerender = false;
+
+const requestUrl = Astro.request?.url ? new URL(Astro.request.url) : Astro.url;
+const rawPhotoCount = requestUrl.searchParams.get('photo_count') || Astro.url.searchParams.get('photo_count');
+const parsedPhotoCount = Number.parseInt(rawPhotoCount || '', 10);
+const photoCount = Number.isInteger(parsedPhotoCount) && parsedPhotoCount >= 0 && parsedPhotoCount <= 2
+    ? parsedPhotoCount
+    : 0;
+
+const confirmationContent: Record<0 | 1 | 2, any> = {
+    0: {
+        headline: 'You are all set. We will take it from here.',
+        body: 'Thank you for submitting your project details! Our team will reach out to you via text or phone to confirm next steps. If you want the fastest possible quote verification, you can text us two quick photos now using the shortcut below.',
+        middleTitle: 'Optional Shortcut: Text Us 2 Quick Photos',
+        middleSubtitle: 'If you would like to help us verify your system layout without an on-site visit, snap a wide shot and a close-up of the data label and send them over.',
+        buttonText: 'Start A Text Message',
+        smsBody: 'Hello, here are 2 photos of my water heater for price verification.',
+        fallbackTitle: 'Prefer a phone call or site visit instead?',
+        fallbackSubtitle: 'No problem at all. Sit back and relax. We will reach out shortly to guide you through the rest of the process. Need immediate assistance? Feel free to call or text us right now.'
+    },
+    1: {
+        headline: 'Perfect. First photo received.',
+        body: 'Thank you for being proactive! We received your photo, which gives us a great head start. You do not need to send anything else. Our team will review the details to see if we can verify your system from this view, and we will follow up with you via text or phone to handle the next steps.',
+        middleTitle: 'What Happens Next',
+        phases: [
+            {
+                title: 'Technical Review',
+                description: 'A local technician will look over your details and the provided photo to determine if your system can be verified remotely or if we need a quick follow-up question.'
+            },
+            {
+                title: 'Quote Verification',
+                description: 'We will reach out via text or phone to discuss your project layout and confirm your final, all-inclusive installation total.'
+            },
+            {
+                title: 'Priority Scheduling',
+                description: 'Once confirmed, your project moves straight to our local calendar for a smooth, fast turnaround.'
+            }
+        ],
+        fallbackTitle: 'Immediate Assistance',
+        fallbackSubtitle: 'Need an emergency replacement immediately or have an urgent question? Feel free to call or text us right now at 616-315-0999.'
+    },
+    2: {
+        headline: 'Perfect. You are on the absolute fastest track.',
+        body: 'Thank you for being proactive! Because you uploaded both critical photos, our team can most likely verify your entire system layout at a glance. Sit back and relax while we review your plumbing specs—we will contact you next via text or phone to finalize everything.',
+        timelineTitle: 'What Happens Next',
+        phases: [
+            {
+                title: 'Visual System Verification',
+                description: 'A local technician will cross-reference your photos to verify your venting, gas lines, and clearances against your selected model.'
+            },
+            {
+                title: 'Guaranteed Price Confirmation',
+                description: 'We will reach out via text or phone to confirm your exact, all-inclusive installation total with zero surprise fees.'
+            },
+            {
+                title: 'Fast-Track Scheduling',
+                description: 'Because we can skip the traditional on-site consultation step entirely, your job moves directly to our priority installation calendar.'
+            }
+        ],
+        fallbackTitle: 'Immediate Assistance',
+        fallbackSubtitle: 'Need an emergency replacement immediately or have an urgent question? Feel free to call or text us right now at 616-315-0999.'
+    }
+} as const;
+
+const content = confirmationContent[photoCount as 0 | 1 | 2];
+const phoneNumber = '616-315-0999';
+const smsHref = `sms:+16163150999?&body=${encodeURIComponent(content.smsBody ?? 'Hello, here are 2 photos of my water heater for price verification.')}`;
+const timelinePhases = photoCount > 0
+    ? (content.phases as Array<{ title: string; description: string }>)
+    : [];
 ---
 
 <BaseLayout
     title="Thanks! We Received Your Water Heater Request"
-    description="Your information was submitted successfully. The easiest next step is texting two photos for quick verification."
+    description="Your information was submitted successfully."
     canonical="https://waterheaterreplacementcompany.com/forms/confirmation/"
     robotsIndex={false}
     robotsFollow={false}
@@ -13,10 +85,122 @@ import PhotoVerificationInstructions from '../../components/PhotoVerificationIns
     showFooter={false}
 >
     <main class="mx-auto max-w-5xl px-4 pb-12 pt-6">
-        <PhotoVerificationInstructions
-            heading="Submission Received. Easiest Next Step: Text 2 Photos"
-            description="Your information was submitted and we received it successfully. The fastest way to move forward is to text us these two photos now."
-            showAlternateOptions={true}
-        />
+        <section class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+            <div class="bg-primary px-6 py-4 text-white md:px-8">
+                <p class="text-xs font-bold uppercase tracking-wide text-white/80">Submission Confirmed</p>
+                <h1 class="mt-1 text-2xl font-black tracking-tight md:text-3xl">{content.headline}</h1>
+            </div>
+
+            <div class="px-6 py-6 md:px-8 md:py-8 space-y-8">
+                <div class="rounded-2xl border border-emerald-200 bg-emerald-50 p-5 md:p-6">
+                    <p id="receipt-message" class="text-sm font-semibold uppercase tracking-wide text-emerald-700">Got it!</p>
+                    <p id="receipt-body" class="mt-2 text-slate-800 leading-relaxed">{content.body}</p>
+                </div>
+
+                <section id="photo-upload-section" class:list={{ hidden: photoCount > 0 }} class="rounded-2xl border border-slate-200 bg-slate-50 p-5 md:p-6">
+                    <p id="section-kicker" class="text-xs font-bold uppercase tracking-wide text-primary">{content.middleTitle}</p>
+                    <h2 id="section-title" class="mt-2 text-xl font-bold text-slate-900">{content.middleTitle}</h2>
+                    <p id="section-subtitle" class="mt-2 text-slate-700 leading-relaxed">{content.middleSubtitle}</p>
+
+                    {photoCount === 0 && (
+                        <div class="mt-5 grid gap-4 md:grid-cols-2">
+                            <article class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+                                <div class="border-b border-slate-200 bg-slate-50 p-3">
+                                    <p class="text-xs font-bold uppercase tracking-wide text-slate-500">Example 1</p>
+                                    <h3 class="text-base font-bold text-slate-900">Wide View</h3>
+                                </div>
+                                <div class="p-3">
+                                    <p class="text-sm text-slate-600">Show the full tank and piping above it.</p>
+                                    <img
+                                        src={exampleWidePhoto.src}
+                                        alt="Example wide photo of a water heater installation showing the full tank and connected piping"
+                                        class="mt-3 w-full rounded-lg object-cover object-center"
+                                        loading="lazy"
+                                    />
+                                </div>
+                            </article>
+
+                            <article class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+                                <div class="border-b border-slate-200 bg-slate-50 p-3">
+                                    <p class="text-xs font-bold uppercase tracking-wide text-slate-500">Example 2</p>
+                                    <h3 class="text-base font-bold text-slate-900">Data Sticker Close-Up</h3>
+                                </div>
+                                <div class="p-3">
+                                    <p class="text-sm text-slate-600">Capture the manufacturer label so we can verify the exact model.</p>
+                                    <img
+                                        src={exampleDataPlatePhoto.src}
+                                        alt="Example close-up photo of a water heater data sticker showing model and serial information"
+                                        class="mt-3 w-full rounded-lg object-cover object-center"
+                                        loading="lazy"
+                                    />
+                                </div>
+                            </article>
+                        </div>
+                    )}
+
+                    {photoCount > 0 && (
+                        <div class="mt-5 max-w-xl">
+                            <div class="rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-900">
+                                One photo is enough. We will take it from here and follow up with the next step.
+                            </div>
+                        </div>
+                    )}
+
+                    <div class="mt-5">
+                        <a
+                            id="primary-cta"
+                            href={smsHref}
+                            class="inline-flex w-full items-center justify-center rounded-xl bg-primary px-5 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-primary/90 sm:w-auto"
+                            aria-label={content.buttonText}
+                        >
+                            {content.buttonText}
+                        </a>
+                        <p id="prefilled-text" class="mt-3 text-sm text-slate-500">Prefilled text: &quot;{content.smsBody}&quot;</p>
+                    </div>
+                </section>
+
+                <section id="timeline-section" class:list={{ hidden: photoCount === 0 }} class="rounded-2xl border border-slate-200 bg-slate-50 p-5 md:p-6">
+                    <p id="timeline-kicker" class="text-xs font-bold uppercase tracking-wide text-primary">{content.timelineTitle}</p>
+                    <h2 id="timeline-title" class="mt-2 text-xl font-bold text-slate-900">{content.timelineTitle}</h2>
+
+                    <div id="timeline-grid" class="mt-5 space-y-4">
+                        {timelinePhases.map((phase, index) => (
+                            <article class="flex gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                                <div class="flex flex-col items-center">
+                                    <div class="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-sm font-bold text-emerald-800">{index + 1}</div>
+                                    {index < timelinePhases.length - 1 && <div class="mt-3 h-full w-px flex-1 bg-slate-200" aria-hidden="true"></div>}
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold uppercase tracking-wide text-slate-500">{index === 0 ? 'Up Next' : index === 1 ? 'Quote Verification' : 'Priority Booking'}</p>
+                                    <h3 class="mt-1 text-base font-bold text-slate-900">{phase.title}</h3>
+                                    <p class="mt-2 text-sm leading-relaxed text-slate-700">{phase.description}</p>
+                                </div>
+                            </article>
+                        ))}
+                    </div>
+                </section>
+
+                <section id="fallback-section" class="rounded-2xl border border-slate-200 bg-white p-5 md:p-6">
+                    <p id="fallback-kicker" class="text-xs font-bold uppercase tracking-wide text-slate-500">{content.fallbackTitle}</p>
+                    <h2 id="fallback-title" class="mt-2 text-xl font-bold text-slate-900">{content.fallbackTitle}</h2>
+                    <p id="fallback-subtitle" class="mt-2 text-slate-700 leading-relaxed">{content.fallbackSubtitle}</p>
+
+                    <div class="mt-5 flex flex-col gap-3 sm:flex-row">
+                        <a
+                            href={`tel:+1${phoneNumber.replace(/\D/g, '')}`}
+                            class="inline-flex items-center justify-center rounded-xl border border-slate-300 px-5 py-3 text-sm font-bold text-slate-900 transition hover:bg-slate-50"
+                        >
+                            Call {phoneNumber}
+                        </a>
+                        <a
+                            href={smsHref}
+                            class="inline-flex items-center justify-center rounded-xl bg-primary px-5 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-primary/90"
+                        >
+                            Text Us
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </section>
     </main>
 </BaseLayout>
