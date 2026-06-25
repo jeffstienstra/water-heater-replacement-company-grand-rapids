@@ -2,13 +2,13 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import exampleWidePhoto from '../../assets/images/reviews/50-gallon-atmospheric-water-heater-installation-cedar-lake-jenison-mi-hippey.jpg';
 import exampleDataPlatePhoto from '../../assets/images/wh-data-sticker.jpg';
-import { getConfirmationVariant, parsePhotoCount } from '../../data/confirmationVariants';
-import confirmationVariantScriptUrl from '../../scripts/confirmation-variant.ts?url';
+import { confirmationVariants, getConfirmationVariant, parsePhotoCount } from '../../data/confirmationVariants';
 
 const requestUrl = Astro.request?.url ? new URL(Astro.request.url) : Astro.url;
 const rawPhotoCount = requestUrl.searchParams.get('photo_count') || Astro.url.searchParams.get('photo_count');
 const photoCount = parsePhotoCount(rawPhotoCount);
 const content = getConfirmationVariant(photoCount);
+const serializedVariants = JSON.stringify(confirmationVariants);
 const phoneNumber = '616-315-0999';
 const smsHref = `sms:+16163150999?&body=${encodeURIComponent(content.smsBody ?? 'Hello, here are 2 photos of my water heater for price verification.')}`;
 const timelinePhases = photoCount > 0
@@ -26,7 +26,7 @@ const timelinePhases = photoCount > 0
     showFooter={false}
 >
     <main class="mx-auto max-w-5xl px-4 pb-12 pt-6">
-        <section class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+        <section id="confirmation-root" data-variants={serializedVariants} class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden">
             <div class="bg-primary px-6 py-4 text-white md:px-8">
                 <p class="text-xs font-bold uppercase tracking-wide text-white/80">Submission Confirmed</p>
                 <h1 id="submission-headline" class="mt-1 text-2xl font-black tracking-tight md:text-3xl">{content.headline}</h1>
@@ -145,5 +145,5 @@ const timelinePhases = photoCount > 0
         </section>
     </main>
 
-    <script type="module" src={confirmationVariantScriptUrl}></script>
+    <script type="module" src="/scripts/confirmation-variant.js"></script>
 </BaseLayout>
