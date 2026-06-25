@@ -2,76 +2,17 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import exampleWidePhoto from '../../assets/images/reviews/50-gallon-atmospheric-water-heater-installation-cedar-lake-jenison-mi-hippey.jpg';
 import exampleDataPlatePhoto from '../../assets/images/wh-data-sticker.jpg';
-
-export const prerender = false;
+import { getConfirmationVariant, parsePhotoCount } from '../../data/confirmationVariants';
+import confirmationVariantScriptUrl from '../../scripts/confirmation-variant.ts?url';
 
 const requestUrl = Astro.request?.url ? new URL(Astro.request.url) : Astro.url;
 const rawPhotoCount = requestUrl.searchParams.get('photo_count') || Astro.url.searchParams.get('photo_count');
-const parsedPhotoCount = Number.parseInt(rawPhotoCount || '', 10);
-const photoCount = Number.isInteger(parsedPhotoCount) && parsedPhotoCount >= 0 && parsedPhotoCount <= 2
-    ? parsedPhotoCount
-    : 0;
-
-const confirmationContent: Record<0 | 1 | 2, any> = {
-    0: {
-        headline: 'You are all set. We will take it from here.',
-        body: 'Thank you for submitting your project details! Our team will reach out to you via text or phone to confirm next steps. If you want the fastest possible quote verification, you can text us two quick photos now using the shortcut below.',
-        middleTitle: 'Optional Shortcut: Text Us 2 Quick Photos',
-        middleSubtitle: 'If you would like to help us verify your system layout without an on-site visit, snap a wide shot and a close-up of the data label and send them over.',
-        buttonText: 'Start A Text Message',
-        smsBody: 'Hello, here are 2 photos of my water heater for price verification.',
-        fallbackTitle: 'Prefer a phone call or site visit instead?',
-        fallbackSubtitle: 'No problem at all. Sit back and relax. We will reach out shortly to guide you through the rest of the process. Need immediate assistance? Feel free to call or text us right now.'
-    },
-    1: {
-        headline: 'Perfect. First photo received.',
-        body: 'Thank you for being proactive! We received your photo, which gives us a great head start. You do not need to send anything else. Our team will review the details to see if we can verify your system from this view, and we will follow up with you via text or phone to handle the next steps.',
-        middleTitle: 'What Happens Next',
-        phases: [
-            {
-                title: 'Technical Review',
-                description: 'A local technician will look over your details and the provided photo to determine if your system can be verified remotely or if we need a quick follow-up question.'
-            },
-            {
-                title: 'Quote Verification',
-                description: 'We will reach out via text or phone to discuss your project layout and confirm your final, all-inclusive installation total.'
-            },
-            {
-                title: 'Priority Scheduling',
-                description: 'Once confirmed, your project moves straight to our local calendar for a smooth, fast turnaround.'
-            }
-        ],
-        fallbackTitle: 'Immediate Assistance',
-        fallbackSubtitle: 'Need an emergency replacement immediately or have an urgent question? Feel free to call or text us right now at 616-315-0999.'
-    },
-    2: {
-        headline: 'Perfect. You are on the absolute fastest track.',
-        body: 'Thank you for being proactive! Because you uploaded both critical photos, our team can most likely verify your entire system layout at a glance. Sit back and relax while we review your plumbing specs—we will contact you next via text or phone to finalize everything.',
-        timelineTitle: 'What Happens Next',
-        phases: [
-            {
-                title: 'Visual System Verification',
-                description: 'A local technician will cross-reference your photos to verify your venting, gas lines, and clearances against your selected model.'
-            },
-            {
-                title: 'Guaranteed Price Confirmation',
-                description: 'We will reach out via text or phone to confirm your exact, all-inclusive installation total with zero surprise fees.'
-            },
-            {
-                title: 'Fast-Track Scheduling',
-                description: 'Because we can skip the traditional on-site consultation step entirely, your job moves directly to our priority installation calendar.'
-            }
-        ],
-        fallbackTitle: 'Immediate Assistance',
-        fallbackSubtitle: 'Need an emergency replacement immediately or have an urgent question? Feel free to call or text us right now at 616-315-0999.'
-    }
-} as const;
-
-const content = confirmationContent[photoCount as 0 | 1 | 2];
+const photoCount = parsePhotoCount(rawPhotoCount);
+const content = getConfirmationVariant(photoCount);
 const phoneNumber = '616-315-0999';
 const smsHref = `sms:+16163150999?&body=${encodeURIComponent(content.smsBody ?? 'Hello, here are 2 photos of my water heater for price verification.')}`;
 const timelinePhases = photoCount > 0
-    ? (content.phases as Array<{ title: string; description: string }>)
+    ? (content.phases ?? [])
     : [];
 ---
 
@@ -88,7 +29,7 @@ const timelinePhases = photoCount > 0
         <section class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden">
             <div class="bg-primary px-6 py-4 text-white md:px-8">
                 <p class="text-xs font-bold uppercase tracking-wide text-white/80">Submission Confirmed</p>
-                <h1 class="mt-1 text-2xl font-black tracking-tight md:text-3xl">{content.headline}</h1>
+                <h1 id="submission-headline" class="mt-1 text-2xl font-black tracking-tight md:text-3xl">{content.headline}</h1>
             </div>
 
             <div class="px-6 py-6 md:px-8 md:py-8 space-y-8">
@@ -203,4 +144,6 @@ const timelinePhases = photoCount > 0
             </div>
         </section>
     </main>
+
+    <script type="module" src={confirmationVariantScriptUrl}></script>
 </BaseLayout>
