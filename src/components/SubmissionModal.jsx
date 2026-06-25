@@ -391,7 +391,6 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                                     type="file"
                                     name="verification_photo_wide"
                                     accept="image/jpeg,image/png,image/webp,image/heic,image/heif"
-                                    capture="environment"
                                     className="sr-only"
                                     onChange={(event) => handlePhotoChange('wide', event)}
                                 />
@@ -416,8 +415,11 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                                 {photoFiles.wide && (
                                     <>
                                         <div className="absolute inset-0 bg-black/20" aria-hidden="true" />
-                                        <span className="absolute bottom-3 left-3 right-3 rounded-lg border border-white/30 bg-white/20 backdrop-blur-md py-2 px-2 text-[11px] font-semibold text-white shadow-sm">
-                                            ✅ Photo Added (Click to Change)
+                                        <span className="absolute bottom-3 left-3 right-3 rounded-lg border border-white/30 bg-white/20 backdrop-blur-md py-2 px-2 text-[11px] font-semibold text-white shadow-sm flex items-center justify-center gap-1.5">
+                                            <svg className="w-15 h-15 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                            </svg>
+                                            <span>Photo Added (Click to Change)</span>
                                         </span>
                                     </>
                                 )}
@@ -436,7 +438,6 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                                     type="file"
                                     name="verification_photo_plate"
                                     accept="image/jpeg,image/png,image/webp,image/heic,image/heif"
-                                    capture="environment"
                                     className="sr-only"
                                     onChange={(event) => handlePhotoChange('plate', event)}
                                 />
@@ -461,8 +462,11 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                                 {photoFiles.plate && (
                                     <>
                                         <div className="absolute inset-0 bg-black/20" aria-hidden="true" />
-                                        <span className="absolute bottom-3 left-3 right-3 rounded-lg border border-white/30 bg-white/20 backdrop-blur-md py-2 px-2 text-[11px] font-semibold text-white shadow-sm">
-                                            ✅ Photo Added (Click to Change)
+                                        <span className="absolute bottom-3 left-3 right-3 rounded-lg border border-white/30 bg-white/20 backdrop-blur-md py-2 px-2 text-[11px] font-semibold text-white shadow-sm flex items-center justify-center gap-1.5">
+                                            <svg className="w-15 h-15 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                            </svg>
+                                            <span>Photo Added (Click to Change)</span>
                                         </span>
                                     </>
                                 )}
