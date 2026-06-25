@@ -3,16 +3,21 @@ import {useEffect, useRef, useState} from 'react';
 
 const MAPBOX_TOKEN = "pk.eyJ1IjoiamVmZnN0aWVuc3RyYSIsImEiOiJjbWNxaTVraXEwZ3lwMm1wdHJrZHZqZGVlIn0.ndeL1OgVgh4LWekrZKLueQ";
 
-export default function MapboxAddressInput({value, onSelect, requireDropdown = true, classes}) {
-    const [inputValue, setInputValue] = useState(value?.place_name || '');
+function getDisplayValue(value) {
+    if (typeof value === 'string') return value;
+    return value?.place_name || '';
+}
+
+export default function MapboxAddressInput({value, onSelect, onInputChange, classes}) {
+    const [inputValue, setInputValue] = useState(getDisplayValue(value));
     const [suggestions, setSuggestions] = useState([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
-    const [selected, setSelected] = useState(!!value);
+    const [selected, setSelected] = useState(typeof value === 'object' && !!value);
     const wrapperRef = useRef(null);
 
     useEffect(() => {
-        setInputValue(value?.place_name || '');
-        setSelected(!!value);
+        setInputValue(getDisplayValue(value));
+        setSelected(typeof value === 'object' && !!value);
     }, [value]);
 
     useEffect(() => {
@@ -26,14 +31,12 @@ export default function MapboxAddressInput({value, onSelect, requireDropdown = t
     }, []);
 
     useEffect(() => {
-        if (!requireDropdown) return;
         if (!selected && inputValue.length > 0) {
-            onSelect(null); // Clear parent value if user types after selecting
+            onSelect(null);
         }
-    }, [inputValue]);
+    }, [inputValue, onSelect, selected]);
 
     useEffect(() => {
-		if (!requireDropdown) return;
 		if (!inputValue || selected) {
 			setShowSuggestions(false);
 			return;
@@ -57,7 +60,7 @@ export default function MapboxAddressInput({value, onSelect, requireDropdown = t
 		};
 		const debounce = setTimeout(fetchSuggestions, 300);
 		return () => clearTimeout(debounce);
-	}, [inputValue, requireDropdown, selected]);
+    }, [inputValue, selected]);
 
     const handleSelect = (feature) => {
         setInputValue(feature.place_name);
@@ -68,16 +71,14 @@ export default function MapboxAddressInput({value, onSelect, requireDropdown = t
     };
 
     const handleInputChange = (e) => {
-        setInputValue(e.target.value);
+        const nextValue = e.target.value;
+        setInputValue(nextValue);
         setSelected(false);
+        onInputChange?.(nextValue);
     };
 
     const handleBlur = () => {
-        // If not selected from dropdown, clear input
-        if (requireDropdown && !selected) {
-            setInputValue('');
-            onSelect(null);
-        }
+        setShowSuggestions(false);
     };
 
     return (

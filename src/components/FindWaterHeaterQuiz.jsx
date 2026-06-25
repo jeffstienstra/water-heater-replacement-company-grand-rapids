@@ -147,11 +147,11 @@ export default function FindWaterHeaterQuiz({ imageMap = {} }) {
 						/>
 					</div>
 					<div key={step} className="animate-fade-it-in shadow p-2 sm:p-6 pt-2">
-						<p className=" text-sm text-gray-500 text-center font-bold mx-auto">Exact Quote: Step {step}</p>
+						<p className=" text-sm text-gray-500 text-center font-bold mx-auto">Exact Quote: Step {step} of {steps}</p>
 						<div className="text-center">
 							{step === 1 && (
 								<div className="my-2">
-								<p className="text-sm text-gray-500">Only takes 30 seconds.</p>
+								<p className="text-sm text-gray-500">Get an installed price in only 30 seconds.</p>
 								<p className="text-sm text-gray-500">No email, phone, or address required.</p>
 								</div>
 							)}
