@@ -218,6 +218,43 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
             ? `$${selectedModel?.totalLow.toLocaleString()}`
             : `$${selectedModel?.totalLow.toLocaleString()} - $${selectedModel?.totalHigh.toLocaleString()}`;
 
+    const quoteDataPayload = JSON.stringify({
+        model: {
+            ...selectedModel,
+            displayName: [selectedModel?.brand, selectedModel?.seriesName, selectedModel?.typeLabel]
+                .filter(Boolean).join(' '),
+            displayCapacity: selectedModel?.type === 'tankless'
+                ? (selectedModel?.gpm ? `${selectedModel.gpm} GPM` : null)
+                : (selectedModel?.size ? `${selectedModel.size} Gallon` : null),
+            displayPrice: priceRange
+        },
+        user: {
+            system: {
+                ...answers,
+                displayFuel: fuelNameMap[answers?.fuel] ?? null,
+                displaySystemFuel: [
+                    answers?.currentSystem === 'tankless' ? 'Tankless'
+                        : answers?.currentSystem === 'tank' ? 'Tank water heater' : null,
+                    fuelNameMap[answers?.fuel] ?? null
+                ].filter(Boolean).join(' \u2014 ') || null,
+                displayShowers: answers?.showers
+                    ? `${answers.showers === 'plus' ? '6+' : answers.showers} shower${answers.showers !== '1' ? 's' : ''} in household`
+                    : null,
+                displayVent: answers?.ventType === 'pvc' ? 'Power vent'
+                    : answers?.ventType === 'metal' ? 'Natural draft' : null,
+                displayMobileHome: answers?.isMobileHome === 'true' ? 'Mobile home installation' : null
+            },
+            contact: {
+                fullName: customer.fullName,
+                address: customer.address,
+                zipCode: customer.zipCode,
+                phone: customer.phone,
+                email: customer.email,
+                comments: customer.comments
+            }
+        }
+    });
+
     return (
         <>
             <div className="bg-primary text-white items-center justify-center flex gap-2 p-4 rounded-t-lg">
@@ -478,9 +515,8 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                         </p>
                     </div>
 
-                    {/* Hidden fields for model info and quote URL */}
-                    <input type="hidden" name="model" value={selectedModel?.label || ''} />
-                    <input type="hidden" name="fuel" value={answers?.fuel || ''} />
+                    {/* Structured quote data: model + user system + contact */}
+                    <input type="hidden" name="quote_data" value={quoteDataPayload} />
                     <input type="hidden" name="priceRange" value={priceRange} />
                     <input type="hidden" name="quote_url" value={quoteUrl} />
                     <input type="hidden" name="comments" value={customer.comments} />
