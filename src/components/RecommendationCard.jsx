@@ -437,7 +437,8 @@ export default function RecommendationCard({params, imageMap = {}}) {
                                                         ...model,
                                                         totalLow,
                                                         totalHigh,
-                                                        modelAddOns
+                                                        modelAddOns,
+                                                        resolvedImageUrl: imageMap[model.imagePath] ?? null
                                                     });
                                                     setShowConfirmModal(true);
                                                 }}
