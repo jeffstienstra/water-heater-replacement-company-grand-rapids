@@ -221,6 +221,9 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
     const quoteDataPayload = JSON.stringify({
         model: {
             ...selectedModel,
+            resolvedImageUrl: selectedModel?.resolvedImageUrl
+                ? new URL(selectedModel.resolvedImageUrl, window.location.origin).href
+                : null,
             displayName: [selectedModel?.brand, selectedModel?.seriesName, selectedModel?.typeLabel]
                 .filter(Boolean).join(' '),
             displayCapacity: selectedModel?.type === 'tankless'
