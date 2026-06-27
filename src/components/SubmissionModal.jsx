@@ -4,8 +4,105 @@ import exampleWidePhoto from '../assets/images/reviews/50-gallon-atmospheric-wat
 import exampleDataPlatePhoto from '../assets/images/wh-data-sticker.jpg';
 
 const SERVICE_ZIP_CODES = [
-    "49503", "49504", "49505", "49506", "49507", "49508", "49509", "49512", "49519", "49525", "49534", "49544", "49546", "49548", "49424", "49423", "49426", "49428", "49464", "49441", "49442", "49444", "49445", "49440", "49010", "49406", "49408", "49450", "49453", "49046", "49058", "49073", "48846", "48881", "48815", "49001", "49004", "49006", "49007", "49008", "49009", "49024"
-];
+	// Jenison / Immediate Area
+	"49428", // Jenison
+	"49418", // Grandville
+	"49426", // Hudsonville
+	"49427", // Jamestown
+	"49401", // Allendale
+	"49435", // Marne
+	"49404", // Coopersville
+	"49315", // Byron Center
+	"49314", // Burnips
+	"49323", // Dorr
+	"49335", // Moline
+	"49348", // Wayland
+	"49403", // Conklin
+	"49430", // Lamont
+
+	// Grand Rapids Metro
+	"49502",
+	"49503",
+	"49504",
+	"49505",
+	"49506",
+	"49507",
+	"49508",
+	"49509",
+	"49512",
+	"49514",
+	"49518",
+	"49519",
+	"49523",
+	"49525",
+	"49534",
+	"49544",
+	"49546",
+	"49548",
+
+	// East / Northeast Kent County
+	"49301", // Ada
+	"49302", // Alto
+	"49306", // Belmont
+	"49316", // Caledonia
+	"49319", // Cedar Springs
+	"49321", // Comstock Park
+	"49331", // Lowell
+	"49341", // Rockford
+	"49345", // Sparta
+
+	// Holland / Zeeland / Lakeshore
+	"49417", // Grand Haven
+	"49423", // Holland
+	"49424", // Holland
+	"49460", // Spring Lake / West Olive
+	"49464", // Zeeland
+
+	// Muskegon Area
+	"49415", // Fruitport
+	"49440",
+	"49441",
+	"49442",
+	"49444",
+	"49445",
+	"49448", // Nunica
+
+	// Allegan County
+	"49010", // Allegan
+	"49419", // Hamilton
+	"49328", // Hopkins
+	"49070", // Martin
+	"49078", // Otsego
+	"49080", // Plainwell
+
+	// Barry County
+	"49046", // Delton
+	"49058", // Hastings
+	"49073", // Middleville
+
+	// Ionia County
+	"48809", // Belding
+	"48815", // Clarksville
+	"48838", // Greenville
+	"48846", // Ionia
+	"48849", // Lake Odessa
+	"48881", // Saranac
+
+	// Borderline 40-45 Minute Service Area
+	"49406", // Douglas
+	"49408", // Fennville
+	"49450", // Pullman
+	"49453", // Glenn
+
+	// Kalamazoo Metro (borderline but within ~45 mins from southern service area)
+	"49001",
+	"49004",
+	"49006",
+	"49007",
+	"49008",
+	"49009",
+	"49024"
+]
 
 export default function SubmissionModal({  quoteData, onClose, onCancel }) {
     const [customer, setCustomer] = useState({
