@@ -369,7 +369,7 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
     return (
         <>
             <div className="bg-primary text-white items-center justify-center flex gap-2 p-4 rounded-t-lg">
-                <h2 className="text-xl font-semibold">Good pick. One quick check and your quote is set.</h2>
+                <h2 className="text-xl font-semibold">Great choice! Let's lock in your price.</h2>
             </div>
 
             <div className="p-6">

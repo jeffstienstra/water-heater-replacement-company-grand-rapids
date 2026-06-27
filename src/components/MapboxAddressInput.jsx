@@ -14,6 +14,7 @@ export default function MapboxAddressInput({value, onSelect, onInputChange, clas
     const [showSuggestions, setShowSuggestions] = useState(false);
     const [selected, setSelected] = useState(typeof value === 'object' && !!value);
     const wrapperRef = useRef(null);
+    const isFocusedRef = useRef(false);
 
     useEffect(() => {
         setInputValue(getDisplayValue(value));
@@ -52,7 +53,9 @@ export default function MapboxAddressInput({value, onSelect, onInputChange, clas
                 const suggestionData = await res.json();
                 const nextSuggestions = Array.isArray(suggestionData?.features) ? suggestionData.features : [];
                 setSuggestions(nextSuggestions);
-                setShowSuggestions(nextSuggestions.length > 0);
+                if (isFocusedRef.current) {
+                    setShowSuggestions(nextSuggestions.length > 0);
+                }
             } catch {
                 setSuggestions([]);
                 setShowSuggestions(false);
@@ -77,7 +80,12 @@ export default function MapboxAddressInput({value, onSelect, onInputChange, clas
         onInputChange?.(nextValue);
     };
 
+    const handleFocus = () => {
+        isFocusedRef.current = true;
+    };
+
     const handleBlur = () => {
+        isFocusedRef.current = false;
         setShowSuggestions(false);
     };
 
@@ -87,6 +95,7 @@ export default function MapboxAddressInput({value, onSelect, onInputChange, clas
                 type="text"
                 value={inputValue}
                 onChange={handleInputChange}
+                onFocus={handleFocus}
                 onBlur={handleBlur}
                 className={`${classes}`}
                 placeholder="Enter your address"
