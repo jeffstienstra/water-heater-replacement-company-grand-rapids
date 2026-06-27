@@ -101,7 +101,18 @@ const SERVICE_ZIP_CODES = [
 	"49007",
 	"49008",
 	"49009",
-	"49024"
+	"49024",
+
+    // Extras just in case...
+    "49409", // Ferrysburg
+    "49455", // Saugatuck
+    "49344", // Shelbyville
+    "49311", // Bradley
+    "49451", // Ravenna
+    "49330", // Kent City
+    "49318", // Casnovia
+    "49343", // Sand Lake
+    "49325", // Freeport
 ]
 
 export default function SubmissionModal({  quoteData, onClose, onCancel }) {
