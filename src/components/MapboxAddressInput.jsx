@@ -13,6 +13,7 @@ export default function MapboxAddressInput({value, onSelect, onInputChange, clas
     const [suggestions, setSuggestions] = useState([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
     const [selected, setSelected] = useState(typeof value === 'object' && !!value);
+    const [activeIndex, setActiveIndex] = useState(-1);
     const wrapperRef = useRef(null);
     const isFocusedRef = useRef(false);
 
@@ -53,6 +54,7 @@ export default function MapboxAddressInput({value, onSelect, onInputChange, clas
                 const suggestionData = await res.json();
                 const nextSuggestions = Array.isArray(suggestionData?.features) ? suggestionData.features : [];
                 setSuggestions(nextSuggestions);
+                setActiveIndex(-1);
                 if (isFocusedRef.current) {
                     setShowSuggestions(nextSuggestions.length > 0);
                 }
@@ -87,6 +89,24 @@ export default function MapboxAddressInput({value, onSelect, onInputChange, clas
     const handleBlur = () => {
         isFocusedRef.current = false;
         setShowSuggestions(false);
+        setActiveIndex(-1);
+    };
+
+    const handleKeyDown = (e) => {
+        if (!showSuggestions || suggestions.length === 0) return;
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            setActiveIndex(prev => Math.min(prev + 1, suggestions.length - 1));
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            setActiveIndex(prev => Math.max(prev - 1, -1));
+        } else if (e.key === 'Enter' && activeIndex >= 0) {
+            e.preventDefault();
+            handleSelect(suggestions[activeIndex]);
+        } else if (e.key === 'Escape') {
+            setShowSuggestions(false);
+            setActiveIndex(-1);
+        }
     };
 
     return (
@@ -97,6 +117,7 @@ export default function MapboxAddressInput({value, onSelect, onInputChange, clas
                 onChange={handleInputChange}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
+                onKeyDown={handleKeyDown}
                 className={`${classes}`}
                 placeholder="Enter your address"
                 autoComplete="off"
@@ -104,11 +125,11 @@ export default function MapboxAddressInput({value, onSelect, onInputChange, clas
             />
             {showSuggestions && suggestions.length > 0 && (
                 <ul className="absolute z-30 mt-1 w-full bg-white border rounded shadow">
-                    {suggestions.map((feature) => (
+                    {suggestions.map((feature, index) => (
                         <li
                             key={feature.id}
                             onMouseDown={() => handleSelect(feature)}
-                            className="p-2 hover:bg-gray-100 cursor-pointer"
+                            className={`p-2 cursor-pointer ${index === activeIndex ? 'bg-gray-100' : 'hover:bg-gray-100'}`}
                         >
                             {feature.place_name}
                         </li>
