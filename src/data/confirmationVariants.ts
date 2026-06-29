@@ -21,7 +21,7 @@ export type ConfirmationPhotoCount = 0 | 1 | 2;
 export const confirmationVariants: Record<ConfirmationPhotoCount, ConfirmationVariant> = {
   0: {
     headline: 'We received your quote — we\'ll be in touch soon.',
-    body: 'Your details have been submitted and our team will reach out via text or phone to go over next steps. Sending two quick photos of your current water heater is completely optional, but it helps us verify your installation details remotely and often speeds up the process.',
+    body: 'Your details have been submitted and our team will reach out to go over next steps. Sending two quick photos of your current water heater is completely optional, but it helps us verify your installation details remotely and often speeds up the process. In the meantime, you should receive an email confirmation and the details of your submission for your records.',
     middleTitle: 'Optional: Speed Things Up With 2 Photos',
     middleSubtitle: 'A wide shot of the full tank and a close-up of the data sticker are all we need to verify your setup without an in-person visit — and get you a confirmed price faster.',
     buttonText: 'Text Us 2 Photos Now',
@@ -33,7 +33,7 @@ export const confirmationVariants: Record<ConfirmationPhotoCount, ConfirmationVa
   },
   1: {
     headline: 'Perfect — that\'s likely all we need.',
-    body: 'We received your photo. That\'s likely everything we need to verify your system compatibility and confirm your installed price without an in-person visit. We\'ll follow up via text or phone shortly to finalize everything.',
+    body: 'We received your photo. That\'s likely everything we need to verify your system compatibility and confirm your installed price without an in-person visit. We\'ll follow up to finalize everything. In the meantime, you should receive an email confirmation and the details of your submission for your records.',
     middleTitle: 'What Happens Next',
     middleSubtitle: '',
     buttonText: 'Text Us',
@@ -58,7 +58,7 @@ export const confirmationVariants: Record<ConfirmationPhotoCount, ConfirmationVa
   },
   2: {
     headline: 'Perfect — that\'s likely all we need.',
-    body: 'We received both photos. That\'s likely everything we need to verify your system compatibility and confirm your installed price without an in-person visit. We\'ll follow up via text or phone shortly to finalize everything.',
+    body: 'We received both photos. That\'s likely everything we need to verify your system compatibility and confirm your installed price without an in-person visit. We\'ll follow up to finalize everything. In the meantime, you should receive an email confirmation and the details of your submission for your records.',
     middleTitle: 'What Happens Next',
     middleSubtitle: '',
     buttonText: 'Open Verification Options',
