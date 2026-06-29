@@ -20,8 +20,8 @@ export type ConfirmationPhotoCount = 0 | 1 | 2;
 
 export const confirmationVariants: Record<ConfirmationPhotoCount, ConfirmationVariant> = {
   0: {
-    headline: 'We received your quote — we\'ll be in touch soon.',
-    body: 'Your details have been submitted and our team will reach out to go over next steps. Sending two quick photos of your current water heater is completely optional, but it helps us verify your installation details remotely and often speeds up the process. In the meantime, you should receive an email confirmation and the details of your submission for your records.',
+    headline: 'We received your request — we\'ll be in touch soon.',
+    body: 'Your details have been submitted and our team will reach out to go over next steps. Sending two quick photos of your current water heater is completely optional, but it will help us verify your installation details remotely and significantly speeds up the process. In the meantime, you should receive an email confirmation and the details of your submission for your records.',
     middleTitle: 'Optional: Speed Things Up With 2 Photos',
     middleSubtitle: 'A wide shot of the full tank and a close-up of the data sticker are all we need to verify your setup without an in-person visit — and get you a confirmed price faster.',
     buttonText: 'Text Us 2 Photos Now',
@@ -33,7 +33,7 @@ export const confirmationVariants: Record<ConfirmationPhotoCount, ConfirmationVa
   },
   1: {
     headline: 'Perfect — that\'s likely all we need.',
-    body: 'We received your photo. That\'s likely everything we need to verify your system compatibility and confirm your installed price without an in-person visit. We\'ll follow up to finalize everything. In the meantime, you should receive an email confirmation and the details of your submission for your records.',
+    body: 'We received your photo. That may be everything we need to verify your system compatibility and confirm your installed price without an in-person visit. We\'ll follow up to finalize everything. In the meantime, you should receive an email confirmation and the details of your submission for your records.',
     middleTitle: 'What Happens Next',
     middleSubtitle: '',
     buttonText: 'Text Us',
@@ -48,7 +48,7 @@ export const confirmationVariants: Record<ConfirmationPhotoCount, ConfirmationVa
       },
       {
         title: 'Price Confirmation',
-        description: 'We\'ll contact you via text or phone to confirm your exact installed price — no surprise fees.'
+        description: 'If everything looks good, we\'ll confirm your exact installed price — no surprise fees.'
       },
       {
         title: 'Schedule Your Installation',
@@ -69,15 +69,15 @@ export const confirmationVariants: Record<ConfirmationPhotoCount, ConfirmationVa
     phases: [
       {
         title: 'We Review Your Photos',
-        description: 'A technician will cross-reference both photos to verify your venting type, connections, and system layout.'
+        description: 'A technician will cross-reference both photos to verify your venting type, connections, and system layout. If we need anything else, we\'ll reach out.'
       },
       {
         title: 'Price Confirmation',
-        description: 'We\'ll reach out via text or phone to confirm your exact installed price — no surprise fees.'
+        description: 'If everything looks good, we\'ll confirm your exact installed price — no surprise fees.'
       },
       {
         title: 'Schedule Your Installation',
-        description: 'Because we can skip the on-site measurement visit, your job moves directly to our installation calendar.'
+        description: 'Because we can skip the on-site verification visit, your job can move directly to our installation calendar if you\'re ready.'
       }
     ]
   }
