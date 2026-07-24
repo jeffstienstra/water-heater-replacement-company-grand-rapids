@@ -202,8 +202,9 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
     useEffect(() => {
         const renderWidget = () => {
             if (!turnstileRef.current || !window.turnstile) return;
+            const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
             widgetIdRef.current = window.turnstile.render(turnstileRef.current, {
-                sitekey: '0x4AAAAAABAVhf0YyzaFtdkJ',
+                sitekey: isLocalhost ? '1x00000000000000000000AA' : '0x4AAAAAABAVhf0YyzaFtdkJ',
                 callback: (token) => setTurnstilePassed(!!token),
                 'expired-callback': () => setTurnstilePassed(false),
                 'error-callback': () => setTurnstilePassed(false),
