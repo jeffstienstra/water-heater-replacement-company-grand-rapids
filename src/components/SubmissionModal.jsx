@@ -139,6 +139,8 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
     const [zipMessage, setZipMessage] = useState('');
 
     const formRef = useRef(null);
+    const turnstileRef = useRef(null);
+    const widgetIdRef = useRef(null);
     const quoteUrl = typeof window !== 'undefined' ? window.location.href : '';
     const smsHref = 'sms:+16163150999?&body=Hello%2C%20here%20are%202%20photos%20of%20my%20water%20heater%20for%20price%20verification.';
 
@@ -196,13 +198,33 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
         }
     }, []);
 
-    // Verify Turnstile has passed
+    // Render Turnstile widget explicitly so it re-renders on every modal open
     useEffect(() => {
-        window.javascriptCallback = function(token) {
-            setTurnstilePassed(!!token);
+        const renderWidget = () => {
+            if (!turnstileRef.current || !window.turnstile) return;
+            widgetIdRef.current = window.turnstile.render(turnstileRef.current, {
+                sitekey: '0x4AAAAAABAVhf0YyzaFtdkJ',
+                callback: (token) => setTurnstilePassed(!!token),
+                'expired-callback': () => setTurnstilePassed(false),
+                'error-callback': () => setTurnstilePassed(false),
+            });
         };
+
+        if (window.turnstile) {
+            renderWidget();
+        } else {
+            const existing = document.querySelector('script[src*="turnstile"]');
+            if (existing) {
+                existing.addEventListener('load', renderWidget);
+                return () => existing.removeEventListener('load', renderWidget);
+            }
+        }
+
         return () => {
-            window.javascriptCallback = undefined;
+            if (widgetIdRef.current != null && window.turnstile) {
+                window.turnstile.remove(widgetIdRef.current);
+                widgetIdRef.current = null;
+            }
         };
     }, []);
 
@@ -641,10 +663,8 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
 
                     {/* Cloudflare Turnstile widget for spam protection */}
                     <div
-                        className="cf-turnstile mt-6 scale-[70%] xs:scale-82 sm:scale-100 origin-top-left"
-                        data-sitekey="0x4AAAAAABAVhf0YyzaFtdkJ"
-                        data-callback="javascriptCallback"
-                        data-auto-render="false"
+                        ref={turnstileRef}
+                        className="mt-6 scale-[70%] xs:scale-82 sm:scale-100 origin-top-left"
                     />
 
                     <div className="flex flex-wrap gap-4 justify-end -mt-3">

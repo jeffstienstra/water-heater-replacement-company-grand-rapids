@@ -443,7 +443,7 @@ export default function RecommendationCard({params, imageMap = {}}) {
                                                     setShowConfirmModal(true);
                                                 }}
                                             >
-                                                Secure This Price & Book
+                                                Verify This Price For My Home
                                             </button>
                                         </div>
                                     </div>
