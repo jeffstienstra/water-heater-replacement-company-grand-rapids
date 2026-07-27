@@ -22,6 +22,3 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
-
-#vs-code workspace
-.code-workspace
