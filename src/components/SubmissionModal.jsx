@@ -137,6 +137,7 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
     const [turnstilePassed, setTurnstilePassed] = useState(false);
     const [zipValid, setZipValid] = useState(true);
     const [zipMessage, setZipMessage] = useState('');
+    const [photoErrors, setPhotoErrors] = useState({ wide: null, plate: null });
 
     const formRef = useRef(null);
     const turnstileRef = useRef(null);
@@ -271,29 +272,9 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
             return false;
         }
 
-        const invalidUploads = [];
-        const selectedFiles = [
-            { label: 'wide photo', file: photoFiles.wide },
-            { label: 'data plate photo', file: photoFiles.plate }
-        ];
-
-        for (const { label, file } of selectedFiles) {
-            if (!file) {
-                continue;
-            }
-
-            if (!ALLOWED_PHOTO_TYPES.includes(file.type)) {
-                invalidUploads.push(`${label} must be a JPG, PNG, WEBP, or HEIC image.`);
-            }
-
-            if (file.size > MAX_PHOTO_MB * 1024 * 1024) {
-                invalidUploads.push(`${label} must be ${MAX_PHOTO_MB}MB or smaller.`);
-            }
-        }
-
-        if (invalidUploads.length > 0) {
+        if (photoErrors.wide || photoErrors.plate) {
             e.preventDefault();
-            setError(invalidUploads[0]);
+            setError('Please fix the photo errors before submitting.');
             return false;
         }
 
@@ -304,8 +285,27 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
 
     const handlePhotoChange = (type, event) => {
         const file = event.target.files?.[0] || null;
+        let fileError = null;
+        if (file) {
+            if (!ALLOWED_PHOTO_TYPES.includes(file.type)) {
+                fileError = 'Must be a JPG, PNG, WEBP, or HEIC image.';
+            } else if (file.size > MAX_PHOTO_MB * 1024 * 1024) {
+                fileError = `Must be ${MAX_PHOTO_MB}MB or smaller.`;
+            }
+        }
+        setPhotoErrors((prev) => ({ ...prev, [type]: fileError }));
         setPhotoFiles((prev) => ({ ...prev, [type]: file }));
         setError(null);
+    };
+
+    const handleRemovePhoto = (type, e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const photoLabel = type === 'wide' ? 'Wide Shot' : 'Data Plate';
+        if (window.confirm(`Remove the ${photoLabel} photo?`)) {
+            setPhotoFiles((prev) => ({ ...prev, [type]: null }));
+            setPhotoErrors((prev) => ({ ...prev, [type]: null }));
+        }
     };
 
     const handleAddressSelect = (addressFeature) => {
@@ -548,7 +548,7 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
 
                         <div className="grid grid-cols-2 gap-4">
                             <label
-                                className={`relative overflow-hidden flex flex-col items-center justify-center border-2 border-dashed rounded-xl p-4 text-center cursor-pointer transition-all group min-h-[170px] ${photoFiles.wide ? 'border-emerald-500 bg-slate-900' : 'border-slate-300 bg-white hover:bg-slate-100 hover:border-blue-500'}`}
+                                className={`relative overflow-hidden flex flex-col items-center justify-center border-2 border-dashed rounded-xl p-4 text-center cursor-pointer transition-all group min-h-[170px] ${photoFiles.wide ? (photoErrors.wide ? 'border-red-500 bg-slate-900' : 'border-emerald-500 bg-slate-900') : 'border-slate-300 bg-white hover:bg-slate-100 hover:border-blue-500'}`}
                                 style={photoFiles.wide && widePreviewUrl ? {
                                     backgroundImage: `url(${widePreviewUrl})`,
                                     backgroundSize: 'cover',
@@ -584,6 +584,19 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                                 {photoFiles.wide && (
                                     <>
                                         <div className="absolute inset-0 bg-black/20" aria-hidden="true" />
+                                        <button
+                                            type="button"
+                                            className="absolute top-2 right-2 z-10 w-6 h-6 rounded-full bg-black/50 text-white text-xs flex items-center justify-center hover:bg-red-500 transition-colors"
+                                            onClick={(e) => handleRemovePhoto('wide', e)}
+                                            aria-label="Remove wide shot photo"
+                                        >
+                                            ✕
+                                        </button>
+                                        {photoErrors.wide && (
+                                            <span className="absolute top-2 left-2 right-10 rounded bg-red-500/90 text-white text-[10px] font-semibold px-2 py-1 leading-tight z-10">
+                                                {photoErrors.wide}
+                                            </span>
+                                        )}
                                         <span className="absolute bottom-3 left-3 right-3 rounded-lg border border-white/30 bg-white/20 backdrop-blur-md py-2 px-2 text-[11px] font-semibold text-white shadow-sm flex items-center justify-center gap-1.5">
                                             <svg className="w-15 h-15 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -595,7 +608,7 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                             </label>
 
                             <label
-                                className={`relative overflow-hidden flex flex-col items-center justify-center border-2 border-dashed rounded-xl p-4 text-center cursor-pointer transition-all group min-h-[170px] ${photoFiles.plate ? 'border-emerald-500 bg-slate-900' : 'border-slate-300 bg-white hover:bg-slate-100 hover:border-blue-500'}`}
+                                className={`relative overflow-hidden flex flex-col items-center justify-center border-2 border-dashed rounded-xl p-4 text-center cursor-pointer transition-all group min-h-[170px] ${photoFiles.plate ? (photoErrors.plate ? 'border-red-500 bg-slate-900' : 'border-emerald-500 bg-slate-900') : 'border-slate-300 bg-white hover:bg-slate-100 hover:border-blue-500'}`}
                                 style={photoFiles.plate && platePreviewUrl ? {
                                     backgroundImage: `url(${platePreviewUrl})`,
                                     backgroundSize: 'cover',
@@ -631,6 +644,19 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                                 {photoFiles.plate && (
                                     <>
                                         <div className="absolute inset-0 bg-black/20" aria-hidden="true" />
+                                        <button
+                                            type="button"
+                                            className="absolute top-2 right-2 z-10 w-6 h-6 rounded-full bg-black/50 text-white text-xs flex items-center justify-center hover:bg-red-500 transition-colors"
+                                            onClick={(e) => handleRemovePhoto('plate', e)}
+                                            aria-label="Remove data plate photo"
+                                        >
+                                            ✕
+                                        </button>
+                                        {photoErrors.plate && (
+                                            <span className="absolute top-2 left-2 right-10 rounded bg-red-500/90 text-white text-[10px] font-semibold px-2 py-1 leading-tight z-10">
+                                                {photoErrors.plate}
+                                            </span>
+                                        )}
                                         <span className="absolute bottom-3 left-3 right-3 rounded-lg border border-white/30 bg-white/20 backdrop-blur-md py-2 px-2 text-[11px] font-semibold text-white shadow-sm flex items-center justify-center gap-1.5">
                                             <svg className="w-15 h-15 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -670,12 +696,18 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                     />
 
                     <div className="flex flex-wrap gap-4 justify-end -mt-3">
-                        <button className="btn btn-outline" type="button" onClick={onCancel}>Cancel</button>
+                        <button className="btn btn-outline" type="button" onClick={onCancel} disabled={submitting}>Cancel</button>
                         <button
-                            className="btn btn-primary"
+                            className="btn btn-primary inline-flex items-center gap-2"
                             type="submit"
                             disabled={!isFormValid || !turnstilePassed || submitting || !zipValid}
                         >
+                            {submitting && (
+                                <svg className="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                                </svg>
+                            )}
                             {submitting ? 'Submitting...' : 'Submit Quote'}
                         </button>
                     </div>
