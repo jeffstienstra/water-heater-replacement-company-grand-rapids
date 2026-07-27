@@ -428,8 +428,6 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                     No photos? No problem. Submit this form without them and we'll follow up by text to finish up.
                 </p>
 
-                {error && <p className="text-red-500 mb-2">{error}</p>}
-
                 <form
                     className="bg-white space-y-6 mt-6"
                     ref={formRef}
@@ -661,6 +659,9 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                         name="photo_status"
                         value={photoCount === 2 ? 'both_uploaded' : photoCount === 1 ? 'one_uploaded' : 'none_uploaded'}
                     />
+
+                    {/* Show any photo upload errors */}
+                    {error && <p className="text-red-500 mb-2">{error}</p>}
 
                     {/* Cloudflare Turnstile widget for spam protection */}
                     <div
