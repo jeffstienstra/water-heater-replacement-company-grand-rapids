@@ -349,9 +349,19 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
             ? `$${selectedModel?.totalLow.toLocaleString()}`
             : `$${selectedModel?.totalLow.toLocaleString()} - $${selectedModel?.totalHigh.toLocaleString()}`;
 
+    const selectedModelType = selectedModel?.type === 'tankless' ? 'tankless'
+        : selectedModel?.type === 'tank' ? 'tank'
+            : '';
+    const selectedSystemLabel = selectedModelType === 'tankless'
+        ? 'Tankless'
+        : selectedModelType === 'tank'
+            ? 'Tank water heater'
+            : null;
+
     const quoteDataPayload = JSON.stringify({
         model: {
             ...selectedModel,
+            unitType: selectedModelType || null,
             resolvedImageUrl: selectedModel?.resolvedImageUrl
                 ? new URL(selectedModel.resolvedImageUrl, window.location.origin).href
                 : null,
@@ -367,8 +377,7 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                 ...answers,
                 displayFuel: fuelNameMap[answers?.fuel] ?? null,
                 displaySystemFuel: [
-                    answers?.currentSystem === 'tankless' ? 'Tankless'
-                        : answers?.currentSystem === 'tank' ? 'Tank water heater' : null,
+                    selectedSystemLabel,
                     fuelNameMap[answers?.fuel] ?? null
                 ].filter(Boolean).join(' \u2014 ') || null,
                 displayShowers: answers?.showers
@@ -675,6 +684,7 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
 
                     {/* Structured quote data: model + user system + contact */}
                     <input type="hidden" name="quote_data" value={quoteDataPayload} />
+                    <input type="hidden" name="selected_model_type" value={selectedModelType} />
                     <input type="hidden" name="priceRange" value={priceRange} />
                     <input type="hidden" name="quote_url" value={quoteUrl} />
                     <input type="hidden" name="comments" value={customer.comments} />
