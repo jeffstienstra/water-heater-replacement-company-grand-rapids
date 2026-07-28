@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import MapboxAddressInput from './MapboxAddressInput';
 import exampleWidePhoto from '../assets/images/reviews/50-gallon-atmospheric-water-heater-installation-cedar-lake-jenison-mi-hippey.jpg';
 import exampleDataPlatePhoto from '../assets/images/wh-data-sticker.jpg';
+import { runtimeConfig } from '../config/runtime';
 
 const SERVICE_ZIP_CODES = [
 	// Jenison / Immediate Area
@@ -196,6 +197,12 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
             script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
             script.async = true;
             document.head.appendChild(script);
+        }
+    }, []);
+
+    useEffect(() => {
+        if (import.meta.env.DEV) {
+            console.info('[SubmissionModal] contact form target:', runtimeConfig.contactFormHandlerUrl, `(${runtimeConfig.envLabel})`);
         }
     }, []);
 
@@ -440,8 +447,7 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                 <form
                     className="bg-white space-y-6 mt-6"
                     ref={formRef}
-                    action="https://contact-form-handler.jeffstienstra.workers.dev/"
-                    // action="http://localhost:8787"
+                    action={runtimeConfig.contactFormHandlerUrl}
                     method="POST"
                     encType="multipart/form-data"
                     onSubmit={handleFormSubmit}

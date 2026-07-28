@@ -4,6 +4,8 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
+    "dev:local-target": "PUBLIC_CONTACT_FORM_HANDLER_URL=http://localhost:8787 astro dev",
+    "dev:prod-target": "PUBLIC_CONTACT_FORM_HANDLER_URL=https://contact-form-handler.jeffstienstra.workers.dev/ astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
