@@ -445,6 +445,7 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                 </p>
 
                 <form
+                    id="water-heater-submission-form"
                     className="bg-white space-y-6 mt-6"
                     ref={formRef}
                     action={runtimeConfig.contactFormHandlerUrl}
@@ -689,6 +690,7 @@ export default function SubmissionModal({  quoteData, onClose, onCancel }) {
                     </div>
 
                     {/* Structured quote data: model + user system + contact */}
+                    <input type="hidden" name="form_id" value="water-heater-replacement-company-quote-form" />
                     <input type="hidden" name="quote_data" value={quoteDataPayload} />
                     <input type="hidden" name="selected_model_type" value={selectedModelType} />
                     <input type="hidden" name="priceRange" value={priceRange} />
